@@ -6,7 +6,7 @@ This repository is the source of truth for the acquiring simulator's product spe
 
 ## Migration from the agent workspace
 
-On 2026-11-18, the product record and complete work-item directory (including immutable `revisions/`) were moved byte-for-byte from:
+On 2026-11-18, the product record and complete work-item directory were first copied to the repository with their original bytes preserved. Immutable `revisions/` and the approved requirements, scenarios, profile, review and architecture retained their original hashes; the mutable `PROJECT.md` and `WORK_ITEM.md` were then updated to point to product-local documents. Former locations:
 
 - `/home/pazfernando/.openclaw/workspace/shared/ai-sdlc/projects/acquiring-simulator/PROJECT.md` to `PROJECT.md`
 - `/home/pazfernando/.openclaw/workspace/shared/ai-sdlc/work-items/acquiring-simulator/WI-ACQ-AUTH-001/` to `work-items/WI-ACQ-AUTH-001/`
