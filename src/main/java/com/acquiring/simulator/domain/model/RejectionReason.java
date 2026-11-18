@@ -1,0 +1,18 @@
+package com.acquiring.simulator.domain.model;
+
+/** Internal processor-rejection reasons. Never returned to the caller (R06/P08). */
+public enum RejectionReason {
+    MISSING_OR_INVALID_INPUT,
+    CALLER_NOT_AUTHORIZED,
+    UNKNOWN_MERCHANT,
+    UNKNOWN_TERMINAL,
+    MERCHANT_ACQUIRER_MISMATCH,
+    TERMINAL_MERCHANT_MISMATCH,
+    UNKNOWN_CREDENTIAL,
+    ROUTE_NOT_PERMITTED,
+    RISK_REJECTED,
+    INVALID_PRIOR_REFERENCE,
+    FOREIGN_PRIOR_REFERENCE,
+    INCOMPATIBLE_LINKED_RETRY,
+    PAYMENT_DATA_CONFLICT
+}
