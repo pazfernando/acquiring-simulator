@@ -1,0 +1,9 @@
+flowchart LR
+  Merchant["Merchant / Test Operator"]
+  Acquirer["Acquirer A / B — simulated business profiles"]
+  System["Acquiring Simulator — AWS-hosted system"]
+  Merchant -->|Authorization, reversal, inquiry| System
+  Acquirer -.->|Mandates and routing rules| System
+  System <-->|Simulated Mastercard authorization and reversal| Network["Mastercard / Issuer simulators — AWS-hosted"]
+  System -.->|Optional CNP authentication evidence| ThreeDS["3DS simulator — AWS-hosted"]
+

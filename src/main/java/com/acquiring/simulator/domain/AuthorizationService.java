@@ -37,8 +37,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.stereotype.Service;
 
 /**
- * Operation A authorization core. Financial effects are simulated only; there is no HTTP
- * surface, reversal, inquiry or automatic redispatch.
+ * Operation A authorization core. Financial effects are simulated only; reversal, inquiry and automatic redispatch remain out of scope.
  */
 @Service
 public class AuthorizationService {
@@ -106,6 +105,15 @@ public class AuthorizationService {
             return;
         }
 
+        if (reply.decision() == IssuerDecision.NETWORK_REJECTED) {
+            if (!isConfirmed(record)) {
+                repository.updateOutcome(record.id(), AuthorizationState.NETWORK_REJECTED.name(),
+                        DecisionSource.NETWORK.name(), "NETWORK_REJECTION", reply.availableAt());
+                appendEvent(record, "NETWORK_REJECTION", null, DecisionSource.NETWORK,
+                        reply.correlationId(), "NO_ISSUER_DISPATCH", now);
+            }
+            return;
+        }
         AuthorizationState confirmedState = reply.decision() == IssuerDecision.APPROVED
                 ? AuthorizationState.APPROVED
                 : AuthorizationState.DECLINED;
@@ -278,6 +286,14 @@ public class AuthorizationService {
             return notConfirmed(record, "MALFORMED_RESPONSE", "MALFORMED_RESPONSE", now);
         }
 
+        if (reply.decision() == IssuerDecision.NETWORK_REJECTED) {
+            repository.updateOutcome(record.id(), AuthorizationState.NETWORK_REJECTED.name(),
+                    DecisionSource.NETWORK.name(), "NETWORK_REJECTION", reply.availableAt());
+            appendEvent(record, "NETWORK_REJECTION", null, DecisionSource.NETWORK,
+                    reply.correlationId(), "NO_ISSUER_DISPATCH", now);
+            return AuthorizationResult.of(Outcome.PROCESSOR_REJECTED, record.id());
+        }
+
         AuthorizationState confirmedState = reply.decision() == IssuerDecision.APPROVED
                 ? AuthorizationState.APPROVED
                 : AuthorizationState.DECLINED;
@@ -313,6 +329,7 @@ public class AuthorizationService {
 
     private AuthorizationResult replay(AuthorizationRecord record) {
         Outcome outcome = switch (record.state()) {
+            case NETWORK_REJECTED -> Outcome.PROCESSOR_REJECTED;
             case APPROVED -> Outcome.APPROVED;
             case DECLINED -> Outcome.ISSUER_DECLINED;
             case AWAITING, NOT_CONFIRMED -> Outcome.NOT_CONFIRMED;
@@ -412,6 +429,7 @@ public class AuthorizationService {
         if (amount.stripTrailingZeros().scale() > 2) {
             return false;
         }
+        if (amount.compareTo(BigDecimal.ONE) < 0 || amount.compareTo(new BigDecimal("9999.99")) > 0) return false;
         BigDecimal normalized = amount.setScale(2);
         long minor = normalized.movePointRight(2).longValueExact();
         return minor >= MIN_AMOUNT_MINOR && minor <= MAX_AMOUNT_MINOR;
@@ -456,7 +474,8 @@ public class AuthorizationService {
     }
 
     private static boolean isConfirmed(AuthorizationRecord record) {
-        return record.state() == AuthorizationState.APPROVED
+        return record.state() == AuthorizationState.NETWORK_REJECTED
+                || record.state() == AuthorizationState.APPROVED
                 || record.state() == AuthorizationState.DECLINED;
     }
 

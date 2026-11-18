@@ -11,6 +11,10 @@
   - `ai-sdlc/skills/payment-behavior-review/SKILL.md`
   - Original Google Drive reference `1ARKf83xluDyWSyYDxZY2b0ZNTSkTG-Uu`: not readable from this runtime (HTTP 401, sign-in required). The attached markdown snapshot is the working copy; version identity to be confirmed by the Human Product Lead if the Drive copy differs.
 
+## Current AWS update — 2026-11-18
+
+Owner requested the supplied AWS architecture be applied to the existing Operation A implementation. Current delta record: [aws-architecture-update.md](aws-architecture-update.md). For the AWS path it supersedes the earlier local SQL/no-HTTP design; the earlier approval evidence, approved specification bytes and historical receipts below remain preserved. Current functional source: guide v0.5.2 in `../../sources/imports/2026-11-18/`; the old v0.5.1 and old domain PASS refer only to the original pinned bundle. New delta independent domain review, QA/Security and human acceptance remain pending. B/C/3DS are not implemented or approved by this update. No AWS deployment/publication authorized.
+
 ## Goal and boundaries
 - Desired outcome: The simulator accepts a Payment Authorization Request on behalf of a represented acquirer, applies documented validation and routing rules, obtains or simulates the issuer decision, records the outcome with provenance and references, and returns an observable result that distinguishes issuer decision, processor rejection and unconfirmed outcome.
 - In scope: single authorization request/response for the baseline card-present scenario; processor validation and rejection; merchant/acquirer context enforcement; duplicate-request control; timeout and ambiguous outcome handling; recorded evidence and references.

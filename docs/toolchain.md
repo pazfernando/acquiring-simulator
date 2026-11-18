@@ -42,3 +42,7 @@ reachable, so Testcontainers is the intended isolated-testing path:
 - No `mvnw` wrapper committed (builds currently use the provisioned Maven
   3.10.1 binary).
 - No CI, no containers for the app itself, no deployment configuration.
+
+## Operation A AWS adapter update — 2026-11-18
+
+AWS SDK Java v2 2.57.3, Lambda Java core 1.2.3 and explicit Jackson 2.20.1/JavaTime transport are pinned in pom.xml. AWS handlers bypass Spring/JDBC startup; those dependencies remain for the regression harness. The Maven package phase builds `target/lambda` in addition to the existing Boot artifact. SAM IaC and synchronized Mermaid/PNG now exist; neither CI nor a cloud deployment was performed. See `aws-operation-a.md` for current target and verification limits.

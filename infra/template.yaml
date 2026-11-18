@@ -1,0 +1,133 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Operation A only - synthetic authorization simulator (not deployed)
+Parameters:
+  JwtIssuer:
+    Type: String
+    AllowedPattern: 'https://.+'
+  JwtAudience:
+    Type: String
+    MinLength: 1
+Globals:
+  Function:
+    Runtime: java25
+    Architectures: [arm64]
+    CodeUri: ../target/lambda/
+    MemorySize: 512
+    Timeout: 15
+Resources:
+  Journal:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: pk
+          AttributeType: S
+        - AttributeName: sk
+          AttributeType: S
+      KeySchema:
+        - AttributeName: pk
+          KeyType: HASH
+        - AttributeName: sk
+          KeyType: RANGE
+  IssuerTruth:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: pk
+          AttributeType: S
+        - AttributeName: sk
+          AttributeType: S
+      KeySchema:
+        - AttributeName: pk
+          KeyType: HASH
+        - AttributeName: sk
+          KeyType: RANGE
+  HttpApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      Auth:
+        DefaultAuthorizer: TestJwt
+        Authorizers:
+          TestJwt:
+            IdentitySource: '$request.header.Authorization'
+            JwtConfiguration:
+              issuer: !Ref JwtIssuer
+              audience: [!Ref JwtAudience]
+      DefaultRouteSettings:
+        ThrottlingBurstLimit: 5
+        ThrottlingRateLimit: 2
+  Processor:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: com.acquiring.simulator.adapter.aws.ProcessorHandler::handleRequest
+      Environment:
+        Variables:
+          JOURNAL_TABLE: !Ref Journal
+          MASTERCARD_FUNCTION: !Ref Mastercard
+          RESPONSE_TIMEOUT_MS: '2000'
+      Policies:
+        - Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action: [dynamodb:GetItem, dynamodb:PutItem, dynamodb:Query]
+              Resource: !GetAtt Journal.Arn
+            - Effect: Allow
+              Action: lambda:InvokeFunction
+              Resource: !GetAtt Mastercard.Arn
+      Events:
+        Authorize:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref HttpApi
+            Path: /authorizations
+            Method: POST
+            PayloadFormatVersion: '2.0'
+  Mastercard:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: com.acquiring.simulator.adapter.aws.MastercardHandler::handleRequest
+      Environment:
+        Variables:
+          ISSUER_FUNCTION: !Ref Issuer
+          NETWORK_FAULT: NONE
+      Policies:
+        - Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action: lambda:InvokeFunction
+              Resource: !GetAtt Issuer.Arn
+  Issuer:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: com.acquiring.simulator.adapter.aws.IssuerHandler::handleRequest
+      Environment:
+        Variables:
+          ISSUER_TRUTH_TABLE: !Ref IssuerTruth
+      Policies:
+        - Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Action: [dynamodb:GetItem, dynamodb:PutItem]
+              Resource: !GetAtt IssuerTruth.Arn
+  ProcessorLogs:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/${Processor}'
+      RetentionInDays: 7
+  MastercardLogs:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/${Mastercard}'
+      RetentionInDays: 7
+  IssuerLogs:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/${Issuer}'
+      RetentionInDays: 7
+Outputs:
+  JournalTable:
+    Value: !Ref Journal
+  IssuerTruthTable:
+    Value: !Ref IssuerTruth

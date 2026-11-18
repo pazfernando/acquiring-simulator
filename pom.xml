@@ -15,7 +15,7 @@
   <artifactId>acquiring-simulator</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>acquiring-simulator</name>
-  <description>Local in-process acquiring authorization simulator</description>
+  <description>Operation A authorization simulator with local and AWS adapters</description>
 
   <properties>
     <java.version>25</java.version>
@@ -24,6 +24,11 @@
   </properties>
 
   <dependencies>
+    <dependency><groupId>software.amazon.awssdk</groupId><artifactId>dynamodb</artifactId><version>2.57.3</version></dependency>
+    <dependency><groupId>software.amazon.awssdk</groupId><artifactId>lambda</artifactId><version>2.57.3</version></dependency>
+    <dependency><groupId>com.amazonaws</groupId><artifactId>aws-lambda-java-core</artifactId><version>1.2.3</version></dependency>
+    <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-databind</artifactId><version>2.20.1</version></dependency>
+    <dependency><groupId>com.fasterxml.jackson.datatype</groupId><artifactId>jackson-datatype-jsr310</artifactId><version>2.20.1</version></dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-jdbc</artifactId>
@@ -67,6 +72,16 @@
 
   <build>
     <plugins>
+      <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-dependency-plugin</artifactId>
+        <executions><execution><id>lambda-dependencies</id><phase>package</phase><goals><goal>copy-dependencies</goal></goals>
+          <configuration><includeScope>runtime</includeScope><outputDirectory>${project.build.directory}/lambda/lib</outputDirectory></configuration>
+        </execution></executions>
+      </plugin>
+      <plugin><groupId>org.apache.maven.plugins</groupId><artifactId>maven-resources-plugin</artifactId>
+        <executions><execution><id>lambda-classes</id><phase>package</phase><goals><goal>copy-resources</goal></goals>
+          <configuration><outputDirectory>${project.build.directory}/lambda</outputDirectory><resources><resource><directory>${project.build.outputDirectory}</directory></resource></resources></configuration>
+        </execution></executions>
+      </plugin>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>

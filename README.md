@@ -1,3 +1,7 @@
+# AWS Operation A update
+
+The current AWS adapter path uses API Gateway, Processor Lambda, separate Mastercard/Issuer Lambdas and DynamoDB. Operation A only; no reversal, inquiry or 3DS. Start with [AWS usage and verification](docs/aws-operation-a.md) and [architecture delta](docs/ai-sdlc/work-items/WI-ACQ-AUTH-001/aws-architecture-update.md). Legacy local SQL harness instructions below remain for regression tests, not the current AWS target.
+
 # acquiring-simulator
 
 Local acquiring simulator service. Spring Boot + PostgreSQL, Java 25 toolchain.

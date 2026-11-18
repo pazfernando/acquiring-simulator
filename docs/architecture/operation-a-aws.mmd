@@ -1,0 +1,10 @@
+flowchart LR
+  TEST["Test operator"] -->|"HTTPS + JWT"| API["API Gateway HTTP API\nPOST /authorizations only"]
+  API --> CORE["Processor Lambda\nvalidation, risk, routing, authorization"]
+  CORE <-->|"profiles, caller registry, journal, idempotency"| DB[("DynamoDB on-demand\nProcessor journal")]
+  CORE -->|"synchronous synthetic v1 contract"| MC["Mastercard Simulator Lambda\nnetwork fault injection"]
+  MC -->|"synchronous synthetic v1 contract"| ISS["Issuer Simulator Lambda"]
+  ISS --> TRUTH[("DynamoDB on-demand\nIndependent issuer truth")]
+  CORE -.-> CW["CloudWatch logs and standard metrics"]
+  MC -.-> CW
+  ISS -.-> CW

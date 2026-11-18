@@ -1,0 +1,13 @@
+flowchart LR
+  Tester["Test operator"] -->|HTTPS| API["Amazon API Gateway HTTP API"]
+  subgraph AWS["AWS Account — Acquiring Simulator"]
+    API --> CORE["AWS Lambda — Processor core\nvalidation, routing, authorization, reversal, inquiry"]
+    CORE <-->|Profiles, transactions, idempotency| DB[("Amazon DynamoDB — on-demand")]
+    CORE -->|Invoke| MC["AWS Lambda — Mastercard network simulator"]
+    MC -->|Invoke| ISS["AWS Lambda — Issuer simulator"]
+    CORE -.->|Optional CNP validation| DS["AWS Lambda — 3DS simulator"]
+    CORE -.->|Logs / metrics| CW["Amazon CloudWatch"]
+    MC -.-> CW
+    ISS -.-> CW
+  end
+

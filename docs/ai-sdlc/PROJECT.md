@@ -1,6 +1,6 @@
 # Acquiring Processor Simulator — project execution record
 
-Status: Local repository and architecture approved; implementation commits exist on the task branch; independent QA, Security and human acceptance remain pending. Date: 2026-11-18.
+Status: Operation A AWS implementation update authorized by Fernando; see work-items/WI-ACQ-AUTH-001/aws-architecture-update.md. No AWS resources deployed. Earlier local baseline: local repository and architecture approved; implementation commits exist on the task branch; independent QA, Security and human acceptance remain pending. Date: 2026-11-18.
 
 - Provider / canonical remote URL / visibility: DEFERRED by Fernando; no remote configured.
 - Base branch: main.

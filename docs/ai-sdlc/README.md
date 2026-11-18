@@ -1,3 +1,7 @@
+# Current implementation update
+
+For the Operation A AWS path, read `work-items/WI-ACQ-AUTH-001/aws-architecture-update.md` and `../aws-operation-a.md`. Current upstream guide v0.5.2 and consolidated AWS mapping v0.3.0 are pinned under `sources/imports/2026-11-18/`. The original `sources/acquiring_simulator_functional_guide.md` remains the v0.5.1 approval baseline, not the latest source. Previous local approval hashes are historical evidence and are not rewritten. No new independent review/deployment approval is claimed.
+
 # Product specification and decision record
 
 This repository is the source of truth for the acquiring simulator's product specifications, reviews, owner decisions and architecture decisions. Start implementation from the checked-out revision of `work-items/WI-ACQ-AUTH-001/WORK_ITEM.md`, its linked requirements, approved `architecture-decision.md` and `PROJECT.md`. The shared AI-SDLC workspace contains reusable team procedure, not a second copy of these product decisions.

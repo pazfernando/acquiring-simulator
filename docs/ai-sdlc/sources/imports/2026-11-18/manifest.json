@@ -1,0 +1,26 @@
+{
+  "retrieved_date": "2026-11-18",
+  "representation": "Connector-readable text, not a raw-byte Drive export",
+  "sources": [
+    {
+      "path": "software_components_aws.md",
+      "drive_url": "https://drive.google.com/file/d/1jbitZ_M7wLm1hHsbN74-KXhas9i3bI9H/view",
+      "sha256": "1d5b648c13698060895788da8c60f8f3340d5ffbf5844244fb2ef30290a6befb"
+    },
+    {
+      "path": "acquiring_simulator_functional_guide.md",
+      "drive_url": "https://drive.google.com/file/d/1ARKf83xluDyWSyYDxZY2b0ZNTSkTG-Uu/view",
+      "sha256": "5832d317cd79111aa2172c22f317902ce98125d8e93a3ef05b5c9b224d695e08"
+    },
+    {
+      "path": "architecture-diagrams/c1-system-context.mmd",
+      "drive_url": "https://drive.google.com/file/d/1KhvTA3-WBPyPyaVooxda5wgMMK4y0jE2/view",
+      "sha256": "8b92a566040b1788b2b115daa92dbe3095b5e592b7714460c8301f8a5d646c6b"
+    },
+    {
+      "path": "architecture-diagrams/c2-aws-containers.mmd",
+      "drive_url": "https://drive.google.com/file/d/1rJTH3Q8x1joVb906P_GlCLd21pn6EhHo/view",
+      "sha256": "eb16d62fe4ad28281df0b2aed55b95081faa426edacc87ccb192029b399f57a9"
+    }
+  ]
+}

@@ -7,7 +7,7 @@ import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
-/** Shared persistence port; SQL stays engine-portable for SQLite and PostgreSQL. */
+/** Persistence port for DynamoDB and legacy local SQL adapters. */
 public interface AuthorizationRepository {
 
     /** Atomically claims (business key, generation); uniqueness enforces at most one dispatch. */
