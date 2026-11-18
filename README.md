@@ -2,6 +2,8 @@
 
 Local acquiring simulator service. Spring Boot + PostgreSQL, Java 25 toolchain.
 
+Product specifications, acceptance scenarios, independent domain reviews and the approved architecture decision are versioned under [`docs/ai-sdlc/`](docs/ai-sdlc/README.md). Coding agents start from the checked-out product documents and verify approval/revision evidence before implementation.
+
 ## Status
 
 Authorization core (validation, idempotent replay, linked retries, timeout and
