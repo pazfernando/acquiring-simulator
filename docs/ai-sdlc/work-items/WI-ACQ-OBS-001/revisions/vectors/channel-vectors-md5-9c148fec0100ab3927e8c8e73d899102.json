@@ -1,0 +1,189 @@
+{
+  "status": "PROPOSED not executed",
+  "cases": [
+    {
+      "id": "J1",
+      "resetScope": "JSON-1",
+      "body": {
+        "contractVersion": "1",
+        "operation": "A",
+        "correlationId": "CORR-001",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "paymentRef": "PAY-001",
+        "credentialFixtureRef": "SIM-APP-001",
+        "amount": "1.00",
+        "currency": "USD",
+        "entryMode": "simulated-contact",
+        "cvm": "simulated-verified",
+        "cryptogramPresent": true
+      },
+      "expected": "ACCEPT",
+      "amountMinor": 100,
+      "DE4": "000000000100",
+      "noRounding": true
+    },
+    {
+      "id": "J2",
+      "resetScope": "JSON-2",
+      "body": {
+        "contractVersion": "1",
+        "operation": "A",
+        "correlationId": "CORR-001",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "paymentRef": "PAY-001",
+        "credentialFixtureRef": "SIM-APP-001",
+        "amount": "9999.99",
+        "currency": "USD",
+        "entryMode": "simulated-contact",
+        "cvm": "simulated-verified",
+        "cryptogramPresent": true
+      },
+      "expected": "ACCEPT",
+      "amountMinor": 999999,
+      "DE4": "000000999999",
+      "noRounding": true
+    },
+    {
+      "id": "J3",
+      "resetScope": "JSON-3",
+      "body": {
+        "contractVersion": "1",
+        "operation": "A",
+        "correlationId": "CORR-001",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "paymentRef": "PAY-001",
+        "credentialFixtureRef": "SIM-APP-001",
+        "amount": "10.01",
+        "currency": "USD",
+        "entryMode": "simulated-contact",
+        "cvm": "simulated-verified",
+        "cryptogramPresent": true
+      },
+      "expected": "ACCEPT",
+      "amountMinor": 1001,
+      "DE4": "000000001001",
+      "noRounding": true
+    },
+    {
+      "id": "J4",
+      "resetScope": "JSON-4",
+      "body": {
+        "contractVersion": "1",
+        "operation": "A",
+        "correlationId": "CORR-001",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "paymentRef": "PAY-001",
+        "credentialFixtureRef": "SIM-APP-001",
+        "amount": "0.99",
+        "currency": "USD",
+        "entryMode": "simulated-contact",
+        "cvm": "simulated-verified",
+        "cryptogramPresent": true
+      },
+      "expected": "DOMAIN_AMOUNT",
+      "amountMinor": null,
+      "DE4": null,
+      "noRounding": true
+    },
+    {
+      "id": "J5",
+      "resetScope": "JSON-5",
+      "body": {
+        "contractVersion": "1",
+        "operation": "A",
+        "correlationId": "CORR-001",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "paymentRef": "PAY-001",
+        "credentialFixtureRef": "SIM-APP-001",
+        "amount": "10000.00",
+        "currency": "USD",
+        "entryMode": "simulated-contact",
+        "cvm": "simulated-verified",
+        "cryptogramPresent": true
+      },
+      "expected": "CHANNEL_SCHEMA_AMOUNT",
+      "amountMinor": null,
+      "DE4": null,
+      "noRounding": true
+    },
+    {
+      "id": "J6",
+      "resetScope": "JSON-6",
+      "body": {
+        "contractVersion": "1",
+        "operation": "A",
+        "correlationId": "CORR-001",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "paymentRef": "PAY-001",
+        "credentialFixtureRef": "SIM-APP-001",
+        "amount": "1.001",
+        "currency": "USD",
+        "entryMode": "simulated-contact",
+        "cvm": "simulated-verified",
+        "cryptogramPresent": true
+      },
+      "expected": "CHANNEL_SCHEMA_AMOUNT",
+      "amountMinor": null,
+      "DE4": null,
+      "noRounding": true
+    },
+    {
+      "id": "J7",
+      "resetScope": "JSON-7",
+      "body": {
+        "contractVersion": "1",
+        "operation": "A",
+        "correlationId": "CORR-001",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "paymentRef": "PAY-001",
+        "credentialFixtureRef": "SIM-APP-001",
+        "amount": "01.00",
+        "currency": "USD",
+        "entryMode": "simulated-contact",
+        "cvm": "simulated-verified",
+        "cryptogramPresent": true
+      },
+      "expected": "CHANNEL_SCHEMA_AMOUNT",
+      "amountMinor": null,
+      "DE4": null,
+      "noRounding": true
+    },
+    {
+      "id": "J8",
+      "resetScope": "JSON-8",
+      "body": {
+        "contractVersion": "1",
+        "operation": "A",
+        "correlationId": "CORR-001",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "paymentRef": "PAY-001",
+        "credentialFixtureRef": "SIM-APP-001",
+        "amount": 1.0,
+        "currency": "USD",
+        "entryMode": "simulated-contact",
+        "cvm": "simulated-verified",
+        "cryptogramPresent": true
+      },
+      "expected": "CHANNEL_TYPE_AMOUNT",
+      "amountMinor": null,
+      "DE4": null,
+      "noRounding": true
+    }
+  ]
+}

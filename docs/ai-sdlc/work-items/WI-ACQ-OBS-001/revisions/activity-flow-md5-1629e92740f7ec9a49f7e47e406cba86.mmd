@@ -1,0 +1,35 @@
+flowchart TD
+    START([Start]) --> AUTH[Single demo user JWT; backend service IAM remains separate]
+    AUTH --> OPEN[Open authenticated WebSocket transport]
+    OPEN --> SUBMIT[User submits POS transaction once through HTTP API]
+    SUBMIT --> ACL[ACL validates and translates to private ISO 8583 over HTTPS]
+    ACL --> CLAIM[Atomically persist CLAIMED_NOT_SENT and critical event in DynamoDB]
+    CLAIM --> GATE{Atomic POSSIBLE_SEND and critical event persisted?}
+    GATE -->|No| FAIL[Report unavailable or uncertainty; no automatic payment resend]
+    GATE -->|Yes| SEND[Invoke supported operation once]
+    SEND --> SAVE[Atomically save subsequent business transitions and critical events]
+    SAVE --> RESULT[Return known outcome or explicit uncertainty]
+    SUBMIT --> ID[Receive actual transactionId; existing history already has an ID]
+    ID --> SUB[Install subscription routing and generation; buffer incoming frames]
+    SUB --> ACK[Receive subscription ACK and fixed source head]
+    ACK --> QUERY[HTTP API Lambda queries same event table up to fixed head]
+    QUERY --> RETAIN{Retained history and valid cursor?}
+    RETAIN -->|Yes| MERGE[Merge bounded live buffer; order by sourceSequence and deduplicate]
+    RETAIN -->|No| GAP[Show truncation or gap; restart bounded catch-up]
+    GAP --> QUERY
+    MERGE --> DISPLAY[Render known tasks, outcome and observation gaps]
+    CLAIM --> STREAM[DynamoDB Streams detects event rows]
+    GATE -.-> STREAM
+    SAVE --> STREAM
+    STREAM --> NOTIFY[Lambda notifier sends through API Gateway WebSocket]
+    NOTIFY --> DELIVERY{Current browser subscription reachable?}
+    DELIVERY -->|Yes, may duplicate| MERGE
+    DELIVERY -->|No or callback fails| KEEP[Event remains queryable; no durable per-browser queue]
+    KEEP --> RECOVER[Reconnect or detect heartbeat gap; renew JWT if required]
+    RECOVER --> SUB
+    DISPLAY --> WAIT[Wait for next frame or user action; no one-second polling]
+    SEND -.-> HOOK[Best-effort intermediate task hook]
+    HOOK -.-> EVENT[Sanitized event in same table if write succeeds]
+    EVENT --> STREAM
+    HOOK -.-> LOSS[Lost observation produces explicit completeness gap]
+    SEND -.-> ADOT[Async ADOT technical telemetry; independent of functional history]

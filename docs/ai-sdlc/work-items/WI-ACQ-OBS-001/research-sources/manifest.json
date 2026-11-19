@@ -1,0 +1,26 @@
+[
+  {
+    "file": "jpos-iso87ascii.xml",
+    "url": "https://raw.githubusercontent.com/jpos/jPOS/5ef6c9be0fce8c4c00415b05ee443f4178f8112b/jpos/src/main/resources/packager/iso87ascii.xml",
+    "sha256": "d128a0bb435af8193da09539937515052019a8eb3fa5c888c5dd6e9410ecb397",
+    "bytes": 15776,
+    "fetched_at_utc": "2026-11-19T01:01:46.000948+00:00",
+    "upstream_commit": "5ef6c9be0fce8c4c00415b05ee443f4178f8112b"
+  },
+  {
+    "file": "pyiso8583-specifications.html",
+    "url": "https://pyiso8583.readthedocs.io/en/latest/specifications.html",
+    "sha256": "2c6163996d77a1e4afd53cc84fa1eb74bdef4d6d4421beff1a0184499fff52c1",
+    "bytes": 220389,
+    "fetched_at_utc": "2026-11-19T01:01:46.149378+00:00",
+    "upstream_commit": null
+  },
+  {
+    "file": "jpos-generic-packager.html",
+    "url": "https://jpos.org/docs/tutorial/iso-packager/generic-packager/",
+    "sha256": "45c52e4306217a13b52182850e18d091724b344869e3199a558263e3550c4dcd",
+    "bytes": 114009,
+    "fetched_at_utc": "2026-11-19T01:01:46.905345+00:00",
+    "upstream_commit": null
+  }
+]

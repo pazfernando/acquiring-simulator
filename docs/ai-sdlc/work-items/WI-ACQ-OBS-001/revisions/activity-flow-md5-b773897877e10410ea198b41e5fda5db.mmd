@@ -1,0 +1,27 @@
+flowchart TD
+    START([Start]) --> OPEN[Open console; establish WebSocket subscription]
+    OPEN --> SUBMIT[Submit simulated POS transaction through HTTP API]
+    SUBMIT --> ACL[Channel anti-corruption layer validates and translates to private ISO 8583]
+    ACL --> PROCESS[Simulator executes supported operation]
+    PROCESS --> COMMIT{Business transition and critical event committed atomically in DynamoDB?}
+    COMMIT -->|No| FAIL[Return truthful unavailable or uncertain state; never auto-resend payment]
+    COMMIT -->|Yes| FORK[Continue independently after commit]
+    FORK --> BUSINESS[Continue operation or return known business outcome]
+    BUSINESS --> MORE{More business transitions?}
+    MORE -->|Yes| PROCESS
+    MORE -->|No| DONE([Business flow complete])
+    FORK --> STREAM[DynamoDB Streams captures event insertion]
+    STREAM --> NOTIFY[Notification Lambda selects matching browser subscriptions]
+    NOTIFY --> CONNECTED{Browser connected?}
+    CONNECTED -->|Yes| PUSH[API Gateway WebSocket sends event]
+    PUSH --> DISPLAY[Browser deduplicates events and renders known steps and gaps]
+    CONNECTED -->|No or delivery failed| KEEP[Event remains queryable; payment is not repeated]
+    OPEN --> CATCHUP[HTTP API and query Lambda load retained events by transaction]
+    KEEP --> RECONNECT[Browser reconnects and resubscribes]
+    RECONNECT --> CATCHUP
+    CATCHUP --> DISPLAY
+    DISPLAY --> WAIT[Wait for next event or user action]
+    PROCESS -.-> HOOK[Common hook emits intermediate task observations; visible gaps if lost]
+    HOOK -.-> EVENTS[Sanitized functional event stored in same queryable event store]
+    EVENTS --> STREAM
+    PROCESS -.-> ADOT[Async ADOT technical telemetry to configured X-Ray / CloudWatch destinations]

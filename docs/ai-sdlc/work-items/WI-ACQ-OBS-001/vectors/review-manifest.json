@@ -1,0 +1,171 @@
+{
+  "status": "M1/M2/L1 corrected documents for independent re-review; no analyst closure or construction approval",
+  "directory": "/home/pazfernando/projects/acquiring-simulator/docs/ai-sdlc/work-items/WI-ACQ-OBS-001",
+  "reviewSourceMd5": "1bfa8629a5321434515b51a4050f90d5",
+  "ownerAuthorityMd5": "0dbe1d3a1ee8e34ee416fc8ea4f15918",
+  "defaultExecutionIdentity": "GPT-6 from system context; no model override; exact provider ID unavailable",
+  "ruleProvenance": {
+    "SOURCED": 10,
+    "DESIGN ASSUMPTION": 12,
+    "APPROVED SELECTION": 1,
+    "APPROVED DIRECTION": 2
+  },
+  "acceptanceCases": 255,
+  "caseInventory": {
+    "scenarios": 28,
+    "packed": 85,
+    "state": 35,
+    "channel": 8,
+    "canonicalEvent": 5,
+    "carrier": 12,
+    "response": 26,
+    "sourceSemantic": 23,
+    "websocket": 33
+  },
+  "supportingEvidenceFixtures": 41,
+  "files": [
+    {
+      "path": "/home/pazfernando/projects/acquiring-simulator/docs/ai-sdlc/work-items/WI-ACQ-OBS-001/acceptance-scenarios.md",
+      "relativePath": "acceptance-scenarios.md",
+      "md5": "82f176aff457e6da2a987db3cb21cbc4",
+      "sha256": "1586898418c09dcf092d567a4155b4524a0bc34500bf4ea76ce8f76465aa7733",
+      "bytes": 15308
+    },
+    {
+      "path": "/home/pazfernando/projects/acquiring-simulator/docs/ai-sdlc/work-items/WI-ACQ-OBS-001/activity-flow.md",
+      "relativePath": "activity-flow.md",
+      "md5": "2f8f752b6cad11c77f6f2136cc6c0914",
+      "sha256": "d89f332a97cf6cae219b970e2d915bf0299d3d2cb0d99507ab591c41ae30a2b1",
+      "bytes": 8522
+    },
+    {
+      "path": "/home/pazfernando/projects/acquiring-simulator/docs/ai-sdlc/work-items/WI-ACQ-OBS-001/activity-flow.mmd",
+      "relativePath": "activity-flow.mmd",
+      "md5": "8e83226e66f6ce401fe6526ed60b14b0",
+      "sha256": "e2fbb1aab2845ef7197c02c2912c158a83a79a3f4454d859d62eb51c388393ce",
+      "bytes": 3916
+    },
+    {
+      "path": "/home/pazfernando/projects/acquiring-simulator/docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "relativePath": "channel-contract.md",
+      "md5": "facfed73dde2986e3a4b33b5fe12d7b7",
+      "sha256": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+      "bytes": 22172
+    },
+    {
+      "path": "/home/pazfernando/projects/acquiring-simulator/docs/ai-sdlc/work-items/WI-ACQ-OBS-001/decision-proposal.md",
+      "relativePath": "decision-proposal.md",
+      "md5": "a51afad8cd4113a4a7970f07dd4da895",
+      "sha256": "becbabcdf9038c16bf5a0040051ea606db556d22bba44ddf2321b8f3fe219166",
+      "bytes": 9053
+    },
+    {
+      "path": "/home/pazfernando/projects/acquiring-simulator/docs/ai-sdlc/work-items/WI-ACQ-OBS-001/iso8583-profile.md",
+      "relativePath": "iso8583-profile.md",
+      "md5": "5cdfbff1a4ea9f92eb8036d57e2e1ac1",
+      "sha256": "de02c533536dcb6e87e4c6e93357efb9efa60c085a59f6f63bbfbb8c0e1fe481",
+      "bytes": 22305
+    },
+    {
+      "path": "/home/pazfernando/projects/acquiring-simulator/docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "relativePath": "observation-contract.md",
+      "md5": "3bdbfc869917e7b9e916c7e2c732af6f",
+      "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "bytes": 31164
+    },
+    {
+      "path": "/home/pazfernando/projects/acquiring-simulator/docs/ai-sdlc/work-items/WI-ACQ-OBS-001/requirements.md",
+      "relativePath": "requirements.md",
+      "md5": "7d09de60dcc5a328dab6e8a1d1fe874b",
+      "sha256": "49c5d412e3705c320a2f78b190555f49e7e0fa4662cff9329d259f89e2b459df",
+      "bytes": 18189
+    },
+    {
+      "path": "/home/pazfernando/projects/acquiring-simulator/docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/README.md",
+      "relativePath": "vectors/README.md",
+      "md5": "4f4afdd7f1ef52da3f6b999eb257259a",
+      "sha256": "9c492f708130cdc69e1d2c0f0af8c1fb705d506cac835507c83157b4e6af942b",
+      "bytes": 6299
+    },
+    {
+      "path": "/home/pazfernando/projects/acquiring-simulator/docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/async-projection-vectors.json",
+      "relativePath": "vectors/async-projection-vectors.json",
+      "md5": "ed5cc0ad72a15421b51ca8e0584c9820",
+      "sha256": "7dc800557ae99b0f67f1249dd4138774612a847c432a0d2c73d48c0350188bdd",
+      "bytes": 13153
+    },
+    {
+      "path": "/home/pazfernando/projects/acquiring-simulator/docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/carrier-vectors.json",
+      "relativePath": "vectors/carrier-vectors.json",
+      "md5": "1609b5bee77ed4fa42c1decbaf490069",
+      "sha256": "544e933aeb8ae7e47ec0a54763b068fb38186302f14bc88a5b221684e8dd524b",
+      "bytes": 44768
+    },
+    {
+      "path": "/home/pazfernando/projects/acquiring-simulator/docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/channel-vectors.json",
+      "relativePath": "vectors/channel-vectors.json",
+      "md5": "9c148fec0100ab3927e8c8e73d899102",
+      "sha256": "8dcc4a4d41d4378ffeab22be3b990da733cb042781d0b049f4b3bd56717bc61f",
+      "bytes": 5216
+    },
+    {
+      "path": "/home/pazfernando/projects/acquiring-simulator/docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/documentation-validation.json",
+      "relativePath": "vectors/documentation-validation.json",
+      "md5": "3b4a785a5afefeeb1c30f4f7abb6273c",
+      "sha256": "512c4e71f2cd5a44c2ce371add2979759d86bf33f75bc8a84a08008a9c9313b3",
+      "bytes": 181505
+    },
+    {
+      "path": "/home/pazfernando/projects/acquiring-simulator/docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/event-vectors.json",
+      "relativePath": "vectors/event-vectors.json",
+      "md5": "4490b56092524c2e1d0ad8def4236d59",
+      "sha256": "21a86ed8b892d9e28830a5d35842356ae17b40fd951dd4fd00e33fcc4f81a222",
+      "bytes": 5877
+    },
+    {
+      "path": "/home/pazfernando/projects/acquiring-simulator/docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/evidence-fixtures.json",
+      "relativePath": "vectors/evidence-fixtures.json",
+      "md5": "ff16106f14f443360501a841c1af9ae0",
+      "sha256": "800bb86177abb93b4445bee7e127b8caa14b20525a1a4f51a9df8b45774783c3",
+      "bytes": 205760
+    },
+    {
+      "path": "/home/pazfernando/projects/acquiring-simulator/docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/no-response.bin",
+      "relativePath": "vectors/no-response.bin",
+      "md5": "d41d8cd98f00b204e9800998ecf8427e",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/home/pazfernando/projects/acquiring-simulator/docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/packed-vectors.json",
+      "relativePath": "vectors/packed-vectors.json",
+      "md5": "e0a111ab43dd54377ca68a52a99b4a97",
+      "sha256": "800bc07148cf21d2c6b2f5711a5ca97d7119c32855b7d7826088dddcf47c7ff0",
+      "bytes": 296246
+    },
+    {
+      "path": "/home/pazfernando/projects/acquiring-simulator/docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/response-vectors.json",
+      "relativePath": "vectors/response-vectors.json",
+      "md5": "599fc03c6baaaad6dc1ca0e5d2cbdd79",
+      "sha256": "38acdad4c10259e9194f4c0f2544e4337c8b3d236583fe784dd446dd8b169ca4",
+      "bytes": 32180
+    },
+    {
+      "path": "/home/pazfernando/projects/acquiring-simulator/docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/state-vectors.json",
+      "relativePath": "vectors/state-vectors.json",
+      "md5": "a832d8611362938fa5731dd0df3c3c9c",
+      "sha256": "12e938d505294368c734a48f18dff8053d888a11f35454114e185658291693c2",
+      "bytes": 11461
+    },
+    {
+      "path": "/home/pazfernando/projects/acquiring-simulator/docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/websocket-vectors.json",
+      "relativePath": "vectors/websocket-vectors.json",
+      "md5": "4ccf40e89ef9873efeebbc49974a604b",
+      "sha256": "e6d30a83367233d9216c2ef162e82d7f67e1b6841de312a0e5dadcec3dace2a8",
+      "bytes": 65845
+    }
+  ],
+  "selfHash": "Excluded to avoid recursive identity; exact manifest MD5 supplied in completion receipt",
+  "performedChecksReference": "vectors/documentation-validation.json",
+  "limitations": "Documentation byte/hash/field/canonical/NumericDate/graph-source checks only; no Mermaid renderer/PNG, Drive publication, API/auth/runtime/codec/crypto/QA or architecture approval."
+}

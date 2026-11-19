@@ -1,0 +1,24 @@
+# Decision proposal and review resubmission
+Status: complete candidate submitted for independent re-review, NOT APPROVED. Human owner Fernando Paz. No approval date/evidence exists for these choices.
+
+## Proposed decisions, ordered but only one next question
+D1 recommendation: adopt SIM-ISO87A-v1 authorization-only private profile plus C1/C2 HTTPS channel. Benefits: explicit synthetic scope, bounded deterministic byte contract, preservation of existing business semantics. Trade-off: deliberately private/not scheme interoperable, strict reference/aggregate size rejection. No ISO conformance or real Mastercard claim. Only immediate question, to present after independent re-review: **Adopt the documented private SIM-ISO87A-v1 authorization profile and HTTPS channel boundary?**
+D2 recommendation for subsequent disposition: O3 fail-closed durable trace admission before dispatch; after possible send never retry/rollback; preserve durable journal result or uncertainty and explicit gaps. Costs: trace outage prevents new work, admitted-but-unsent operations require separately authorized resolution rather than automatic retry.
+D3 recommendation for subsequent architecture disposition: O1/O2/O4 common hook, one-second active polling on existing HTTP API/Lambda architecture, dedicated DynamoDB trace/index/outbox and durable alias records, context-restricted views, separate issuer diagnostics, seven-day traces, independent retained business references, bounded replay and measurable freshness. Polling avoids persistent connection infrastructure at simulator scale but costs read requests; SSE/WebSocket deferred until demonstrated need. Existing logical network/issuer separation retained. No new production service or deployment commissioned.
+These are concrete recommendations, not architecture decisions taken. Existing A P01–P08 supplements retain proposed status where not already human approved. No proposal overrides HD-01–HD-03 cores.
+
+## Per-finding correction evidence — reviewer closure pending
+All original finding references mean domain-review.md (MD5 c49694b00907371de7f8fd16e3885f9f). Reviewed original requirements resolve to revisions/requirements-r1-md5-2ac753ee.md, MD5 2ac753ee2ec5f6a5e8951256c86581a5; reviewed scenarios resolve to revisions/acceptance-scenarios-md5-6b26f7204ee969bb3c74267380277c31.md. Owner scope resolves to revisions/owner-scope-2026-11-18.md, MD5 67f9979245fba660bc3603de43b2fe99. Research and external source snapshots unchanged.
+| Finding | Candidate correction evidence | Acceptance evidence supplied, not executed |
+| --- | --- | --- |
+| F1 | requirements Authority O and immutable historical paths; outgoing full hash revisions preserved | source/hash checks in handoff |
+| F2 | iso8583-profile P1/P2/P4 exact matrices/ASCII/UTC; channel C1/C2 byte HTTP AWS wrapper boundary | V01–V10, B/N/Y packed cases, no-response bytes |
+| F3 | profile P2 canonical bounded DE48; P3 aliases, registry, existing keys/generation/prior/reference constraints | S01–S12, 999/1000 DE48, DE32 11/12 and ref129 packed cases |
+| F4 | profile P4 actor/dispatch/DE39/result matrix, evidence trust and DE38 conditional actual evidence only | V02/V04–V10; 00/05/30/91 invalid actor, missing metadata, unknown code/wrong refs; README conflict sequences |
+| F5 | observation O1–O4 common hook, durable admission, journal/trace split, no trace-only evidence, permission/revocation/retention/poll/replay | OBS-06/13–25/27–28 and S13–S22 |
+| F6 | vectors packed exact hex, lengths, SHA256 and fixed decode/result; README registry and sequenced evidence; state data | 47 packed + 22 state + 28 original = 97 case inventory; all NOT EXECUTED |
+
+F1–F6 have proposed correction coverage; none is self-declared reviewer-closed or PASS. Ask independent domain reviewer to assess exact returned hashes, then present D1 alone. New interface/access/evidence boundaries require independent Security review; missing installed Security/QA reviewers remain downstream gate blockers, not substitute analyst approvals. Construction requires human architecture disposition as well as approved business/profile details.
+
+## Deliverable constraints and limitations
+Only requirements.md/acceptance-scenarios.md revised, immutable outgoing revisions preserved, four candidate contracts/decision document and vectors documentation/data created. No WORK_ITEM/review/research/source/code/config edits or Git commits. Temporary vector arithmetic computes documentation fixtures, not production/test implementation and not codec/QA success; no dependencies installed. Local source checks do not establish AWS delivery, interoperability or MCP-backed verification. Configured MCP tool availability is incomplete as reported by runtime; MCP-backed checks unavailable. No external sends, publication or deployment.

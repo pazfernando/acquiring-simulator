@@ -1,0 +1,7474 @@
+{
+  "status": "DOCUMENTATION ARITHMETIC ONLY; separate throwaway bitmap/offset walker, not production codec/QA or crypto validation",
+  "count": 85,
+  "positiveDecodedComparisons": 31,
+  "results": [
+    {
+      "id": "V01-approved-request",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "188",
+          "valueStart": 100,
+          "valueLength": 188,
+          "endExclusive": 288
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 288,
+          "valueLength": 3,
+          "endExclusive": 291
+        }
+      },
+      "endBody": 291,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "V02-approved-response",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "290",
+          "valueStart": 102,
+          "valueLength": 290,
+          "endExclusive": 392
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 392,
+          "valueLength": 3,
+          "endExclusive": 395
+        }
+      },
+      "endBody": 395,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "V03-decline-request",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "188",
+          "valueStart": 100,
+          "valueLength": 188,
+          "endExclusive": 288
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 288,
+          "valueLength": 3,
+          "endExclusive": 291
+        }
+      },
+      "endBody": 291,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "V04-decline-response",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "300",
+          "valueStart": 102,
+          "valueLength": 300,
+          "endExclusive": 402
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 402,
+          "valueLength": 3,
+          "endExclusive": 405
+        }
+      },
+      "endBody": 405,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "V05-network-format",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "298",
+          "valueStart": 102,
+          "valueLength": 298,
+          "endExclusive": 400
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 400,
+          "valueLength": 3,
+          "endExclusive": 403
+        }
+      },
+      "endBody": 403,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "V06-network-unavailable",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "303",
+          "valueStart": 102,
+          "valueLength": 303,
+          "endExclusive": 405
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 405,
+          "valueLength": 3,
+          "endExclusive": 408
+        }
+      },
+      "endBody": 408,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "V07-private-uncertainty",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "298",
+          "valueStart": 102,
+          "valueLength": 298,
+          "endExclusive": 400
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 400,
+          "valueLength": 3,
+          "endExclusive": 403
+        }
+      },
+      "endBody": 403,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "V08-late-approval",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "290",
+          "valueStart": 102,
+          "valueLength": 290,
+          "endExclusive": 392
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 392,
+          "valueLength": 3,
+          "endExclusive": 395
+        }
+      },
+      "endBody": 395,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "V09-late-decline",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "300",
+          "valueStart": 102,
+          "valueLength": 300,
+          "endExclusive": 402
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 402,
+          "valueLength": 3,
+          "endExclusive": 405
+        }
+      },
+      "endBody": 405,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "V10-actual-DE38",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "38": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 6,
+          "endExclusive": 80
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 80,
+          "valueLength": 2,
+          "endExclusive": 82
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 8,
+          "endExclusive": 90
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 90,
+          "valueLength": 15,
+          "endExclusive": 105
+        },
+        "48": {
+          "prefixStart": 105,
+          "prefix": "290",
+          "valueStart": 108,
+          "valueLength": 290,
+          "endExclusive": 398
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 398,
+          "valueLength": 3,
+          "endExclusive": 401
+        }
+      },
+      "endBody": 401,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "N-00-network",
+      "firstFailure": "EVIDENCE_MATRIX",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "291",
+          "valueStart": 102,
+          "valueLength": 291,
+          "endExclusive": 393
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 393,
+          "valueLength": 3,
+          "endExclusive": 396
+        }
+      },
+      "endBody": 396,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-05-processor",
+      "firstFailure": "EVIDENCE_MATRIX",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "303",
+          "valueStart": 102,
+          "valueLength": 303,
+          "endExclusive": 405
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 405,
+          "valueLength": 3,
+          "endExclusive": 408
+        }
+      },
+      "endBody": 408,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-30-issuer",
+      "firstFailure": "EVIDENCE_MATRIX",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "290",
+          "valueStart": 102,
+          "valueLength": 290,
+          "endExclusive": 392
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 392,
+          "valueLength": 3,
+          "endExclusive": 395
+        }
+      },
+      "endBody": 395,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-91-issuer",
+      "firstFailure": "EVIDENCE_MATRIX",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "290",
+          "valueStart": 102,
+          "valueLength": 290,
+          "endExclusive": 392
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 392,
+          "valueLength": 3,
+          "endExclusive": 395
+        }
+      },
+      "endBody": 395,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-unknown-code",
+      "firstFailure": "EVIDENCE_MATRIX",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "290",
+          "valueStart": 102,
+          "valueLength": 290,
+          "endExclusive": 392
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 392,
+          "valueLength": 3,
+          "endExclusive": 395
+        }
+      },
+      "endBody": 395,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-wrong-op",
+      "firstFailure": "SCHEMA_ENUM",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "290",
+          "valueStart": 102,
+          "valueLength": 290,
+          "endExclusive": 392
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 392,
+          "valueLength": 3,
+          "endExclusive": 395
+        }
+      },
+      "endBody": 395,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-wrong-correlation",
+      "firstFailure": "BINDING_INSTRUCTION",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "288",
+          "valueStart": 102,
+          "valueLength": 288,
+          "endExclusive": 390
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 390,
+          "valueLength": 3,
+          "endExclusive": 393
+        }
+      },
+      "endBody": 393,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-wrong-context",
+      "firstFailure": "BINDING_INSTRUCTION",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "290",
+          "valueStart": 102,
+          "valueLength": 290,
+          "endExclusive": 392
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 392,
+          "valueLength": 3,
+          "endExclusive": 395
+        }
+      },
+      "endBody": 395,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-unsolicited-DE38",
+      "firstFailure": "BINDING_AUTH_REFERENCE",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "38": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 6,
+          "endExclusive": 80
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 80,
+          "valueLength": 2,
+          "endExclusive": 82
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 8,
+          "endExclusive": 90
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 90,
+          "valueLength": 15,
+          "endExclusive": 105
+        },
+        "48": {
+          "prefixStart": 105,
+          "prefix": "290",
+          "valueStart": 108,
+          "valueLength": 290,
+          "endExclusive": 398
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 398,
+          "valueLength": 3,
+          "endExclusive": 401
+        }
+      },
+      "endBody": 401,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-missing-result",
+      "firstFailure": "SCHEMA_CANONICAL",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "274",
+          "valueStart": 102,
+          "valueLength": 274,
+          "endExclusive": 376
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 376,
+          "valueLength": 3,
+          "endExclusive": 379
+        }
+      },
+      "endBody": 379,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-missing-actor",
+      "firstFailure": "SCHEMA_CANONICAL",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "277",
+          "valueStart": 102,
+          "valueLength": 277,
+          "endExclusive": 379
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 379,
+          "valueLength": 3,
+          "endExclusive": 382
+        }
+      },
+      "endBody": 382,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-missing-evidence",
+      "firstFailure": "SCHEMA_CANONICAL",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "272",
+          "valueStart": 102,
+          "valueLength": 272,
+          "endExclusive": 374
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 374,
+          "valueLength": 3,
+          "endExclusive": 377
+        }
+      },
+      "endBody": 377,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "B-min-amount",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "188",
+          "valueStart": 100,
+          "valueLength": 188,
+          "endExclusive": 288
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 288,
+          "valueLength": 3,
+          "endExclusive": 291
+        }
+      },
+      "endBody": 291,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "B-max-amount",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "188",
+          "valueStart": 100,
+          "valueLength": 188,
+          "endExclusive": 288
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 288,
+          "valueLength": 3,
+          "endExclusive": 291
+        }
+      },
+      "endBody": 291,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "B-below-min",
+      "firstFailure": "DOMAIN_AMOUNT",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "188",
+          "valueStart": 100,
+          "valueLength": 188,
+          "endExclusive": 288
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 288,
+          "valueLength": 3,
+          "endExclusive": 291
+        }
+      },
+      "endBody": 291,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "B-over-max",
+      "firstFailure": "DOMAIN_AMOUNT",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "188",
+          "valueStart": 100,
+          "valueLength": 188,
+          "endExclusive": 288
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 288,
+          "valueLength": 3,
+          "endExclusive": 291
+        }
+      },
+      "endBody": 291,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "B-non-usd",
+      "firstFailure": "DOMAIN_CURRENCY",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "188",
+          "valueStart": 100,
+          "valueLength": 188,
+          "endExclusive": 288
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 288,
+          "valueLength": 3,
+          "endExclusive": 291
+        }
+      },
+      "endBody": 291,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "B-DE2",
+      "firstFailure": "PARSER_FORBIDDEN",
+      "walkedOffsets": {},
+      "endBody": 309,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "B-DE55",
+      "firstFailure": "PARSER_FORBIDDEN",
+      "walkedOffsets": {},
+      "endBody": 297,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "B-alias-11",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "11",
+          "valueStart": 61,
+          "valueLength": 11,
+          "endExclusive": 72
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 72,
+          "valueLength": 12,
+          "endExclusive": 84
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 8,
+          "endExclusive": 92
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 92,
+          "valueLength": 15,
+          "endExclusive": 107
+        },
+        "48": {
+          "prefixStart": 107,
+          "prefix": "188",
+          "valueStart": 110,
+          "valueLength": 188,
+          "endExclusive": 298
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 298,
+          "valueLength": 3,
+          "endExclusive": 301
+        }
+      },
+      "endBody": 301,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "B-alias-12",
+      "firstFailure": "PARSER_LENGTH",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        }
+      },
+      "endBody": 302,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "B-padded-terminal",
+      "firstFailure": "PARSER_ALPHABET",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        }
+      },
+      "endBody": 291,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-missing-DE3",
+      "firstFailure": "PARSER_REQUIRED",
+      "walkedOffsets": {},
+      "endBody": 285,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-secondary",
+      "firstFailure": "PARSER_SECONDARY",
+      "walkedOffsets": {},
+      "endBody": 291,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-bitmap",
+      "firstFailure": "PARSER_BITMAP",
+      "walkedOffsets": {},
+      "endBody": 291,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-MTI",
+      "firstFailure": "PARSER_MTI",
+      "walkedOffsets": {},
+      "endBody": 291,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-truncated",
+      "firstFailure": "PARSER_TRUNCATED",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "188",
+          "valueStart": 100,
+          "valueLength": 188,
+          "endExclusive": 288
+        }
+      },
+      "endBody": 290,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-trailing",
+      "firstFailure": "PARSER_END_BODY",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "188",
+          "valueStart": 100,
+          "valueLength": 188,
+          "endExclusive": 288
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 288,
+          "valueLength": 3,
+          "endExclusive": 291
+        }
+      },
+      "endBody": 292,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-nonascii",
+      "firstFailure": "PARSER_ASCII",
+      "walkedOffsets": {},
+      "endBody": 292,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "Y-2026",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "188",
+          "valueStart": 100,
+          "valueLength": 188,
+          "endExclusive": 288
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 288,
+          "valueLength": 3,
+          "endExclusive": 291
+        }
+      },
+      "endBody": 291,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "Y-2027",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "188",
+          "valueStart": 100,
+          "valueLength": 188,
+          "endExclusive": 288
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 288,
+          "valueLength": 3,
+          "endExclusive": 291
+        }
+      },
+      "endBody": 291,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "B-DE48-exact-999",
+      "firstFailure": "ADMISSION_RESPONSE_CAPACITY",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "999",
+          "valueStart": 100,
+          "valueLength": 999,
+          "endExclusive": 1099
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 1099,
+          "valueLength": 3,
+          "endExclusive": 1102
+        }
+      },
+      "endBody": 1102,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-DE48-1000",
+      "firstFailure": "PARSER_ALPHABET",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "100",
+          "valueStart": 100,
+          "valueLength": 100,
+          "endExclusive": 200
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 200,
+          "valueLength": 3,
+          "endExclusive": 203
+        }
+      },
+      "endBody": 1104,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-duplicate-key",
+      "firstFailure": "SCHEMA_CANONICAL",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "192",
+          "valueStart": 100,
+          "valueLength": 192,
+          "endExclusive": 292
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 292,
+          "valueLength": 3,
+          "endExclusive": 295
+        }
+      },
+      "endBody": 295,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-unknown-key",
+      "firstFailure": "SCHEMA_CANONICAL",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "192",
+          "valueStart": 100,
+          "valueLength": 192,
+          "endExclusive": 292
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 292,
+          "valueLength": 3,
+          "endExclusive": 295
+        }
+      },
+      "endBody": 295,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-escaped",
+      "firstFailure": "SCHEMA_CANONICAL",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "190",
+          "valueStart": 100,
+          "valueLength": 190,
+          "endExclusive": 290
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 290,
+          "valueLength": 3,
+          "endExclusive": 293
+        }
+      },
+      "endBody": 293,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-ref-129",
+      "firstFailure": "SCHEMA_LENGTH",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "310",
+          "valueStart": 100,
+          "valueLength": 310,
+          "endExclusive": 410
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 410,
+          "valueLength": 3,
+          "endExclusive": 413
+        }
+      },
+      "endBody": 413,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "M-PROCESSOR-FORMAT",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "301",
+          "valueStart": 102,
+          "valueLength": 301,
+          "endExclusive": 403
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 403,
+          "valueLength": 3,
+          "endExclusive": 406
+        }
+      },
+      "endBody": 406,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "M-PROCESSOR-DISALLOWED",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "305",
+          "valueStart": 102,
+          "valueLength": 305,
+          "endExclusive": 407
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 407,
+          "valueLength": 3,
+          "endExclusive": 410
+        }
+      },
+      "endBody": 410,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "M-NETWORK-DISALLOWED",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "302",
+          "valueStart": 102,
+          "valueLength": 302,
+          "endExclusive": 404
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 404,
+          "valueLength": 3,
+          "endExclusive": 407
+        }
+      },
+      "endBody": 407,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "M-PROCESSOR-UNCERTAIN",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "300",
+          "valueStart": 102,
+          "valueLength": 300,
+          "endExclusive": 402
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 402,
+          "valueLength": 3,
+          "endExclusive": 405
+        }
+      },
+      "endBody": 405,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "M-PROCESSOR-UNAVAILABLE",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "302",
+          "valueStart": 102,
+          "valueLength": 302,
+          "endExclusive": 404
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 404,
+          "valueLength": 3,
+          "endExclusive": 407
+        }
+      },
+      "endBody": 407,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "M-NETWORK-UNAVAILABLE",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "300",
+          "valueStart": 102,
+          "valueLength": 300,
+          "endExclusive": 402
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 402,
+          "valueLength": 3,
+          "endExclusive": 405
+        }
+      },
+      "endBody": 405,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "M-authorized-relay",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "290",
+          "valueStart": 102,
+          "valueLength": 290,
+          "endExclusive": 392
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 392,
+          "valueLength": 3,
+          "endExclusive": 395
+        }
+      },
+      "endBody": 395,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "N-conflicting-confirmation",
+      "firstFailure": "BUSINESS_CONFLICT_QUARANTINE",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "305",
+          "valueStart": 102,
+          "valueLength": 305,
+          "endExclusive": 407
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 407,
+          "valueLength": 3,
+          "endExclusive": 410
+        }
+      },
+      "endBody": 410,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-missing-DE38-asserted",
+      "firstFailure": "BINDING_AUTH_REFERENCE",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "290",
+          "valueStart": 102,
+          "valueLength": 290,
+          "endExclusive": 392
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 392,
+          "valueLength": 3,
+          "endExclusive": 395
+        }
+      },
+      "endBody": 395,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-forged-actor",
+      "firstFailure": "AUTH_ATTESTATION",
+      "walkedOffsets": {},
+      "endBody": 395,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-unresolvable-evidence",
+      "firstFailure": "AUTH_ATTESTATION",
+      "walkedOffsets": {},
+      "endBody": 394,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-mismatch-amount",
+      "firstFailure": "BINDING_INSTRUCTION",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "290",
+          "valueStart": 102,
+          "valueLength": 290,
+          "endExclusive": 392
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 392,
+          "valueLength": 3,
+          "endExclusive": 395
+        }
+      },
+      "endBody": 395,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "D-leap-valid",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "188",
+          "valueStart": 100,
+          "valueLength": 188,
+          "endExclusive": 288
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 288,
+          "valueLength": 3,
+          "endExclusive": 291
+        }
+      },
+      "endBody": 291,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "D-leap-invalid",
+      "firstFailure": "DOMAIN_DATE",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "188",
+          "valueStart": 100,
+          "valueLength": 188,
+          "endExclusive": 288
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 288,
+          "valueLength": 3,
+          "endExclusive": 291
+        }
+      },
+      "endBody": 291,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "D-bad-month",
+      "firstFailure": "DOMAIN_DATE",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "188",
+          "valueStart": 100,
+          "valueLength": 188,
+          "endExclusive": 288
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 288,
+          "valueLength": 3,
+          "endExclusive": 291
+        }
+      },
+      "endBody": 291,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "D-DE7-mismatch",
+      "firstFailure": "DOMAIN_DE7",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "188",
+          "valueStart": 100,
+          "valueLength": 188,
+          "endExclusive": 288
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 288,
+          "valueLength": 3,
+          "endExclusive": 291
+        }
+      },
+      "endBody": 291,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "D-stale",
+      "firstFailure": "ADMISSION_FRESHNESS",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "188",
+          "valueStart": 100,
+          "valueLength": 188,
+          "endExclusive": 288
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 288,
+          "valueLength": 3,
+          "endExclusive": 291
+        }
+      },
+      "endBody": 291,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "K-empty-key",
+      "firstFailure": "SCHEMA_CANONICAL",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "191",
+          "valueStart": 100,
+          "valueLength": 191,
+          "endExclusive": 291
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 291,
+          "valueLength": 3,
+          "endExclusive": 294
+        }
+      },
+      "endBody": 294,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "K-empty-value",
+      "firstFailure": "SCHEMA_CANONICAL",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "181",
+          "valueStart": 100,
+          "valueLength": 181,
+          "endExclusive": 281
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 281,
+          "valueLength": 3,
+          "endExclusive": 284
+        }
+      },
+      "endBody": 284,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "K-out-of-order",
+      "firstFailure": "SCHEMA_CANONICAL",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "188",
+          "valueStart": 100,
+          "valueLength": 188,
+          "endExclusive": 288
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 288,
+          "valueLength": 3,
+          "endExclusive": 291
+        }
+      },
+      "endBody": 291,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "CAP-request-826",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "826",
+          "valueStart": 100,
+          "valueLength": 826,
+          "endExclusive": 926
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 926,
+          "valueLength": 3,
+          "endExclusive": 929
+        }
+      },
+      "endBody": 929,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "CAP-request-827",
+      "firstFailure": "ADMISSION_RESPONSE_CAPACITY",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "827",
+          "valueStart": 100,
+          "valueLength": 827,
+          "endExclusive": 927
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 927,
+          "valueLength": 3,
+          "endExclusive": 930
+        }
+      },
+      "endBody": 930,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "CAP-response-1",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "984",
+          "valueStart": 102,
+          "valueLength": 984,
+          "endExclusive": 1086
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 1086,
+          "valueLength": 3,
+          "endExclusive": 1089
+        }
+      },
+      "endBody": 1089,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "CAP-over-request-1",
+      "firstFailure": "ADMISSION_RESPONSE_CAPACITY",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "827",
+          "valueStart": 100,
+          "valueLength": 827,
+          "endExclusive": 927
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 927,
+          "valueLength": 3,
+          "endExclusive": 930
+        }
+      },
+      "endBody": 930,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "CAP-response-2",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "994",
+          "valueStart": 102,
+          "valueLength": 994,
+          "endExclusive": 1096
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 1096,
+          "valueLength": 3,
+          "endExclusive": 1099
+        }
+      },
+      "endBody": 1099,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "CAP-over-request-2",
+      "firstFailure": "ADMISSION_RESPONSE_CAPACITY",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "827",
+          "valueStart": 100,
+          "valueLength": 827,
+          "endExclusive": 927
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 927,
+          "valueLength": 3,
+          "endExclusive": 930
+        }
+      },
+      "endBody": 930,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "CAP-response-3",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "999",
+          "valueStart": 102,
+          "valueLength": 999,
+          "endExclusive": 1101
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 1101,
+          "valueLength": 3,
+          "endExclusive": 1104
+        }
+      },
+      "endBody": 1104,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "CAP-over-request-3",
+      "firstFailure": "ADMISSION_RESPONSE_CAPACITY",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "827",
+          "valueStart": 100,
+          "valueLength": 827,
+          "endExclusive": 927
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 927,
+          "valueLength": 3,
+          "endExclusive": 930
+        }
+      },
+      "endBody": 930,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "CAP-response-4",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "996",
+          "valueStart": 102,
+          "valueLength": 996,
+          "endExclusive": 1098
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 1098,
+          "valueLength": 3,
+          "endExclusive": 1101
+        }
+      },
+      "endBody": 1101,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "CAP-over-request-4",
+      "firstFailure": "ADMISSION_RESPONSE_CAPACITY",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "827",
+          "valueStart": 100,
+          "valueLength": 827,
+          "endExclusive": 927
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 927,
+          "valueLength": 3,
+          "endExclusive": 930
+        }
+      },
+      "endBody": 930,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "CAP-response-5",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "997",
+          "valueStart": 102,
+          "valueLength": 997,
+          "endExclusive": 1099
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 1099,
+          "valueLength": 3,
+          "endExclusive": 1102
+        }
+      },
+      "endBody": 1102,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "CAP-over-request-5",
+      "firstFailure": "ADMISSION_RESPONSE_CAPACITY",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "827",
+          "valueStart": 100,
+          "valueLength": 827,
+          "endExclusive": 927
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 927,
+          "valueLength": 3,
+          "endExclusive": 930
+        }
+      },
+      "endBody": 930,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "CAP-response-6",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "996",
+          "valueStart": 102,
+          "valueLength": 996,
+          "endExclusive": 1098
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 1098,
+          "valueLength": 3,
+          "endExclusive": 1101
+        }
+      },
+      "endBody": 1101,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "CAP-over-request-6",
+      "firstFailure": "ADMISSION_RESPONSE_CAPACITY",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "827",
+          "valueStart": 100,
+          "valueLength": 827,
+          "endExclusive": 927
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 927,
+          "valueLength": 3,
+          "endExclusive": 930
+        }
+      },
+      "endBody": 930,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "CAP-response-7",
+      "firstFailure": null,
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "994",
+          "valueStart": 102,
+          "valueLength": 994,
+          "endExclusive": 1096
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 1096,
+          "valueLength": 3,
+          "endExclusive": 1099
+        }
+      },
+      "endBody": 1099,
+      "decodedMatchesDeclared": true
+    },
+    {
+      "id": "CAP-over-request-7",
+      "firstFailure": "ADMISSION_RESPONSE_CAPACITY",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 8,
+          "endExclusive": 82
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 82,
+          "valueLength": 15,
+          "endExclusive": 97
+        },
+        "48": {
+          "prefixStart": 97,
+          "prefix": "827",
+          "valueStart": 100,
+          "valueLength": 827,
+          "endExclusive": 927
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 927,
+          "valueLength": 3,
+          "endExclusive": 930
+        }
+      },
+      "endBody": 930,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-response-DE7",
+      "firstFailure": "DOMAIN_DE7",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "290",
+          "valueStart": 102,
+          "valueLength": 290,
+          "endExclusive": 392
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 392,
+          "valueLength": 3,
+          "endExclusive": 395
+        }
+      },
+      "endBody": 395,
+      "decodedMatchesDeclared": false
+    },
+    {
+      "id": "N-response-invalid-date",
+      "firstFailure": "DOMAIN_DATE",
+      "walkedOffsets": {
+        "3": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 20,
+          "valueLength": 6,
+          "endExclusive": 26
+        },
+        "4": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 26,
+          "valueLength": 12,
+          "endExclusive": 38
+        },
+        "7": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 38,
+          "valueLength": 10,
+          "endExclusive": 48
+        },
+        "11": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 48,
+          "valueLength": 6,
+          "endExclusive": 54
+        },
+        "22": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 54,
+          "valueLength": 3,
+          "endExclusive": 57
+        },
+        "25": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 57,
+          "valueLength": 2,
+          "endExclusive": 59
+        },
+        "32": {
+          "prefixStart": 59,
+          "prefix": "01",
+          "valueStart": 61,
+          "valueLength": 1,
+          "endExclusive": 62
+        },
+        "37": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 62,
+          "valueLength": 12,
+          "endExclusive": 74
+        },
+        "39": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 74,
+          "valueLength": 2,
+          "endExclusive": 76
+        },
+        "41": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 76,
+          "valueLength": 8,
+          "endExclusive": 84
+        },
+        "42": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 84,
+          "valueLength": 15,
+          "endExclusive": 99
+        },
+        "48": {
+          "prefixStart": 99,
+          "prefix": "290",
+          "valueStart": 102,
+          "valueLength": 290,
+          "endExclusive": 392
+        },
+        "49": {
+          "prefixStart": null,
+          "prefix": null,
+          "valueStart": 392,
+          "valueLength": 3,
+          "endExclusive": 395
+        }
+      },
+      "endBody": 395,
+      "decodedMatchesDeclared": false
+    }
+  ],
+  "C1C2PerformedChecks": {
+    "carrierCases": [
+      {
+        "id": "K01-direct",
+        "performed": "canonical carrier/base64/body-hash/identity/length arithmetic; signature byte length ONLY",
+        "result": "shape and binding consistent",
+        "signatureVerification": "NOT EXECUTED"
+      },
+      {
+        "id": "K02-relay",
+        "performed": "canonical carrier/base64/body-hash/identity/length arithmetic; signature byte length ONLY",
+        "result": "shape and binding consistent",
+        "signatureVerification": "NOT EXECUTED"
+      },
+      {
+        "id": "K03-late",
+        "performed": "canonical carrier/base64/body-hash/identity/length arithmetic; signature byte length ONLY",
+        "result": "shape and binding consistent",
+        "signatureVerification": "NOT EXECUTED"
+      },
+      {
+        "id": "K04-missing-sidecar",
+        "performed": "assert stated malformed fixture property only",
+        "runtimeRejection": "NOT EXECUTED"
+      },
+      {
+        "id": "K05-response-hash-mismatch",
+        "performed": "assert stated malformed fixture property only",
+        "runtimeRejection": "NOT EXECUTED"
+      },
+      {
+        "id": "K06-signature-absent",
+        "performed": "assert stated malformed fixture property only",
+        "runtimeRejection": "NOT EXECUTED"
+      },
+      {
+        "id": "K07-key-unavailable",
+        "performed": "assert stated malformed fixture property only",
+        "runtimeRejection": "NOT EXECUTED"
+      },
+      {
+        "id": "K08-direct-wrong-sender",
+        "performed": "assert stated malformed fixture property only",
+        "runtimeRejection": "NOT EXECUTED"
+      },
+      {
+        "id": "K09-relay-hash-mismatch",
+        "performed": "assert stated malformed fixture property only",
+        "runtimeRejection": "NOT EXECUTED"
+      },
+      {
+        "id": "K10-oversized-sidecar",
+        "performed": "assert stated malformed fixture property only",
+        "runtimeRejection": "NOT EXECUTED"
+      },
+      {
+        "id": "K11-late-missing-proof",
+        "performed": "assert stated malformed fixture property only",
+        "runtimeRejection": "NOT EXECUTED"
+      },
+      {
+        "id": "K12-proof-unavailable",
+        "performed": "assert stated malformed fixture property only",
+        "runtimeRejection": "NOT EXECUTED"
+      }
+    ],
+    "responseFixturesCanonicalSchemaChecked": 26,
+    "evidenceCanonicalAndOriginalHashChecked": 41,
+    "limits": "No cryptographic signature, authenticated deployment, HTTP handler, codec or independent QA execution; malformed-property assertions are not runtime rejection tests"
+  },
+  "singleSourceWebSocketPerformedChecks": {
+    "sourceHashSizeAndFrameChecks": [
+      {
+        "sourceSequence": 1,
+        "eventId": "ASYNC-AUTH-001:1",
+        "payloadBytes": 565,
+        "sourceRowBytes": 938,
+        "frameBytes": 1382,
+        "canonicalHashMatched": true
+      },
+      {
+        "sourceSequence": 2,
+        "eventId": "ASYNC-AUTH-001:2",
+        "payloadBytes": 575,
+        "sourceRowBytes": 945,
+        "frameBytes": 1389,
+        "canonicalHashMatched": true
+      },
+      {
+        "sourceSequence": 3,
+        "eventId": "ASYNC-AUTH-001:3",
+        "payloadBytes": 565,
+        "sourceRowBytes": 930,
+        "frameBytes": 1374,
+        "canonicalHashMatched": true
+      },
+      {
+        "sourceSequence": 4,
+        "eventId": "TASK-ASYNC-001:4",
+        "payloadBytes": 539,
+        "sourceRowBytes": 881,
+        "frameBytes": 1321,
+        "canonicalHashMatched": true
+      },
+      {
+        "sourceSequence": 5,
+        "eventId": "TASK-ASYNC-001:5",
+        "payloadBytes": 539,
+        "sourceRowBytes": 881,
+        "frameBytes": 1321,
+        "canonicalHashMatched": true
+      }
+    ],
+    "protocolArtifactArithmetic": [
+      "pre-ack3 + snapshot1,2,3 + repeat3 -> unique1,2,3",
+      "post-snapshot4 preserved after fixedH3",
+      "two source pages fixedH3 and late4 retained",
+      "stale/new subscription generations differ but source identity same",
+      "410 expired1,2 with retained3 explicit",
+      "all33cases automaticPaymentPosts0"
+    ],
+    "sourceSemanticCaseCount": 23,
+    "responseCanonicalSchemaCount": 26,
+    "demoJWTClaimShapeAndLeaseArithmetic": "same demo subject distinct from relay IAM and business context; min15minJWT,30minlease=15min; generations differ; no signature/auth runtime executed",
+    "capacityArithmetic": {
+      "criticalExact": 100000,
+      "criticalOverflow": 100001,
+      "criticalAndTaskPayloadEnvelopeBytes": 491520000
+    },
+    "inventory": {
+      "scenarios": 28,
+      "packed": 85,
+      "state": 35,
+      "channel": 8,
+      "canonicalEvent": 5,
+      "carrier": 12,
+      "response": 26,
+      "singleSourceSemantic": 23,
+      "websocket": 33
+    },
+    "total": 255,
+    "limits": "Only actual documentary canonical/hash/byte-size/scalar/set/page/JSON consistency checks. No WebSocket delivery, API/connection authorization, cursor signature, DynamoDB atomicity/Streams/TTL/ADOT/Java25 runtime, codec/crypto or independent QA execution."
+  },
+  "M1M2L1PerformedChecks": {
+    "M1": "exact request/tuple conflict fixture comparisons, same cachedACK bytes, stale epoch binding, fresh-ID replacement and preACK empty-render expectations checked as data; no route handler/client executed",
+    "M2": {
+      "markdownBlockEqualsMmd": true,
+      "md5Markdown": "2f8f752b6cad11c77f6f2136cc6c0914",
+      "md5Mmd": "8e83226e66f6ce401fe6526ed60b14b0",
+      "graphEdges": 57,
+      "graphNodes": 44,
+      "allReferencedNodesDeclared": true,
+      "financialSENDPredecessorOnly": "GATE",
+      "noDirectedCycleBackToSEND": true,
+      "noSENDReachableFrom": [
+        "NOTIFY",
+        "SUB",
+        "RECOVER",
+        "HOOK",
+        "STREAM",
+        "AUTHFAIL"
+      ],
+      "WSfailureHTTPpathAndAuthFailurePathPresent": true,
+      "renderer": "NOT RUN; structural edge-source inspection only"
+    },
+    "L1NumericDateChecks": [
+      {
+        "claimSet": "initial",
+        "claim": "iat",
+        "NumericDate": 1795089600,
+        "UTC": "2026-11-19T12:00:00Z"
+      },
+      {
+        "claimSet": "initial",
+        "claim": "exp",
+        "NumericDate": 1795090500,
+        "UTC": "2026-11-19T12:15:00Z"
+      },
+      {
+        "claimSet": "renewed",
+        "claim": "iat",
+        "NumericDate": 1795090500,
+        "UTC": "2026-11-19T12:15:00Z"
+      },
+      {
+        "claimSet": "renewed",
+        "claim": "exp",
+        "NumericDate": 1795091400,
+        "UTC": "2026-11-19T12:30:00Z"
+      }
+    ],
+    "WSCount": 33,
+    "totalAcceptanceCaseCount": 255,
+    "limits": "Actual documentation byte/set/field/canonical/NumericDate and graph-edge checks only. No Mermaid render/PNG, Drive send, routing/JWT signature/crypto, API/WebSocket handler, payment execution or independent QA run."
+  }
+}

@@ -1,0 +1,337 @@
+{
+  "status": "REVISED single EVENT source fixtures; legacy filename only, NO projection table, NOT runtime QA",
+  "clock": "2026-11-19T12:00:00Z unless explicit",
+  "sourceExamples": [
+    {
+      "eventKey": "ENV:DEMO/ACQ-A/MERCHANT-A/ASYNC-TX-001/E#000000000001",
+      "deliveryClass": "CRITICAL_COMMITTED",
+      "event": {
+        "schemaVersion": 1,
+        "eventId": "ASYNC-AUTH-001:1",
+        "producerId": "PROC-CRITICAL",
+        "instanceId": "BOOT-001",
+        "actor": "PROCESSOR",
+        "capability": "A",
+        "version": "1",
+        "manifestVersion": "A-1",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "transactionId": "ASYNC-TX-001",
+        "operationId": "ASYNC-AUTH-001",
+        "attemptId": "ASYNC-ATT-001",
+        "correlationId": "ASYNC-CORR-001",
+        "taskExecutionId": "CRITICAL-1",
+        "taskName": "business-persist",
+        "status": "SUCCEEDED",
+        "occurredAt": "2026-11-18T12:00:00Z",
+        "producerSequence": 1,
+        "provenance": "OBSERVED",
+        "reason": "CLAIM_COMMITTED"
+      },
+      "eventSha256": "28c8bac41d0daf506420b4f441237a2f1eaee78dfd465daf282eb13ea65aebe9",
+      "journalVersion": 1,
+      "sourceSequence": 1,
+      "committedAt": "2026-11-18T12:00:00Z",
+      "collectedAt": "2026-11-18T12:00:00Z",
+      "storedAt": "2026-11-18T12:00:00Z",
+      "stateAfter": "CLAIMED_NOT_SENT"
+    },
+    {
+      "eventKey": "ENV:DEMO/ACQ-A/MERCHANT-A/ASYNC-TX-001/E#000000000002",
+      "deliveryClass": "CRITICAL_COMMITTED",
+      "event": {
+        "schemaVersion": 1,
+        "eventId": "ASYNC-AUTH-001:2",
+        "producerId": "PROC-CRITICAL",
+        "instanceId": "BOOT-001",
+        "actor": "PROCESSOR",
+        "capability": "A",
+        "version": "1",
+        "manifestVersion": "A-1",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "transactionId": "ASYNC-TX-001",
+        "operationId": "ASYNC-AUTH-001",
+        "attemptId": "ASYNC-ATT-001",
+        "correlationId": "ASYNC-CORR-001",
+        "taskExecutionId": "CRITICAL-2",
+        "taskName": "business-persist",
+        "status": "SUCCEEDED",
+        "occurredAt": "2026-11-18T12:00:01Z",
+        "producerSequence": 2,
+        "provenance": "OBSERVED",
+        "reason": "DISPATCH_INTENT_COMMITTED"
+      },
+      "eventSha256": "91d9c7c66e89da8dd64ae31be674fb49f07aa931f2296498b1457afb9f96040b",
+      "journalVersion": 2,
+      "sourceSequence": 2,
+      "committedAt": "2026-11-18T12:00:01Z",
+      "collectedAt": "2026-11-18T12:00:01Z",
+      "storedAt": "2026-11-18T12:00:01Z",
+      "stateAfter": "POSSIBLE_SEND"
+    },
+    {
+      "eventKey": "ENV:DEMO/ACQ-A/MERCHANT-A/ASYNC-TX-001/E#000000000003",
+      "deliveryClass": "CRITICAL_COMMITTED",
+      "event": {
+        "schemaVersion": 1,
+        "eventId": "ASYNC-AUTH-001:3",
+        "producerId": "PROC-CRITICAL",
+        "instanceId": "BOOT-001",
+        "actor": "PROCESSOR",
+        "capability": "A",
+        "version": "1",
+        "manifestVersion": "A-1",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "transactionId": "ASYNC-TX-001",
+        "operationId": "ASYNC-AUTH-001",
+        "attemptId": "ASYNC-ATT-001",
+        "correlationId": "ASYNC-CORR-001",
+        "taskExecutionId": "CRITICAL-3",
+        "taskName": "business-persist",
+        "status": "SUCCEEDED",
+        "occurredAt": "2026-11-18T12:00:02Z",
+        "producerSequence": 3,
+        "provenance": "OBSERVED",
+        "reason": "ISSUER_APPROVED"
+      },
+      "eventSha256": "198a09ceedde4b37936939194d6a93fb131362d005461a2c9ddd4face4728b02",
+      "journalVersion": 3,
+      "sourceSequence": 3,
+      "committedAt": "2026-11-18T12:00:02Z",
+      "collectedAt": "2026-11-18T12:00:02Z",
+      "storedAt": "2026-11-18T12:00:02Z",
+      "stateAfter": "APPROVED"
+    }
+  ],
+  "cases": [
+    {
+      "id": "A01",
+      "name": "atomic-claim-consultable-event",
+      "resetScope": "EVENT-SOURCE:atomic-claim-consultable-event",
+      "given": "no claim/event; critical quota0",
+      "when": "single DynamoDB business/head/event/dedupe/quota transaction",
+      "then": "both claim and directly queryable event1 commit or neither; no outbox/history copy; retained1+future7=8"
+    },
+    {
+      "id": "A02",
+      "name": "event-insert-transaction-fails",
+      "resetScope": "EVENT-SOURCE:event-insert-transaction-fails",
+      "given": "no business claim, event table conditional failure",
+      "when": "attempt atomic claim",
+      "then": "no business/head/event commit or send; H21 BUSINESS_ADMISSION_UNAVAILABLE"
+    },
+    {
+      "id": "A03",
+      "name": "notifier-outage-before-send",
+      "resetScope": "EVENT-SOURCE:notifier-outage-before-send",
+      "given": "notifier/WS down; journal+event table healthy",
+      "when": "commit claim1/possible-send2/result3 and send once",
+      "then": "H04 APPROVED, source3 queryable immediately, live delivery incomplete; no notifier wait"
+    },
+    {
+      "id": "A04",
+      "name": "ADOT-outage",
+      "resetScope": "EVENT-SOURCE:ADOT-outage",
+      "given": "ADOT/X-Ray down, required source/journal healthy",
+      "when": "normal authorization",
+      "then": "H19 success; no sampled span as evidence; task coverage independent"
+    },
+    {
+      "id": "A05",
+      "name": "source-dedup",
+      "resetScope": "EVENT-SOURCE:source-dedup",
+      "given": "event1 stored and HEAD1",
+      "when": "redeliver same producer/eventId/hash",
+      "then": "no new sourceSequence/payload or business action, no second history copy"
+    },
+    {
+      "id": "A06",
+      "name": "notifier-crash-before-callback",
+      "resetScope": "EVENT-SOURCE:notifier-crash-before-callback",
+      "given": "source3 retained, current connection subscribed",
+      "when": "notifier crashes before send",
+      "then": "payment unchanged; source catch-up or bounded callback repair, no source ack requirement"
+    },
+    {
+      "id": "A07",
+      "name": "notifier-crash-after-callback",
+      "resetScope": "EVENT-SOURCE:notifier-crash-after-callback",
+      "given": "Gateway accepted frame3, delivery marker not updated",
+      "when": "retry same event callback",
+      "then": "may duplicate frame; browser dedup; no new source row, no financial retry"
+    },
+    {
+      "id": "A08",
+      "name": "notification-reordered",
+      "resetScope": "EVENT-SOURCE:notification-reordered",
+      "given": "source1,2,3 committed, connection last0",
+      "when": "callbacks3 then1 then2",
+      "then": "buffer/gap query and emit source order1,2,3; no cross-item Streams ordering assumption"
+    },
+    {
+      "id": "A09",
+      "name": "Streams-expired-25h",
+      "resetScope": "EVENT-SOURCE:Streams-expired-25h",
+      "given": "source3 committed2026-11-18T12:00:02Z retained seven-day proposal",
+      "when": "query2026-11-19T13:00:02Z after stream expiry",
+      "then": "same table returns3, no projection repair required, no financial operation"
+    },
+    {
+      "id": "A10",
+      "name": "event-expired-8days",
+      "resetScope": "EVENT-SOURCE:event-expired-8days",
+      "given": "source3 logically expired, journal remains",
+      "when": "query2026-11-26T12:00:02Z",
+      "then": "410/restart source range with explicit expiry/truncation; no resurrected payload or deletion of business evidence"
+    },
+    {
+      "id": "A11",
+      "name": "poison-source",
+      "resetScope": "EVENT-SOURCE:poison-source",
+      "given": "schema/hash invalid event pointer observed",
+      "when": "notifier validates before callback",
+      "then": "metadata quarantine, no payload push/no fake delivered result; gap explicit, original retention unchanged"
+    },
+    {
+      "id": "A12",
+      "name": "quarantine-unavailable",
+      "resetScope": "EVENT-SOURCE:quarantine-unavailable",
+      "given": "poison pointer, metadata alert write fails",
+      "when": "notifier retry limit reached",
+      "then": "source remains until proposed expiry; heartbeat/query detects source issue; no false completeness or journal mutation"
+    },
+    {
+      "id": "A13",
+      "name": "critical-capacity-warning",
+      "resetScope": "EVENT-SOURCE:critical-capacity-warning",
+      "given": "critical allocated85000, need8, notifier down",
+      "when": "new claim",
+      "then": "warn85percent, admit85008; notifier backend not gate"
+    },
+    {
+      "id": "A14",
+      "name": "critical-capacity-exact",
+      "resetScope": "EVENT-SOURCE:critical-capacity-exact",
+      "given": "critical allocated99992 need8",
+      "when": "conditional transaction",
+      "then": "100000 admissible; concurrent extra claim rejected"
+    },
+    {
+      "id": "A15",
+      "name": "critical-capacity-over",
+      "resetScope": "EVENT-SOURCE:critical-capacity-over",
+      "given": "critical allocated99993 need8",
+      "when": "conditional transaction",
+      "then": "H22 EVENT_CAPACITY, no claim/send"
+    },
+    {
+      "id": "A16",
+      "name": "reserved-late-result",
+      "resetScope": "EVENT-SOURCE:reserved-late-result",
+      "given": "UNKNOWN operation retains own critical reserve; globalnew quota full",
+      "when": "valid late evidence transaction",
+      "then": "source critical event+business confirmation consumes own slot; no payment resend"
+    },
+    {
+      "id": "A17",
+      "name": "preauth-task-loss",
+      "resetScope": "EVENT-SOURCE:preauth-task-loss",
+      "given": "hook executes before business claim, background queue crashes",
+      "when": "event not committed",
+      "then": "manifest/task gap, no task sourceSequence allocated and no fake FAILED; sampled span cannot fill gap"
+    },
+    {
+      "id": "A18",
+      "name": "future-hook",
+      "resetScope": "EVENT-SOURCE:future-hook",
+      "given": "future auxiliary implemented capability missing manifest/hook/budget",
+      "when": "activation review",
+      "then": "reject activation, no implementation of uncommissioned operation"
+    },
+    {
+      "id": "A19",
+      "name": "payload-expiry-compaction",
+      "resetScope": "EVENT-SOURCE:payload-expiry-compaction",
+      "given": "event1 logically expired, source3 still retained, business refs live",
+      "when": "transactional expiry marker/dedupeEXPIRED then payload removal",
+      "then": "expiryRevision advances, range1explicit, never native TTL silent hole, critical future reserve remains"
+    },
+    {
+      "id": "A20",
+      "name": "source-readable-not-current-authority",
+      "resetScope": "EVENT-SOURCE:source-readable-not-current-authority",
+      "given": "journal3 readable and retained event3",
+      "when": "GET detail",
+      "then": "journal qualifier explicit; event3 is observation not new issuer proof",
+      "expectedDetail": {
+        "authority": "JOURNAL_AND_EVENTS",
+        "authorizationId": "ASYNC-AUTH-001",
+        "transactionId": "ASYNC-TX-001",
+        "journalOutcome": "APPROVED",
+        "journalVersion": 3,
+        "journalAsOf": "2026-11-19T12:00:05Z",
+        "recordedOutcome": "APPROVED",
+        "recordedState": "APPROVED",
+        "recordedBusinessVersion": 3,
+        "recordedAsOf": "2026-11-18T12:00:02Z",
+        "coveredThrough": 3,
+        "knownHead": 3,
+        "expiredRanges": [],
+        "taskGaps": [
+          "MISSING_START"
+        ],
+        "observation": "PARTIAL",
+        "serverFreshness": "CURRENT"
+      }
+    },
+    {
+      "id": "A21",
+      "name": "required-event-store-outage-after-send",
+      "resetScope": "EVENT-SOURCE:required-event-store-outage-after-send",
+      "given": "send known; evidence+critical event cannot commit",
+      "when": "respond then restart with journal unreadable",
+      "then": "H07 NOT_CONFIRMED, H26 UNAVAILABLE; no span/history proof or resend"
+    },
+    {
+      "id": "A22",
+      "name": "sampling-independent",
+      "resetScope": "EVENT-SOURCE:sampling-independent",
+      "given": "all required functional events received, spans sampled",
+      "when": "render coverage",
+      "then": "functional completeness can be COMPLETE independent of span sampling; converse not true"
+    },
+    {
+      "id": "A23",
+      "name": "source-readable-journal-unreadable",
+      "resetScope": "EVENT-SOURCE:source-readable-journal-unreadable",
+      "given": "journal unreadable, event3 retained",
+      "when": "GET detail",
+      "then": "200 LAST_RECORDED, current authoritative outcome null, historical recorded event version3 labeled",
+      "expectedDetail": {
+        "authority": "LAST_RECORDED",
+        "authorizationId": "ASYNC-AUTH-001",
+        "transactionId": "ASYNC-TX-001",
+        "journalOutcome": null,
+        "journalVersion": null,
+        "journalAsOf": null,
+        "recordedOutcome": "APPROVED",
+        "recordedState": "APPROVED",
+        "recordedBusinessVersion": 3,
+        "recordedAsOf": "2026-11-18T12:00:02Z",
+        "coveredThrough": 3,
+        "knownHead": 3,
+        "expiredRanges": [],
+        "taskGaps": [
+          "MISSING_START"
+        ],
+        "observation": "PARTIAL",
+        "serverFreshness": "UNKNOWN"
+      }
+    }
+  ]
+}

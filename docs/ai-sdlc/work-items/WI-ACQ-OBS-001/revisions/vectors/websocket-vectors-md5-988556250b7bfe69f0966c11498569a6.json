@@ -1,0 +1,1157 @@
+{
+  "status": "PROPOSED protocol documentation, not executed WebSocket/API/DynamoDB/crypto QA",
+  "artifacts": {
+    "subscribe": {
+      "version": 1,
+      "action": "subscribe",
+      "requestId": "REQ-001",
+      "subscriptionId": "SUB-001",
+      "environmentId": "DEMO",
+      "context": {
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A"
+      },
+      "transactionId": "ASYNC-TX-001"
+    },
+    "subscribed": {
+      "version": 1,
+      "action": "subscribed",
+      "subscriptionId": "SUB-001",
+      "generation": "GEN-001",
+      "headSequence": 2,
+      "expiryRevision": 1,
+      "firstRetainedSequence": 1
+    },
+    "frames": {
+      "1": {
+        "version": 1,
+        "action": "event",
+        "subscriptionId": "SUB-001",
+        "generation": "GEN-001",
+        "transactionId": "ASYNC-TX-001",
+        "sourceSequence": 1,
+        "eventId": "ASYNC-AUTH-001:1",
+        "producerId": "PROC-CRITICAL",
+        "eventSha256": "28c8bac41d0daf506420b4f441237a2f1eaee78dfd465daf282eb13ea65aebe9",
+        "record": {
+          "eventKey": "ENV:DEMO/ACQ-A/MERCHANT-A/ASYNC-TX-001/E#000000000001",
+          "deliveryClass": "CRITICAL_COMMITTED",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "ASYNC-AUTH-001:1",
+            "producerId": "PROC-CRITICAL",
+            "instanceId": "BOOT-001",
+            "actor": "PROCESSOR",
+            "capability": "A",
+            "version": "1",
+            "manifestVersion": "A-1",
+            "acquirerRef": "ACQ-A",
+            "merchantRef": "MERCHANT-A",
+            "terminalRef": "TERMINAL-A",
+            "transactionId": "ASYNC-TX-001",
+            "operationId": "ASYNC-AUTH-001",
+            "attemptId": "ASYNC-ATT-001",
+            "correlationId": "ASYNC-CORR-001",
+            "taskExecutionId": "CRITICAL-1",
+            "taskName": "business-persist",
+            "status": "SUCCEEDED",
+            "occurredAt": "2026-11-18T12:00:00Z",
+            "producerSequence": 1,
+            "provenance": "OBSERVED",
+            "reason": "CLAIM_COMMITTED"
+          },
+          "eventSha256": "28c8bac41d0daf506420b4f441237a2f1eaee78dfd465daf282eb13ea65aebe9",
+          "journalVersion": 1,
+          "sourceSequence": 1,
+          "committedAt": "2026-11-18T12:00:00Z",
+          "collectedAt": "2026-11-18T12:00:00Z",
+          "storedAt": "2026-11-18T12:00:00Z",
+          "stateAfter": "CLAIMED_NOT_SENT"
+        },
+        "authority": "RECORDED_EVENT"
+      },
+      "2": {
+        "version": 1,
+        "action": "event",
+        "subscriptionId": "SUB-001",
+        "generation": "GEN-001",
+        "transactionId": "ASYNC-TX-001",
+        "sourceSequence": 2,
+        "eventId": "ASYNC-AUTH-001:2",
+        "producerId": "PROC-CRITICAL",
+        "eventSha256": "91d9c7c66e89da8dd64ae31be674fb49f07aa931f2296498b1457afb9f96040b",
+        "record": {
+          "eventKey": "ENV:DEMO/ACQ-A/MERCHANT-A/ASYNC-TX-001/E#000000000002",
+          "deliveryClass": "CRITICAL_COMMITTED",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "ASYNC-AUTH-001:2",
+            "producerId": "PROC-CRITICAL",
+            "instanceId": "BOOT-001",
+            "actor": "PROCESSOR",
+            "capability": "A",
+            "version": "1",
+            "manifestVersion": "A-1",
+            "acquirerRef": "ACQ-A",
+            "merchantRef": "MERCHANT-A",
+            "terminalRef": "TERMINAL-A",
+            "transactionId": "ASYNC-TX-001",
+            "operationId": "ASYNC-AUTH-001",
+            "attemptId": "ASYNC-ATT-001",
+            "correlationId": "ASYNC-CORR-001",
+            "taskExecutionId": "CRITICAL-2",
+            "taskName": "business-persist",
+            "status": "SUCCEEDED",
+            "occurredAt": "2026-11-18T12:00:01Z",
+            "producerSequence": 2,
+            "provenance": "OBSERVED",
+            "reason": "DISPATCH_INTENT_COMMITTED"
+          },
+          "eventSha256": "91d9c7c66e89da8dd64ae31be674fb49f07aa931f2296498b1457afb9f96040b",
+          "journalVersion": 2,
+          "sourceSequence": 2,
+          "committedAt": "2026-11-18T12:00:01Z",
+          "collectedAt": "2026-11-18T12:00:01Z",
+          "storedAt": "2026-11-18T12:00:01Z",
+          "stateAfter": "POSSIBLE_SEND"
+        },
+        "authority": "RECORDED_EVENT"
+      },
+      "3": {
+        "version": 1,
+        "action": "event",
+        "subscriptionId": "SUB-001",
+        "generation": "GEN-001",
+        "transactionId": "ASYNC-TX-001",
+        "sourceSequence": 3,
+        "eventId": "ASYNC-AUTH-001:3",
+        "producerId": "PROC-CRITICAL",
+        "eventSha256": "198a09ceedde4b37936939194d6a93fb131362d005461a2c9ddd4face4728b02",
+        "record": {
+          "eventKey": "ENV:DEMO/ACQ-A/MERCHANT-A/ASYNC-TX-001/E#000000000003",
+          "deliveryClass": "CRITICAL_COMMITTED",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "ASYNC-AUTH-001:3",
+            "producerId": "PROC-CRITICAL",
+            "instanceId": "BOOT-001",
+            "actor": "PROCESSOR",
+            "capability": "A",
+            "version": "1",
+            "manifestVersion": "A-1",
+            "acquirerRef": "ACQ-A",
+            "merchantRef": "MERCHANT-A",
+            "terminalRef": "TERMINAL-A",
+            "transactionId": "ASYNC-TX-001",
+            "operationId": "ASYNC-AUTH-001",
+            "attemptId": "ASYNC-ATT-001",
+            "correlationId": "ASYNC-CORR-001",
+            "taskExecutionId": "CRITICAL-3",
+            "taskName": "business-persist",
+            "status": "SUCCEEDED",
+            "occurredAt": "2026-11-18T12:00:02Z",
+            "producerSequence": 3,
+            "provenance": "OBSERVED",
+            "reason": "ISSUER_APPROVED"
+          },
+          "eventSha256": "198a09ceedde4b37936939194d6a93fb131362d005461a2c9ddd4face4728b02",
+          "journalVersion": 3,
+          "sourceSequence": 3,
+          "committedAt": "2026-11-18T12:00:02Z",
+          "collectedAt": "2026-11-18T12:00:02Z",
+          "storedAt": "2026-11-18T12:00:02Z",
+          "stateAfter": "APPROVED"
+        },
+        "authority": "RECORDED_EVENT"
+      },
+      "4": {
+        "version": 1,
+        "action": "event",
+        "subscriptionId": "SUB-001",
+        "generation": "GEN-001",
+        "transactionId": "ASYNC-TX-001",
+        "sourceSequence": 4,
+        "eventId": "TASK-ASYNC-001:4",
+        "producerId": "PROC-TASK",
+        "eventSha256": "d15170c4072ea585b41748d45922de81bd693aec1c51113c0c0d272839956d21",
+        "record": {
+          "eventKey": "ENV:DEMO/ACQ-A/MERCHANT-A/ASYNC-TX-001/E#000000000004",
+          "deliveryClass": "TASK_BEST_EFFORT",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "TASK-ASYNC-001:4",
+            "producerId": "PROC-TASK",
+            "instanceId": "BOOT-001",
+            "actor": "PROCESSOR",
+            "capability": "A",
+            "version": "1",
+            "manifestVersion": "A-1",
+            "acquirerRef": "ACQ-A",
+            "merchantRef": "MERCHANT-A",
+            "terminalRef": "TERMINAL-A",
+            "transactionId": "ASYNC-TX-001",
+            "operationId": "ASYNC-AUTH-001",
+            "attemptId": "ASYNC-ATT-001",
+            "correlationId": "ASYNC-CORR-001",
+            "taskExecutionId": "TASK-4",
+            "taskName": "validate",
+            "status": "SUCCEEDED",
+            "occurredAt": "2026-11-18T12:00:04Z",
+            "producerSequence": 4,
+            "provenance": "OBSERVED",
+            "reason": "VALID"
+          },
+          "eventSha256": "d15170c4072ea585b41748d45922de81bd693aec1c51113c0c0d272839956d21",
+          "journalVersion": null,
+          "sourceSequence": 4,
+          "committedAt": null,
+          "collectedAt": "2026-11-18T12:00:04Z",
+          "storedAt": "2026-11-18T12:00:04Z",
+          "stateAfter": null
+        },
+        "authority": "RECORDED_EVENT"
+      },
+      "5": {
+        "version": 1,
+        "action": "event",
+        "subscriptionId": "SUB-001",
+        "generation": "GEN-001",
+        "transactionId": "ASYNC-TX-001",
+        "sourceSequence": 5,
+        "eventId": "TASK-ASYNC-001:5",
+        "producerId": "PROC-TASK",
+        "eventSha256": "5b4950fe93038c970d98710e76b6dfaed6a3a7675e6835615d2038c24353aae0",
+        "record": {
+          "eventKey": "ENV:DEMO/ACQ-A/MERCHANT-A/ASYNC-TX-001/E#000000000005",
+          "deliveryClass": "TASK_BEST_EFFORT",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "TASK-ASYNC-001:5",
+            "producerId": "PROC-TASK",
+            "instanceId": "BOOT-001",
+            "actor": "PROCESSOR",
+            "capability": "A",
+            "version": "1",
+            "manifestVersion": "A-1",
+            "acquirerRef": "ACQ-A",
+            "merchantRef": "MERCHANT-A",
+            "terminalRef": "TERMINAL-A",
+            "transactionId": "ASYNC-TX-001",
+            "operationId": "ASYNC-AUTH-001",
+            "attemptId": "ASYNC-ATT-001",
+            "correlationId": "ASYNC-CORR-001",
+            "taskExecutionId": "TASK-5",
+            "taskName": "validate",
+            "status": "SUCCEEDED",
+            "occurredAt": "2026-11-18T12:00:05Z",
+            "producerSequence": 5,
+            "provenance": "OBSERVED",
+            "reason": "VALID"
+          },
+          "eventSha256": "5b4950fe93038c970d98710e76b6dfaed6a3a7675e6835615d2038c24353aae0",
+          "journalVersion": null,
+          "sourceSequence": 5,
+          "committedAt": null,
+          "collectedAt": "2026-11-18T12:00:05Z",
+          "storedAt": "2026-11-18T12:00:05Z",
+          "stateAfter": null
+        },
+        "authority": "RECORDED_EVENT"
+      }
+    },
+    "snapshotH3": {
+      "version": 1,
+      "transactionId": "ASYNC-TX-001",
+      "snapshotHead": 3,
+      "expiryRevision": 1,
+      "firstRetainedSequence": 1,
+      "events": [
+        {
+          "eventKey": "ENV:DEMO/ACQ-A/MERCHANT-A/ASYNC-TX-001/E#000000000001",
+          "deliveryClass": "CRITICAL_COMMITTED",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "ASYNC-AUTH-001:1",
+            "producerId": "PROC-CRITICAL",
+            "instanceId": "BOOT-001",
+            "actor": "PROCESSOR",
+            "capability": "A",
+            "version": "1",
+            "manifestVersion": "A-1",
+            "acquirerRef": "ACQ-A",
+            "merchantRef": "MERCHANT-A",
+            "terminalRef": "TERMINAL-A",
+            "transactionId": "ASYNC-TX-001",
+            "operationId": "ASYNC-AUTH-001",
+            "attemptId": "ASYNC-ATT-001",
+            "correlationId": "ASYNC-CORR-001",
+            "taskExecutionId": "CRITICAL-1",
+            "taskName": "business-persist",
+            "status": "SUCCEEDED",
+            "occurredAt": "2026-11-18T12:00:00Z",
+            "producerSequence": 1,
+            "provenance": "OBSERVED",
+            "reason": "CLAIM_COMMITTED"
+          },
+          "eventSha256": "28c8bac41d0daf506420b4f441237a2f1eaee78dfd465daf282eb13ea65aebe9",
+          "journalVersion": 1,
+          "sourceSequence": 1,
+          "committedAt": "2026-11-18T12:00:00Z",
+          "collectedAt": "2026-11-18T12:00:00Z",
+          "storedAt": "2026-11-18T12:00:00Z",
+          "stateAfter": "CLAIMED_NOT_SENT"
+        },
+        {
+          "eventKey": "ENV:DEMO/ACQ-A/MERCHANT-A/ASYNC-TX-001/E#000000000002",
+          "deliveryClass": "CRITICAL_COMMITTED",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "ASYNC-AUTH-001:2",
+            "producerId": "PROC-CRITICAL",
+            "instanceId": "BOOT-001",
+            "actor": "PROCESSOR",
+            "capability": "A",
+            "version": "1",
+            "manifestVersion": "A-1",
+            "acquirerRef": "ACQ-A",
+            "merchantRef": "MERCHANT-A",
+            "terminalRef": "TERMINAL-A",
+            "transactionId": "ASYNC-TX-001",
+            "operationId": "ASYNC-AUTH-001",
+            "attemptId": "ASYNC-ATT-001",
+            "correlationId": "ASYNC-CORR-001",
+            "taskExecutionId": "CRITICAL-2",
+            "taskName": "business-persist",
+            "status": "SUCCEEDED",
+            "occurredAt": "2026-11-18T12:00:01Z",
+            "producerSequence": 2,
+            "provenance": "OBSERVED",
+            "reason": "DISPATCH_INTENT_COMMITTED"
+          },
+          "eventSha256": "91d9c7c66e89da8dd64ae31be674fb49f07aa931f2296498b1457afb9f96040b",
+          "journalVersion": 2,
+          "sourceSequence": 2,
+          "committedAt": "2026-11-18T12:00:01Z",
+          "collectedAt": "2026-11-18T12:00:01Z",
+          "storedAt": "2026-11-18T12:00:01Z",
+          "stateAfter": "POSSIBLE_SEND"
+        },
+        {
+          "eventKey": "ENV:DEMO/ACQ-A/MERCHANT-A/ASYNC-TX-001/E#000000000003",
+          "deliveryClass": "CRITICAL_COMMITTED",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "ASYNC-AUTH-001:3",
+            "producerId": "PROC-CRITICAL",
+            "instanceId": "BOOT-001",
+            "actor": "PROCESSOR",
+            "capability": "A",
+            "version": "1",
+            "manifestVersion": "A-1",
+            "acquirerRef": "ACQ-A",
+            "merchantRef": "MERCHANT-A",
+            "terminalRef": "TERMINAL-A",
+            "transactionId": "ASYNC-TX-001",
+            "operationId": "ASYNC-AUTH-001",
+            "attemptId": "ASYNC-ATT-001",
+            "correlationId": "ASYNC-CORR-001",
+            "taskExecutionId": "CRITICAL-3",
+            "taskName": "business-persist",
+            "status": "SUCCEEDED",
+            "occurredAt": "2026-11-18T12:00:02Z",
+            "producerSequence": 3,
+            "provenance": "OBSERVED",
+            "reason": "ISSUER_APPROVED"
+          },
+          "eventSha256": "198a09ceedde4b37936939194d6a93fb131362d005461a2c9ddd4face4728b02",
+          "journalVersion": 3,
+          "sourceSequence": 3,
+          "committedAt": "2026-11-18T12:00:02Z",
+          "collectedAt": "2026-11-18T12:00:02Z",
+          "storedAt": "2026-11-18T12:00:02Z",
+          "stateAfter": "APPROVED"
+        }
+      ],
+      "coveredThrough": 3,
+      "expiredRanges": [],
+      "gapRanges": [],
+      "nextCursor": null,
+      "completeThroughSnapshot": true,
+      "retentionTruncated": false
+    },
+    "sync": {
+      "version": 1,
+      "action": "sync",
+      "subscriptionId": "SUB-001",
+      "generation": "GEN-001"
+    },
+    "headReply": {
+      "version": 1,
+      "action": "head",
+      "subscriptionId": "SUB-001",
+      "generation": "GEN-001",
+      "headSequence": 3,
+      "expiryRevision": 1,
+      "firstRetainedSequence": 1,
+      "asOf": "2026-11-18T12:00:35Z"
+    }
+  },
+  "sourceExamples": [
+    {
+      "eventKey": "ENV:DEMO/ACQ-A/MERCHANT-A/ASYNC-TX-001/E#000000000001",
+      "deliveryClass": "CRITICAL_COMMITTED",
+      "event": {
+        "schemaVersion": 1,
+        "eventId": "ASYNC-AUTH-001:1",
+        "producerId": "PROC-CRITICAL",
+        "instanceId": "BOOT-001",
+        "actor": "PROCESSOR",
+        "capability": "A",
+        "version": "1",
+        "manifestVersion": "A-1",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "transactionId": "ASYNC-TX-001",
+        "operationId": "ASYNC-AUTH-001",
+        "attemptId": "ASYNC-ATT-001",
+        "correlationId": "ASYNC-CORR-001",
+        "taskExecutionId": "CRITICAL-1",
+        "taskName": "business-persist",
+        "status": "SUCCEEDED",
+        "occurredAt": "2026-11-18T12:00:00Z",
+        "producerSequence": 1,
+        "provenance": "OBSERVED",
+        "reason": "CLAIM_COMMITTED"
+      },
+      "eventSha256": "28c8bac41d0daf506420b4f441237a2f1eaee78dfd465daf282eb13ea65aebe9",
+      "journalVersion": 1,
+      "sourceSequence": 1,
+      "committedAt": "2026-11-18T12:00:00Z",
+      "collectedAt": "2026-11-18T12:00:00Z",
+      "storedAt": "2026-11-18T12:00:00Z",
+      "stateAfter": "CLAIMED_NOT_SENT"
+    },
+    {
+      "eventKey": "ENV:DEMO/ACQ-A/MERCHANT-A/ASYNC-TX-001/E#000000000002",
+      "deliveryClass": "CRITICAL_COMMITTED",
+      "event": {
+        "schemaVersion": 1,
+        "eventId": "ASYNC-AUTH-001:2",
+        "producerId": "PROC-CRITICAL",
+        "instanceId": "BOOT-001",
+        "actor": "PROCESSOR",
+        "capability": "A",
+        "version": "1",
+        "manifestVersion": "A-1",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "transactionId": "ASYNC-TX-001",
+        "operationId": "ASYNC-AUTH-001",
+        "attemptId": "ASYNC-ATT-001",
+        "correlationId": "ASYNC-CORR-001",
+        "taskExecutionId": "CRITICAL-2",
+        "taskName": "business-persist",
+        "status": "SUCCEEDED",
+        "occurredAt": "2026-11-18T12:00:01Z",
+        "producerSequence": 2,
+        "provenance": "OBSERVED",
+        "reason": "DISPATCH_INTENT_COMMITTED"
+      },
+      "eventSha256": "91d9c7c66e89da8dd64ae31be674fb49f07aa931f2296498b1457afb9f96040b",
+      "journalVersion": 2,
+      "sourceSequence": 2,
+      "committedAt": "2026-11-18T12:00:01Z",
+      "collectedAt": "2026-11-18T12:00:01Z",
+      "storedAt": "2026-11-18T12:00:01Z",
+      "stateAfter": "POSSIBLE_SEND"
+    },
+    {
+      "eventKey": "ENV:DEMO/ACQ-A/MERCHANT-A/ASYNC-TX-001/E#000000000003",
+      "deliveryClass": "CRITICAL_COMMITTED",
+      "event": {
+        "schemaVersion": 1,
+        "eventId": "ASYNC-AUTH-001:3",
+        "producerId": "PROC-CRITICAL",
+        "instanceId": "BOOT-001",
+        "actor": "PROCESSOR",
+        "capability": "A",
+        "version": "1",
+        "manifestVersion": "A-1",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "transactionId": "ASYNC-TX-001",
+        "operationId": "ASYNC-AUTH-001",
+        "attemptId": "ASYNC-ATT-001",
+        "correlationId": "ASYNC-CORR-001",
+        "taskExecutionId": "CRITICAL-3",
+        "taskName": "business-persist",
+        "status": "SUCCEEDED",
+        "occurredAt": "2026-11-18T12:00:02Z",
+        "producerSequence": 3,
+        "provenance": "OBSERVED",
+        "reason": "ISSUER_APPROVED"
+      },
+      "eventSha256": "198a09ceedde4b37936939194d6a93fb131362d005461a2c9ddd4face4728b02",
+      "journalVersion": 3,
+      "sourceSequence": 3,
+      "committedAt": "2026-11-18T12:00:02Z",
+      "collectedAt": "2026-11-18T12:00:02Z",
+      "storedAt": "2026-11-18T12:00:02Z",
+      "stateAfter": "APPROVED"
+    },
+    {
+      "eventKey": "ENV:DEMO/ACQ-A/MERCHANT-A/ASYNC-TX-001/E#000000000004",
+      "deliveryClass": "TASK_BEST_EFFORT",
+      "event": {
+        "schemaVersion": 1,
+        "eventId": "TASK-ASYNC-001:4",
+        "producerId": "PROC-TASK",
+        "instanceId": "BOOT-001",
+        "actor": "PROCESSOR",
+        "capability": "A",
+        "version": "1",
+        "manifestVersion": "A-1",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "transactionId": "ASYNC-TX-001",
+        "operationId": "ASYNC-AUTH-001",
+        "attemptId": "ASYNC-ATT-001",
+        "correlationId": "ASYNC-CORR-001",
+        "taskExecutionId": "TASK-4",
+        "taskName": "validate",
+        "status": "SUCCEEDED",
+        "occurredAt": "2026-11-18T12:00:04Z",
+        "producerSequence": 4,
+        "provenance": "OBSERVED",
+        "reason": "VALID"
+      },
+      "eventSha256": "d15170c4072ea585b41748d45922de81bd693aec1c51113c0c0d272839956d21",
+      "journalVersion": null,
+      "sourceSequence": 4,
+      "committedAt": null,
+      "collectedAt": "2026-11-18T12:00:04Z",
+      "storedAt": "2026-11-18T12:00:04Z",
+      "stateAfter": null
+    },
+    {
+      "eventKey": "ENV:DEMO/ACQ-A/MERCHANT-A/ASYNC-TX-001/E#000000000005",
+      "deliveryClass": "TASK_BEST_EFFORT",
+      "event": {
+        "schemaVersion": 1,
+        "eventId": "TASK-ASYNC-001:5",
+        "producerId": "PROC-TASK",
+        "instanceId": "BOOT-001",
+        "actor": "PROCESSOR",
+        "capability": "A",
+        "version": "1",
+        "manifestVersion": "A-1",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "transactionId": "ASYNC-TX-001",
+        "operationId": "ASYNC-AUTH-001",
+        "attemptId": "ASYNC-ATT-001",
+        "correlationId": "ASYNC-CORR-001",
+        "taskExecutionId": "TASK-5",
+        "taskName": "validate",
+        "status": "SUCCEEDED",
+        "occurredAt": "2026-11-18T12:00:05Z",
+        "producerSequence": 5,
+        "provenance": "OBSERVED",
+        "reason": "VALID"
+      },
+      "eventSha256": "5b4950fe93038c970d98710e76b6dfaed6a3a7675e6835615d2038c24353aae0",
+      "journalVersion": null,
+      "sourceSequence": 5,
+      "committedAt": null,
+      "collectedAt": "2026-11-18T12:00:05Z",
+      "storedAt": "2026-11-18T12:00:05Z",
+      "stateAfter": null
+    }
+  ],
+  "cases": [
+    {
+      "id": "W01",
+      "name": "subscribe-before-catchup",
+      "resetScope": "WS:subscribe-before-catchup",
+      "given": "serviceDEMO fixed ACQ-A, clientcovered0",
+      "steps": [
+        "send subscribe; install routing",
+        "buffer frame3 before ack",
+        "receive ack head2",
+        "query snapshotH3 events1,2,3",
+        "merge duplicate frame3"
+      ],
+      "expected": "render1,2,3 once;covered3; no gap/payment post",
+      "automaticPaymentPosts": 0
+    },
+    {
+      "id": "W02",
+      "name": "append-after-snapshot",
+      "resetScope": "WS:append-after-snapshot",
+      "given": "snapshot fixedH3",
+      "steps": [
+        "frame4 appended while pagingH3",
+        "buffer4",
+        "complete query<=3",
+        "merge4"
+      ],
+      "expected": "render1,2,3,4; covered4; no page silently omits4",
+      "automaticPaymentPosts": 0
+    },
+    {
+      "id": "W03",
+      "name": "dropped-frame-gap",
+      "resetScope": "WS:dropped-frame-gap",
+      "given": "covered1",
+      "steps": [
+        "receiveframe3",
+        "detect missing2",
+        "queryafter1 up toH3",
+        "merge2,3"
+      ],
+      "expected": "covered3, no fake task or new journal evidence",
+      "automaticPaymentPosts": 0
+    },
+    {
+      "id": "W04",
+      "name": "silent-drop-heartbeat",
+      "resetScope": "WS:silent-drop-heartbeat",
+      "given": "covered2, callback3 lost and no later event",
+      "steps": [
+        "30s WS sync",
+        "headReply says3",
+        "HTTP catch-upafter2"
+      ],
+      "expected": "fetch3; detection metric separate from healthy push SLO; no1s HTTP polling",
+      "automaticPaymentPosts": 0
+    },
+    {
+      "id": "W05",
+      "name": "stale-generation",
+      "resetScope": "WS:stale-generation",
+      "given": "reconnect installedGEN-002",
+      "steps": [
+        "receive old frame3GEN-001",
+        "receive current frame3GEN-002"
+      ],
+      "expected": "ignore old generation; dedup source identity independently",
+      "automaticPaymentPosts": 0,
+      "staleFrame": {
+        "version": 1,
+        "action": "event",
+        "subscriptionId": "SUB-001",
+        "generation": "GEN-001",
+        "transactionId": "ASYNC-TX-001",
+        "sourceSequence": 3,
+        "eventId": "ASYNC-AUTH-001:3",
+        "producerId": "PROC-CRITICAL",
+        "eventSha256": "198a09ceedde4b37936939194d6a93fb131362d005461a2c9ddd4face4728b02",
+        "record": {
+          "eventKey": "ENV:DEMO/ACQ-A/MERCHANT-A/ASYNC-TX-001/E#000000000003",
+          "deliveryClass": "CRITICAL_COMMITTED",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "ASYNC-AUTH-001:3",
+            "producerId": "PROC-CRITICAL",
+            "instanceId": "BOOT-001",
+            "actor": "PROCESSOR",
+            "capability": "A",
+            "version": "1",
+            "manifestVersion": "A-1",
+            "acquirerRef": "ACQ-A",
+            "merchantRef": "MERCHANT-A",
+            "terminalRef": "TERMINAL-A",
+            "transactionId": "ASYNC-TX-001",
+            "operationId": "ASYNC-AUTH-001",
+            "attemptId": "ASYNC-ATT-001",
+            "correlationId": "ASYNC-CORR-001",
+            "taskExecutionId": "CRITICAL-3",
+            "taskName": "business-persist",
+            "status": "SUCCEEDED",
+            "occurredAt": "2026-11-18T12:00:02Z",
+            "producerSequence": 3,
+            "provenance": "OBSERVED",
+            "reason": "ISSUER_APPROVED"
+          },
+          "eventSha256": "198a09ceedde4b37936939194d6a93fb131362d005461a2c9ddd4face4728b02",
+          "journalVersion": 3,
+          "sourceSequence": 3,
+          "committedAt": "2026-11-18T12:00:02Z",
+          "collectedAt": "2026-11-18T12:00:02Z",
+          "storedAt": "2026-11-18T12:00:02Z",
+          "stateAfter": "APPROVED"
+        },
+        "authority": "RECORDED_EVENT"
+      },
+      "currentFrame": {
+        "version": 1,
+        "action": "event",
+        "subscriptionId": "SUB-001",
+        "generation": "GEN-002",
+        "transactionId": "ASYNC-TX-001",
+        "sourceSequence": 3,
+        "eventId": "ASYNC-AUTH-001:3",
+        "producerId": "PROC-CRITICAL",
+        "eventSha256": "198a09ceedde4b37936939194d6a93fb131362d005461a2c9ddd4face4728b02",
+        "record": {
+          "eventKey": "ENV:DEMO/ACQ-A/MERCHANT-A/ASYNC-TX-001/E#000000000003",
+          "deliveryClass": "CRITICAL_COMMITTED",
+          "event": {
+            "schemaVersion": 1,
+            "eventId": "ASYNC-AUTH-001:3",
+            "producerId": "PROC-CRITICAL",
+            "instanceId": "BOOT-001",
+            "actor": "PROCESSOR",
+            "capability": "A",
+            "version": "1",
+            "manifestVersion": "A-1",
+            "acquirerRef": "ACQ-A",
+            "merchantRef": "MERCHANT-A",
+            "terminalRef": "TERMINAL-A",
+            "transactionId": "ASYNC-TX-001",
+            "operationId": "ASYNC-AUTH-001",
+            "attemptId": "ASYNC-ATT-001",
+            "correlationId": "ASYNC-CORR-001",
+            "taskExecutionId": "CRITICAL-3",
+            "taskName": "business-persist",
+            "status": "SUCCEEDED",
+            "occurredAt": "2026-11-18T12:00:02Z",
+            "producerSequence": 3,
+            "provenance": "OBSERVED",
+            "reason": "ISSUER_APPROVED"
+          },
+          "eventSha256": "198a09ceedde4b37936939194d6a93fb131362d005461a2c9ddd4face4728b02",
+          "journalVersion": 3,
+          "sourceSequence": 3,
+          "committedAt": "2026-11-18T12:00:02Z",
+          "collectedAt": "2026-11-18T12:00:02Z",
+          "storedAt": "2026-11-18T12:00:02Z",
+          "stateAfter": "APPROVED"
+        },
+        "authority": "RECORDED_EVENT"
+      }
+    },
+    {
+      "id": "W06",
+      "name": "bounded-live-buffer",
+      "resetScope": "WS:bounded-live-buffer",
+      "given": "live buffer1000events/1MiB",
+      "steps": [
+        "next frame exceeds bound",
+        "markpartial and new snapshot/reconnect"
+      ],
+      "expected": "discard bounded transient buffer, source catch-up retained events; no infinite queue",
+      "automaticPaymentPosts": 0
+    },
+    {
+      "id": "W07",
+      "name": "fixed-pagination",
+      "resetScope": "WS:fixed-pagination",
+      "given": "servicebound DOC cursor, H3",
+      "steps": [
+        "page1",
+        "duplicatepage1",
+        "source4 appended",
+        "page2",
+        "mergeframe4"
+      ],
+      "expected": "1,2,3,4 dedup, cursorH3 unchanged",
+      "automaticPaymentPosts": 0,
+      "pages": [
+        {
+          "version": 1,
+          "transactionId": "ASYNC-TX-001",
+          "snapshotHead": 3,
+          "expiryRevision": 1,
+          "firstRetainedSequence": 1,
+          "events": [
+            {
+              "eventKey": "ENV:DEMO/ACQ-A/MERCHANT-A/ASYNC-TX-001/E#000000000001",
+              "deliveryClass": "CRITICAL_COMMITTED",
+              "event": {
+                "schemaVersion": 1,
+                "eventId": "ASYNC-AUTH-001:1",
+                "producerId": "PROC-CRITICAL",
+                "instanceId": "BOOT-001",
+                "actor": "PROCESSOR",
+                "capability": "A",
+                "version": "1",
+                "manifestVersion": "A-1",
+                "acquirerRef": "ACQ-A",
+                "merchantRef": "MERCHANT-A",
+                "terminalRef": "TERMINAL-A",
+                "transactionId": "ASYNC-TX-001",
+                "operationId": "ASYNC-AUTH-001",
+                "attemptId": "ASYNC-ATT-001",
+                "correlationId": "ASYNC-CORR-001",
+                "taskExecutionId": "CRITICAL-1",
+                "taskName": "business-persist",
+                "status": "SUCCEEDED",
+                "occurredAt": "2026-11-18T12:00:00Z",
+                "producerSequence": 1,
+                "provenance": "OBSERVED",
+                "reason": "CLAIM_COMMITTED"
+              },
+              "eventSha256": "28c8bac41d0daf506420b4f441237a2f1eaee78dfd465daf282eb13ea65aebe9",
+              "journalVersion": 1,
+              "sourceSequence": 1,
+              "committedAt": "2026-11-18T12:00:00Z",
+              "collectedAt": "2026-11-18T12:00:00Z",
+              "storedAt": "2026-11-18T12:00:00Z",
+              "stateAfter": "CLAIMED_NOT_SENT"
+            },
+            {
+              "eventKey": "ENV:DEMO/ACQ-A/MERCHANT-A/ASYNC-TX-001/E#000000000002",
+              "deliveryClass": "CRITICAL_COMMITTED",
+              "event": {
+                "schemaVersion": 1,
+                "eventId": "ASYNC-AUTH-001:2",
+                "producerId": "PROC-CRITICAL",
+                "instanceId": "BOOT-001",
+                "actor": "PROCESSOR",
+                "capability": "A",
+                "version": "1",
+                "manifestVersion": "A-1",
+                "acquirerRef": "ACQ-A",
+                "merchantRef": "MERCHANT-A",
+                "terminalRef": "TERMINAL-A",
+                "transactionId": "ASYNC-TX-001",
+                "operationId": "ASYNC-AUTH-001",
+                "attemptId": "ASYNC-ATT-001",
+                "correlationId": "ASYNC-CORR-001",
+                "taskExecutionId": "CRITICAL-2",
+                "taskName": "business-persist",
+                "status": "SUCCEEDED",
+                "occurredAt": "2026-11-18T12:00:01Z",
+                "producerSequence": 2,
+                "provenance": "OBSERVED",
+                "reason": "DISPATCH_INTENT_COMMITTED"
+              },
+              "eventSha256": "91d9c7c66e89da8dd64ae31be674fb49f07aa931f2296498b1457afb9f96040b",
+              "journalVersion": 2,
+              "sourceSequence": 2,
+              "committedAt": "2026-11-18T12:00:01Z",
+              "collectedAt": "2026-11-18T12:00:01Z",
+              "storedAt": "2026-11-18T12:00:01Z",
+              "stateAfter": "POSSIBLE_SEND"
+            }
+          ],
+          "coveredThrough": 2,
+          "expiredRanges": [],
+          "gapRanges": [],
+          "nextCursor": "DOC-CURSOR-H3-R1-LAST2",
+          "completeThroughSnapshot": false,
+          "retentionTruncated": false
+        },
+        {
+          "version": 1,
+          "transactionId": "ASYNC-TX-001",
+          "snapshotHead": 3,
+          "expiryRevision": 1,
+          "firstRetainedSequence": 1,
+          "events": [
+            {
+              "eventKey": "ENV:DEMO/ACQ-A/MERCHANT-A/ASYNC-TX-001/E#000000000003",
+              "deliveryClass": "CRITICAL_COMMITTED",
+              "event": {
+                "schemaVersion": 1,
+                "eventId": "ASYNC-AUTH-001:3",
+                "producerId": "PROC-CRITICAL",
+                "instanceId": "BOOT-001",
+                "actor": "PROCESSOR",
+                "capability": "A",
+                "version": "1",
+                "manifestVersion": "A-1",
+                "acquirerRef": "ACQ-A",
+                "merchantRef": "MERCHANT-A",
+                "terminalRef": "TERMINAL-A",
+                "transactionId": "ASYNC-TX-001",
+                "operationId": "ASYNC-AUTH-001",
+                "attemptId": "ASYNC-ATT-001",
+                "correlationId": "ASYNC-CORR-001",
+                "taskExecutionId": "CRITICAL-3",
+                "taskName": "business-persist",
+                "status": "SUCCEEDED",
+                "occurredAt": "2026-11-18T12:00:02Z",
+                "producerSequence": 3,
+                "provenance": "OBSERVED",
+                "reason": "ISSUER_APPROVED"
+              },
+              "eventSha256": "198a09ceedde4b37936939194d6a93fb131362d005461a2c9ddd4face4728b02",
+              "journalVersion": 3,
+              "sourceSequence": 3,
+              "committedAt": "2026-11-18T12:00:02Z",
+              "collectedAt": "2026-11-18T12:00:02Z",
+              "storedAt": "2026-11-18T12:00:02Z",
+              "stateAfter": "APPROVED"
+            }
+          ],
+          "coveredThrough": 3,
+          "expiredRanges": [],
+          "gapRanges": [],
+          "nextCursor": null,
+          "completeThroughSnapshot": true,
+          "retentionTruncated": false
+        }
+      ],
+      "cursorFixtureStatus": "shape only; no cryptographic cursor execution"
+    },
+    {
+      "id": "W08",
+      "name": "tampered-cursor",
+      "resetScope": "WS:tampered-cursor",
+      "given": "valid service scope but modified cursor",
+      "steps": [
+        "querymodifiedcursor"
+      ],
+      "expected": "HTTP400 safe INVALID_CURSOR, no data/payment post",
+      "automaticPaymentPosts": 0
+    },
+    {
+      "id": "W09",
+      "name": "foreign-business-context",
+      "resetScope": "WS:foreign-business-context",
+      "given": "DEMO-SERVICE only ACQ-A",
+      "steps": [
+        "subscribequeryACQ-B"
+      ],
+      "expected": "403, context not human identity, no foreign records",
+      "automaticPaymentPosts": 0
+    },
+    {
+      "id": "W10",
+      "name": "cursor-service-scope-mismatch",
+      "resetScope": "WS:cursor-service-scope-mismatch",
+      "given": "cursorboundDEMOACQ-A",
+      "steps": [
+        "reusecursor in other service/environment"
+      ],
+      "expected": "403 no original data, signature does not grant broader mandate",
+      "automaticPaymentPosts": 0
+    },
+    {
+      "id": "W11",
+      "name": "retention-truncated",
+      "resetScope": "WS:retention-truncated",
+      "given": "lastcovered0, events1,2 expired with metadata;3retained",
+      "steps": [
+        "reconnectqueryoldcursor",
+        "receive410",
+        "startsnapshotwithrange metadata"
+      ],
+      "expected": "explicit missing historical prefix; retained3 only; no full-history claim",
+      "automaticPaymentPosts": 0,
+      "httpStatus": 410,
+      "body": {
+        "version": 1,
+        "error": "RESYNC_REQUIRED",
+        "reason": "RETENTION_TRUNCATED",
+        "firstRetainedSequence": 3,
+        "lastSequence": 3,
+        "expiryRevision": 2,
+        "expiredRanges": [
+          [
+            1,
+            2
+          ]
+        ],
+        "retentionTruncated": true
+      }
+    },
+    {
+      "id": "W12",
+      "name": "unexplained-source-hole",
+      "resetScope": "WS:unexplained-source-hole",
+      "given": "HEAD3 but record2missing without expiry marker",
+      "steps": [
+        "queryH3 returns1,3"
+      ],
+      "expected": "gapRanges[[2,2]], completefalse, coveredThrough1 SOURCE_INTEGRITY_GAP; no skip",
+      "automaticPaymentPosts": 0
+    },
+    {
+      "id": "W13",
+      "name": "demo-expiry-or-service-revocation",
+      "resetScope": "WS:service-revocation",
+      "given": "connected technical subscription bound to demoJWT expiry and IAM service scope",
+      "steps": [
+        "JWT expires/renewal fails or backend service mandate revoked",
+        "next callback/query/sync validates binding"
+      ],
+      "expected": "deny/close, reauthentication requires new connection generation+catchup; no user CRUD or payment retry",
+      "automaticPaymentPosts": 0
+    },
+    {
+      "id": "W14",
+      "name": "notification-retry-only",
+      "resetScope": "WS:notification-retry-only",
+      "given": "source3 retained",
+      "steps": [
+        "callback3 accepted but notifiercrash",
+        "callback3retriedtwice"
+      ],
+      "expected": "threeframe deliveries dedup toone; journal/paymentcallsunchanged",
+      "automaticPaymentPosts": 0
+    },
+    {
+      "id": "W15",
+      "name": "Streams-expired-reconnect",
+      "resetScope": "WS:Streams-expired-reconnect",
+      "given": "sourceevent3age25h within7-day proposal",
+      "steps": [
+        "newgeneration subscribe",
+        "query retained same table"
+      ],
+      "expected": "record3 available without stream cursor or projection replay",
+      "automaticPaymentPosts": 0
+    },
+    {
+      "id": "W16",
+      "name": "offline-no-pending-backlog",
+      "resetScope": "WS:offline-no-pending-backlog",
+      "given": "browseroffline8days",
+      "steps": [
+        "notifierfindsno route",
+        "event expires normally",
+        "browser reconnects"
+      ],
+      "expected": "no durable perbrowserqueue; explicit retention truncation, business reference remains",
+      "automaticPaymentPosts": 0
+    },
+    {
+      "id": "W17",
+      "name": "critical-source-hard-capacity",
+      "resetScope": "WS:critical-source-hard-capacity",
+      "given": "criticalallocated99993 need8",
+      "steps": [
+        "newpayment requested explicitly"
+      ],
+      "expected": "H22 EVENT_CAPACITY withoutsend; eventstorecapacity not offlinebrowserbackpressure",
+      "automaticPaymentPosts": 0
+    },
+    {
+      "id": "W18",
+      "name": "task-pool-saturation",
+      "resetScope": "WS:task-pool-saturation",
+      "given": "best-effortretained20000, criticalreserveavailable",
+      "steps": [
+        "hooktaskappend cannotreserve taskslot",
+        "businesscriticaltransaction succeeds"
+      ],
+      "expected": "taskgap/drop, no sourceSequence allocation for failedtask, no financialblock",
+      "automaticPaymentPosts": 0
+    },
+    {
+      "id": "W19",
+      "name": "demo-JWT-unavailable-or-expired",
+      "resetScope": "WS:service-JWT-unavailable",
+      "given": "one configured DEMO-USER has no valid short-lived issuer JWT/renewal in relay",
+      "steps": [
+        "session expires or issuer authentication fails",
+        "block upstream submission/query and close socket"
+      ],
+      "expected": "401 UNAUTHENTICATED/session expired; upstream authorization accepted0, obtain fresh JWT via existing issuer; no hard-coded token, anonymous fallback, new user management or automatic POST",
+      "automaticPaymentPosts": 0
+    },
+    {
+      "id": "W20",
+      "name": "single-demo-token-secrecy",
+      "resetScope": "WS:no-browser-service-secrets",
+      "given": "presenter loopback relay, valid single-demo JWT held only server-side",
+      "steps": [
+        "serve HTML with opaque local session",
+        "proxy HTTPJWT and IAM+X-Demo-JWT upstreamWS"
+      ],
+      "expected": "no JWT/refresh/key in HTML/storage/URL/events; technical connection bound demoSubject+service, no multiuser subsystem",
+      "automaticPaymentPosts": 0
+    },
+    {
+      "id": "W21",
+      "name": "forged-demo-subject-field",
+      "resetScope": "WS:forged-user-field",
+      "given": "single configured demoJWT subject validated at connect; subscribe has no username/role/serviceIdentity",
+      "steps": [
+        "inject username=admin or forgeddemoSubject/serviceIdentity in subscribe"
+      ],
+      "expected": "400 undeclared field, never overrides validated demoSubject or creates a user",
+      "automaticPaymentPosts": 0
+    },
+    {
+      "id": "W22",
+      "name": "issuer-console-route-forbidden",
+      "resetScope": "WS:issuer-console-route-forbidden",
+      "given": "demo scope has no issuer diagnostics",
+      "steps": [
+        "queryissuertruth path"
+      ],
+      "expected": "404/no route, no processor confirmation from issuer table",
+      "automaticPaymentPosts": 0
+    },
+    {
+      "id": "W23",
+      "name": "cross-origin-local-relay",
+      "resetScope": "WS:cross-origin-local-relay",
+      "given": "Host/Origin outside exact loopback origin",
+      "steps": [
+        "foreignwebsite attemptsPOST orWS"
+      ],
+      "expected": "403 before upstream requests, no broad CORS or credentialdisclosure",
+      "automaticPaymentPosts": 0
+    },
+    {
+      "id": "W24",
+      "name": "event-write-versus-notifier-outage",
+      "resetScope": "WS:event-write-versus-notifier-outage",
+      "given": "requiredsameeventtableatomicwrite unavailable",
+      "steps": [
+        "attempt newbusinessclaim"
+      ],
+      "expected": "no businessclaim/event/send; contrast notifier-only outage allows H04; no silent dualwrite",
+      "automaticPaymentPosts": 0
+    },
+    {
+      "id": "W25",
+      "name": "single-demo-expiry-renewal-binding",
+      "resetScope": "WS:single-demo-expiry-renewal-binding",
+      "given": "same preprovisioned DEMO-USER and separate relay IAM identity, no multiuser management",
+      "steps": [
+        "initial validated JWT expires2026-11-19T12:15:00Z while technical lease would expire12:30:00Z",
+        "close upstreamWS/stop operations at12:15Z, never use expiredJWT",
+        "renew through existing issuer to token exp12:30Z",
+        "reconnect IAM+X-Demo-JWT, new GEN-002, subscribeack/catchup, ignore GEN-001"
+      ],
+      "expected": "connection expiry min(JWTexp,lease)=12:15Z; new binding same demoSubject/different generation, business identity not acquirerRef; no payment resubmission",
+      "automaticPaymentPosts": 0,
+      "claimFixtures": {
+        "status": "EXAMPLE CLAIMS ONLY, no real JWT/signature/network verification",
+        "initial": {
+          "iss": "https://issuer.example.invalid",
+          "aud": "existing-demo-api",
+          "sub": "DEMO-USER",
+          "iat": "2026-11-19T12:00:00Z",
+          "exp": "2026-11-19T12:15:00Z"
+        },
+        "renewed": {
+          "iss": "https://issuer.example.invalid",
+          "aud": "existing-demo-api",
+          "sub": "DEMO-USER",
+          "iat": "2026-11-19T12:15:00Z",
+          "exp": "2026-11-19T12:30:00Z"
+        }
+      },
+      "relayIAMPrincipal": "DEMO-RELAY-SERVICE",
+      "businessContext": {
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A"
+      },
+      "oldGeneration": "GEN-001",
+      "newGeneration": "GEN-002"
+    }
+  ],
+  "clock": "2026-11-18T12:00:00Z normal protocol session; explicit25h/8day cases use later times"
+}

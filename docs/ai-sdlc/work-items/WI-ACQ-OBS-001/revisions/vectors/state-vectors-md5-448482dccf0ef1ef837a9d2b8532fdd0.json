@@ -1,0 +1,160 @@
+{
+  "status": "PROPOSED SPECIFICATION; NOT EXECUTED",
+  "clock": "2026-11-18T12:00:00Z unless case states otherwise",
+  "cases": [
+    {
+      "id": "S01",
+      "name": "alias-acquirer-collision",
+      "given": "ACQ-B provisioning DE32=1 already maps ACQ-A",
+      "when": "conditional allocation",
+      "then": "reject collision; preserve ACQ-A; no activation/dispatch"
+    },
+    {
+      "id": "S02",
+      "name": "alias-merchant-collision",
+      "given": "MERCHANT-A2 in ACQ-A requests MERCHANT00000001",
+      "when": "provision",
+      "then": "reject inverse collision, no overwrite"
+    },
+    {
+      "id": "S03",
+      "name": "alias-terminal-collision",
+      "given": "TERMINAL-A2 same merchant requests TERM0001",
+      "when": "provision",
+      "then": "reject inverse collision"
+    },
+    {
+      "id": "S04",
+      "name": "long-reference",
+      "given": "acq/mid/term/pay each 128 ASCII characters; registered durable aliases",
+      "when": "adapt with aggregate <=999",
+      "then": "preserve all originals exactly; aliases reverse-resolve; 129 rejects without truncation"
+    },
+    {
+      "id": "S05",
+      "name": "stan-tenants",
+      "given": "AUTH-A and AUTH-B in distinct contexts use STAN 000001/RRN 000000000001",
+      "when": "receive both responses",
+      "then": "separate identities, OP-A cannot read B; never merge"
+    },
+    {
+      "id": "S06",
+      "name": "stan-wrap",
+      "given": "ACQ-A counter 999999 then 000000 with different aid/pay",
+      "when": "receive response for old operation",
+      "then": "match full aid/cid/gen not latest STAN; RRN collision does not merge"
+    },
+    {
+      "id": "S07",
+      "name": "restart-replay",
+      "given": "V01 claimed 2026-11-18T12:00:00Z; service restarted",
+      "when": "identical PAY-001 at 2026-11-19T11:59:59Z ATT-002",
+      "then": "same AUTH-001 generation 1; latest evidence; zero new dispatch"
+    },
+    {
+      "id": "S08",
+      "name": "expiry-generation",
+      "given": "same retained key unlinked at 2026-11-19T12:00:00Z",
+      "when": "submit valid new request",
+      "then": "generation 2 new aid allowed, original not cancelled"
+    },
+    {
+      "id": "S09",
+      "name": "linked-expiry",
+      "given": "prior AUTH-001 at 2026-11-19T12:00:01Z",
+      "when": "same key/data retry",
+      "then": "original generation 1 replay no dispatch; foreign/unknown prior rejects before local key lookup"
+    },
+    {
+      "id": "S10",
+      "name": "amount-conflict",
+      "given": "V01 original USD 10.00",
+      "when": "same key USD 11.00",
+      "then": "conflict, original unchanged no dispatch"
+    },
+    {
+      "id": "S11",
+      "name": "currency-conflict",
+      "given": "V01 original USD 10.00",
+      "when": "same key EUR 10.00",
+      "then": "non-USD validation rejection no dispatch; original unchanged"
+    },
+    {
+      "id": "S12",
+      "name": "fixture-conflict",
+      "given": "V01 fixture SIM-APP-001",
+      "when": "same key SIM-DEC-001",
+      "then": "conflict no dispatch; registry cannot reselect existing result"
+    },
+    {
+      "id": "S13",
+      "name": "admission-outage",
+      "given": "trace store down before durable trace admission",
+      "when": "valid new V01",
+      "then": "503 NOT_DISPATCHED, zero network invocation"
+    },
+    {
+      "id": "S14",
+      "name": "postdispatch-trace-outage",
+      "given": "V01 sent, V02 durable business evidence; trace append down",
+      "when": "form response",
+      "then": "APPROVED retained, PARTIAL trace, no retry/rollback; recover durable outbox only"
+    },
+    {
+      "id": "S15",
+      "name": "journal-outage",
+      "given": "V01 possibly sent; V02 received only in memory; business evidence write fails",
+      "when": "form response",
+      "then": "503 NOT_CONFIRMED; no trace-only authority; no redispatch; issuer diagnostic separate"
+    },
+    {
+      "id": "S16",
+      "name": "issuer-truth-only",
+      "given": "issuer approved but no processor receipt by 12:00:02Z",
+      "when": "read normal detail and separately permitted diagnostics",
+      "then": "processor UNKNOWN, diagnostics may show issuer approval; never promote table read"
+    },
+    {
+      "id": "S17",
+      "name": "events-reorder",
+      "given": "terminal event E2 arrives before start E1, distinct clocks",
+      "when": "replay E1 then duplicate E2",
+      "then": "two logical events, no false duration; exact E2 duplicate no-op; changed E2 quarantined"
+    },
+    {
+      "id": "S18",
+      "name": "retention-reconnect",
+      "given": "trace collected 2026-11-18T12:00:00Z expires 2026-11-25T12:00:00Z; business link retained",
+      "when": "poll expired cursor then linked retry",
+      "then": "410 authorized resync, trace unavailable gap; original retained; no second dispatch"
+    },
+    {
+      "id": "S19",
+      "name": "revocation",
+      "given": "OP-A read then registry revoked at 12:00:03Z",
+      "when": "next 1-second poll at 12:00:04Z",
+      "then": "deny, clear view; old cursor not authority; diagnostics requires independent permission"
+    },
+    {
+      "id": "S20",
+      "name": "replay-bound",
+      "given": "100 transactions/1000 retained events, 100 per page, active authorized reader",
+      "when": "recover at 12:00:10Z healthy stores",
+      "then": "finish by 12:00:20Z; >1000 or >1MiB returns resync, no silent skip; p95 collection-display <=2s/p99<=5s"
+    },
+    {
+      "id": "S21",
+      "name": "future-hook",
+      "given": "future capability implemented but missing manifest or common schema producer",
+      "when": "attempt activation",
+      "then": "activation rejected; auxiliary manifests need no ISO mapping, no B/C implementation commissioned"
+    },
+    {
+      "id": "S22",
+      "name": "sensitive-trace",
+      "given": "input contains PAN/DE2, DE55 or token in malformed data",
+      "when": "failure paths inspected",
+      "then": "reject unsupported inputs, only safe metadata persisted; no raw bytes/log/body or executable UI text"
+    }
+  ]
+}

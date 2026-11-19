@@ -1,0 +1,251 @@
+{
+  "status": "PROPOSED SPECIFICATION; NOT EXECUTED",
+  "clock": "2026-11-18T12:00:00Z unless case states otherwise",
+  "cases": [
+    {
+      "id": "S01",
+      "name": "alias-acquirer-collision",
+      "given": "ACQ-B provisioning DE32=1 already maps ACQ-A",
+      "when": "conditional allocation",
+      "then": "reject collision; preserve ACQ-A; no activation/dispatch"
+    },
+    {
+      "id": "S02",
+      "name": "alias-merchant-collision",
+      "given": "MERCHANT-A2 in ACQ-A requests MERCH0000000001",
+      "when": "provision",
+      "then": "reject inverse collision, no overwrite"
+    },
+    {
+      "id": "S03",
+      "name": "alias-terminal-collision",
+      "given": "TERMINAL-A2 same merchant requests TERM0001",
+      "when": "provision",
+      "then": "reject inverse collision"
+    },
+    {
+      "id": "S04",
+      "name": "long-reference",
+      "given": "acq/mid/term/pay each 128 ASCII characters; registered durable aliases",
+      "when": "structural pack/unpack <=999, then separately evaluate NEW exchange admission <=826",
+      "then": "Preserve full registered refs without truncation. <=826 may pass admission after all current new-work checks; 827\u2013999 structurally packable but ADMISSION_RESPONSE_CAPACITY before claim/send. 129-byte individual ref invalid. Linked retry reads original and never encodes/sends new instruction."
+    },
+    {
+      "id": "S05",
+      "name": "stan-tenants",
+      "given": "AUTH-A and AUTH-B in distinct contexts use STAN 000001/RRN 000000000001",
+      "when": "receive both responses",
+      "then": "separate identities, OP-A cannot read B; never merge"
+    },
+    {
+      "id": "S06",
+      "name": "stan-wrap",
+      "given": "ACQ-A counter 999999 then 000000 with different aid/pay",
+      "when": "receive response for old operation",
+      "then": "match full aid/cid/gen not latest STAN; RRN collision does not merge"
+    },
+    {
+      "id": "S07",
+      "name": "restart-replay",
+      "given": "V01 claimed 2026-11-18T12:00:00Z; service restarted",
+      "when": "identical PAY-001 at 2026-11-19T11:59:59Z ATT-002",
+      "then": "same AUTH-001 generation 1; latest evidence; zero new dispatch"
+    },
+    {
+      "id": "S08",
+      "name": "expiry-generation",
+      "given": "same retained key unlinked at 2026-11-19T12:00:00Z",
+      "when": "submit valid new request",
+      "then": "generation 2 new aid allowed, original not cancelled"
+    },
+    {
+      "id": "S09",
+      "name": "linked-expiry",
+      "given": "prior AUTH-001 at 2026-11-19T12:00:01Z",
+      "when": "same key/data retry",
+      "then": "original generation 1 replay no dispatch; foreign/unknown prior rejects before local key lookup"
+    },
+    {
+      "id": "S10",
+      "name": "amount-conflict",
+      "given": "V01 original USD 10.00",
+      "when": "same key USD 11.00",
+      "then": "conflict, original unchanged no dispatch"
+    },
+    {
+      "id": "S11",
+      "name": "currency-conflict",
+      "given": "V01 original USD 10.00",
+      "when": "same key EUR 10.00",
+      "then": "non-USD validation rejection no dispatch; original unchanged"
+    },
+    {
+      "id": "S12",
+      "name": "fixture-conflict",
+      "given": "V01 fixture SIM-APP-001",
+      "when": "same key SIM-DEC-001",
+      "then": "conflict no dispatch; registry cannot reselect existing result"
+    },
+    {
+      "id": "S13",
+      "name": "history-outage-before-send",
+      "given": "history/projector unavailable; authoritative journal+critical outbox healthy with 8 reserved slots",
+      "when": "valid new V01 and on-time V02",
+      "then": "atomic business/outbox claim and possible-send precede ONE invocation; commit verified outcome+outbox; HTTP200 APPROVED even though history absent, observation PARTIAL, no financial retry"
+    },
+    {
+      "id": "S14",
+      "name": "postdispatch-trace-outage",
+      "given": "V01 sent, V02 durable business evidence; trace append down",
+      "when": "form response",
+      "then": "APPROVED retained; critical event already atomic in business transaction, history lag PARTIAL; asynchronous replay projects only, no retry/rollback"
+    },
+    {
+      "id": "S15",
+      "name": "journal-outage",
+      "given": "V01 possibly sent; V02 in memory; atomic business evidence+critical outbox transaction fails",
+      "when": "form response",
+      "then": "503 NOT_CONFIRMED; no trace-only authority; no redispatch; issuer diagnostic separate"
+    },
+    {
+      "id": "S16",
+      "name": "issuer-truth-only",
+      "given": "issuer approved but no processor receipt by 12:00:02Z",
+      "when": "read normal detail and separately permitted diagnostics",
+      "then": "processor UNKNOWN, diagnostics may show issuer approval; never promote table read"
+    },
+    {
+      "id": "S17",
+      "name": "events-reorder",
+      "given": "terminal event E2 arrives before start E1, distinct clocks",
+      "when": "replay E1 then duplicate E2",
+      "then": "two logical events, no false duration; exact E2 duplicate no-op; changed E2 quarantined"
+    },
+    {
+      "id": "S18",
+      "name": "retention-reconnect",
+      "given": "trace collected 2026-11-18T12:00:00Z expires 2026-11-25T12:00:00Z; business link retained",
+      "when": "poll expired cursor then linked retry",
+      "then": "410 authorized resync, trace unavailable gap; original retained; no second dispatch"
+    },
+    {
+      "id": "S19",
+      "name": "revocation",
+      "given": "OP-A read then registry revoked at 12:00:03Z",
+      "when": "next 1-second poll at 12:00:04Z",
+      "then": "deny, clear view; old cursor not authority; diagnostics requires independent permission"
+    },
+    {
+      "id": "S20",
+      "name": "replay-bound",
+      "given": "100 transactions/1000 retained events, 100 per page, active authorized reader",
+      "when": "recover at 12:00:10Z healthy stores",
+      "then": "Proposed reconnect-to-ALREADY-PROJECTED1000-event watermark <=10s; old backlog age visible, source backlog drain separately measured. Proposed committed-to-project p95<=2s/p99<=5s and project-to-display p95<=2s/p99<=5s only under healthy measured load; sampling/drop coverage separate. No unconditional guarantee from Streams/CloudWatch."
+    },
+    {
+      "id": "S21",
+      "name": "future-hook",
+      "given": "future capability implemented but missing manifest or common schema producer",
+      "when": "attempt activation",
+      "then": "activation rejected; auxiliary manifests need no ISO mapping, no B/C implementation commissioned"
+    },
+    {
+      "id": "S22",
+      "name": "sensitive-trace",
+      "given": "input contains PAN/DE2, DE55 or token in malformed data",
+      "when": "failure paths inspected",
+      "then": "reject unsupported inputs, only safe metadata persisted; no raw bytes/log/body or executable UI text"
+    },
+    {
+      "id": "S23",
+      "name": "claim-outbox-crash-before-send",
+      "given": "2026-11-18T12:00:00Z atomic CLAIMED_NOT_SENT+critical outbox committed; crash before CAS",
+      "when": "12:00:01Z identical PAY-001 ATT-002 after restart",
+      "then": "HTTP503 null NOT_DISPATCHED RESERVED_UNSENT; original linked ATT-002; no resumed send. This is crash state, NOT a history-backend failure gate."
+    },
+    {
+      "id": "S24",
+      "name": "claim-restart",
+      "given": "durable CLAIMED_NOT_SENT with atomic critical event; crash before possible-send commit",
+      "when": "restart read/retry at 12:00:02Z",
+      "then": "same 503 null NOT_DISPATCHED; no dispatch; positive unsent proof is durable gate state"
+    },
+    {
+      "id": "S25",
+      "name": "claim-crash-before-CAS",
+      "given": "CLAIMED_NOT_SENT+critical event atomically committed, history may be down",
+      "when": "crash before atomic POSSIBLE_SEND+critical event then restart",
+      "then": "503 null NOT_DISPATCHED RESERVED_UNSENT; no invocation on restart; async history availability never prerequisite"
+    },
+    {
+      "id": "S26",
+      "name": "CAS-success-crash-before-send",
+      "given": "POSSIBLE_SEND+critical event atomically committed12:00:00Z; crash before actual invocation",
+      "when": "restart at 12:00:03Z",
+      "then": "202 NOT_CONFIRMED PENDING on retry; cannot claim NOT_DISPATCHED; no resumed invocation"
+    },
+    {
+      "id": "S27",
+      "name": "send-crash-before-evidence",
+      "given": "POSSIBLE_SEND invocation occurred then crash",
+      "when": "restart without durable reply",
+      "then": "202 NOT_CONFIRMED PENDING, no redispatch; deadline response UNKNOWN"
+    },
+    {
+      "id": "S28",
+      "name": "confirmed-before-async-project",
+      "given": "V02 business evidence+critical event committed atomically; projector has not run before crash",
+      "when": "restart/read authorized journal",
+      "then": "200 REPLAY APPROVED from journal, PARTIAL projected history, same original IDs, no send; pending event recovered from outbox"
+    },
+    {
+      "id": "S29",
+      "name": "unsent-window-boundary",
+      "given": "AUTH-001 CLAIMED_NOT_SENT firstReceipt 2026-11-18T12:00:00Z",
+      "when": "unlinked PAY-001 at 2026-11-19T12:00:00Z",
+      "then": "new generation 2 allowed after normal checks, explicit new-payment warning; old preserved. Prior AUTH-001 still 503 null NOT_DISPATCHED generation 1"
+    },
+    {
+      "id": "S30",
+      "name": "CAS-write-uncertain",
+      "given": "CAS transport fails and journal cannot be read",
+      "when": "form response then retry/restart",
+      "then": "503 null UNAVAILABLE serverFreshness UNKNOWN; no invocation; subsequent authoritative read determines state, never guess unsent"
+    },
+    {
+      "id": "S31",
+      "name": "registry-route-scenario-change",
+      "given": "original SIM-APP-001 DOMESTIC/PASS pinned; registry now INTERNATIONAL/decline; default risk changed",
+      "when": "same input omitting risk replay",
+      "then": "compare persisted PASS and exact fixture ID; stored result/original route unchanged, no decision rerun"
+    },
+    {
+      "id": "S32",
+      "name": "fixture-retired",
+      "given": "original fixture removed/disabled, current caller/context active",
+      "when": "identical retained key/prior retry",
+      "then": "stored result replays; fixture retirement does not reject replay; NEW unlinked generation rejects inactive fixture"
+    },
+    {
+      "id": "S33",
+      "name": "context-revoked-replay",
+      "given": "same stored APPROVED record but current context revoked",
+      "when": "identical retry or history",
+      "then": "403 no outcome disclosure even if exact stored key; original unchanged"
+    },
+    {
+      "id": "S34",
+      "name": "all-store-outage",
+      "given": "browser holds APPROVED asOf 12:00:01Z; server cannot read journal/traces at 12:00:05Z",
+      "when": "poll",
+      "then": "503 UNAVAILABLE null outcome/UNKNOWN observation and serverFreshness; browser retains marked stale snapshot, connection not inferred from server freshness"
+    },
+    {
+      "id": "S35",
+      "name": "late-handler-order",
+      "given": "signed issuer evidence received at 12:00:05Z after timeout, no prior processor evidence record",
+      "when": "P5 authenticate/load/bind then atomic evidence+business version+critical event commit then response; projection/telemetry later",
+      "then": "UNKNOWN becomes APPROVED only after atomic commit; required journal/outbox failure remains NOT_CONFIRMED; history/backend outage alone does not block or revert confirmation"
+    }
+  ]
+}
