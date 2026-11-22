@@ -1,0 +1,12 @@
+{
+  "qa": {
+    "fileId": "1ZDJhJVxI2JHPlYL9hibCOWIfi6956lK5",
+    "sha256": "198f9438007415923deac69924e0218aae9fc6739afdbf817f13a4c01ba3bb98",
+    "format": "connector-readable text, not raw-byte export"
+  },
+  "devops": {
+    "fileId": "15uACucwRZtuZZqyM3YOk2UVsKYc3kE_L",
+    "sha256": "fcc4731436faff0c6812174eee05ad67150649a001dbb35a1c2e0f4eaa5e970f",
+    "format": "connector-readable text, not raw-byte export"
+  }
+}

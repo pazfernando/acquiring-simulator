@@ -22,3 +22,9 @@ On 2026-11-18, the product record and complete work-item directory were first co
 Historical documents can still contain their original absolute paths, status at the time of writing and MD5 references. Those strings are historical evidence, not live file locations or current status. Resolve a historical path by replacing the old directory prefix with this repository's `docs/ai-sdlc/work-items/WI-ACQ-AUTH-001/`; do not rewrite sealed revisions or alter hashes to make them look current. Use current Git revisions and the latest owner decisions for new handoffs.
 
 No remote, publication, QA, Security sign-off or human acceptance is implied by this migration.
+
+### Remaining workspace artifacts (2026-11-22)
+
+- [Original simulator-specific agent pack and functional guide](sources/imports/agent-workspace/) are historical imports with their original bytes. The guide in that directory does not replace the current product-local guide or alter the reviewed baseline.
+- [Coordinator dispatch note for WI-ACQ-OBS-001](work-items/WI-ACQ-OBS-001/revisions/pending-dispatch-20261120.md) is a point-in-time record, not the current task list or a new approval.
+- [Project-bound OpenCode ACP preflight](tools/opencode-acp-preflight.py) is retained as a historical diagnostic. It was not executed during migration and is not the current setup procedure.
