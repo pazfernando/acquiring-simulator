@@ -102,3 +102,31 @@ Fernando authorized implementation according to the existing specifications. Ope
 Fernando also requested launching the demo on the PC at localhost and exercising it in that PC browser after implementation. Do not substitute an HTTP probe or another host for that browser verification. Keep service bound to loopback and record the actual URL and journey results.
 
 **Local browser verification completed:** The coordinator ran the demo on Fernando's PC in Brave at `http://localhost:8099/`. For synthetic purchase `PAY-DEMO-60f4bb28`, sign-in succeeded, the purchase was approved, the connected timeline displayed three recorded events, and the same approved outcome was reopened from history. [Relay verification evidence](evidence/presenter-live-20261122/timeline-verify-18100.json) is a separate local protocol check. The browser run used local demo identity; it did not verify Keycloak, independent QA or Security acceptance, or an AWS deployment.
+
+## T4 retention re-review — 2026-11-22
+
+Independent acquiring-domain re-review of the corrected retention delta (SHA-256 `d11ead64f0bd3928b4112b29c408eab1d3e0f9401b84a4580e3d4adb8b35fd76`) returned **PASS — bounded documentary correction only**. Evidence: [domain-review.md](reviews/retention-20261122/domain-review.md), SHA-256 `50fa88b49d3779a54ce43be4fa4e8283635967e7c1400df76afd5734f4cd6ecb`, verified on disk by the Coordinator.
+
+- Delta labeling CLOSED: U2 correctly follows approved R20/A07 as an adjustable 30-second simulator default and returns no timing decision to the owner.
+- Tombstone condition CLOSED as a documentary safeguard: authoritative evidence must remain, and compact evidence equivalence stays explicitly unproven.
+- No new business-semantic findings. One LOW documentary finding: four dated source-inventory entries have drifted; the reviewer recorded the exact differences and reconciliation rather than editing approved sources.
+- All four commissioned pins, the 17 manifest entries and the 10 correction-input pins verified.
+
+NV-05 remains OPEN overall: this PASS covers the bounded correction only. Destructive compaction, runtime behaviour, Security review, QA and acceptance remain unapproved, and U1 stays a genuine future business decision.
+
+## T2 Security re-review of access design rev2 — 2026-11-22
+
+Independent Security re-review of `design/access-realization/design-rev2.md` (SHA-256 `6b15161875e702ebae74e4f76b4b94cae9ffbbb94d6a9fcd42aee563b8f3873c`) and `compatibility-assessment-rev2.md` (SHA-256 `2f7cfe054aae7d908948288b6e67799aef7c864e1acaeb67c7444e63c432b930`) completed on the owner-selected model. Evidence: [security-review.md](reviews/access-design-rev2-20261122/security-review.md), SHA-256 `6d920849c4cd3b1980e784fad294492c1274c5b2d011a12b97bee6ce9c8bbedd`, verified on disk.
+
+**Verdict: BLOCKED for design readiness. 0 CRITICAL / 5 MAJOR / 5 MINOR.** No runtime vulnerability demonstrated; this is not a final implementation FAIL. All five review questions were answered and written incrementally. All three commissioned input hashes matched before the review and were unchanged afterwards. No previously blocking condition is fully closed, although several sub-conditions were resolved.
+
+Five MAJOR findings, each with a named owner:
+- **F1** — shared admission assumes an authenticated invoker identity it does not have; payload substitution could form a confused deputy. SourceArn conditions do not generally apply to direct IAM invoke, and network privacy is not established by the absence of a public URL. Needs per-producer function identity or an authenticated broker, plus topology, policy and spoof-denial cases (DevOps + Implementation).
+- **F2** — `ACL_AUTH` is assigned evidence-signing authority contrary to the verifier model; the row must be corrected to transport authentication only, with no ACL signing entitlement in any inventory (DevOps).
+- **F3** — no verified composition for diagnostic forwarding; bypassing the signed facade risks admitting unverified evidence. Needs verifier → immutable verified candidate → scoped admission, with proof that no signing, receipt or dispatch authority is gained (Implementation + DevOps).
+- **F9** — assertion replay and immediate not-before revocation rely on unstated enforcement points; client-side caches cannot reject direct token-endpoint replay and offline verification cannot observe policy change (DevOps + Implementation).
+- **F10** — Keycloak realm token-signing key custody, backup, rotation and JWKS overlap are missing, unlike client keys (DevOps).
+
+MINOR: F4 lease/cursor equality and stale O5 term; F5 understated payload maxima; F6 native scope-enforcement wording; F7 presenter relay combined-credential initiation; F8 state-only artifact claim.
+
+The review records that current Git binding, runtime/cloud/security tests and the actual provider/model identity were not independently verified by the reviewer. T2 remains open until corrected design and evidence are re-reviewed.

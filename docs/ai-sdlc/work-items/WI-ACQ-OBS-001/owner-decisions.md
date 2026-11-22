@@ -105,3 +105,11 @@ Owner: Fernando Paz, direct Coordinator conversation. Exact instruction: "si lo 
 Decision: late evidence is admitted **only through the internal path**. No public late-evidence endpoint is created. The approved rule in `observation-contract.md` ("Late evidence uses same internal admission; no public late endpoint/automatic financial recovery") therefore stands unchanged, and the DevOps proposal's scenario S5 public authenticated route must be withdrawn in its next revision.
 
 Consequences that remain mandatory: the simulated processor/issuer components that can deliver late evidence run inside the AWS account and reach admission through an internal invoke or private path; no internet client, relay or browser can submit late evidence; proof still requires the existing Ed25519 signature, sender binding and business-version correlation before it is admitted; admission remains atomic with the business and critical event; a late result never authorizes a resend, retry or reversal. Owner instruction does not authorize provisioning, deployment, a public route elsewhere, or relaxation of any verification rule.
+
+## Review execution model — Security re-review of access design rev2, 2026-11-22
+
+Owner: Fernando Paz. Exact instruction: "debe ir con gtp 6.1 sol y si falla como failback el de deepsek".
+
+Decision: the independent Security re-review of `design-rev2.md` and `compatibility-assessment-rev2.md` runs on **`openai/gpt-6.1-sol`**, the model on which the earlier successful Security review executed. Two prior attempts on the agent's resolved default (`nan/glm5.3-flash`) ended in provider LLM timeouts and wrote nothing. If the gpt-6.1-sol attempt fails, the Coordinator may retry once on `nan/deepseek-v4-flash` as the owner-approved fallback.
+
+Scope of this decision: execution model for this review only. It is an explicit owner-authorized model selection recorded because the standing rule forbids the Coordinator from substituting models on its own; it does not change any agent's configured default, does not authorize model changes for other reviews, and does not imply any security verdict. A review produced under the fallback must record which model executed it, and any difference in depth must be visible in the verdict.
