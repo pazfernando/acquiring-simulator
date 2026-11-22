@@ -4,7 +4,7 @@ Start with [current delivery status and traceability](work-items/WI-ACQ-OBS-001/
 
 # Current implementation update
 
-For the Operation A AWS path, read `work-items/WI-ACQ-AUTH-001/aws-architecture-update.md` and `../aws-operation-a.md`. Current upstream guide v0.5.2 and consolidated AWS mapping v0.3.0 are pinned under `sources/imports/2026-11-18/`. The original `sources/acquiring_simulator_functional_guide.md` remains the v0.5.1 approval baseline, not the latest source. Previous local approval hashes are historical evidence and are not rewritten. No new independent review/deployment approval is claimed.
+For the Operation A AWS path, read `work-items/WI-ACQ-AUTH-001/aws-architecture-update.md` and `../aws-operation-a.md`. The current working functional source is `sources/acquiring_simulator_functional_guide.md`, **version 0.5.3 — local merged draft dated 2026-11-19, publication pending**. Upstream guide v0.5.2 and consolidated AWS mapping v0.3.0 remain pinned as historical imports under `sources/imports/2026-11-18/`. Version 0.5.1 remains the baseline against which the Operation A requirements were drafted and independently reviewed; no independent review of 0.5.3 exists yet. Where 0.5.3 differs on Operation A semantics, the reviewed 0.5.1 baseline governs until the difference is reviewed. Previous local approval hashes are historical evidence and are not rewritten. No new independent review or deployment approval is claimed.
 
 # Product specification and decision record
 
