@@ -20,3 +20,23 @@ Prior literal: “La rama base es main y el url remoto luego yo lo pongo”. Bas
 ## Limits and next gates
 
 P01–P08 owner approval is not reviewer closure of F02/F04. Request fresh independent domain review of the pinned functional artifacts plus this owner decision. Stack selection is not blanket approval of SQLite storage, interface/state/concurrency implementation or security. Java/Spring-compatible architecture revision is prepared for human review. QA and Security remain without installed independent specialists; no verification/acceptance claim is made.
+
+## HD-07 — seven executable profile values CONFIRMED (2026-11-22)
+
+Owner: Fernando Paz, Human Product Lead. Literal message: “ok estoy de acuerdo con los 7 valores, continua”.
+
+Fernando confirms the seven executable values presented to him on 2026-11-22:
+
+1. Amount precision — at most two fractional digits, no rounding.
+2. Entry mode — `simulated-contact` or `simulated-contactless`.
+3. CVM indicator — `simulated-verified` or `simulated-not-required`.
+4. Cryptogram-present — required boolean, both values admissible, no cryptographic validation.
+5. Synthetic risk indicator — `pass` / `reject`, default `pass` when omitted; `reject` prevents dispatch.
+6. Credential ranges — `SIM-APP-000..999` approve, `SIM-DEC-000..999` decline, `SIM-TMO-000..999` timeout; exactly one permitted route per credential.
+7. Duplicate window — 24 h from first receipt, `[t0, t0+24h)`, inclusive start and exclusive end; an unlinked request after expiry is evaluated as new.
+
+**Mapping:** items 1–5 restate P02, item 6 restates P01, and item 7 restates P06; the duplicate-key data comparison in item 7 relies on P03. All were already approved by HD-04.
+
+**Status:** confirmation of existing approved policy, not a new decision. It creates no new rule, reopens nothing, and does not supersede HD-04. It supplies no approval of architecture, independent QA, Security review, retention/disclosure policy or release.
+
+**Provenance note:** the presentation that produced this confirmation was drafted from a stale copy of the requirements retained in the former shared agent workspace (revision r2), before those documents were migrated into this repository. The seven values coincide with the approved P groups; no document was reopened or renumbered as a result.
