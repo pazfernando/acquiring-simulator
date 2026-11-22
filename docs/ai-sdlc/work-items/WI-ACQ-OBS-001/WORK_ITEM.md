@@ -1,9 +1,24 @@
 # WI-ACQ-OBS-001 — Cross-cutting transaction console, traceability and channel ACL
 
 - Product: Acquiring Processor Simulator
-- Status: D1 profile/channel and asynchronous direction approved; latest single-source/WebSocket M1/M2/L1 specification corrections independently passed. Exposure and retention separately decision-ready, not approved; construction blocked.
+- Status: D1 profile/channel, asynchronous direction, single-demo JWT/screen-sharing exposure and seven-day history approved. Functional guide 0.5.3 and replacement sequence diagrams passed independent documentation review; the reviewed 0.5.3 and sequence exports were synchronized to Drive, then a documentation-only PNG-first local revision was produced and awaits Drive re-sync. Construction remains blocked pending architecture approval and technical preflight.
 - Human Product Lead: Fernando Paz
 - Date: 2026-11-18
+
+## Current Security review and follow-up — 2026-11-20
+
+The [current delivery status](delivery-status.md) and [completion plan](operation-a-completion-plan.md) supersede historical construction-blocked and specification-only labels below. Fernando authorized local completion of Operation A and selected the access/environment direction in the ADR; publication, credentials, remote execution and deployment remain separately gated.
+
+Independent reviewer: ai-sdlc-security, native OpenClaw/Codex, observed model gpt-6.1-sol, no override. Early design verdict: **BLOCKED by missing mandatory design evidence**, not a demonstrated runtime vulnerability. Final implementation Security verdict: **PENDING**. Report: [access-design review](reviews/access-design-20261120/security-review.md), SHA-256 `0d71ea007e56b12d9873df14126c22640c3abc68052b42db1f47b0a9688d218e`. Its six reviewed design hashes matched. No human risk acceptance or Security PASS is implied.
+
+Follow-up ownership:
+- DevOps run `03515333-84b0-42dd-b373-0a07b2db78b6` delivered the proposal in `design/access-realization/` ([design.md](design/access-realization/design.md), SHA-256 `83e4ea14b3959dcc6d8535aee0f0dd715783764e8922a72b6c0c3454a40829f4`; [configuration-schema.md](design/access-realization/configuration-schema.md), SHA-256 `1f497daade1a8429458e2cc40047adf326a97f2fb6636d583e1bf2e930bf1bb2`). Proposal only: private REST does not support native Gateway mTLS, so it recommends a Regional custom domain with mTLS on public authenticated ingress; WebSocket has a `$connect`-only authorizer and no documented native mTLS. No silent substitution of owner-selected mTLS/OAuth; seven marked decisions remain for owner or Security disposition.
+- Requirements run `819be151-6edb-4e96-812f-e7fcbc632744` drafts record-specific retention/expiry and no-resend clarification in `design/retention/`. It currently holds only a saved stub and source-identity evidence because the configured model reached a provider quota; retry is scheduled, and independent acquiring-domain review follows the exact revision.
+- Independent acquiring-domain review of the retention draft delivered: [domain-review.md](reviews/retention-20261121/domain-review.md), SHA-256 `dcdd04ac330491512b04906264760e47e7dce3c3506f78e76688ed209fc4d322`, verdict CONDITIONAL. It confirms the no-resend identity and ordering semantics, confirms R20/A07 fix the 30-second default so U2 needs documentary harmonization rather than an owner decision, and holds that event tombstones cannot replace authoritative business evidence. Requirements run `e6ee31a9-71f8-40d0-a182-4eb1c61a219d` applies those two corrections; NV-05 stays open.
+- Implementation compatibility pass delivered: [compatibility-assessment.md](design/access-realization/compatibility-assessment.md), SHA-256 `4886106c0afbf9ded1736ef3c0756c2bc8c738c58c61457faa0a635ecdd836ac`, with evidence manifest. The proposal is coherent but not implementable by configuration; four material items and one stale-contract item are recorded.
+- Owner resolved three follow-ups on 2026-11-20 evening: WebSocket transport assurance accepted without mTLS (notification-only), self-managed Keycloak as the `private_key_jwt` issuer, and late evidence confirmed internal only so no public route is created. See [owner-decisions.md](owner-decisions.md). DevOps run `60f419d9-b587-4724-90bb-fecf10a1a7a0` delivered the revision: [design-rev2.md](design/access-realization/design-rev2.md), SHA-256 `6b15161875e702ebae74e4f76b4b94cae9ffbbb94d6a9fcd42aee563b8f3873c`, with `evidence-rev2/`, v1 preserved byte-identical. It realizes the Keycloak hosting profile, the internal-only late path, the code-aligned role vocabulary and the corrected WebSocket lease, and states that the transport-context widening and the unwired atomic gateways remain open. No finding is claimed closed and no provisioning is authorized.
+- Implementation delivered the timeout-default correction: `evidence/t3-timeout-default-20261120/`, focused 45 tests, 0 failures, exit 0, atomic runtime still inactive. Its compatibility pass on the access proposal is run `4d8eba2f-e961-490a-9a54-17f7c042df65`; no other concurrent source writer is authorized.
+- Coordinator commissions independent Security design re-review after the exact missing artifacts are available. Changed contracts follow the human-approval/domain-review gates as applicable; no new architecture choice is approved by this assignment.
 
 ## Owner request and decisions
 
@@ -181,3 +196,64 @@ Connector recovered. Latest reviewed Mermaid rendered successfully via cached Me
 - activity-flow.md: MD5 2f8f752b6cad11c77f6f2136cc6c0914
 - activity-flow.mmd: MD5 8e83226e66f6ce401fe6526ed60b14b0
 - activity-flow.png: MD5 8637726a45cafe55a2a62f9725b935e1
+
+## Documentation consolidation — 2026-11-19 (in progress)
+Fernando requested cleanup of unused app Drive documents, sequence rather than activity diagrams, and functional-guide coverage separating Channel Test Interface from cross-cutting observability. Requirements followup 80c3efa3-1698-44f7-a393-6e76a7780fc2 admitted; completion and independent review pending. Drive guide 0.5.2 has additional section 13 absent from local 0.5.1; both baselines must be preserved and merged without losing the newer scenarios. Existing C1/C2 diagrams remain useful; activity exports will be superseded in place only after verification. No construction or new Git publication authorized by this documentation request.
+
+
+## Functional guide and sequence documentation handoff
+
+- Merged local guide and Drive 0.5.2 into candidate 0.5.3, retaining section 13 and adding section 14 Channel Test Interface and section 15 Cross-cutting Observability.
+- Produced sequence-flow and sequence-recovery Markdown/Mermaid/PNG. Mermaid CLI rendering succeeded after replacing note semicolons with commas; this is documentation rendering, not runtime QA.
+- Independent domain review requested: run f403e07c-531f-4652-8d34-1fe6eed8f475; format correction steered to that run. Acceptance is not review completion.
+- Independent review completed: PASS — documentation only, 0 findings. Review MD5 0ce3d9fc2f2eea5dcc2dc1cba9bcdb56. Coordinator read the report and verified exact guide and four sequence-source hashes against its post-format manifest. This is not construction approval or runtime QA.
+- Current-turn tool inventory exposes no Google Drive connector. Drive publication, in-place replacement and cleanup cannot be claimed complete. Preserve useful context/component diagrams; do not permanently delete files based only on age. Existing Drive activity exports are not yet replaced by sequence diagrams; no files were deleted.
+
+## Drive synchronization completed — 2026-11-19
+Explicit owner continuation: “hazlo”. Published exact independently reviewed guide (MD5 db00cd4ef3c57166b18f188b3db9fa8c) in place to Drive ID 1ARKf83xluDyWSyYDxZY2b0ZNTSkTG-Uu. Replaced and renamed activity exports in place as console-payment-sequence (.md/.mmd/.png), retaining IDs 1Tkk0ni2n2OB65WmWolRV7fJxoBVZc-4Z / 17e8yzxLZjfEAPX851i9bOrad2kOHm05o / 1nb1gbNagGAvSsfCTi7_JEsmceb0GbsUP. Added recovery sequence exports IDs 1w_biAuaVwJwRAva2-vjQu_br1VPqQbp2 / 1PaYQXZq6HO2FSMSTvclyJKvPov486N2K / 1b2zB6jw9JpRg7QUt1I2BViQzVaRUib-a. All provider writes succeeded; post-write inventory has no activity exports. C1/C2 retained as useful. No permanent deletions, Git operations, code or deployment. Local historical activity sources remain for provenance. Independent domain PASS remains documentation-only. Publication does not imply construction approval.
+
+## PNG-first documentation pass — 2026-11-19
+
+Documentation-only presentation change on `feat/wi-acq-auth-001`; no commit, push, PR, code or deployment. All current product Markdown now presents diagrams as a rendered PNG with the exact editable Mermaid source linked beside it. Historical evidence is exempt and unchanged: the 2026-11-18 import and the pre-existing tracked revision baselines still contain their original Mermaid blocks byte-for-byte.
+
+### Behavior preserved
+- Guide 0.5.3: after normalizing Mermaid blocks/image lines/blank-line runs, the body is text-identical to the pre-change 0.5.3 draft. Drive 0.5.2 sections 1–13 are unchanged; sections 14–15 remain only the previously reviewed additions.
+- The seven guide diagrams were extracted from the Drive 0.5.2 baseline into `docs/architecture/*.mmd`; each file equals its baseline Mermaid block plus one trailing newline. No diagram statement was edited.
+- `sequence-flow`, `sequence-recovery` and `activity-flow` Markdown keep their existing prose; only the embedded Mermaid block was replaced by the PNG and source link. Each `.mmd` is byte-equal to the previously reviewed block.
+- Local links and heading anchors resolve; no current product Markdown embeds a Mermaid block.
+
+### Render provenance (cached Mermaid CLI 11.12.0, headless Chrome)
+Each PNG was re-rendered from the exact `.mmd` and compared pixel-by-pixel with white background: all match exactly except `activity-flow.png`, which differs only in 223 anti-aliasing pixels (max channel delta 7/255) inside one label region; its source and tracked PNG hash are unchanged, so the tracked artifact was not rewritten.
+- `docs/architecture/*.png`: `mmdc -b white -w 2000`.
+- `docs/architecture/operation-a-aws.png`: `mmdc -b white -w 1800`.
+- `sequence-flow.png`, `sequence-recovery.png`: `mmdc -b white -w 2200`.
+- `activity-flow.png`: existing tracked render from earlier in the same day, verified against the unchanged `.mmd`.
+
+### Current local hashes (MD5)
+- Guide: b2587503824327ed39e1bbba16375a17 (the independently reviewed/published hash db00cd4ef3c57166b18f188b3db9fa8c predates this presentation-only pass, so Drive must be re-synced).
+- `sequence-flow.md` a216ce8b59b204b2fa852d404d63ebae; `sequence-flow.mmd` 689d6bad9a50af41246b4550c4e92d03; `sequence-flow.png` 6f08144e4f07d8e193ba911f2de54dba.
+- `sequence-recovery.md` cb3ece21a27cd59d05ca1f8792bf783f; `sequence-recovery.mmd` a64edb1e04653de3fce707a865b17fd3; `sequence-recovery.png` 6bab20c5a17e4e610c2babfcdec990c5.
+- `activity-flow.md` 3a9f505393f731ae014cdf56e2d7e97d; `activity-flow.mmd` 8e83226e66f6ce401fe6526ed60b14b0; `activity-flow.png` 8637726a45cafe55a2a62f9725b935e1.
+- `docs/aws-operation-a.md` 84bea5c34e00aabb5f89c08d3af28209.
+
+Observed runtime model for this pass: provider `nan`, model `deepseek-v4-flash` (DeepSeek V4 Flash); no override was applied. Rendering verification is documentation QA only, not architecture, Security, independent review, construction or runtime evidence.
+
+
+### PNG-first Drive synchronization — 2026-11-19
+
+- OpenCode completed presentation-only PNG-first verification across 31 current product Markdown files; historical evidence excluded and preserved. No commit or push.
+- Updated existing Drive guide and both sequence Markdown IDs in place. Uploaded seven guide PNG/source pairs to the existing architecture-diagrams folder. Asset IDs: `png-first-drive-assets.json`.
+- Drive-specific Markdown uses hosted image URLs and editable source links; local Markdown retains repository-relative links. Readback confirmed seven guide images and one image in each sequence, with no embedded Mermaid blocks. Other current root app Markdown files contain no Mermaid blocks.
+- Drive viewer image rendering not independently observed; content/links verified by connector readback. No domain semantics, approval or deployment changed.
+
+## Human architecture approval and preflight — 2026-11-19
+
+Fernando explicitly approved the architecture with agreed decisions and commissioned technical checks before implementation. Exact authority, bounded supersession and pinned candidate SHA-256 identities: owner-decisions.md, "Architecture approval and technical-preflight commission". Current phase: Architecture Approved / technical preflight partial — see `technical-preflight.md`. No implementation, deployment or new publication authorized by this instruction. Security remains unavailable (not a callable agent); QA is installed and available for its downstream independent-verification gate, which does not replace implementation-owned preflight.
+
+## Expanded local implementation authority and P1a delivery — 2026-11-20
+
+Owner authority preserved and expanded, not replaced: the 2026-11-19 architecture approval (Operation A, private SIM-ISO87A-v1 over HTTPS, single demo JWT principal + separate service IAM, presenter screen-share, one queryable DynamoDB event source with atomic business/critical-event persistence, asynchronous Streams/WebSocket notification + HTTP catch-up, asynchronous ADOT, seven-day functional history) still governs. Fernando subsequently authorized continuing the pending implementation locally ("ok continua con lo pendiente"), recorded in `implementation-progress.md` and relayed by the coordinator. Authorization covers local application code, Terraform/IaC and CI definitions on `feat/wi-acq-auth-001`; it does not cover push, PR, merge, deploy, cloud apply, new credentials or destructive changes.
+
+Current phase: architecture approved; Phase 0 preflight recovery complete; **P1 split and P1a delivered locally**. P1a implements the smallest coherent G5 subset from O1a/O2a — closed canonical payload, strict ingress, bounds/enums, sanitizer, RFC 8785 canonical hash, source wrapper, dedupe identity and versioned `A-1` manifest — with 42 new unit tests. The full local suite is 106/106. P1b (atomic EVENT store, `HEAD`, dedupe partition, slot accounting, OBS-20/21/22 core) remains open, as do G6/G7, Streams, WebSocket, query API, expiry, console, ADOT, Terraform and CI.
+
+Correction carried into this status: the DE42 historical root cause is **unproven**. Only the corrected probes are reproducible; the pre-correction probe source was not preserved. No approved document or fixture was changed. This entry records local implementation evidence only, not independent QA, Security review or human acceptance.

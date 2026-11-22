@@ -1,0 +1,54 @@
+[INFO] Scanning for projects...
+[INFO] Loaded 24559 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] 
+[INFO] ------------< com.acquiring.simulator:acquiring-simulator >-------------
+[INFO] Building acquiring-simulator 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ acquiring-simulator ---
+[INFO] Copying 4 resources from src/main/resources to target/classes
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ acquiring-simulator ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ acquiring-simulator ---
+[INFO] skip non existing resourceDirectory /home/pazfernando/projects/acquiring-simulator/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ acquiring-simulator ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ acquiring-simulator ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.acquiring.simulator.protocol.iso8583.Iso8583FieldReaderTest
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.229 s -- in com.acquiring.simulator.protocol.iso8583.Iso8583FieldReaderTest
+[INFO] Running com.acquiring.simulator.protocol.iso8583.Iso8583P4MatrixValidatorTest
+[INFO] Tests run: 62, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.456 s -- in com.acquiring.simulator.protocol.iso8583.Iso8583P4MatrixValidatorTest
+[INFO] Running com.acquiring.simulator.protocol.iso8583.Iso8583InstructionBindingCorpusTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 s -- in com.acquiring.simulator.protocol.iso8583.Iso8583InstructionBindingCorpusTest
+[INFO] Running com.acquiring.simulator.protocol.iso8583.Iso8583De48ResponseParserTest
+[INFO] Tests run: 74, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 s -- in com.acquiring.simulator.protocol.iso8583.Iso8583De48ResponseParserTest
+[INFO] Running com.acquiring.simulator.protocol.iso8583.Iso8583InstructionBindingValidatorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s -- in com.acquiring.simulator.protocol.iso8583.Iso8583InstructionBindingValidatorTest
+[INFO] Running com.acquiring.simulator.protocol.iso8583.Iso8583De48RequestParserTest
+[INFO] Tests run: 58, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 s -- in com.acquiring.simulator.protocol.iso8583.Iso8583De48RequestParserTest
+[INFO] Running com.acquiring.simulator.protocol.iso8583.Iso8583ScannerTest
+[INFO] Tests run: 94, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.141 s -- in com.acquiring.simulator.protocol.iso8583.Iso8583ScannerTest
+[INFO] Running com.acquiring.simulator.protocol.iso8583.Iso8583HeaderParserTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s -- in com.acquiring.simulator.protocol.iso8583.Iso8583HeaderParserTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 331, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.268 s
+[INFO] Finished at: 2026-11-20T14:56:17-05:00
+[INFO] ------------------------------------------------------------------------

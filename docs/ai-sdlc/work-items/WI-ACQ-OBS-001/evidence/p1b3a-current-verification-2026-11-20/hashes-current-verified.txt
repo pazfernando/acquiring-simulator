@@ -1,0 +1,17 @@
+PRE-RUN HASH SET VERIFICATION
+date: 2026-11-20T11:51:07-05:00
+covered set: src/** (98 files) + pom.xml + infra/** + scripts/** (101 total)
+vs p1b3a-2026-11-20/hashes-current.txt (93 files, src/main/java + src/test/java only):
+  - 93/93 previously hashed files: byte-identical (no diff lines for any previously hashed path)
+  - 5 additional files now included (previously unhashed):
+    4b44ffc590168381e0c5d8f4ee2fa7063c1f4b8d827ca0441c7f282802e6e5a5  src/main/resources/application-test.properties
+    5268d4a8dfe609e9c581cdfe6e70703cc2131bf37d536912db9c3560a8452cf4  src/main/resources/db/schema.sql
+    a06bdab03f74388038fc5746a86227deaa384f13f5f72d19a0a4236ebcfe1426  src/main/resources/application.properties
+    aff7c8bed7fba54137a521d7a409b8781122aa0ae8763632ca5efb091d29fc61  src/main/resources/application-prod.properties
+    eba5aaf4547cbfc40cd5abb38768bd54c96d1cadaaac45bf303f8e622f09cd3e  src/main/resources/application-local.properties
+  - 0 files removed, 0 files changed
+conclusion: hashes-current.txt is VERIFIED as a subset of the current tree; reused as pre-run freeze basis, and extended to resources + build inputs.
+pinned current digests:
+b9a2579f7fa8fa462cf0f327cf25cc18d4c608eb1bf205f43e8f68e079afeca2  src/main/java/com/acquiring/simulator/adapter/aws/PossibleSendCriticalComposer.java
+075eccc8d0483547e65a94e915cc7a35db0d2c8cc9c8997b5a6364d6ae4fa714  src/test/java/com/acquiring/simulator/aws/DynamoPossibleSendIntegrationTest.java
+b47fb547ab28628b78e4241986638b9379cc4263e1762218192264bb1bc7a93c  pom.xml

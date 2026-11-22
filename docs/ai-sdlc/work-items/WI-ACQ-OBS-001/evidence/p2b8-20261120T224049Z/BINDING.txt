@@ -1,0 +1,7 @@
+Repository: /home/pazfernando/projects/acquiring-simulator
+Branch: feat/wi-acq-auth-001
+HEAD: cfc456f4f469d9558a78fda8ff9b770b00817315
+Origin: https://github.com/pazfernando/acquiring-simulator.git
+Model: nan/deepseek-v4-flash (configured default, no override)
+Toolchain: Temurin JDK 25.0.5; Maven 3.10.1 offline
+Runtime: AwsRuntime inactive; no deployment

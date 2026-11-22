@@ -1,0 +1,13 @@
+work_item: WI-ACQ-AUTH-001
+phase: p1b7a (recovery compile + integrity tests)
+date_utc: 2026-11-20T18:43:23Z
+repo: /home/pazfernando/projects/acquiring-simulator
+branch: feat/wi-acq-auth-001
+head: cfc456f4f469d9558a78fda8ff9b770b00817315
+incoming_head_expected: cfc456f4f469d9558a78fda8ff9b770b00817315
+model: provider nan / deepseek-v4-flash (no override)
+java_home: /home/pazfernando/.local/opt/jdk-25
+maven: /home/pazfernando/.local/opt/maven/bin/mvn
+runtime: inactive (no service start, no AWS calls)
+dirty_tracked: 9
+untracked: 74

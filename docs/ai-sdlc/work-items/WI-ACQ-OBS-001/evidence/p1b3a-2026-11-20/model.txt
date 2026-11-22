@@ -1,0 +1,6 @@
+model=navigation default provider=nan model=deepseek-v4-flash no override
+AI_AGENT=<set>
+OPENCODE_CLIENT=<set>
+OPENCODE_SESSION_ID=<set>
+OPENCODE=<set>
+OPENCODE_TERMINAL=<set>

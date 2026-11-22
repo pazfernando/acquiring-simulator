@@ -1,0 +1,6 @@
+mvn:
+Apache Maven 3.10.1 (3afd8084b5629f80b97750906a719879ed4cd283)
+Maven home: /home/pazfernando/.local/opt/maven
+Java version: 25.0.5, vendor: Eclipse Adoptium, runtime: /home/pazfernando/.local/opt/jdk-25
+Default locale: en_US, platform encoding: UTF-8, time zone: America/Bogota
+OS name: "linux", version: "7.0.0-43-generic", arch: "amd64", family: "unix"

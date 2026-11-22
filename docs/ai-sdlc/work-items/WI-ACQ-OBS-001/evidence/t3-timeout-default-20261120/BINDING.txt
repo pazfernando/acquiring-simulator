@@ -1,0 +1,7 @@
+repository=/home/pazfernando/projects/acquiring-simulator
+expected_head=cfc456f4f469d9558a78fda8ff9b770b00817315
+branch=feat/wi-acq-auth-001
+origin=https://github.com/pazfernando/acquiring-simulator.git
+model=provider nan / deepseek-v4-flash (OpenCode ACP default, no override)
+toolchain=JDK 25.0.5 Temurin, Maven 3.10.1, offline (-o)
+runtime=CLI only; no AWS call, no cloud, no deploy

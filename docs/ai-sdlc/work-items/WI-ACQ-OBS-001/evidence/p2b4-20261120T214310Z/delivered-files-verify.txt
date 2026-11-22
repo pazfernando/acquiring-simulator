@@ -1,0 +1,6 @@
+src/main/java/com/acquiring/simulator/channel/C4P6SignedFieldBinder.java: OK
+src/main/java/com/acquiring/simulator/channel/C4P6BindingDecision.java: OK
+src/main/java/com/acquiring/simulator/channel/C4P6BindingException.java: OK
+src/main/java/com/acquiring/simulator/channel/C4P6BindingViolation.java: OK
+src/test/java/com/acquiring/simulator/channel/C4P6SignedFieldBinderTest.java: OK
+DELIVERED_VERIFY_EXIT=0

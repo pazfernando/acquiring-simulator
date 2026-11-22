@@ -1,0 +1,4 @@
+4de407454a4b36aed62b260be52a8e5319502db444e0bb62026160779ebbfbc7  src/main/java/com/acquiring/simulator/protocol/iso8583/Iso8583De48Exception.java
+f59ac8b0144485fcd0a6ffad1a9a3b72a9d7954b235fef564b8d4c61b0f2e810  src/main/java/com/acquiring/simulator/protocol/iso8583/Iso8583De48Request.java
+f7afee5d4c1f007456474e367ded9dfc1543fe681c3381a82fd547e4c4777167  src/main/java/com/acquiring/simulator/protocol/iso8583/Iso8583De48RequestParser.java
+eef9245e539c9093185d99f1421010760c669cc7b979fefc4348d7032a752140  src/test/java/com/acquiring/simulator/protocol/iso8583/Iso8583De48RequestParserTest.java

@@ -1,0 +1,1 @@
+{"contractVersion":"1","operation":"A","correlationId":"CORR-IT-20261122-BAD","acquirerRef":"ACQ-SIM-01","merchantRef":"MID-SIM-01","terminalRef":"TERM-SIM-01","paymentRef":"PAY-IT-20261122-BAD","credentialFixtureRef":"NOT-REGISTERED-001","amount":"12.34","currency":"USD","entryMode":"simulated-contactless","cvm":"simulated-verified","cryptogramPresent":false}

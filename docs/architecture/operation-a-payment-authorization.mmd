@@ -1,0 +1,37 @@
+sequenceDiagram
+    autonumber
+    actor H as Cardholder
+    participant C as Merchant / Origination Channel
+    participant P as Multi-Acquirer Processor
+    participant A as Acquirer Profile & Merchant Rules
+    participant V as Shared Validation & Risk Controls
+    participant T as Transaction Record
+    participant N as Approved Network / Domestic Route
+    participant I as Card Issuer
+
+    H->>C: Initiate card purchase
+    C->>P: Payment Authorization Request
+    P->>A: Identify acquirer and eligible merchant
+    A-->>P: Acquirer context, merchant rules, available routes
+    P->>V: Validate request, credential, risk, duplicates
+    opt CNP authorization with EMV 3DS evidence
+        P->>V: Check 3DS result / ECI / authentication value
+    end
+    V-->>P: Accept / reject / additional handling
+    alt Rejected by processor controls
+        P->>T: Record processor decline
+        P-->>C: Payment Authorization Declined
+    else Ready for network authorization
+        P->>T: Register authorization and references
+        P->>N: Authorization Request (acquirer context)
+        N->>I: Forward Authorization Request
+        alt Issuer decision returned
+            I-->>N: Approved / Declined
+            N-->>P: Authorization Response
+            P->>T: Record final reported result
+            P-->>C: Payment Authorization Result
+        else Timeout or ambiguous network outcome
+            P->>T: Record unconfirmed outcome
+            P-->>C: Authorization Outcome Unknown
+        end
+    end

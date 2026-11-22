@@ -1,0 +1,10 @@
+# current hashes (must match P2b2a source-after for the three oracles and pom)
+495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md
+de02c533536dcb6e87e4c6e93357efb9efa60c085a59f6f63bbfbb8c0e1fe481  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/iso8583-profile.md
+544e933aeb8ae7e47ec0a54763b068fb38186302f14bc88a5b221684e8dd524b  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/carrier-vectors.json
+b47fb547ab28628b78e4241986638b9379cc4263e1762218192264bb1bc7a93c  pom.xml
+# P2b2a recorded hashes
+b47fb547ab28628b78e4241986638b9379cc4263e1762218192264bb1bc7a93c  pom.xml
+544e933aeb8ae7e47ec0a54763b068fb38186302f14bc88a5b221684e8dd524b  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/carrier-vectors.json
+495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md
+de02c533536dcb6e87e4c6e93357efb9efa60c085a59f6f63bbfbb8c0e1fe481  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/iso8583-profile.md

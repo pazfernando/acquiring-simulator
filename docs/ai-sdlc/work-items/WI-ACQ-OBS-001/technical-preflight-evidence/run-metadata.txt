@@ -1,0 +1,5 @@
+run_utc=2026-11-19T22:02:16Z
+cwd=/home/pazfernando/projects/acquiring-simulator/docs/ai-sdlc/work-items/WI-ACQ-OBS-001/technical-preflight-evidence
+branch=feat/wi-acq-auth-001
+head=cfc456f4f469d9558a78fda8ff9b770b00817315
+compile_classpath=/tmp/opencode/javaprobe-rerun-YZaZkW

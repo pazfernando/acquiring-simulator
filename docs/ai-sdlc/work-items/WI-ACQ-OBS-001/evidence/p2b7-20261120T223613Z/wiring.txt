@@ -1,0 +1,19 @@
+src/main/java/com/acquiring/simulator/adapter/aws/SignedEvidenceAdmissionService.java:54:public final class SignedEvidenceAdmissionService {
+src/main/java/com/acquiring/simulator/adapter/aws/SignedEvidenceAdmissionService.java:93:    public SignedEvidenceAdmissionService(SignedEvidenceReceiptGateway normalAdmission,
+src/test/java/com/acquiring/simulator/channel/SignedEvidenceAdmissionServiceIntegrationTest.java:18:import com.acquiring.simulator.adapter.aws.SignedEvidenceAdmissionService;
+src/test/java/com/acquiring/simulator/channel/SignedEvidenceAdmissionServiceIntegrationTest.java:98:class SignedEvidenceAdmissionServiceIntegrationTest {
+src/test/java/com/acquiring/simulator/channel/SignedEvidenceAdmissionServiceIntegrationTest.java:172:        SignedEvidenceAdmissionService service = service();
+src/test/java/com/acquiring/simulator/channel/SignedEvidenceAdmissionServiceIntegrationTest.java:175:        SignedEvidenceAdmissionService.Admission first = service.admit(
+src/test/java/com/acquiring/simulator/channel/SignedEvidenceAdmissionServiceIntegrationTest.java:178:        assertThat(first.route()).isEqualTo(SignedEvidenceAdmissionService.Route.LATE);
+src/test/java/com/acquiring/simulator/channel/SignedEvidenceAdmissionServiceIntegrationTest.java:204:        SignedEvidenceAdmissionService.Admission replay = service.admit(
+src/test/java/com/acquiring/simulator/channel/SignedEvidenceAdmissionServiceIntegrationTest.java:208:        assertThat(replay.route()).isEqualTo(SignedEvidenceAdmissionService.Route.LATE);
+src/test/java/com/acquiring/simulator/channel/SignedEvidenceAdmissionServiceIntegrationTest.java:224:        SignedEvidenceAdmissionService service = service();
+src/test/java/com/acquiring/simulator/channel/SignedEvidenceAdmissionServiceIntegrationTest.java:227:        SignedEvidenceAdmissionService.Admission admission = service.admit(
+src/test/java/com/acquiring/simulator/channel/SignedEvidenceAdmissionServiceIntegrationTest.java:230:        assertThat(admission.route()).isEqualTo(SignedEvidenceAdmissionService.Route.NORMAL);
+src/test/java/com/acquiring/simulator/channel/SignedEvidenceAdmissionServiceIntegrationTest.java:263:        SignedEvidenceAdmissionService service = service();
+src/test/java/com/acquiring/simulator/channel/SignedEvidenceAdmissionServiceIntegrationTest.java:273:        SignedEvidenceAdmissionService.Admission refused = service.admit(
+src/test/java/com/acquiring/simulator/channel/SignedEvidenceAdmissionServiceIntegrationTest.java:277:        assertThat(refused.route()).isEqualTo(SignedEvidenceAdmissionService.Route.LATE);
+src/test/java/com/acquiring/simulator/channel/SignedEvidenceAdmissionServiceIntegrationTest.java:290:        SignedEvidenceAdmissionService.Admission carriageRefused = service.admit(
+src/test/java/com/acquiring/simulator/channel/SignedEvidenceAdmissionServiceIntegrationTest.java:293:        assertThat(carriageRefused.route()).isEqualTo(SignedEvidenceAdmissionService.Route.NONE);
+src/test/java/com/acquiring/simulator/channel/SignedEvidenceAdmissionServiceIntegrationTest.java:315:    private SignedEvidenceAdmissionService service() {
+src/test/java/com/acquiring/simulator/channel/SignedEvidenceAdmissionServiceIntegrationTest.java:316:        return new SignedEvidenceAdmissionService(normalGateway(), lateGateway());

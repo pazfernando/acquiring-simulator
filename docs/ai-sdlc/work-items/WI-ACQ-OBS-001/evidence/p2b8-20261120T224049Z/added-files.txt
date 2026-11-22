@@ -1,0 +1,10 @@
+src/main/java/com/acquiring/simulator/channel/C4HttpCarriageBridge.java
+src/main/java/com/acquiring/simulator/channel/HttpApiV2RequestDecoder.java
+src/main/java/com/acquiring/simulator/channel/HttpApiV2Request.java
+src/main/java/com/acquiring/simulator/channel/HttpApiV2ResponseDecoder.java
+src/main/java/com/acquiring/simulator/channel/HttpApiV2ResponseEncoder.java
+src/main/java/com/acquiring/simulator/channel/HttpApiV2Response.java
+src/main/java/com/acquiring/simulator/channel/HttpApiV2TransportException.java
+src/main/java/com/acquiring/simulator/channel/HttpApiV2TransportViolation.java
+src/main/java/com/acquiring/simulator/channel/HttpApiV2Wire.java
+src/test/java/com/acquiring/simulator/channel/HttpApiV2InternalRouteTest.java

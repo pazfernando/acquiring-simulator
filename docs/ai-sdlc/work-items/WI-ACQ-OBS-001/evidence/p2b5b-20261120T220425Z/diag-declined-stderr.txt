@@ -1,0 +1,1 @@
+DIAG-DECLINED status=UNKNOWN detail=persisted original record is absent state=null

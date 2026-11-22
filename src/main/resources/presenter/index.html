@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; form-action 'none'; base-uri 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Pantalla web de la demo — Simulador de adquirencia</title>
+<link rel="stylesheet" href="app.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">AS</span>
+    <div class="brand-text">
+      <h1>Pantalla web de la demo</h1>
+      <p>Simulador de adquirencia · Operación A (autorización)</p>
+    </div>
+  </div>
+  <div class="topbar-status">
+    <span id="fixture-badge" class="badge badge-warn" hidden></span>
+    <span id="session-badge" class="badge" aria-live="polite">Sin sesión</span>
+    <button id="signout-button" type="button" class="button button-ghost" hidden>Cerrar sesión</button>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+  <p id="global-notice" class="notice notice-warn" role="status" hidden></p>
+
+  <!-- ============ Sesión (fixture local) ============ -->
+  <section id="login-section" class="card card-login" aria-labelledby="login-title">
+    <h2 id="login-title">Iniciar sesión de demostración</h2>
+    <p class="lede">
+      Esta consola se ejecuta solo en <strong>127.0.0.1</strong> y usa un
+      <strong>fixture local de identidad</strong> en lugar del emisor aprobado.
+      No emite tokens, no se conecta a esquemas reales y no debe usarse en producción.
+    </p>
+    <form id="login-form" novalidate>
+      <div class="field">
+        <label for="access-code">Código de acceso local</label>
+        <input id="access-code" name="access-code" type="password" autocomplete="off"
+               spellcheck="false" required minlength="16" aria-describedby="access-code-help">
+        <p id="access-code-help" class="help">Se configura en el relay; nunca sale del servidor ni se guarda en el navegador.</p>
+      </div>
+      <p id="login-error" class="form-error" role="alert" hidden></p>
+      <button id="login-button" type="submit" class="button button-primary">Entrar</button>
+    </form>
+  </section>
+
+  <!-- ============ Aplicación ============ -->
+  <div id="app" hidden>
+
+    <section id="context-section" class="card card-context" aria-labelledby="context-title">
+      <div class="card-heading">
+        <h2 id="context-title">Contexto sintético fijo</h2>
+        <span class="badge badge-neutral" id="identity-mode-badge" hidden></span>
+      </div>
+      <dl class="context-grid">
+        <div><dt>Ambiente</dt><dd id="ctx-environment">—</dd></div>
+        <div><dt>Adquirente</dt><dd id="ctx-acquirer">—</dd></div>
+        <div><dt>Comercio</dt><dd id="ctx-merchant">—</dd></div>
+        <div><dt>Terminal</dt><dd id="ctx-terminal">—</dd></div>
+        <div><dt>Moneda</dt><dd>USD</dd></div>
+        <div><dt>Sesión expira</dt><dd id="ctx-session-expiry">—</dd></div>
+      </dl>
+      <p class="help">
+        Estos valores los fija el relay. El navegador no puede elegir identidad, decisión,
+        ruta, generación, actor ni fallas; el formulario solo envía los campos C1 aprobados.
+      </p>
+    </section>
+
+    <div class="layout">
+      <div class="column">
+
+        <!-- ---- Formulario C1 cerrado ---- -->
+        <section id="form-section" class="card" aria-labelledby="form-title">
+          <div class="card-heading">
+            <h2 id="form-title">Nueva autorización (C1)</h2>
+            <span class="badge badge-neutral">Datos sintéticos</span>
+          </div>
+          <form id="purchase-form" novalidate>
+            <div class="field">
+              <label for="payment-ref">Referencia de pago <span class="req" aria-hidden="true">*</span></label>
+              <input id="payment-ref" name="paymentRef" type="text" required maxlength="128"
+                     autocomplete="off" spellcheck="false" inputmode="latin"
+                     pattern="[A-Za-z0-9._:-]+" aria-describedby="payment-ref-help">
+              <p id="payment-ref-help" class="help">1–128 caracteres del alfabeto permitido: A–Z a–z 0–9 . _ : -</p>
+            </div>
+
+            <div class="field">
+              <label for="correlation-id">Correlación de la solicitud <span class="req" aria-hidden="true">*</span></label>
+              <div class="input-row">
+                <input id="correlation-id" name="correlationId" type="text" required maxlength="64"
+                       autocomplete="off" spellcheck="false" pattern="[A-Za-z0-9._:-]+"
+                       aria-describedby="correlation-id-help">
+                <button id="correlation-generate" type="button" class="button button-ghost">Generar</button>
+              </div>
+              <p id="correlation-id-help" class="help">1–64 caracteres. Se repite solo si el usuario reenvía el mismo formulario de forma deliberada.</p>
+            </div>
+
+            <div class="field">
+              <label for="credential-ref">Referencia de credencial sintética <span class="req" aria-hidden="true">*</span></label>
+              <input id="credential-ref" name="credentialFixtureRef" type="text" required maxlength="64"
+                     autocomplete="off" spellcheck="false" pattern="[A-Za-z0-9._:-]+"
+                     aria-describedby="credential-ref-help">
+              <p id="credential-ref-help" class="help">Fixture registrado, p. ej. <code>SIM-APP-001</code> (prefijo más tres dígitos). Nunca un PAN, CVV, PIN ni criptograma real.</p>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="amount">Importe (USD) <span class="req" aria-hidden="true">*</span></label>
+                <input id="amount" name="amount" type="text" required inputmode="decimal"
+                       maxlength="7" placeholder="12.34" pattern="(0|[1-9][0-9]{0,3})\.[0-9]{2}"
+                       aria-describedby="amount-help">
+                <p id="amount-help" class="help">Formato 1.00–9999.99, exactamente dos decimales, sin ceros iniciales.</p>
+              </div>
+              <div class="field">
+                <label for="entry-mode">Modo de entrada <span class="req" aria-hidden="true">*</span></label>
+                <select id="entry-mode" name="entryMode" required>
+                  <option value="simulated-contact">Contacto simulado</option>
+                  <option value="simulated-contactless">Sin contacto simulado</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="cvm">Verificación del titular <span class="req" aria-hidden="true">*</span></label>
+                <select id="cvm" name="cvm" required>
+                  <option value="simulated-verified">Verificada (simulada)</option>
+                  <option value="simulated-not-required">No requerida (simulada)</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="risk">Indicador de riesgo</label>
+                <select id="risk" name="risk">
+                  <option value="">Por defecto (pass)</option>
+                  <option value="pass">pass</option>
+                  <option value="reject">reject</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="prior-authorization">Autorización previa (opcional)</label>
+              <input id="prior-authorization" name="priorAuthorizationId" type="text" maxlength="64"
+                     autocomplete="off" spellcheck="false" pattern="[A-Za-z0-9._:-]+"
+                     aria-describedby="prior-help">
+              <p id="prior-help" class="help">1–64 caracteres. Solo para un reintento/replay autorizado explícito.</p>
+            </div>
+
+            <div class="check-field">
+              <input id="cryptogram" name="cryptogramPresent" type="checkbox">
+              <label for="cryptogram">Criptograma presente (indicador sintético)</label>
+            </div>
+
+            <p id="form-error" class="form-error" role="alert" hidden></p>
+            <p id="form-warning" class="form-warning" role="status" hidden></p>
+
+            <div class="actions">
+              <button id="submit-button" type="submit" class="button button-primary">Enviar autorización</button>
+              <button id="new-operation-button" type="button" class="button button-ghost">Nueva operación</button>
+            </div>
+            <p class="help">
+              Un envío es una única invocación financiera. No hay reintento automático:
+              ante una respuesta incierta, use el historial para consultar; nunca reenvíe a ciegas.
+            </p>
+          </form>
+        </section>
+
+        <!-- ---- Resultado C3 ---- -->
+        <section id="result-section" class="card" aria-labelledby="result-title">
+          <div class="card-heading">
+            <h2 id="result-title">Resultado de la última observación</h2>
+            <span id="result-status-badge" class="badge badge-neutral">Sin enviar</span>
+          </div>
+          <p id="result-empty" class="empty">Aún no hay una respuesta del servidor.</p>
+
+          <div id="result-body" hidden>
+            <div class="outcome-line">
+              <strong id="result-outcome" class="outcome">—</strong>
+              <span id="result-disposition" class="badge badge-neutral">—</span>
+            </div>
+            <p id="result-caveat" class="notice notice-info" hidden></p>
+
+            <dl class="result-grid">
+              <div><dt>Autorización</dt><dd id="res-authorization" class="mono">—</dd></div>
+              <div><dt>Transacción</dt><dd id="res-transaction" class="mono">—</dd></div>
+              <div><dt>Intento</dt><dd id="res-attempt" class="mono">—</dd></div>
+              <div><dt>Correlación</dt><dd id="res-correlation" class="mono">—</dd></div>
+              <div><dt>Correlación original</dt><dd id="res-original-correlation" class="mono">—</dd></div>
+              <div><dt>Versión de negocio</dt><dd id="res-business-version" class="mono">—</dd></div>
+              <div><dt>Observación</dt><dd id="res-observation">—</dd></div>
+              <div><dt>Frescura del servidor</dt><dd id="res-freshness">—</dd></div>
+              <div><dt>Error</dt><dd id="res-error" class="mono">—</dd></div>
+              <div><dt>Evaluado a las</dt><dd id="res-asof">—</dd></div>
+              <div><dt>HTTP</dt><dd id="res-http" class="mono">—</dd></div>
+              <div><dt>Recibido por el navegador</dt><dd id="res-received">—</dd></div>
+            </dl>
+
+            <p class="help">
+              Un resultado aprobado o una interfaz en verde no prueban la finalidad del pago.
+              La autoridad vigente es la respuesta HTTP/JSON y el journal del servidor.
+            </p>
+          </div>
+        </section>
+
+        <!-- ---- Historial 7 días ---- -->
+        <section id="history-section" class="card" aria-labelledby="history-title">
+          <div class="card-heading">
+            <h2 id="history-title">Historial (ventana de 7 días)</h2>
+            <button id="history-refresh" type="button" class="button button-ghost">Actualizar</button>
+          </div>
+          <p class="help">
+            Lectura del mismo origen de eventos retenido. Un evento registrado no es prueba de
+            resultado financiero y la retención puede truncar rangos antiguos.
+          </p>
+          <p id="history-status" class="note" role="status"></p>
+          <div class="table-wrap">
+            <table class="data-table">
+              <caption class="sr-only">Transacciones de los últimos siete días</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Recibida</th>
+                  <th scope="col">Referencia de pago</th>
+                  <th scope="col">Importe</th>
+                  <th scope="col">Resultado</th>
+                  <th scope="col">Versión</th>
+                  <th scope="col">Frescura</th>
+                  <th scope="col"><span class="sr-only">Acciones</span></th>
+                </tr>
+              </thead>
+              <tbody id="history-rows">
+                <tr><td colspan="7" class="empty">Sin datos cargados.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="actions">
+            <button id="history-more" type="button" class="button button-ghost" hidden>Cargar más</button>
+          </div>
+
+          <div id="history-detail" class="detail" hidden>
+            <h3>Detalle de la transacción</h3>
+            <dl class="result-grid">
+              <div><dt>Autoridad</dt><dd id="det-authority" class="mono">—</dd></div>
+              <div><dt>Resultado del journal</dt><dd id="det-journal-outcome">—</dd></div>
+              <div><dt>Versión del journal</dt><dd id="det-journal-version" class="mono">—</dd></div>
+              <div><dt>Journal evaluado a las</dt><dd id="det-journal-asof">—</dd></div>
+              <div><dt>Última secuencia registrada</dt><dd id="det-last-recorded" class="mono">—</dd></div>
+              <div><dt>HEAD conocido</dt><dd id="det-known-head" class="mono">—</dd></div>
+              <div><dt>Cubierto hasta</dt><dd id="det-covered" class="mono">—</dd></div>
+              <div><dt>Retención truncada</dt><dd id="det-truncated">—</dd></div>
+            </dl>
+            <p id="det-ranges" class="note"></p>
+            <p id="det-authority-note" class="notice notice-info" hidden></p>
+            <div class="actions">
+              <button id="detail-follow" type="button" class="button button-ghost">Seguir en vivo</button>
+              <button id="detail-close" type="button" class="button button-ghost">Cerrar detalle</button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="column">
+        <!-- ---- Cronología en vivo ---- -->
+        <section id="timeline-section" class="card" aria-labelledby="timeline-title">
+          <div class="card-heading">
+            <h2 id="timeline-title">Cronología en vivo</h2>
+            <span id="live-badge" class="badge badge-neutral" aria-live="polite">Sin conexión</span>
+          </div>
+
+          <dl class="timeline-meta">
+            <div><dt>Transacción seguida</dt><dd id="live-transaction" class="mono">—</dd></div>
+            <div><dt>Generación</dt><dd id="live-generation" class="mono">—</dd></div>
+            <div><dt>HEAD de la instantánea</dt><dd id="live-snapshot-head" class="mono">—</dd></div>
+            <div><dt>Cubierto hasta</dt><dd id="live-covered" class="mono">—</dd></div>
+            <div><dt>Primera secuencia retenida</dt><dd id="live-first-retained" class="mono">—</dd></div>
+            <div><dt>Revisión de expiración</dt><dd id="live-expiry-revision" class="mono">—</dd></div>
+          </dl>
+
+          <p id="live-note" class="note" role="status"></p>
+          <p id="live-ranges" class="note"></p>
+          <p id="live-alert" class="notice notice-warn" role="alert" hidden></p>
+
+          <div class="actions">
+            <button id="resync-button" type="button" class="button button-ghost" hidden>Resincronizar desde la fuente retenida</button>
+            <button id="unsubscribe-button" type="button" class="button button-ghost" hidden>Dejar de seguir</button>
+          </div>
+
+          <ol id="timeline" class="timeline" aria-live="polite" aria-relevant="additions"></ol>
+          <p id="timeline-empty" class="empty">Los eventos registrados aparecerán aquí tras la confirmación de la suscripción.</p>
+        </section>
+
+        <!-- ---- Contadores de verificación ---- -->
+        <section id="counters-section" class="card" aria-labelledby="counters-title">
+          <div class="card-heading">
+            <h2 id="counters-title">Contadores de verificación</h2>
+          </div>
+          <p class="help">Sirven para demostrar que reconectar o recuperar no inicia un pago.</p>
+          <dl class="counters">
+            <div><dt>Envíos de pago (POST)</dt><dd id="counter-submissions">0</dd></div>
+            <div><dt>Consultas de recuperación</dt><dd id="counter-catchups">0</dd></div>
+            <div><dt>Reconexiones de transporte</dt><dd id="counter-reconnects">0</dd></div>
+            <div><dt>Eventos aplicados (WS/HTTP)</dt><dd id="counter-frames-applied">0</dd></div>
+            <div><dt>Frames duplicados</dt><dd id="counter-frames-duplicate">0</dd></div>
+            <div><dt>Frames descartados</dt><dd id="counter-frames-discarded">0</dd></div>
+            <div><dt>Consultas de historial</dt><dd id="counter-history">0</dd></div>
+          </dl>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <noscript>
+    <p class="notice notice-warn">Esta consola requiere JavaScript para mostrar la sesión, la cronología y el historial.</p>
+  </noscript>
+</main>
+
+<footer class="footer">
+  <p>
+    Demostración local en <code>127.0.0.1</code> · solo datos sintéticos · fixture de identidad local ·
+    sin conexión a esquemas reales · no es un entorno de producción.
+  </p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,2 @@
+origin	https://github.com/pazfernando/acquiring-simulator.git (fetch)
+origin	https://github.com/pazfernando/acquiring-simulator.git (push)

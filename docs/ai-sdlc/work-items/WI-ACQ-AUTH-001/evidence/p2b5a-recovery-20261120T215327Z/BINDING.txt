@@ -1,0 +1,16 @@
+Attempt: P2b5a bounded recovery (single scoped fix + one targeted test run)
+UTC started: 2026-11-20T21:53:27Z
+Model: DeepSeek V4 Flash (provider nan, model deepseek-v4-flash)
+Binding directory: /home/pazfernando/projects/acquiring-simulator
+Repository: acquiring-simulator
+Branch: feat/wi-acq-auth-001
+HEAD: cfc456f4f469d9558a78fda8ff9b770b00817315
+Configuration: default repository configuration, no profile override, no settings override
+Scope: EvidenceReceiptAtomicIntegrationTest only
+Not in scope: full suite, C4 regression, feature work, HTTP/service/runtime wiring,
+credentials, git writes, publication, cloud calls, deletions, specification changes,
+capacity defaults (O8 still PROPOSED, test capacity remains test-only)
+Prior attempt: docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/p2b5a-20261120T214745Z
+  targeted-run1 = 4 tests, 0 failures, 2 errors, exit 1
+  later "targeted" files were empty with no exit file -> incomplete, not green
+Toolchain: Java 25.0.5 (Temurin), Maven 3.10.1, Docker 29.1.3

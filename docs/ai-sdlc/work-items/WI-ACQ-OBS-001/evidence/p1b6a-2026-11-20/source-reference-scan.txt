@@ -1,0 +1,33 @@
+src/main/java/com/acquiring/simulator/domain/DeadlineDisposition.java:35:public record DeadlineDisposition(
+src/main/java/com/acquiring/simulator/domain/DeadlineDisposition.java:55:    public DeadlineDisposition {
+src/main/java/com/acquiring/simulator/domain/DeadlineDisposition.java:65:    public static DeadlineDisposition evaluate(
+src/main/java/com/acquiring/simulator/domain/DeadlineDisposition.java:86:                    new DeadlineDisposition(Phase.ALREADY_UNCERTAIN, Outcome.NOT_CONFIRMED,
+src/main/java/com/acquiring/simulator/domain/DeadlineDisposition.java:90:                    yield new DeadlineDisposition(Phase.NOT_DISPATCHED, Outcome.NOT_CONFIRMED,
+src/main/java/com/acquiring/simulator/domain/DeadlineDisposition.java:94:                yield new DeadlineDisposition(
+src/main/java/com/acquiring/simulator/domain/DeadlineDisposition.java:101:    private static DeadlineDisposition settled(
+src/main/java/com/acquiring/simulator/domain/DeadlineDisposition.java:103:        return new DeadlineDisposition(Phase.SETTLED, outcome, deadline, record.state());
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:31:class DeadlineDispositionTest {
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:39:        DeadlineDisposition disposition = evaluate(
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:42:        assertThat(disposition.phase()).isEqualTo(DeadlineDisposition.Phase.IN_FLIGHT);
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:51:        DeadlineDisposition disposition = evaluate(awaitingDispatched(), TIMEOUT);
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:53:        assertThat(disposition.phase()).isEqualTo(DeadlineDisposition.Phase.BOUNDARY_REACHED);
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:64:        DeadlineDisposition exact = evaluate(awaitingDispatched(), TIMEOUT);
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:65:        DeadlineDisposition after = evaluate(awaitingDispatched(), TIMEOUT.plusSeconds(30));
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:67:        assertThat(after.phase()).isEqualTo(DeadlineDisposition.Phase.BOUNDARY_REACHED);
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:75:        DeadlineDisposition exactlyAt = evaluate(settled(AuthorizationState.APPROVED), TIMEOUT);
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:76:        DeadlineDisposition longAfter = evaluate(settled(AuthorizationState.APPROVED),
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:79:        assertThat(exactlyAt.phase()).isEqualTo(DeadlineDisposition.Phase.SETTLED);
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:90:        DeadlineDisposition decline = evaluate(settled(AuthorizationState.DECLINED),
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:92:        DeadlineDisposition network = evaluate(settled(AuthorizationState.NETWORK_REJECTED),
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:105:        List<DeadlineDisposition> evaluations = List.of(
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:123:        DeadlineDisposition disposition = DeadlineDisposition.evaluate(
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:126:        assertThat(disposition.phase()).isEqualTo(DeadlineDisposition.Phase.NOT_DISPATCHED);
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:135:        DeadlineDisposition disposition = evaluate(record(AuthorizationState.NOT_CONFIRMED,
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:138:        assertThat(disposition.phase()).isEqualTo(DeadlineDisposition.Phase.ALREADY_UNCERTAIN);
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:147:        assertThatThrownBy(() -> DeadlineDisposition.evaluate(null, FIXED_NOW, TIMEOUT))
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:149:        assertThatThrownBy(() -> DeadlineDisposition.evaluate(awaitingDispatched(), null, TIMEOUT))
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:151:        assertThatThrownBy(() -> DeadlineDisposition.evaluate(awaitingDispatched(), FIXED_NOW, null))
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:153:        assertThatThrownBy(() -> DeadlineDisposition.evaluate(awaitingDispatched(), FIXED_NOW,
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:159:    private static DeadlineDisposition evaluate(
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:164:        return DeadlineDisposition.evaluate(record, clock.instant(), TIMEOUT);
+src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java:203:    private static void assertReadOnly(DeadlineDisposition disposition) {

@@ -1,0 +1,12 @@
+7f04956da8c38097acee623c62985a07de742980eea626eb8512626edab53bda  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/p1b6c-2026-11-20/binding.txt
+d1119f330a9d5bcde3fd4c50aaee68c577cd111b00a13b49e0a8a37b97d86a5e  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/p1b6c-2026-11-20/git-status-before.txt
+d1119f330a9d5bcde3fd4c50aaee68c577cd111b00a13b49e0a8a37b97d86a5e  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/p1b6c-2026-11-20/git-status-after.txt
+383d140afef49c01a5d224b76a98ad5a048603c92a80f5bb468a23fcfb0cd739  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/p1b6c-2026-11-20/hashes-pre.txt
+383d140afef49c01a5d224b76a98ad5a048603c92a80f5bb468a23fcfb0cd739  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/p1b6c-2026-11-20/hashes-post.txt
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/p1b6c-2026-11-20/hashes-diff.txt
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/p1b6c-2026-11-20/git-status-diff.txt
+9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/p1b6c-2026-11-20/test-compile.exit.txt
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/p1b6c-2026-11-20/test-compile.stdout.log
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/p1b6c-2026-11-20/test-compile.stderr.log
+cfcfc82c425934ffecc7619f588af026d56fd1301ca3437bc988bd8a67c323fa  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/p1b6c-2026-11-20/new-files.sha256.txt
+401b5c25bd064aada4e40080bcd20a146858d8fb8e72579fcdf7930b04a4e52e  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/p1b6c-2026-11-20/pending-command.txt

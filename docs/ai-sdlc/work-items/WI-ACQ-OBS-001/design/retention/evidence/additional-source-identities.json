@@ -1,0 +1,47 @@
+[
+  {
+    "path": "AGENTS.md",
+    "sha256": "80a7092c0bcf7cd2258c6fde89710f1d952e6c2984b0e2728f077ddc694133b8",
+    "lines": 9
+  },
+  {
+    "path": "docs/ai-sdlc/README.md",
+    "sha256": "127d74c552ba84e61961430beeb4e45d63eca6377cd610d0b7abec316c707ded",
+    "lines": 24
+  },
+  {
+    "path": "docs/ai-sdlc/PROJECT.md",
+    "sha256": "8584a2ed39a3ac548f303bf41bceb8e5e9df3fd3ec678289bdb128560643710e",
+    "lines": 28
+  },
+  {
+    "path": "docs/ai-sdlc/sources/acquiring_simulator_functional_guide.md",
+    "sha256": "90a798c7e2a1de362993cb4974d306497d7de3567c163a3511c07b194a5ae094",
+    "lines": 431
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/WORK_ITEM.md",
+    "sha256": "5bee8dae6cf31374249182633dd87a62ecac7db40393bbaacb3d7b54b0fbb3dc",
+    "lines": 258
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/iso8583-profile.md",
+    "sha256": "de02c533536dcb6e87e4c6e93357efb9efa60c085a59f6f63bbfbb8c0e1fe481",
+    "lines": 110
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t3-timeout-default-20261120/RESULTS.md",
+    "sha256": "78ede5b49628658fe8e3b4c0fd22056f3473f524849eba52d270e75ce2e2b194",
+    "lines": 105
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t3-timeout-default-20261120/MANIFEST.md",
+    "sha256": "a0d2ab884e270895063c698813530bbf52c0a052259ae5bb63d0b63860cf762d",
+    "lines": 40
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t3-timeout-default-20261120/PROGRESS.md",
+    "sha256": "fe9d90c446f9f95c0632890a5c2538309570978442f14b8f6e6cf68f1f8aa64f",
+    "lines": 24
+  }
+]

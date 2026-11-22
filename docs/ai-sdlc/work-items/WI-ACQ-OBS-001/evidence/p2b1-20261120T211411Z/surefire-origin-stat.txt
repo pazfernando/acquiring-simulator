@@ -1,0 +1,2 @@
+2026-11-20 16:10:54.129998532 -0500\t353\ttarget/surefire-reports/com.acquiring.simulator.channel.C4CarrierParserTest.txt
+2026-11-20 16:10:54.156000125 -0500\t33310\ttarget/surefire-reports/TEST-com.acquiring.simulator.channel.C4CarrierParserTest.xml

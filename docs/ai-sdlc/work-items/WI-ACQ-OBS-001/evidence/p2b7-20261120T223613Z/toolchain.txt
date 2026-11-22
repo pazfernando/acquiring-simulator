@@ -1,0 +1,8 @@
+JDK:
+openjdk version "25.0.5" 2026-10-20 LTS
+OpenJDK Runtime Environment Temurin-25.0.5+8 (build 25.0.5+8-LTS)
+OpenJDK 64-Bit Server VM Temurin-25.0.5+8 (build 25.0.5+8-LTS, mixed mode, sharing)
+Maven:
+Apache Maven 3.10.1 (3afd8084b5629f80b97750906a719879ed4cd283)
+Maven home: /home/pazfernando/.local/opt/maven
+Java version: 25.0.5, vendor: Eclipse Adoptium, runtime: /home/pazfernando/.local/opt/jdk-25

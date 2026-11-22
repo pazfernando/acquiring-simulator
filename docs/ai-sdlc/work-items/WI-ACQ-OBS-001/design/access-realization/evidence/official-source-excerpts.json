@@ -1,0 +1,275 @@
+{
+  "note": "Read-only public documentation fetched by ai-sdlc-devops on 2026-11-20/21 UTC. Excerpts, not snapshots; truncation recorded. No documentation example was executed; no cloud API was called.",
+  "reviewer_artifact": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design.md",
+  "sources": [
+    {
+      "id": "AWS-REST-MTLS",
+      "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mutual-tls.html",
+      "status": 200,
+      "fetchedAt": "2026-11-20T23:58:18.726Z",
+      "truncated": false,
+      "excerpts": [
+        "Mutual TLS authentication requires two-way authentication between the client and the server.",
+        "By default, clients can invoke your API by using the execute-api endpoint that API Gateway generates for your API. To ensure that clients can access your API only by using a custom domain name with mutual TLS, disable the default execute-api endpoint.",
+        "To enable mutual TLS for a REST API, you must configure a custom domain name for your API.",
+        "Note: Mutual TLS isn't supported for private APIs.",
+        "API Gateway doesn't verify if a certificate has been revoked.",
+        "API Gateway forwards the certificates that clients provide to Lambda authorizers and to backend integrations."
+      ],
+      "usedFor": ["design §6 S3", "design §7", "design §5 revocation"]
+    },
+    {
+      "id": "AWS-HTTP-MTLS",
+      "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mutual-tls.html",
+      "status": 200,
+      "fetchedAt": "2026-11-20T23:58:19.050Z",
+      "truncated": false,
+      "excerpts": [
+        "To configure mutual TLS you need: A custom domain name, at least one certificate configured in AWS Certificate Manager, a truststore configured and uploaded to Amazon S3.",
+        "Note: Mutual TLS isn't supported for private APIs.",
+        "API Gateway doesn't verify if a certificate has been revoked."
+      ],
+      "usedFor": ["design §6 S2", "design §7"]
+    },
+    {
+      "id": "AWS-PRIVATE-APIS",
+      "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-private-apis.html",
+      "status": 200,
+      "fetchedAt": "2026-11-20T23:57:17.568Z",
+      "truncated": false,
+      "excerpts": [
+        "A private API is a REST API that is only callable from within an Amazon VPC.",
+        "Only REST APIs are supported.",
+        "Private APIs only support TLS 1.2.",
+        "Add aws:SourceVpc or aws:SourceVpce conditions to your API's resource policy to restrict access."
+      ],
+      "usedFor": ["design §7.1", "design §6 exposure labels"]
+    },
+    {
+      "id": "AWS-WS-CUSTOM-DOMAIN",
+      "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-custom-domain-names.html",
+      "status": 200,
+      "fetchedAt": "2026-11-20T23:57:58.371Z",
+      "truncated": false,
+      "excerpts": [
+        "If you map a custom domain name to a WebSocket API, you can't map it to a REST API or an HTTP API.",
+        "Only Regional custom domain names are supported.",
+        "For the minimum TLS version, only TLS 1.2 is supported."
+      ],
+      "usedFor": ["design §8 — page contains no mTLS option"],
+      "interpretationLimit": "Absence of an mTLS option on this page is not by itself proof of non-support; recorded as undocumented."
+    },
+    {
+      "id": "AWS-WS-LAMBDA-AUTH",
+      "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-lambda-auth.html",
+      "status": 200,
+      "fetchedAt": "2026-11-20T23:57:17.876Z",
+      "truncated": false,
+      "excerpts": [
+        "You can only use a Lambda authorizer function for the $connect route.",
+        "Changing authorizer in $connect doesn't affect the already connected client."
+      ],
+      "usedFor": ["design §8 per-frame revalidation requirement"]
+    },
+    {
+      "id": "AWS-HTTP-JWT-AUTHORIZER",
+      "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-jwt-authorizer.html",
+      "status": 200,
+      "fetchedAt": "2026-11-20T23:57:16.301Z",
+      "truncated": false,
+      "excerpts": [
+        "There is no standard mechanism to differentiate JWT access tokens from other types of JWTs, such as OpenID Connect ID tokens.",
+        "Currently, only RSA-based algorithms are supported.",
+        "API Gateway caches the public key for up to two hours on a best-effort basis.",
+        "aud or client_id – Must match one of the audience entries that is configured for the authorizer.",
+        "scope or scp – The token must include at least one of the scopes in the route's authorizationScopes."
+      ],
+      "usedFor": ["design §3.3 RSA constraint", "design §4.2", "design §5 rotation overlap"]
+    },
+    {
+      "id": "AWS-HTTP-LAMBDA-AUTHORIZER",
+      "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html",
+      "status": 200,
+      "fetchedAt": "2026-11-21T00:05:30.852Z",
+      "truncated": false,
+      "excerpts": [
+        "requestContext.authentication.clientCert { clientCertPem, subjectDN, issuerDN, serialNumber, validity }",
+        "You can enable caching for a Lambda authorizer by specifying an authorizerResultTtlInSeconds. When caching is enabled for an authorizer, API Gateway uses the authorizer's identity sources as the cache key.",
+        "Identity sources: header value, query string value, context variable, stage variable."
+      ],
+      "usedFor": ["design §4.2 authorizer caching", "design §5 fingerprint source"]
+    },
+    {
+      "id": "AWS-CONTEXT-VARIABLES",
+      "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html",
+      "status": 200,
+      "fetchedAt": "2026-11-21T00:05:04.050Z",
+      "truncated": false,
+      "excerpts": [
+        "$context.identity.clientCert.clientCertPem — The PEM-encoded client certificate that the client presented during mutual TLS authentication. Present when a client accesses an API by using a custom domain name that has mutual TLS enabled.",
+        "$context.identity.clientCert.serialNumber",
+        "$context.identity.clientCert.issuerDN",
+        "$context.identity.clientCert.validity.notAfter"
+      ],
+      "usedFor": ["design §5 trusted certificate context"]
+    },
+    {
+      "id": "AWS-V2-DOMAINNAMES-API",
+      "url": "https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/domainnames.html",
+      "status": 200,
+      "fetchedAt": "2026-11-20T23:57:49.535Z",
+      "truncated": false,
+      "excerpts": [
+        "CreateDomainNameInput: mutualTlsAuthentication (MutualTlsAuthenticationInput) — The mutual TLS authentication configuration for a custom domain name.",
+        "MutualTlsAuthentication: If specified, API Gateway performs two-way authentication between the client and the server."
+      ],
+      "usedFor": ["design §8"],
+      "interpretationLimit": "The shared v2 domain-name resource exposes the field, but no AWS page documents mTLS behaviour for WebSocket APIs. Treated as undocumented, not as support."
+    },
+    {
+      "id": "AWS-ALB-MTLS",
+      "url": "https://docs.aws.amazon.com/elasticloadbalancing/latest/application/mutual-authentication.html",
+      "status": 200,
+      "fetchedAt": "2026-11-21T00:03:37.330Z",
+      "truncated": false,
+      "excerpts": [
+        "Mutual TLS passthrough: The load balancer sends the entire client certificate chain to the target, without verifying it.",
+        "Mutual TLS verify: The load balancer performs X.509 client certificate authentication for clients.",
+        "The load balancer passes the client certificate information to the backend using HTTP headers.",
+        "Session resumption is not supported while using mutual TLS passthrough or verify modes."
+      ],
+      "usedFor": ["design §7.3 Option B"]
+    },
+    {
+      "id": "AWS-COGNITO-TOKEN",
+      "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/token-endpoint.html",
+      "status": 200,
+      "fetchedAt": "2026-11-21T00:04:18.663Z",
+      "truncated": true,
+      "truncatedAtChars": 20000,
+      "excerpts": [
+        "The token endpoint supports client_secret_basic and client_secret_post authentication."
+      ],
+      "usedFor": ["design §3.1 exclusion of Cognito"],
+      "interpretationLimit": "Only the retrieved portion is evidence; the quoted sentence is in that portion. Absence of private_key_jwt elsewhere in the page was not exhaustively proven, but the enumerated support list is explicit."
+    },
+    {
+      "id": "AUTH0-PRIVATE-KEY-JWT",
+      "url": "https://auth0.com/docs/get-started/authentication-and-authorization-flow/authenticate-with-private-key-jwt",
+      "status": 200,
+      "fetchedAt": "2026-11-21T00:04:02.881Z",
+      "truncated": false,
+      "excerpts": [
+        "iss: Your application's Client ID.",
+        "sub: Your application's Client ID.",
+        "aud: The URL of the Auth0 tenant or custom domain that receives the assertion.",
+        "The client assertion is a one-time use token, and we recommend the shortest possible expiry time. Auth0 supports a maximum of 5 minutes for the lifetime of a token.",
+        "jti: A unique claim ID created by the client.",
+        "The maximum length of the JWT assertion is 2048 bytes."
+      ],
+      "usedFor": ["design §3.1", "design §4.1"]
+    },
+    {
+      "id": "OKTA-CLIENT-AUTH",
+      "url": "https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth",
+      "status": 200,
+      "fetchedAt": "2026-11-21T00:04:02.639Z",
+      "truncated": false,
+      "excerpts": [
+        "private_key_jwt: Use this when you want maximum security. This method is more complex and requires a server, so it can't be used with public clients.",
+        "The private key that you use to sign the JWT must have the corresponding public key registered in the client's JWKSet.",
+        "If jti is specified, the token can only be used once.",
+        "The exp claim fails the request if the expiration time is more than one hour in the future or has already expired.",
+        "self_signed_tls_client_auth ... mTLS client authentication is a self-service Early Access (EA) feature.",
+        "The token's cnf claim contains an x5t#S256 member with the certificate's base64url-encoded SHA-256 thumbprint."
+      ],
+      "usedFor": ["design §3.1", "design §4.1", "design §5 cnf option"]
+    },
+    {
+      "id": "KEYCLOAK-SIGNED-JWT",
+      "url": "https://www.keycloak.org/securing-apps/authz-client",
+      "status": 200,
+      "fetchedAt": "2026-11-21T00:04:18.923Z",
+      "truncated": false,
+      "excerpts": [
+        "Client authentication with Signed JWT — This is based on the RFC7523 specification.",
+        "During authentication, the client generates a JWT token and signs it with its private key and sends it to Keycloak in the particular request in the client_assertion parameter.",
+        "Configure the JWKS URL where Keycloak can download the client's public keys."
+      ],
+      "usedFor": ["design §3.1 fallback option"]
+    },
+    {
+      "id": "GITHUB-OIDC-AWS",
+      "url": "https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-aws",
+      "status": 200,
+      "fetchedAt": "2026-11-20T23:58:19.247Z",
+      "truncated": false,
+      "excerpts": [
+        "For the provider URL: Use https://token.actions.githubusercontent.com",
+        "For the Audience: Use sts.amazonaws.com",
+        "token.actions.githubusercontent.com:sub: repo:octo-org/octo-repo:ref:refs/heads/octo-branch",
+        "If you use a workflow with an environment, the sub field must reference the environment name: repo:ORG-NAME/REPO-NAME:environment:ENVIRONMENT-NAME",
+        "For repositories created after July 15, 2026, or that have opted in to immutable subject claims, the sub claim includes immutable owner and repository IDs",
+        "The job or workflow run requires a permissions setting with id-token: write"
+      ],
+      "usedFor": ["configuration-schema §8", "design §15 item 2"]
+    },
+    {
+      "id": "TERRAFORM-S3-BACKEND",
+      "url": "https://developer.hashicorp.com/terraform/language/backend/s3",
+      "status": 200,
+      "fetchedAt": "2026-11-21T00:04:24.339Z",
+      "truncated": true,
+      "truncatedAtChars": 19847,
+      "excerpts": [
+        "This backend also supports state locking which can be enabled by setting the use_lockfile argument to true.",
+        "It is highly recommended that you enable Bucket Versioning on the S3 bucket to allow for state recovery.",
+        "Locking can be enabled via S3 or DynamoDB. However, DynamoDB-based locking is deprecated and will be removed in a future minor version.",
+        "If use_lockfile is set, s3:GetObject, s3:PutObject, and s3:DeleteObject are required on the lock file, e.g., arn:aws:s3:::mybucket/path/to/my/key.tflock."
+      ],
+      "usedFor": ["configuration-schema §6", "decision D-F"]
+    },
+    {
+      "id": "AWS-VPC-ENDPOINTS-CLAIM-WITHDRAWN",
+      "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/vpc-interface-endpoints.html",
+      "status": 200,
+      "fetchedAt": "2026-11-21T00:04:38.746Z",
+      "truncated": false,
+      "excerpts": [
+        "Final URL resolved to the API Gateway developer guide index; the intended page content was not retrieved."
+      ],
+      "usedFor": [],
+      "interpretationLimit": "No claim about WebSocket reachability through interface VPC endpoints is made. Recorded as an unresolved verification item."
+    }
+  ],
+  "searches": [
+    {
+      "tool": "web_search",
+      "provider": "duckduckgo",
+      "query": "API Gateway WebSocket API mutual TLS support",
+      "resultCount": 5,
+      "note": "Returned only REST/HTTP mTLS pages and an unrelated AWS what's-new about backend-integration mTLS; no WebSocket mTLS page exists in the returned set."
+    },
+    {
+      "tool": "web_search",
+      "provider": "duckduckgo",
+      "query": "private_key_jwt client authentication supported documentation Auth0 Okta Keycloak",
+      "resultCount": 5,
+      "note": "Located the Auth0 and Okta official pages used above."
+    },
+    {
+      "tool": "web_search",
+      "provider": "duckduckgo",
+      "query": "Keycloak client authentication signed JWT private key private_key_jwt documentation",
+      "resultCount": 5,
+      "note": "Located keycloak.org official pages."
+    },
+    {
+      "tool": "web_search",
+      "provider": "duckduckgo",
+      "query": "Amazon Cognito user pool app client token endpoint authentication method client_secret_basic client_secret_post only",
+      "resultCount": 5,
+      "note": "Located the Cognito token-endpoint page whose text supports the exclusion."
+    }
+  ]
+}

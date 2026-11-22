@@ -1,0 +1,1 @@
+mvn -o -Dtest=C4EvidenceVerifierTest,C4CarrierParserTest test

@@ -1,0 +1,11 @@
+JAVA_HOME=/home/pazfernando/.local/opt/jdk-25
+MVN=/home/pazfernando/.local/opt/maven/bin/mvn
+
+compile:
+  /home/pazfernando/.local/opt/maven/bin/mvn -o -DskipTests test-compile
+
+affected tests:
+  /home/pazfernando/.local/opt/maven/bin/mvn -o -Dtest=DynamoDispatchIntentGatewayIntegrationTest,DynamoPossibleSendIntegrationTest,EvidenceReceiptAtomicIntegrationTest,LateSignedEvidenceReceiptAtomicIntegrationTest,T3LocalApprovalRetryIntegrationTest -DfailIfNoTests=false test
+
+projection check:
+  java -cp target/classes /tmp/opencode/CheckCurrencyProjection.java

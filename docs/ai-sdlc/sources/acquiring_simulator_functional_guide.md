@@ -1,7 +1,7 @@
 # Acquiring Simulator — Functional Process Guide
 
-**Version:** 0.5.1  
-**Date:** 2026-11-16  
+**Version:** 0.5.3 (local merged draft; publication pending)  
+**Date:** 2026-11-19  
 **Status:** Working draft  
 **Documentation and diagram language:** English  
 **Conversation language:** Spanish  
@@ -10,12 +10,12 @@
 
 > **Purpose:** A living, business-first guide for simulating card-payment authorization, authorization reversal, and transaction status inquiry on behalf of multiple acquirers. The actors, business responsibilities, message families, conditional EMV 3-D Secure (3DS), EMV card-present security, authorization variants, and exception cases are defined here without selecting a cloud platform, microservice topology, database technology, or a mandatory external messaging protocol.
 
-## 1\. Business model and role boundaries
+## 1. Business model and role boundaries
 
 Our organization is an **Acquirer Processor**, providing technical transaction-processing services to **multiple acquiring institutions**. We are **not** the merchant's contracting acquirer, the card issuer, a card scheme, or necessarily a payment gateway. A payment gateway, POS, or merchant API can be a transaction origin.
 
 | Actor | Business role | Ownership / accountability |
-| :---- | :---- | :---- |
+| --- | --- | --- |
 | Cardholder | Initiates a card payment | Holds an issuer-provided card or tokenized credential. |
 | Merchant | Accepts the card | Has an acquiring relationship with an acquirer or authorized intermediary. |
 | Origination Channel | POS, payment gateway, merchant API, or other approved channel | Submits an operation on the merchant's behalf. For e-commerce, it may act as the 3DS Requestor or consume an authentication service. |
@@ -30,40 +30,23 @@ Our organization is an **Acquirer Processor**, providing technical transaction-p
 
 ### Identifier precision
 
-- **Issuing BIN / IIN:** a prefix of a card's PAN used to identify the issuer; six- and eight-digit issuing BINs can coexist. Do not assume that the acquirer owns the issuing BIN.  
-- **Acquirer Identifier:** a scheme-specific identifier for the acquiring institution, such as Visa's acquiring ID (separate from an issuer BIN). Mastercard and domestic infrastructure have their own membership and identification conventions.  
-- **Merchant ID (MID):** the identifier under which an acquiring relationship recognizes the merchant, with assignment and scope defined by the acquirer/processor arrangement.  
-- **Processor's internal Acquirer Reference:** our business identifier for the acquirer whose mandate is used for the operation. It is conceptually distinct from card/network identifiers.  
+- **Issuing BIN / IIN:** a prefix of a card's PAN used to identify the issuer; six- and eight-digit issuing BINs can coexist. Do not assume that the acquirer owns the issuing BIN.
+- **Acquirer Identifier:** a scheme-specific identifier for the acquiring institution, such as Visa's acquiring ID (separate from an issuer BIN). Mastercard and domestic infrastructure have their own membership and identification conventions.
+- **Merchant ID (MID):** the identifier under which an acquiring relationship recognizes the merchant, with assignment and scope defined by the acquirer/processor arrangement.
+- **Processor's internal Acquirer Reference:** our business identifier for the acquirer whose mandate is used for the operation. It is conceptually distinct from card/network identifiers.
 - **Routing rule:** a transaction must be associated with the correct acquirer and merchant context; the issuer/card product and market/network requirements then determine which available route is valid. Shared processing never implies sharing an acquirer's credentials with another acquirer.
 
 ### Ecosystem relationship diagram
 
-```mermaid
-flowchart TB
-    M1["Merchant A / Channels"]
-    M2["Merchant B / Channels"]
-    A1["Acquirer A"]
-    A2["Acquirer B"]
-    P["Multi-Acquirer Payment Processor"]
-    DS["Domestic Card Infrastructure"]
-    CN["International Card Network"]
-    I["Card Issuers"]
+![Ecosystem relationship diagram](../../architecture/ecosystem-relationships.png)
 
-    M1 -->|Payment operations for A| P
-    M2 -->|Payment operations for B| P
-    A1 -.->|Processing mandate and rules| P
-    A2 -.->|Processing mandate and rules| P
-    P -->|Domestic route when applicable| DS
-    P -->|Scheme route when applicable| CN
-    DS --> I
-    CN --> I
-```
+[PNG: Ecosystem relationship diagram](https://drive.google.com/file/d/10irfESjCTy6vgUKxJojTFxN26t0F1yYf/view)
 
-&nbsp;
+Editable diagram source: [`ecosystem-relationships.mmd`](../../architecture/ecosystem-relationships.mmd).
 
 The commercial relationship is not necessarily an extra real-time network hop. The acquirer can be represented by its authorized routing profile and contract rather than a synchronous call to its bank for every authorization.
 
-## 2\. Reference-market decision: Mexico, LATAM-portable design
+## 2. Reference-market decision: Mexico, LATAM-portable design
 
 **Proposal:** Use **Mexico** as the first market profile because it is a major Latin American card market with observable debit/credit usage, bank and nonbank acquirers, payment aggregators, and both domestic card infrastructures and international networks. It offers a realistic test of multi-acquirer and domestic-versus-international routing concepts.
 
@@ -73,12 +56,12 @@ Banco de México's report for 2025 shows approximately **12,118.9 million card o
 
 **Initial functional scenario (proposal):** Mexican domestic **debit-card purchase**, initiated by a **simulated POS**, routed through an allowed market/network path. **An additional simulated e-commerce (CNP) channel is necessary to exercise EMV 3DS; 3DS is not generally part of the physical chip/contactless POS purchase flow.** “Online authorization” means a real-time request to the issuer, not necessarily e-commerce. Do not choose ISO 8583 single-message vs dual-message or debit posting semantics until a specific card-scheme and route profile is selected.
 
-## 3\. ISO 8583 and ISO 20022 are both relevant
+## 3. ISO 8583 and ISO 20022 are both relevant
 
 It is inaccurate to say ISO 20022 cannot represent card authorization. **ISO 20022 includes a dedicated Cards domain**, not only bank-to-bank credit transfers. Its message families include:
 
 | Business interaction | ISO 8583 (common interface families, profile-dependent) | ISO 20022 Cards domain |
-| :---- | :---- | :---- |
+| --- | --- | --- |
 | Card authorization request / response | `0100 / 0110` are common authorization MTIs | `cain.001` AuthorisationInitiation; `cain.002` AuthorisationResponse (acquirer-to-issuer) |
 | Authorization reversal | `0400 / 0410` or `0420 / 0430`, as supported by the particular interface | `cain.005` ReversalInitiation; `cain.006` ReversalResponse |
 | Card acceptor / acquirer interaction | Channel/acquirer-specific profiles and APIs | `caaa` family, including acceptor authorization and cancellation messages |
@@ -88,7 +71,7 @@ It is inaccurate to say ISO 20022 cannot represent card authorization. **ISO 200
 
 ISO 8583 remains highly relevant for real-world card authorization interfaces, while ISO 20022 gives us a documented card business-message model worth evaluating. **Message existence in an ISO catalogue does not prove live network support in our target market.**
 
-## 4\. Cardholder Authentication — EMV 3-D Secure (conditional CNP subprocess)
+## 4. Cardholder Authentication — EMV 3-D Secure (conditional CNP subprocess)
 
 **Business objective:** In an eligible *card-not-present* (CNP) checkout, authenticate the cardholder or obtain the issuer's EMV 3DS authentication assessment **before submitting the financial authorization**. This is a **related authentication subprocess**, not a fourth financial-processing operation and not a replacement for the issuer authorization. A successful 3DS result does not guarantee an approved payment.
 
@@ -96,71 +79,29 @@ ISO 8583 remains highly relevant for real-world card authorization interfaces, w
 
 **Process participants:**
 
-- **Cardholder / Merchant Checkout:** starts the purchase and, if required, completes a challenge in a browser, SDK, or banking application.  
-- **3DS Requestor:** usually the merchant, payment gateway, or PSP that initiates cardholder authentication.  
-- **3DS Server:** exchanges the EMV 3DS authentication messages on behalf of the 3DS Requestor; may be outsourced or offered as an **optional** capability by our processor.  
-- **Directory Server (DS):** routes authentication messages within the relevant card scheme's 3DS domain.  
-- **Issuer Access Control Server (ACS):** issuer-side service that evaluates authentication risk and optionally challenges the cardholder.  
+- **Cardholder / Merchant Checkout:** starts the purchase and, if required, completes a challenge in a browser, SDK, or banking application.
+- **3DS Requestor:** usually the merchant, payment gateway, or PSP that initiates cardholder authentication.
+- **3DS Server:** exchanges the EMV 3DS authentication messages on behalf of the 3DS Requestor; may be outsourced or offered as an **optional** capability by our processor.
+- **Directory Server (DS):** routes authentication messages within the relevant card scheme's 3DS domain.
+- **Issuer Access Control Server (ACS):** issuer-side service that evaluates authentication risk and optionally challenges the cardholder.
 - **Our Acquirer Processor:** when acting as the authorization processor, receives and checks the required 3DS result information, associates it with the represented acquirer, and passes supported authentication indicators in the authorization request. It is **not automatically** the 3DS Server or ACS.
 
 **High-level business activities:**
 
-1. At CNP checkout, the merchant or its payment partner determines the applicable 3DS path and starts cardholder authentication when appropriate.  
-2. The 3DS Server sends an authentication request (**AReq**) via the scheme's DS to the issuer's ACS.  
-3. The ACS may finish **frictionlessly** with an authentication response (**ARes**) or request a **challenge**. A challenge can include OTP, bank-app confirmation, and other supported forms; the final result is delivered through the EMV 3DS result flow (**RReq/RRes**) when applicable.  
-4. The requestor receives the authentication outcome and associated evidence, potentially including an **Electronic Commerce Indicator (ECI)**, **authentication value** (e.g., Visa CAVV or Mastercard AAV/UCAF as applicable), **DS Transaction ID**, and protocol version. Scheme-specific field requirements govern whether each is present and how it is carried.  
-5. If the transaction is allowed to continue, the merchant/channel submits the **payment authorization** with the relevant authentication indicators; our processor validates them against the relevant acquirer/scheme profile and forwards them on the appropriate authorization network path.  
+1. At CNP checkout, the merchant or its payment partner determines the applicable 3DS path and starts cardholder authentication when appropriate.
+2. The 3DS Server sends an authentication request (**AReq**) via the scheme's DS to the issuer's ACS.
+3. The ACS may finish **frictionlessly** with an authentication response (**ARes**) or request a **challenge**. A challenge can include OTP, bank-app confirmation, and other supported forms; the final result is delivered through the EMV 3DS result flow (**RReq/RRes**) when applicable.
+4. The requestor receives the authentication outcome and associated evidence, potentially including an **Electronic Commerce Indicator (ECI)**, **authentication value** (e.g., Visa CAVV or Mastercard AAV/UCAF as applicable), **DS Transaction ID**, and protocol version. Scheme-specific field requirements govern whether each is present and how it is carried.
+5. If the transaction is allowed to continue, the merchant/channel submits the **payment authorization** with the relevant authentication indicators; our processor validates them against the relevant acquirer/scheme profile and forwards them on the appropriate authorization network path.
 6. The issuer independently returns its **payment authorization decision**. Authentication and authorization outcomes are retained as separate but correlated business evidence.
 
 ### 4.1 CNP Authentication and Authorization — default 3DS provider outside our processor
 
-```mermaid
-sequenceDiagram
-    autonumber
-    actor H as Cardholder
-    participant C as Merchant / Payment Gateway
-    participant S as 3DS Server
-    participant D as Scheme Directory Server
-    participant X as Issuer ACS
-    participant P as Multi-Acquirer Processor
-    participant N as Authorization Network
-    participant I as Issuer Authorization
+![CNP authentication and authorization with an external 3DS provider](../../architecture/cnp-3ds-authentication-authorization.png)
 
-    H->>C: Start e-commerce checkout
-    C->>S: Initiate EMV 3DS authentication
-    S->>D: Authentication Request (AReq)
-    D->>X: Route AReq
-    alt Frictionless authentication outcome
-        X-->>D: Authentication Response (ARes)
-        D-->>S: ARes with authentication outcome
-    else Cardholder challenge required
-        X-->>D: ARes — challenge required
-        D-->>S: ARes — challenge required
-        S-->>C: Challenge parameters
-        C->>X: Establish challenge interaction (CReq)
-        X-->>H: Present authentication challenge
-        H->>X: Complete cardholder verification
-        X-->>C: Challenge completion (CRes as applicable)
-        X->>D: Authentication Results Request (RReq)
-        D->>S: Forward RReq
-        S-->>D: Results Response (RRes)
-    end
-    S-->>C: 3DS outcome / evidence
-    alt Authentication policy permits authorization
-        C->>P: Payment Authorization with 3DS data
-        P->>P: Validate acquirer/scheme 3DS fields
-        P->>N: Authorization with authentication indicators
-        N->>I: Request financial authorization
-        I-->>N: Approved / Declined
-        N-->>P: Authorization result
-        P-->>C: Authorization result
-        C-->>H: Purchase outcome
-    else Authentication policy blocks continuation
-        C-->>H: Authentication failed / checkout stopped
-    end
-```
+[PNG: CNP authentication and authorization with an external 3DS provider](https://drive.google.com/file/d/1F2eluCgXH3rWtWIaI9mrB-_-LAPtzlUO/view)
 
-&nbsp;
+Editable diagram source: [`cnp-3ds-authentication-authorization.mmd`](../../architecture/cnp-3ds-authentication-authorization.mmd).
 
 **Alternative processor offering:** A future version may offer a processor-managed 3DS service, which changes **who operates the 3DS Server** but not the distinction between authentication and payment authorization. The default model does not assume our acquirer processor owns merchant checkout, the DS, or issuer ACS.
 
@@ -168,46 +109,26 @@ sequenceDiagram
 
 **Privacy/security:** Keep only permitted authentication indicators and audit references; do not store OTPs, cardholder secrets, authentication challenge answers, or sensitive authentication data. Use synthetic credentials and test authentication values in the simulator.
 
+
 ### 4.2 Card-Present EMV & Cardholder Verification (conditional CP subprocess)
 
 **Business objective:** For a card-present (CP) contact/contactless transaction, preserve and process the applicable EMV payment evidence. The terminal and payment card/device perform the EMV interaction; the acquirer processor handles the resulting transaction information and security requirements, and the issuer or its delegate performs the applicable authorization and cryptographic/cardholder checks. **This is the CP-side counterpart to the previously documented CNP/3DS branch, not 3DS for POS.**
 
-- **Terminal/card interaction:** EMV application selection, terminal risk processing and cardholder verification method (CVM) selection as applicable, plus generation of a transaction-specific application cryptogram; handling varies by contact/contactless card and market profile.  
-- **Online PIN (if applicable):** the terminal protects the PIN in an encrypted PIN block; any authorized PIN block handling or translation across different cryptographic domains needs approved cryptographic controls. The processor must not see or store the clear-text PIN. Not every CP transaction uses online PIN.  
-- **Processor role:** validate merchant/terminal context, preserve relevant entry-mode, CVM, and EMV data; protect sensitive authentication data; map to the approved network profile and route on behalf of the correct acquirer.  
+- **Terminal/card interaction:** EMV application selection, terminal risk processing and cardholder verification method (CVM) selection as applicable, plus generation of a transaction-specific application cryptogram; handling varies by contact/contactless card and market profile.
+- **Online PIN (if applicable):** the terminal protects the PIN in an encrypted PIN block; any authorized PIN block handling or translation across different cryptographic domains needs approved cryptographic controls. The processor must not see or store the clear-text PIN. Not every CP transaction uses online PIN.
+- **Processor role:** validate merchant/terminal context, preserve relevant entry-mode, CVM, and EMV data; protect sensitive authentication data; map to the approved network profile and route on behalf of the correct acquirer.
 - **Issuer/network role:** perform or delegate applicable cryptogram/PIN verification and financial authorization; the authorization response does not mean clearing or payout occurred.
 
-```mermaid
-sequenceDiagram
-    autonumber
-    actor H as Cardholder
-    participant C as Card / Payment Device
-    participant T as Merchant POS Terminal
-    participant P as Multi-Acquirer Processor
-    participant N as Approved Card Network / Domestic Route
-    participant I as Issuer / Delegated Authorizer
-    H->>T: Present card or payment device
-    T->>C: Execute EMV contact / contactless interaction
-    C-->>T: EMV application data / transaction cryptogram
-    opt Cardholder verification required
-        H->>T: Complete applicable CVM (PIN / CDCVM / other)
-        Note over T,P: Protect online PIN block if applicable, never expose plaintext PIN
-    end
-    T->>P: Authorization with POS, EMV and CVM evidence
-    P->>P: Apply merchant, terminal and acquirer profile controls
-    P->>N: Route eligible authorization with protected evidence
-    N->>I: Forward authorization
-    I-->>N: Financial authorization decision
-    N-->>P: Authorization response
-    P-->>T: Authorization result
-    T-->>H: Present result / complete terminal flow
-```
+![Card-present EMV and cardholder verification sequence](../../architecture/card-present-emv-cvm.png)
 
-&nbsp;
+[PNG: Card-present EMV and cardholder verification sequence](https://drive.google.com/file/d/1xaB82hiUJ0z-Kqxa3wz60tc6M7i-WMps/view)
+
+Editable diagram source: [`card-present-emv-cvm.mmd`](../../architecture/card-present-emv-cvm.mmd).
 
 **Boundary:** This diagram intentionally excludes offline terminal approval, deferred authorization, and device certification, which require separate profiles and validation. Do not simulate PIN keys, real PANs, CVVs, or genuine EMV cryptograms using live payment credentials.
 
-## 5\. In-scope operations
+
+## 5. In-scope operations
 
 ### Operation A — Payment Authorization
 
@@ -215,55 +136,19 @@ sequenceDiagram
 
 **High-level activities:**
 
-1. The cardholder initiates a purchase at a merchant using an origination channel.  
-2. The processor receives the authorization request and identifies the merchant, represented acquirer, amount, currency, and payment credential reference.  
-3. Shared controls verify the caller and merchant eligibility; validate the request; assess relevant fraud and transaction risk; handle potential duplicate business requests; and protect card credentials. For CNP, check supplied EMV 3DS authentication indicators and enforce the applicable acquirer/scheme policy. For CP, handle applicable EMV, entry-mode and cardholder-verification evidence. Do not force EMV 3DS onto a physical POS purchase.  
-4. The processor determines an approved domestic or scheme route **under the identified acquirer's context**.  
-5. The transaction is forwarded to the external infrastructure/network and issuer; the issuer approves or declines.  
-6. The processor records the result and response references and returns the outcome to the origination channel.  
+1. The cardholder initiates a purchase at a merchant using an origination channel.
+2. The processor receives the authorization request and identifies the merchant, represented acquirer, amount, currency, and payment credential reference.
+3. Shared controls verify the caller and merchant eligibility; validate the request; assess relevant fraud and transaction risk; handle potential duplicate business requests; and protect card credentials. For CNP, check supplied EMV 3DS authentication indicators and enforce the applicable acquirer/scheme policy. For CP, handle applicable EMV, entry-mode and cardholder-verification evidence. Do not force EMV 3DS onto a physical POS purchase.
+4. The processor determines an approved domestic or scheme route **under the identified acquirer's context**.
+5. The transaction is forwarded to the external infrastructure/network and issuer; the issuer approves or declines.
+6. The processor records the result and response references and returns the outcome to the origination channel.
 7. A timeout or ambiguous reply is treated as an **unconfirmed outcome**, not automatically as an issuer decline.
 
-```mermaid
-sequenceDiagram
-    autonumber
-    actor H as Cardholder
-    participant C as Merchant / Origination Channel
-    participant P as Multi-Acquirer Processor
-    participant A as Acquirer Profile & Merchant Rules
-    participant V as Shared Validation & Risk Controls
-    participant T as Transaction Record
-    participant N as Approved Network / Domestic Route
-    participant I as Card Issuer
+![Operation A — payment authorization sequence](../../architecture/operation-a-payment-authorization.png)
 
-    H->>C: Initiate card purchase
-    C->>P: Payment Authorization Request
-    P->>A: Identify acquirer and eligible merchant
-    A-->>P: Acquirer context, merchant rules, available routes
-    P->>V: Validate request, credential, risk, duplicates
-    opt CNP authorization with EMV 3DS evidence
-        P->>V: Check 3DS result / ECI / authentication value
-    end
-    V-->>P: Accept / reject / additional handling
-    alt Rejected by processor controls
-        P->>T: Record processor decline
-        P-->>C: Payment Authorization Declined
-    else Ready for network authorization
-        P->>T: Register authorization and references
-        P->>N: Authorization Request (acquirer context)
-        N->>I: Forward Authorization Request
-        alt Issuer decision returned
-            I-->>N: Approved / Declined
-            N-->>P: Authorization Response
-            P->>T: Record final reported result
-            P-->>C: Payment Authorization Result
-        else Timeout or ambiguous network outcome
-            P->>T: Record unconfirmed outcome
-            P-->>C: Authorization Outcome Unknown
-        end
-    end
-```
+[PNG: Operation A — payment authorization sequence](https://drive.google.com/file/d/1gwX2TLI0zQbT8bpCrFQBV_Avl83PVqI2/view)
 
-&nbsp;
+Editable diagram source: [`operation-a-payment-authorization.mmd`](../../architecture/operation-a-payment-authorization.mmd).
 
 **Business outcomes:** approved, declined, or not yet confirmed. A partial approval needs an explicit accepted amount and channel handling; stand-in approval needs evidence about the decision-making party. Both are documented as follow-up functional scenarios (Section 12).
 
@@ -273,47 +158,18 @@ sequenceDiagram
 
 **High-level activities:**
 
-1. The merchant/channel or processor policy initiates a reversal referring to the original authorization.  
-2. The processor verifies the acquiring context and the authority to reverse that original transaction.  
-3. The processor checks original transaction references and whether a reversal is allowable; it guards against repeated instructions.  
-4. An eligible reversal is sent through the supported route using the appropriate original references.  
-5. The processor records the network response or the unresolved/ambiguous outcome and reports it to the initiator.  
+1. The merchant/channel or processor policy initiates a reversal referring to the original authorization.
+2. The processor verifies the acquiring context and the authority to reverse that original transaction.
+3. The processor checks original transaction references and whether a reversal is allowable; it guards against repeated instructions.
+4. An eligible reversal is sent through the supported route using the appropriate original references.
+5. The processor records the network response or the unresolved/ambiguous outcome and reports it to the initiator.
 6. Under the relevant scheme rules, a reversal may also be **automatically initiated by the processor**, such as when a successful issuer/network response cannot be delivered to the POS; this is distinct from a merchant-requested reversal.
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant C as Merchant / Origination Channel
-    participant P as Multi-Acquirer Processor
-    participant A as Acquirer Profile & Merchant Rules
-    participant T as Transaction Record
-    participant N as Approved Network / Domestic Route
-    participant I as Card Issuer
+![Operation B — authorization reversal sequence](../../architecture/operation-b-authorization-reversal.png)
 
-    C->>P: Authorization Reversal Request
-    P->>A: Validate acquirer and merchant permissions
-    A-->>P: Acquirer context and policy
-    P->>T: Find original authorization and references
-    T-->>P: Recorded outcome, amount, network references
-    alt Not eligible or already resolved
-        P-->>C: Reversal Rejected / Prior Result
-    else Reversal permitted
-        P->>T: Register reversal instruction
-        P->>N: Reversal Request / Advice
-        N->>I: Forward Reversal as applicable
-        alt Response / acknowledgement received
-            I-->>N: Reversal Response / Acknowledgement
-            N-->>P: Reversal Result
-            P->>T: Record reversal result
-            P-->>C: Reversal Outcome
-        else Confirmation unavailable
-            P->>T: Record unconfirmed reversal
-            P-->>C: Reversal Outcome Unknown
-        end
-    end
-```
+[PNG: Operation B — authorization reversal sequence](https://drive.google.com/file/d/1FW7SaatuGhFZzxZeiMD5FlKoeUVuosmi/view)
 
-&nbsp;
+Editable diagram source: [`operation-b-authorization-reversal.mmd`](../../architecture/operation-b-authorization-reversal.mmd).
 
 **Important:** a network acknowledgement is not always proof that the issuer/cardholder hold has already been released. Reversals are scheme- and message-profile-dependent.
 
@@ -323,41 +179,25 @@ sequenceDiagram
 
 **High-level activities:**
 
-1. An authorized channel or operator requests the status using a known transaction reference.  
-2. The processor identifies the acquirer and verifies access to the merchant's transaction.  
-3. The processor retrieves the original operation and any related reversal activity.  
+1. An authorized channel or operator requests the status using a known transaction reference.
+2. The processor identifies the acquirer and verifies access to the merchant's transaction.
+3. The processor retrieves the original operation and any related reversal activity.
 4. The processor reports the latest known outcome, source of information, and whether confirmation remains pending.
 
-```mermaid
-sequenceDiagram
-    autonumber
-    participant C as Merchant / Origination Channel
-    participant P as Multi-Acquirer Processor
-    participant A as Acquirer Profile & Access Rules
-    participant T as Transaction Record
+![Operation C — transaction status inquiry sequence](../../architecture/operation-c-transaction-status-inquiry.png)
 
-    C->>P: Transaction Status Inquiry
-    P->>A: Validate acquirer, merchant, caller access
-    A-->>P: Access permitted / denied
-    alt Access denied
-        P-->>C: Forbidden / Not Found
-    else Access permitted
-        P->>T: Read authorization and reversal history
-        T-->>P: Latest known outcomes and references
-        P-->>C: Transaction Status Response
-    end
-```
+[PNG: Operation C — transaction status inquiry sequence](https://drive.google.com/file/d/1H0hKuz6ti_IDqH0hIXfLqaIaRjRv46vn/view)
 
-&nbsp;
+Editable diagram source: [`operation-c-transaction-status-inquiry.mmd`](../../architecture/operation-c-transaction-status-inquiry.mmd).
 
 **Meaning of “status”:** The processor's evidence-based recorded outcome. It is not automatically proof of a posted debit, a released issuer hold, or a merchant payout. Scheme-based external inquiry is a separate optional capability requiring a confirmed supported profile.
 
-## 6\. Shared functional controls, not yet software components
+## 6. Shared functional controls, not yet software components
 
 The following are **business capabilities** shared by one or more processes. No separate service, database, or deployment model is mandated by this guide.
 
 | Shared capability | Authorization | Reversal | Inquiry | Why it matters |
-| :---- | :---: | :---: | :---: | :---- |
+| --- | :---: | :---: | :---: | --- |
 | Acquirer context and authorized mandate | ✓ | ✓ | ✓ | Know on whose behalf the processor is acting. |
 | Merchant identity, eligibility and permissions | ✓ | ✓ | ✓ | Enforce each acquirer's commercial and access rules. |
 | Channel authentication and contract validation | ✓ | ✓ | ✓ | Control who can request each operation. |
@@ -372,10 +212,10 @@ The following are **business capabilities** shared by one or more processes. No 
 
 **KYC/KYB vs risk:** Merchant due diligence, onboarding and AML controls are distinct from a per-transaction fraud or authorization-risk decision. **Tokenization:** different forms (network payment tokens, merchant/processor tokens) have different actors and requirements; it is not always required for a one-time card purchase. The simulator should prefer synthetic payment credentials and avoid real PANs and sensitive authentication data.
 
-## 7\. Business situations to clarify before technical modeling
+## 7. Business situations to clarify before technical modeling
 
 | Operation | Example business situation | Essential functional question |
-| :---- | :---- | :---- |
+| --- | --- | --- |
 | CNP / 3DS | Authentication succeeds frictionlessly or after challenge | Which results/evidence must be included in the later authorization? |
 | CNP / 3DS | Challenge fails, is cancelled, or authentication is unavailable | Under which market/scheme/merchant rules may payment authorization still proceed? |
 | CNP / 3DS | Authentication succeeds but financial authorization declines | How do we report distinct authentication and authorization outcomes? |
@@ -392,16 +232,16 @@ The following are **business capabilities** shared by one or more processes. No 
 
 These are **business process exceptions**. The expanded coverage audit in Section 11 identifies additional variants and deferred operations. They are not commitments to an event bus, workflow engine, retry system, or physical state-machine component.
 
-## 8\. Deferred processes
+## 8. Deferred processes
 
 Separate later financial/lifecycle guides will cover **authorization completion/capture (where applicable)**, presentment, clearing, settlement, merchant payout, interchange and other fees, FX, banking/correspondent rails where used, and reconciliation. Capture/completion is a distinct merchant-facing business activity, not the same as reconciliation. Refunds, disputes/chargebacks, and their evidence exchanges are also downstream operations, rather than authorization reversals. They may use the same transaction references but **must not be collapsed into the authorization request-response flow**.
 
 Cross-border and currency-conversion examples are also later profiles. Never assume FX conversion or a correspondent bank on the real-time authorization path of every card payment.
 
-## 9\. Decision register
+## 9. Decision register
 
 | ID | Decision | Status |
-| :---- | :---- | :---- |
+| --- | --- | --- |
 | D-001 | Our role is **Multi-Acquirer Payment Processor**, not the acquiring institution itself | **Accepted** |
 | D-002 | Conversation in Spanish; all project documentation and diagrams in English | **Accepted** |
 | D-003 | Separate business processes: Payment Authorization, Authorization Reversal, Transaction Status Inquiry | **Accepted** |
@@ -421,26 +261,27 @@ Cross-border and currency-conversion examples are also later profiles. Never ass
 | D-017 | Model authorization variants, network stand-in decisions and account verification without making them mandatory for first happy-path scenario | **Gap confirmed; staged** |
 | D-018 | Explicitly define capture/completion, refunds and disputes as distinct later business operations | **Boundary clarified** |
 
-## 10\. Recommended next business-first artifact
+## 10. Recommended next business-first artifact
 
 **Business Operation Matrix**, one concise entry for each of the three core operations **plus the conditional EMV 3DS (CNP) and EMV/CVM (CP) subprocesses**, covering:
 
-- Business trigger and authorized initiators  
-- Inputs and prerequisites  
-- Which party decides what  
-- Main-path outcomes  
-- Exceptions, duplicate handling, and uncertainty  
-- Required evidence and references for future operations  
+- Business trigger and authorized initiators
+- Inputs and prerequisites
+- Which party decides what
+- Main-path outcomes
+- Exceptions, duplicate handling, and uncertainty
+- Required evidence and references for future operations
 - Business-level response semantics
 
 A **Transaction Lifecycle State Machine** is only a possible **later formalization** of the already-agreed lifecycle rules; it does **not** mean a mandatory software component. Do not prioritize it before stakeholders agree on the three functional processes and their exceptions.
 
-## 11\. Business process coverage double-check (2026-11-14)
+
+## 11. Business process coverage double-check (2026-11-14)
 
 **Audit framing:** This section distinguishes missing subprocesses inside our three agreed operations from additional business operations and from capabilities that are prerequisites rather than separate real-time payment operations. The primary operations remain **Payment Authorization, Authorization Reversal, and Transaction Status Inquiry**. EMV 3DS (CNP) and EMV/CVM (CP) are conditional authentication/security subprocesses.
 
 | Gap / process | Role of our acquirer processor | Classification | Proposed staging |
-| :---- | :---- | :---- | :---- |
+| --- | --- | --- | --- |
 | Card-Present EMV & Cardholder Verification | Accept and correctly route EMV/entry-mode/CVM evidence; protect encrypted PIN block when applicable | Conditional authorization subprocess; missing CP security branch | **Core next iteration** |
 | Automatic Authorization Reversal | Issue a reversal under applicable network rules when delivery or completion fails; retain original transaction references | Conditional reversal initiation, distinct from merchant cancellation | **Core next iteration** |
 | Acquirer / Merchant / Terminal Configuration | Maintain active acquirer mandate, allowed merchant/terminal identifiers, MCC, entry capabilities and routing/permission profile; PF/submerchant identifiers when applicable | Prerequisite and shared business configuration | **Core next iteration** |
@@ -461,30 +302,11 @@ A **Transaction Lifecycle State Machine** is only a possible **later formalizati
 
 ### 11.1 Functional process landscape (not software architecture)
 
-```mermaid
-flowchart TB
-    CP["Card-Present Channel / POS"]
-    CNP["Card-Not-Present Channel / E-Commerce"]
-    CPV["EMV / Cardholder Verification"]
-    AUTH3["3DS Authentication (if applicable)"]
-    VALID["Acquirer, Merchant, Credential and Risk Controls"]
-    AUTH["Payment Authorization"]
-    RESULT{"Authorization Outcome"}
-    REV["Authorization Reversal (merchant- or processor-initiated)"]
-    INQ["Transaction Status Inquiry"]
-    CAP["Capture / Completion (later process)"]
-    DOWN["Clearing, Settlement, Reconciliation (separate guide)"]
-    CP --> CPV --> VALID
-    CNP --> AUTH3 --> VALID
-    VALID --> AUTH --> RESULT
-    RESULT -->|"Approved, where applicable"| CAP
-    RESULT -->|"Cancelled / delivery failure"| REV
-    AUTH -.->|"Read status"| INQ
-    REV -.->|"Read status"| INQ
-    CAP --> DOWN
-```
+![Functional process landscape (not software architecture)](../../architecture/functional-process-landscape.png)
 
-&nbsp;
+[PNG: Functional process landscape (not software architecture)](https://drive.google.com/file/d/17j4gXTRaqv8IWExSoNzle-B2oud8VL47/view)
+
+Editable diagram source: [`functional-process-landscape.mmd`](../../architecture/functional-process-landscape.mmd).
 
 **Interpretation:** 3DS is conditional and is not mandatory for all CNP transactions; EMV and CVM requirements depend on device, card and scheme. An issuer decline normally does not proceed to capture. An unknown delivery outcome must not be treated as an issuer decline. **Refunds and disputes intentionally remain outside the diagram** because they belong to a subsequent financial or post-payment process, not the three-operation authorization simulator.
 
@@ -494,50 +316,116 @@ flowchart TB
 
 **Do not silently expand v1 into full acquiring:** Capture, refunds, clearing, settlement, payouts, disputes, pricing and cross-border FX matter for an end-to-end processor but require separately modeled business operations. Account verification and advanced authorization variants should be made explicit before selecting exact scheme message profiles.
 
-## 12\. References (public sources reviewed through 2026-11-14)
 
-- ISO 20022, Cards and Related Retail Financial Services SEG: [https\://www\.iso20022.org/cards-and-related-retail-financial-services-standards-evaluation-group](https://www.iso20022.org/cards-and-related-retail-financial-services-standards-evaluation-group)
+## 12. References (public sources reviewed through 2026-11-14)
 
-- ISO 20022, message catalogue (current `cain`, `caaa` families): [https\://www\.iso20022.org/iso-20022-message-definitions](https://www.iso20022.org/iso-20022-message-definitions)
+- ISO 20022, Cards and Related Retail Financial Services SEG: https://www.iso20022.org/cards-and-related-retail-financial-services-standards-evaluation-group
+- ISO 20022, message catalogue (current `cain`, `caaa` families): https://www.iso20022.org/iso-20022-message-definitions
+- Visa, Numerics Initiative (issuer BIN vs acquiring ID): https://www.visa.com.ph/partner-with-us/info-for-partners/numerics-initiative.html
+- Visa, BIN expansion service provider considerations: https://www.visa.com/en-us/business/support/numerics-initiative
+- Banco de México, 2025 Annual Report on Financial Market Infrastructures (2025 card processing statistics): https://www.banxico.org.mx/publicaciones-y-prensa/informe-anual-sobre-las-infraestructuras-de-los-me/%7BDF8FE964-F97C-1B2D-777B-B026EF74C9CF%7D.pdf
+- Banco de México, Authorized card clearing institutions: https://www.banxico.org.mx/marco-normativo/autorizaciones-camaras-comp.html
+- Mastercard, ISO 20022 and JSON (2024): https://www.mastercard.com/global/en/news-and-trends/Insights/2024/iso-20022-and-json-balancing-standardisation-and-flexibility-in-.html
+- Mastercard Engage, Real-Time Clearing supports ISO 8583 and ISO 20022: https://engagepartners.mastercard.com/English/solutions/solution/Real-Time%20Clearing
+- ISO 8583:2023 overview: https://www.iso.org/standard/79450.html
 
-- Visa, Numerics Initiative (issuer BIN vs acquiring ID): [https\://www\.visa.com.ph/partner-with-us/info-for-partners/numerics-initiative.html](https://www.visa.com.ph/partner-with-us/info-for-partners/numerics-initiative.html)
 
-- Visa, BIN expansion service provider considerations: [https\://www\.visa.com/en-us/business/support/numerics-initiative](https://www.visa.com/en-us/business/support/numerics-initiative)
+- EMVCo, EMV 3-D Secure — Challenge Flow / Technical Features: https://www.emvco.com/dynamic/emv-3-d-secure-whitepaper-v2/challenge-flow/technical-features/
+- EMVCo, EMV 3-D Secure — Challenge Business Overview: https://www.emvco.com/dynamic/emv-3-d-secure-whitepaper-v2/challenge-flow/business-overview/
+- Visa, 3-D Secure overview: https://corporate.visa.com/en/solutions/visa-protect/insights/3d-secure.html
+- Visa, CAVV and EMV 3DS evidence in authorization: https://usa.visa.com/dam/VCOM/global/support-legal/documents/cavv-vbn-public.pdf
 
-- Banco de México, 2025 Annual Report on Financial Market Infrastructures (2025 card processing statistics): [https\://www\.banxico.org.mx/publicaciones-y-prensa/informe-anual-sobre-las-infraestructuras-de-los-me/%7BDF8FE964-F97C-1B2D-777B-B026EF74C9CF%7D.pdf](https://www.banxico.org.mx/publicaciones-y-prensa/informe-anual-sobre-las-infraestructuras-de-los-me/%7BDF8FE964-F97C-1B2D-777B-B026EF74C9CF%7D.pdf)
+- Mastercard, Transaction Processing Rules (10 June 2025), authorizations, reversal, partial approvals, refund: https://www.mastercard.com/content/dam/public/mastercardcom/na/global-site/documents/transaction-processing-rules.pdf
+- Visa, Authorization and Reversal Processing Requirements for Merchants (2024): https://usa.visa.com/content/dam/VCOM/regional/na/us/support-legal/documents/authorization-and-reversal-processing-best-practices-for-merchants.pdf
+- EMVCo, EMV Contact Chip and transaction-specific cryptograms: https://www.emvco.com/emv-technologies/emv-contact-chip/
+- Visa, Card on File Data Inquiry, CIT/MIT and credential flows: https://developer.visa.com/docs/card-on-file-data-inquiry
+- Visa, Request and Response Codes and Stand-In Processing results: https://developer.visa.com/api-reference/request-response-codes
+- PCI SSC, PCI DSS scope and standards: https://www.pcisecuritystandards.org/standards/pci-dss/
+- PCI SSC, PIN Security standard: https://www.pcisecuritystandards.org/standards/pin-security/
+- PCI SSC, sensitive authentication data storage limitation: https://www.pcisecuritystandards.org/faqs/1318/
+- Mastercard, Payment Facilitator and Submerchant identification requirements: https://www.mastercard.com/content/dam/mccom/global/documents/mastercard-rules.pdf
+- Visa, Dispute Resolution overview: https://www.visa.com/en-us/support/business/dispute-resolution
 
-- Banco de México, Authorized card clearing institutions: [https\://www\.banxico.org.mx/marco-normativo/autorizaciones-camaras-comp.html](https://www.banxico.org.mx/marco-normativo/autorizaciones-camaras-comp.html)
 
-- Mastercard, ISO 20022 and JSON (2024): [https\://www\.mastercard.com/global/en/news-and-trends/Insights/2024/iso-20022-and-json-balancing-standardisation-and-flexibility-in-.html](https://www.mastercard.com/global/en/news-and-trends/Insights/2024/iso-20022-and-json-balancing-standardisation-and-flexibility-in-.html)
+## 13. Network and issuer failure scenarios — implementation-oriented addendum (2026-11-18)
 
-- Mastercard Engage, Real-Time Clearing supports ISO 8583 and ISO 20022: [https\://engagepartners.mastercard.com/English/solutions/solution/Real-Time%20Clearing](https://engagepartners.mastercard.com/English/solutions/solution/Real-Time%20Clearing)
+**Scope:** Extend the exceptions in Sections 5, 7, and 11; do not replace those sections or introduce a fourth core business operation. The Mastercard network and issuer are separate **simulated actors**. Their technical implementation may use separate AWS Lambda functions. This section describes observable behavior, not a final software topology.
 
-- ISO 8583:2023 overview: [https\://www\.iso.org/standard/79450.html](https://www.iso.org/standard/79450.html)
+| ID | Injected behavior / failure point | Processor-visible evidence | Expected business behavior |
+| --- | --- | --- | --- |
+| NET-01 | Mastercard rejects malformed or disallowed message before issuer dispatch | Explicit network rejection; no issuer decision | Report network/processor rejection with provenance; do not label issuer decline. |
+| NET-02 | Mastercard unavailable before forwarding | Dispatch failed or network unavailable | Retain failure provenance; apply only profile-authorized retry/reversal rules. |
+| NET-03 | Mastercard forwards to issuer but response is lost | Request dispatched; no definitive response | Record **UNKNOWN / unconfirmed**, not DECLINED; preserve correlation and evaluate recovery/reversal. |
+| NET-04 | Mastercard responds after processor timeout | Late response tied to original reference | Correlate with original; reconcile outcome without creating a second purchase. |
+| NET-05 | Mastercard returns malformed or mismatched response | Invalid correlation, response or protocol fields | Reject response as evidence of issuer outcome; retain uncertain status and diagnostics. |
+| ISS-01 | Issuer explicitly approves | Authenticated, correlated approval | Record APPROVED with issuer provenance and references. |
+| ISS-02 | Issuer explicitly declines (e.g. insufficient funds) | Authenticated, correlated decline | Record DECLINED with issuer provenance and reason. |
+| ISS-03 | Issuer unavailable or does not respond | Network may return error, stand-in result or timeout | Preserve actual decision provenance; do not fabricate issuer approval/decline. |
+| ISS-04 | Issuer approves, but response is dropped by Mastercard | Issuer simulator records approval; processor sees timeout | Processor records UNKNOWN; simulator evidence proves divergence; recovery/reversal scenario must be tested. |
+| ISS-05 | Issuer response delayed beyond network/processor timeout | Late or missing response | Keep uncertainty until verified; handle late responses idempotently. |
+| PROC-01 | Merchant retries same business operation after timeout | Same idempotency/business reference | Do not produce an unintended second authorization; return known outcome or uncertainty. |
+| REV-01 | Reversal requested after unknown authorization | Original dispatch evidence; uncertain issuer decision | Apply configured network/profile eligibility; preserve separate reversal outcome and references. |
+| REV-02 | Reversal acknowledgment lost or repeated | Reversal sent, no definitive acknowledgment | Keep reversal status uncertain; avoid uncontrolled duplicate instructions. |
+| INQ-01 | Inquiry while issuer-approved but processor-unknown | Processor journal says UNKNOWN | Return **processor's latest known status** and provenance; do not claim issuer confirmation without verified evidence. |
 
-- EMVCo, EMV 3-D Secure — Challenge Flow / Technical Features: [https\://www\.emvco.com/dynamic/emv-3-d-secure-whitepaper-v2/challenge-flow/technical-features/](https://www.emvco.com/dynamic/emv-3-d-secure-whitepaper-v2/challenge-flow/technical-features/)
+### Scenario execution and evidence contract
 
-- EMVCo, EMV 3-D Secure — Challenge Business Overview: [https\://www\.emvco.com/dynamic/emv-3-d-secure-whitepaper-v2/challenge-flow/business-overview/](https://www.emvco.com/dynamic/emv-3-d-secure-whitepaper-v2/challenge-flow/business-overview/)
+Each scenario must declare: `scenario_id`, operation (authorization/reversal/inquiry), acquirer/merchant/terminal context, injected actor and failure point, deterministic seed or fixture, correlation references, expected processor-visible result, and expected simulator-internal result. Keep internal issuer truth separate from what the processor could know at the time.
 
-- Visa, 3-D Secure overview: [https\://corporate.visa.com/en/solutions/visa-protect/insights/3d-secure.html](https://corporate.visa.com/en/solutions/visa-protect/insights/3d-secure.html)
+**Priority test:** ISS-04 / NET-03 (issuer approves, network drops response). Validate the processor journal, status inquiry, duplicate submission, and automatic reversal behavior as **separate observations**. Reversal timing, eligibility, retries, and final issuer state remain **profile-dependent**, not presumed universal Mastercard rules.
 
-- Visa, CAVV and EMV 3DS evidence in authorization: [https\://usa.visa.com/dam/VCOM/global/support-legal/documents/cavv-vbn-public.pdf](https://usa.visa.com/dam/VCOM/global/support-legal/documents/cavv-vbn-public.pdf)
+### Architecture evolution rule
 
-- Mastercard, Transaction Processing Rules (10 June 2025), authorizations, reversal, partial approvals, refund: [https\://www\.mastercard.com/content/dam/public/mastercardcom/na/global-site/documents/transaction-processing-rules.pdf](https://www.mastercard.com/content/dam/public/mastercardcom/na/global-site/documents/transaction-processing-rules.pdf)
+C1 is a context view; C2 and C3 are **living implementation views**, not frozen specifications. Keep editable Mermaid sources and corresponding PNG exports synchronized and versioned with each meaningful implementation change. In C2, name actual AWS managed services (for example API Gateway, Lambda, DynamoDB, CloudWatch); functional modules such as routing or reversal are responsibilities **inside** those services, not fictional AWS products. The Mastercard and issuer simulators remain logically separate so network-only failures can be injected. This AWS realization is a **provisional design choice**, not a change to the business-process boundary.
 
-- Visa, Authorization and Reversal Processing Requirements for Merchants (2024): [https\://usa.visa.com/content/dam/VCOM/regional/na/us/support-legal/documents/authorization-and-reversal-processing-best-practices-for-merchants.pdf](https://usa.visa.com/content/dam/VCOM/regional/na/us/support-legal/documents/authorization-and-reversal-processing-best-practices-for-merchants.pdf)
 
-- EMVCo, EMV Contact Chip and transaction-specific cryptograms: [https\://www\.emvco.com/emv-technologies/emv-contact-chip/](https://www.emvco.com/emv-technologies/emv-contact-chip/)
 
-- Visa, Card on File Data Inquiry, CIT/MIT and credential flows: [https\://developer.visa.com/docs/card-on-file-data-inquiry](https://developer.visa.com/docs/card-on-file-data-inquiry)
+## 14. Channel Test Interface (channel-interface test)
 
-- Visa, Request and Response Codes and Stand-In Processing results: [https\://developer.visa.com/api-reference/request-response-codes](https://developer.visa.com/api-reference/request-response-codes)
+### Purpose and selected demonstration
+The Channel Test Interface is the HTML demonstration screen used to submit an implemented synthetic channel transaction and make its processing understandable to a client. It is a test interface around the simulator, **not a fourth financial operation**, a new acquiring mandate or a real POS certification.
 
-- PCI SSC, PCI DSS scope and standards: [https\://www\.pcisecuritystandards.org/standards/pci-dss/](https://www.pcisecuritystandards.org/standards/pci-dss/)
+Fernando selected a presenter-operated demonstration with screen-sharing and **one demo JWT user/principal**, without multi-user management. Screen-sharing means the presenter operates the interface; it does not give the client their own browser endpoint. Existing authentication and backend service identity controls remain distinct; an acquirer/merchant/terminal reference is business context, not the identity of the demo user. No permanent token or secret belongs in the HTML. Exact token/session and deployment realization remains subject to the existing architecture/security gates.
 
-- PCI SSC, PIN Security standard: [https\://www\.pcisecuritystandards.org/standards/pin-security/](https://www.pcisecuritystandards.org/standards/pin-security/)
+### Current use and observable outcomes
+For the currently implemented authorization slice, the presenter selects registered synthetic acquirer/merchant/terminal and credential fixtures, supplies the supported payment data and explicitly submits once. The channel anti-corruption layer validates supported input and translates it to the selected private simulator ISO8583-over-HTTPS contract. This is a simulator profile, not scheme conformance or a universal rule that ISO8583 connections are unauthenticated or IP-only.
 
-- PCI SSC, sensitive authentication data storage limitation: [https\://www\.pcisecuritystandards.org/faqs/1318/](https://www.pcisecuritystandards.org/faqs/1318/)
+The interface keeps these results distinct:
+- a verified issuer approval or issuer decline received and durably recorded by the processor;
+- an explicit processor/network rejection with its actual provenance;
+- an unconfirmed/unknown outcome when dispatch or valid receipt is uncertain;
+- incomplete/delayed observation, which is separate from the payment result.
 
-- Mastercard, Payment Facilitator and Submerchant identification requirements: [https\://www\.mastercard.com/content/dam/mccom/global/documents/mastercard-rules.pdf](https://www.mastercard.com/content/dam/mccom/global/documents/mastercard-rules.pdf)
+Required business state and its critical sanitized consultable event are committed atomically before the financial send gate. The original operation is sent at most once under its existing duplicate/reference rules. An identical replay, history lookup, subscription retry or reconnect does not send it again. Late verified evidence may reconcile the original result; a task success, a green socket, telemetry or an issuer-only diagnostic record cannot substitute for processor receipt. Mandatory persistence failure follows the existing truthful unsent/unavailable/uncertain contract; missing telemetry or WebSocket delivery alone does not prevent payment.
 
-- Visa, Dispute Resolution overview: [https\://www\.visa.com/en-us/support/business/dispute-resolution](https://www.visa.com/en-us/support/business/dispute-resolution)
+The actual transaction identifier returned by an admitted operation anchors its detail view. Live WebSocket notifications and HTTP initial/history/reconnect queries read **the same retained functional event source**, not a duplicate history copy. Subscribe binding/ACK precedes a fixed catch-up snapshot; duplicate/out-of-order notifications are merged without replaying payment. If live transport fails, the interface shows disconnected observation and can still support an explicitly authenticated HTTP action or history query. It never automatically resubmits a payment to repair visibility.
+
+### History, scope and references
+**Seven days of functional history is approved** for reviewing demonstrations. Expiry uses the existing original-event-time contract and explicitly reports truncated history; reconnection does not renew old history or erase business/evidence/identity references. Retention is not a seven-day authorization retry window or permission to delete financial records. Numeric capacity/latency targets, runtime compatibility, independent review, architecture, Security/QA, construction and deployment are not approved by these functional decisions.
+
+The present work item commissions Operation A plus transversal observation. Sections5 and13 retain the broader functional catalog, including B reversal and C inquiry; their presence is not a request to implement them now. Future capabilities need separately commissioned semantics and profiles. No generic inquiry MTI, future reversal wire contract or automatic payment resend/reversal is introduced here.
+
+Work item: [WI-ACQ-OBS-001](../work-items/WI-ACQ-OBS-001/WORK_ITEM.md). Current owner authority: [owner decisions](../work-items/WI-ACQ-OBS-001/owner-decisions.md). Preferred presentation: [payment sequence](../work-items/WI-ACQ-OBS-001/sequence-flow.md) and [notification/recovery sequence](../work-items/WI-ACQ-OBS-001/sequence-recovery.md). The activity diagram is retained locally as historical context, not deleted or silently rewritten.
+
+## 15. Cross-cutting Observability
+
+### Transversal responsibility, not one operation's final step
+Observability is **transversal across every implemented and future simulator flow**: channel/ACL validation, business controls, routing, network/issuer interactions and auxiliary capabilities where applicable. Each capability must include the common instrumentation hook and a versioned expected-task manifest before activation. This does not commission all future flows, require every auxiliary task to have an ISO message, or make authorization observability the model for unrelated products.
+
+The business purpose is to explain what was observed, by which component/actor, for which operation and submission attempt, with safe status, references, causality and timing. Transaction/operation, attempt, task and event identities remain separate. Repeated delivery of the same event is not a new task attempt or payment. Occurrence time and collection time are different; unavailable terminal evidence or cross-host timing is not fabricated.
+
+### Three evidence classes and honest gaps
+- **Critical committed functional events:** sanitized events written atomically with the authoritative business transition. They support retained, queryable business-transition history; they do not independently authorize another outcome.
+- **Intermediate task observations:** all implemented tasks invoke the common hook where observable, but asynchronous/pre-auth/start/terminal delivery can be lost through crashes or bounded queues. The interface shows missing task/producer evidence as a completeness gap, not a synthetic failure. Do not promise a durable record of every task at zero synchronous cost.
+- **Technical telemetry:** ADOT/OpenTelemetry asynchronously exports redacted spans/metrics/logs to configured technical backends. Sampling and lifecycle/buffer loss are possible. Telemetry helps diagnosis; it is not the payment journal, a complete task manifest or issuer proof.
+
+Business result, retained-event coverage, task completeness and connection freshness must be displayed independently. An approved authorization can have incomplete observations; an unknown payment can have complete receipt of every observation actually available. Neither absence nor success of a span decides the payment.
+
+### Shared visibility and recovery
+In the selected product direction, critical functional events are queryable in one DynamoDB event table and share the existing atomic DynamoDB business transition. Streams triggers notification Lambda/WebSocket delivery; HTTP reads the same source for history/catch-up. Notification retries are observation-only; no second history projection is required. Streams'24-hour notification window is not the retained-history policy. The approved seven-day functional history supports later review, with explicit expiry/gap/truncation rather than unlimited offline delivery guarantees.
+
+The interface binds subscribe requests to the real transaction, waits for matching request/target/epoch/generation ACK and buffers pre-ACK frames without rendering. ACK observed head A is distinct from the newly acquired fixed snapshot H>=A. Initial catch-up, event identity/hash dedupe and retained-source reconnect do not repeat payment. Exact cursors, capacity limits, token lifetime, IAM, deployment and freshness targets remain the existing reviewed/proposed technical contracts, not additional functional approval here.
+
+No raw ISO payloads, JWTs, credentials, PIN/EMV/3DS secrets or private issuer evidence belong in functional events, browser output or telemetry. Single demo identity does not remove business mandate isolation or expose issuer-only truth. Functional-history expiry does not delete required financial evidence, original links, aliases or duplicate-control identity records.
+
+See [observation contract](../work-items/WI-ACQ-OBS-001/observation-contract.md), [acceptance scenarios](../work-items/WI-ACQ-OBS-001/acceptance-scenarios.md) and the two sequence panels linked in Section14. These sections document selected functional direction and existing boundaries; they are not construction, architecture, certification, runtime/crypto/QA or publication approval.

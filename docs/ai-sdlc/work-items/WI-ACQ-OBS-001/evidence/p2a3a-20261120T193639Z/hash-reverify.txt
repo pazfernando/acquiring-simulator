@@ -1,0 +1,4 @@
+docs/ai-sdlc/work-items/WI-ACQ-OBS-001/iso8583-profile.md: OK
+docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/packed-vectors.json: OK
+docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/review-manifest.json: OK
+ORACLE_CHECK_EXIT=0

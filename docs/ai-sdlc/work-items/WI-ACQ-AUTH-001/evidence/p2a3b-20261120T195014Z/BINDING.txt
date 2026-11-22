@@ -1,0 +1,59 @@
+work_item: WI-ACQ-AUTH-001
+phase: p2a3b (target-class completion: response correlation/context + DE38 binding)
+date_utc: 2026-11-20T19:50:14Z
+repo: /home/pazfernando/projects/acquiring-simulator
+branch: feat/wi-acq-auth-001
+head: cfc456f4f469d9558a78fda8ff9b770b00817315
+incoming_head_expected: cfc456f4f469d9558a78fda8ff9b770b00817315
+model: provider nan / deepseek-v4-flash (no override)
+java_home: /home/pazfernando/.local/opt/jdk-25
+maven: /home/pazfernando/.local/opt/maven/bin/mvn
+runtime: inactive (no service start, no AWS calls, no HTTP, no storage changes)
+dirty_tracked: 9
+untracked: pre-existing WI-ACQ-OBS-001 and protocol/domain work remains untracked
+
+scope:
+  completed:
+    - Iso8583InstructionBindingValidator pure validator
+    - trusted original-wire SHA-256 equality
+    - echoed correlation/context equality: cid, aid, tid, att, acq, mid, term, pay, gen
+    - trusted DE38 presence/value: missing, unsolicited, mismatch, exact bind
+    - absence of DE38 allowed only when the trusted record asserts no reference; no code minted
+    - first-failure order inside this layer: trusted hash, instruction echoes, then DE38
+    - 5 focused tests, target class only
+  preserved_partials:
+    - Iso8583InstructionBindingException (rules already covered the written scope)
+    - Iso8583InstructionBindingDecision (no verified/trusted flag by design)
+    - Iso8583TrustedEvidenceRecord (internal seam; not cryptographic verification)
+  explicit_next_slice:
+    - broader full-envelope binding (identity not limited to cid/context echo, amount/currency/DE7/RRN/STAN repeats, environment/principal/evidence identifiers)
+    - P5 attestation verification and business admission remain separate
+  out_of_scope_no_change:
+    - HTTP/C4/domain/full-envelope/storage/runtime features
+    - P4 matrix, domain calendar/amount/currency, CVM/crypto/risk
+
+wiring:
+  - no production caller wired in this slice; validator is static and pure, test-only exercised
+  - P4 remains before this layer; this layer remains before any DE38 claim consumption
+
+tests:
+  command: mvn -Dtest=Iso8583InstructionBindingValidatorTest -DfailIfNoTests=false test
+  result: Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+  exit: 0
+  failure_1:
+    file: test-stdout-failure-1.txt
+    exit: 1
+    cause: raw Map passed where Iso8583De48Response was required (3 compile errors)
+    nextfix: wrap echo() in new Iso8583De48Response(...)
+    status: fixed and re-run successfully; original failure preserved
+
+integrity:
+  source-before.sha256
+  source-after.sha256
+  integrity-files-after.sha256
+  git-status-before.txt / git-status-after.txt / git-status-final.txt
+  exact partial file hashes unchanged for Exception/Decision/TrustedEvidenceRecord
+
+result_label: partial completion of the written subset, not admission, not independent QA
+gates_open: P1, G6 (also P4 remains open)
+git_writes: none performed

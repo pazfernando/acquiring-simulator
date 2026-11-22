@@ -1,0 +1,3 @@
+ASSERT PASS  identical authorizationId
+ASSERT PASS  identical paymentRef
+ASSERT PASS  identical APPROVED outcome

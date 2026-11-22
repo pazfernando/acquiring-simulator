@@ -1,0 +1,112 @@
+{
+  "note": "Identities of inputs read for design-rev2, recomputed locally by SHA-256. No Git command executed; branch/HEAD taken from Implementation evidence. Not a whole-tree freeze: the working tree is dirty per binding evidence.",
+  "repository": "/home/pazfernando/projects/acquiring-simulator",
+  "computedAt": "2026-11-21T01:20Z approx",
+  "bindingSource": {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t1-traceability-20261120/BINDING.txt",
+    "bytes": 943,
+    "sha256": "e4951cc2f2df75e61a9b9d1ce7bdb0f717d17faf3746c6fda79f5ed02bdfe8db",
+    "branch": "feat/wi-acq-auth-001",
+    "head": "cfc456f4f469d9558a78fda8ff9b770b00817315",
+    "origin": "https://github.com/pazfernando/acquiring-simulator.git",
+    "modelProvider": "nan",
+    "modelId": "deepseek-v4-flash",
+    "suiteNotRerun": true
+  },
+  "commissionedInputs": [
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design.md",
+      "bytes": 41770,
+      "sha256": "83e4ea14b3959dcc6d8535aee0f0dd715783764e8922a72b6c0c3454a40829f4",
+      "verdict": "MATCH",
+      "edited": false,
+      "role": "v1 proposal, preserved"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/configuration-schema.md",
+      "bytes": 13716,
+      "sha256": "1f497daade1a8429458e2cc40047adf326a97f2fb6636d583e1bf2e930bf1bb2",
+      "verdict": "MATCH",
+      "edited": false,
+      "role": "v1 schema, preserved"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/compatibility-assessment.md",
+      "bytes": 32966,
+      "sha256": "4886106c0afbf9ded1736ef3c0756c2bc8c738c58c61457faa0a635ecdd836ac",
+      "verdict": "MATCH",
+      "role": "Implementation compatibility assessment"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/evidence/manifest.json",
+      "bytes": 35967,
+      "sha256": "2a4c400d752184424b5704a3cafd05abfc0060ffb443991fc12168f272d99dfe",
+      "verdict": "READ (not separately pinned by the commission)",
+      "role": "Implementation evidence index"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-20261120/security-review.md",
+      "bytes": 27613,
+      "sha256": "0d71ea007e56b12d9873df14126c22640c3abc68052b42db1f47b0a9688d218e",
+      "verdict": "MATCH",
+      "role": "independent early Security review"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "bytes": 16582,
+      "sha256": "fd040124319a946d28230aeb3994fb77bac82c00cb59e58b78df9e23531bae27",
+      "verdict": "ADVANCED (see discrepancies)",
+      "priorRecordedIdentities": [
+        "efef3d2272dd54130b404fae43ec90643bc42c5dd4701cc1b6b4e49d4ea0f18c",
+        "a4dde437495d7a96765ac322dc8e12680570325de384d5d657e7b7bf28b60b7e"
+      ],
+      "edited": false,
+      "role": "owner decisions incl. D-D, D-A resolution, CA-1 resolution"
+    }
+  ],
+  "discrepanciesReported": [
+    {
+      "file": "owner-decisions.md",
+      "expectedByCommission": "sections of 2026-11-20 evening (D-D, D-A resolved, CA-1 resolved) present",
+      "observed": "present at sha256 fd040124..., 16582 bytes; content advanced twice since v1 and once since the compatibility assessment manifest",
+      "action": "read the current content; reported; not edited"
+    },
+    {
+      "file": "WORK_ITEM.md",
+      "observed": "Coordinator-owned and moving (d2489282... at assessment time)",
+      "action": "not used as a technical input"
+    }
+  ],
+  "supportingInputs": [
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/adr-operation-a-access-and-environment.md",
+      "sha256": "d51bbf650aca74e82351dacf0e45d0f14c992044b9ff246bc7b8b281920b0b39",
+      "verdict": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "sha256": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+      "verdict": "MATCH (C6 stale per CA-5)"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "verdict": "MATCH (no-public-late-endpoint rule cited)"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/evidence/payload-size-calculations.json",
+      "sha256": "62cd5060d90bd9fc3e389cd0a5e1128ff7c328b31e802b66ce96ad90a0ce2ca4",
+      "verdict": "READ (source of the §7 figures)"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/evidence/source-identities.json",
+      "sha256": "c1cf7f335f1e4c249d8659896841c0ecdad51a744e18448c688afe9e4877ccdb",
+      "verdict": "READ"
+    },
+    {
+      "path": "docs/ai-sdlc/PROJECT.md",
+      "sha256": "8584a2ed39a3ac548f303bf41bceb8e5e9df3fd3ec678289bdb128560643710e",
+      "verdict": "MATCH"
+    }
+  ]
+}

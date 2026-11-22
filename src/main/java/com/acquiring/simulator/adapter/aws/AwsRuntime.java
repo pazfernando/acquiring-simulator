@@ -1,5 +1,6 @@
 package com.acquiring.simulator.adapter.aws;
 
+import com.acquiring.simulator.config.ResponseTimeoutConfig;
 import com.acquiring.simulator.config.SimulatorProperties;
 import com.acquiring.simulator.domain.AuthorizationService;
 import com.acquiring.simulator.domain.model.AuthorizedContext;
@@ -34,7 +35,8 @@ final class AwsRuntime {
         var db = db();
         var profile = registry(db, "CONFIG#ACTIVE", SimulatorProperties.Profile.class);
         var props = new SimulatorProperties(new SimulatorProperties.Authorization(Duration.ofHours(24),
-                Duration.ofMillis(Long.parseLong(System.getenv().getOrDefault("RESPONSE_TIMEOUT_MS", "2000")))), profile);
+                ResponseTimeoutConfig.resolve(
+                        System.getenv(ResponseTimeoutConfig.RESPONSE_TIMEOUT_MILLIS_VARIABLE))), profile);
         return new AuthorizationService(new DynamoAuthorizationRepository(db, env("JOURNAL_TABLE")),
                 new LambdaDownstream(lambda(), env("MASTERCARD_FUNCTION")), props, Clock.systemUTC());
     }

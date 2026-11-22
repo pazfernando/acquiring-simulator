@@ -1,0 +1,46 @@
+{
+  "note": "Identities of the documentary inputs read by ai-sdlc-devops for design/access-realization. Recomputed locally by SHA-256; no Git command executed. This is not a whole-tree freeze: the working tree was dirty according to Implementation evidence.",
+  "computedAt": "2026-11-21T00:10:00Z approx",
+  "repository": "/home/pazfernando/projects/acquiring-simulator",
+  "bindingSource": {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t1-traceability-20261120/BINDING.txt",
+    "sha256": "e4951cc2f2df75e61a9b9d1ce7bdb0f717d17faf3746c6fda79f5ed02bdfe8db",
+    "branch": "feat/wi-acq-auth-001",
+    "head": "cfc456f4f469d9558a78fda8ff9b770b00817315",
+    "origin": "https://github.com/pazfernando/acquiring-simulator.git",
+    "utcStart": "2026-11-20T23:57:19Z",
+    "utcClose": "2026-11-20T23:59:17Z",
+    "modelProvider": "nan",
+    "modelId": "deepseek-v4-flash",
+    "suiteNotRerun": true
+  },
+  "workingTreeEvidence": {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t1-traceability-20261120/git-status-before.txt",
+    "sha256": "b83770538498facf44c35d2bbd558ef15d105ef3e497e10ba941dc837b097fd9",
+    "state": "DIRTY",
+    "note": "User/Implementation-owned modifications and untracked files were present. This design does not assess application diffs, the concurrent timeout-default fix, T1 traceability output, or Coordinator plan/status files."
+  },
+  "commissionInputs": [
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-20261120/security-review.md", "sha256": "0d71ea007e56b12d9873df14126c22640c3abc68052b42db1f47b0a9688d218e", "match": true },
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/adr-operation-a-access-and-environment.md", "sha256": "d51bbf650aca74e82351dacf0e45d0f14c992044b9ff246bc7b8b281920b0b39", "match": true },
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md", "sha256": "efef3d2272dd54130b404fae43ec90643bc42c5dd4701cc1b6b4e49d4ea0f18c", "match": true },
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/requirements.md", "sha256": "49c5d412e3705c320a2f78b190555f49e7e0fa4662cff9329d259f89e2b459df", "match": true },
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md", "sha256": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca", "match": true },
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md", "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a", "match": true },
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/domain-review.md", "sha256": "73adba20fd70969bf8bb9f23ebde5c5d16aec69fd4694ac32984008b76ee0ca2", "match": true }
+  ],
+  "supportingInputs": [
+    { "path": "docs/ai-sdlc/PROJECT.md", "sha256": "8584a2ed39a3ac548f303bf41bceb8e5e9df3fd3ec678289bdb128560643710e" },
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/WORK_ITEM.md", "sha256": "f041c42f9d3cb1153ba9580b60778d35b04da3d546d3e49f5d525c61f6026650", "note": "Differs from the identity recorded in the security review's input list (ed83661e...). Coordinator-owned file changed concurrently; not edited by this task." },
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-20261120/evidence/input-identities.json", "sha256": "876056999992840108a334e3b96fd57ba05378644d584db3fc6fbe95b9fbe4d0" },
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-20261120/evidence/official-source-excerpts.json", "sha256": "5fc099c904f93325f3bc7348da343b018cfb1fc833be502a3479ba5d2d071494" },
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-20261120/evidence/review-validation.json", "sha256": "866c14631d184433d1564e923a05e38bd438fa0660ca679a01abfe6b1478a205" },
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-20261120/evidence/closing-implementation-binding.txt", "sha256": "e4951cc2f2df75e61a9b9d1ce7bdb0f717d17faf3746c6fda79f5ed02bdfe8db" },
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/retention/retention-delta.md", "sha256": "208402a2dcef2867ff8f1c2283d50ac921c635bf47c761b7ba5d11d470cc090f", "note": "Concurrent NV-05 work by another specialist; read for boundary only, not modified." }
+  ],
+  "observations": [
+    "All six commissioned design identities matched; no source drift in the pinned set.",
+    "WORK_ITEM.md is Coordinator-owned and advanced during the review window; recorded as a source change, not an error.",
+    "The repository tree is dirty; no clean-HEAD claim is made for any statement in this design."
+  ]
+}

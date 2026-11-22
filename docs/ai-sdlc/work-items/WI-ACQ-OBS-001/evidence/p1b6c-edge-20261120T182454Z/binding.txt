@@ -1,0 +1,6 @@
+repo=/home/pazfernando/projects/acquiring-simulator
+branch=feat/wi-acq-auth-001
+head=cfc456f4f469d9558a78fda8ff9b770b00817315
+remote=https://github.com/pazfernando/acquiring-simulator.git
+java=openjdk version "25.0.5" 2026-10-20 LTS OpenJDK Runtime Environment Temurin-25.0.5+8 (build 25.0.5+8-LTS) OpenJDK 64-Bit Server VM Temurin-25.0.5+8 (build 25.0.5+8-LTS, mixed mode, sharing) 
+mvn=The JAVA_HOME environment variable is not defined correctly,

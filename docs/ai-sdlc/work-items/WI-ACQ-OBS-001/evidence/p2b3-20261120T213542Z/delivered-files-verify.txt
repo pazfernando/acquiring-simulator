@@ -1,0 +1,8 @@
+src/main/java/com/acquiring/simulator/channel/C4LateDeliveryCandidate.java: OK
+src/main/java/com/acquiring/simulator/channel/C4LateDeliveryEnvelope.java: OK
+src/main/java/com/acquiring/simulator/channel/C4LateDeliveryException.java: OK
+src/main/java/com/acquiring/simulator/channel/C4LateDeliveryParser.java: OK
+src/main/java/com/acquiring/simulator/channel/C4LateDeliveryVerifier.java: OK
+src/main/java/com/acquiring/simulator/channel/C4LateDeliveryViolation.java: OK
+src/main/java/com/acquiring/simulator/channel/C4VerifiedLateDelivery.java: OK
+src/test/java/com/acquiring/simulator/channel/C4LateDeliveryTest.java: OK

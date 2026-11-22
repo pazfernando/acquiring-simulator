@@ -1,0 +1,12 @@
+repository=/home/pazfernando/projects/acquiring-simulator
+branch=feat/wi-acq-auth-001
+head=cfc456f4f469d9558a78fda8ff9b770b00817315
+origin=https://github.com/pazfernando/acquiring-simulator.git
+model=nan/deepseek-v4-flash (configured default, no override)
+java_home=/home/pazfernando/.local/opt/jdk-25
+java=openjdk version "25.0.5" 2026-10-20 LTS
+maven=/home/pazfernando/.local/opt/maven/bin/mvn
+maven_version=Apache Maven 3.10.1
+mode=offline (-o), batch (-B), single full suite
+runtime=AwsRuntime inactive; no HTTP route, no deployment, no AWS call
+authority=verification-only slice; no source edits, no rerun

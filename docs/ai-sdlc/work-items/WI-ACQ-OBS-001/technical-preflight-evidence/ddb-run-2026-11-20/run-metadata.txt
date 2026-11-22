@@ -1,0 +1,12 @@
+run_utc=2026-11-20T15:52:53Z
+cwd=/home/pazfernando/projects/acquiring-simulator
+branch=feat/wi-acq-auth-001
+head=cfc456f4f469d9558a78fda8ff9b770b00817315
+origin=https://github.com/pazfernando/acquiring-simulator.git
+endpoint=http://127.0.0.1:8000
+emulator_pid=2787567
+emulator_cmd=java -jar DynamoDBLocal.jar -inMemory 
+aws_cli=aws-cli/1.44.49 Python/3.12.3 Linux/7.0.0-43-generic botocore/1.42.59
+probe_source=pinned evidence/preflight-2026-11-19/ddb-probe.sh c40ad7b2...5fb2066
+probe_run_copy=/tmp/opencode/ddb-probe-scoped-20261120.sh 1955043a...ebb0d2c
+auth=dummy static local/local (no AWS account, no real credentials)

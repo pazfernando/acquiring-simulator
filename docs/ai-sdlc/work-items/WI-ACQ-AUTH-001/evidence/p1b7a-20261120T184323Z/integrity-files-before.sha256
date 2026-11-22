@@ -1,0 +1,6 @@
+6754dc3df3878f3af8edecfc1ebbddff87ebe8b98e67fb8b03325cfe8a77bca9  src/main/java/com/acquiring/simulator/domain/event/EventIntegrityConflict.java
+71aa0beaead94b73f6201dd7fb055d840cde9c5ea108be69b42d1c96690f042b  src/main/java/com/acquiring/simulator/domain/event/StoredEvent.java
+b01b8d053b85f74e58583ce080d9271eab8f513ba638d654c8bcba14b6785a2b  src/main/java/com/acquiring/simulator/adapter/aws/DynamoEventStore.java
+d4e3046dbef9f060a97a29e9604e18fd36ef36b9366e5d5c9078d9e14f169e49  src/main/java/com/acquiring/simulator/domain/event/EventDeduplication.java
+077e1aa43334e736445ff7e7681ab95e848c380fe7e92ddfaa3bb70e0aece824  src/main/java/com/acquiring/simulator/domain/event/EventAppendResult.java
+f8f22363f6009f9f04064a757876218e7e05affab162d0edca133b1365b4df44  src/test/java/com/acquiring/simulator/aws/DynamoEventStoreIntegrationTest.java

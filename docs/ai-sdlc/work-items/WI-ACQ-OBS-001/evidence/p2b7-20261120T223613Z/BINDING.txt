@@ -1,0 +1,8 @@
+origin	https://github.com/pazfernando/acquiring-simulator.git (fetch)
+origin	https://github.com/pazfernando/acquiring-simulator.git (push)
+
+repository: /home/pazfernando/projects/acquiring-simulator
+branch: feat/wi-acq-auth-001
+head: cfc456f4f469d9558a78fda8ff9b770b00817315
+model: DeepSeek V4 Flash (provider nan), configured default, no override
+mode: local construction and local test only; runtime inactive; no Git write/provider publication/cloud/credentials/deletion/spec change/new dependency

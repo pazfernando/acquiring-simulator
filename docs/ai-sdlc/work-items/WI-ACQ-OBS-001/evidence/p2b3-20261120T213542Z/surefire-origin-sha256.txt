@@ -1,0 +1,2 @@
+f4aa742e619996bd1827fc24765f55e5ef414c842a476f2cc8773a1967e3a9b4  target/surefire-reports/TEST-com.acquiring.simulator.channel.C4LateDeliveryTest.xml
+f170fab5906756e4af87f26663108f1d44a3007c87fdb82f8896e1c3392d45fd  target/surefire-reports/com.acquiring.simulator.channel.C4LateDeliveryTest.txt

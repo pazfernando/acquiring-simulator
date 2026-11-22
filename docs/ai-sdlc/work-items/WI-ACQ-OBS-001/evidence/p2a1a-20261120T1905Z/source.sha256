@@ -1,0 +1,5 @@
+51f2d7cff10893989fb765e5d471e711e3060b7a78b8926e1cef2745ba839c66  src/main/java/com/acquiring/simulator/protocol/iso8583/Iso8583Header.java
+2212896bf29899679656df78441036f82f7bda3e473039e5f41f534ae1deb866  src/main/java/com/acquiring/simulator/protocol/iso8583/Iso8583HeaderParseException.java
+e4157df5bb7f17b9f269386ef68a07ff37449dd5b1f377e6181133c11a5455ec  src/main/java/com/acquiring/simulator/protocol/iso8583/Iso8583HeaderParser.java
+9123c0b528398d1797914bcd9c280db09d08593ffeb24fcc91e7701c4cf6cb83  src/main/java/com/acquiring/simulator/protocol/iso8583/PrimaryBitmap.java
+07a446470da4646c92794c5f53e37f28af028f9e23bcd0c702e814761c5d7015  src/test/java/com/acquiring/simulator/protocol/iso8583/Iso8583HeaderParserTest.java

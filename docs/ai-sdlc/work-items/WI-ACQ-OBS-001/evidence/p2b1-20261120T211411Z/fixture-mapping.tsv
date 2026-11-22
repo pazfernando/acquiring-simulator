@@ -1,0 +1,13 @@
+case_id	fixture_expected	test_treatment	tested_parser_outcome
+K01-direct	SHAPE_ACCEPT_REQUIRES_REAL_SIGNATURE_VERIFICATION	shape_accept	DIRECT_SENDER_MATCHED; UNVERIFIED_CANDIDATE/UNRESOLVED
+K02-relay	SHAPE_ACCEPT_REQUIRES_REAL_SIGNATURE_VERIFICATION	shape_accept	RELAY_SENDER_MATCHED; relay sha == attestation sha; relay response sha == body sha
+K03-late	SHAPE_ACCEPT_REQUIRES_REAL_SIGNATURE_VERIFICATION	shape_accept	DIRECT_SENDER_MATCHED; late envelope shaped
+K04-missing-sidecar	MISSING_PROOF; UNKNOWN after possible send absent committed result	reject	MISSING_PROOF
+K05-response-hash-mismatch	REJECT_HASH_BINDING; no business evidence	reject	HASH_BINDING
+K06-signature-absent	REJECT_CARRIER_SCHEMA	reject	CARRIER_SCHEMA
+K07-key-unavailable	REJECT_UNRESOLVED_KEY; no receipt lookup	shape_accept	keyId preserved as UNKNOWN; KeyResolution UNRESOLVED (resolver rejection deferred)
+K08-direct-wrong-sender	REJECT_AUTHENTICATED_SENDER	reject	AUTHENTICATED_SENDER
+K09-relay-hash-mismatch	REJECT_RELAY_BINDING	reject	RELAY_BINDING
+K10-oversized-sidecar	REJECT_CARRIER_SIZE_BEFORE_SIGNATURE	reject	CARRIER_SIZE (bounds before decode)
+K11-late-missing-proof	REJECT_MISSING_PROOF; no reconciliation	reject	MISSING_PROOF
+K12-proof-unavailable	TRANSPORT_FAILURE; UNKNOWN after possible send absent readable durable confirmation; no automatic retry	reject	TRANSPORT_FAILURE

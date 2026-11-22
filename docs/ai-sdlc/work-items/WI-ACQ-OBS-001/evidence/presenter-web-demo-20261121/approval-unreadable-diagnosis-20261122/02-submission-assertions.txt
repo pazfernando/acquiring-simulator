@@ -1,0 +1,8 @@
+ASSERT PASS  outcome expected='APPROVED' actual='APPROVED'
+ASSERT FAIL  disposition expected='CONFIRMED' actual='COMPLETED'
+ASSERT FAIL  credentialFixtureRef echoed expected='SIM-APP-001' actual=None
+ASSERT FAIL  paymentRef expected='PAY-IT-20261122-001' actual=None
+ASSERT FAIL  authorizationId present expected=True actual=False
+ASSERT FAIL  committed journal version present expected=True actual=False
+ASSERT FAIL  no unsigned fallback markers expected=False actual=True
+PY_ASSERT_FAILURES=6

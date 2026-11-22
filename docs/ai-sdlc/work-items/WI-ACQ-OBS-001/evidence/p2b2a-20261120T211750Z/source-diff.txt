@@ -1,0 +1,40 @@
+--- docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/p2b2a-20261120T211750Z/source-before.sha256	2026-11-20 16:17:50.841041200 -0500
++++ docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/p2b2a-20261120T211750Z/source-after.sha256	2026-11-20 16:20:43.321208842 -0500
+@@ -25,16 +25,25 @@
+ eedf90e74235181621dda1a1d061e7724689eb5e76396ce7de353a7f2fde7994  src/main/java/com/acquiring/simulator/channel/C3ResponseBuilder.java
+ 63ecdb96fa9499f0b16ee2d22d3c13f2ae6aa2bd32f2f0b61b316944de1c3079  src/main/java/com/acquiring/simulator/channel/C3ResponseEnvelope.java
+ e7531b235b5da336a42fb93a9fc0da5e67a028963f1b630971ae52cb085966db  src/main/java/com/acquiring/simulator/channel/C3Response.java
++29a2e786fe3cc04cb0484aa8abef1d16adc9583704339c18e3492ea38060c8d6  src/main/java/com/acquiring/simulator/channel/C4AttestationType.java
++4994f2ddeccbc0ec819f2d9c403b96dd59e63ba4a5d6b267b29fa91ccc2fd73a  src/main/java/com/acquiring/simulator/channel/C4AuthenticatedTransportContext.java
+ be3291d17e0106f1b4f25ec16bff45d0794fcbbce9afe609c05a780e6876ca31  src/main/java/com/acquiring/simulator/channel/C4CarrierCandidate.java
+ 494e4bd8156a1bacd3d1e54276ea9f4e30e7eec8fcce35a039b618e9f5ce76cb  src/main/java/com/acquiring/simulator/channel/C4CarrierCanonicalJson.java
+ 27e3b43b1b519c0302a036b98a2e214b0ec22e6a690acb0b0e1ccd2b11b0c073  src/main/java/com/acquiring/simulator/channel/C4CarrierEnvelope.java
+ aaa7ccf3b84c9e7e2c8eebc274b2f992d76ccc1e462af61de150c5b37021af84  src/main/java/com/acquiring/simulator/channel/C4CarrierException.java
+ f5cd45dac29f69c27aa48daf0974f7ddb33c1a8f5cdf4d878f3f0a5e56769c9e  src/main/java/com/acquiring/simulator/channel/C4CarrierParser.java
+-d1958edd6bba96528491c8caa81a36ddea00181192c09882a985c1fa6e375579  src/main/java/com/acquiring/simulator/channel/C4CarrierSchema.java
++97fb8831e463e4b798a2fdb72252c7ff419831d38e6af64000683bc8fa72702d  src/main/java/com/acquiring/simulator/channel/C4CarrierSchema.java
+ 2c0072ea9c4543fe126d8daba2e5ca851e5e6759052fb946fbbfcfeb473fe2f6  src/main/java/com/acquiring/simulator/channel/C4CarrierViolation.java
+-c0529c6c19851bcddb40687c8e977f080b74343840e4503839ac809de425d022  src/main/java/com/acquiring/simulator/channel/C4EvidenceAttestation.java
++407f048e9d53cd8df6c888d6bbcef7d922b6afc3f7ddf8c7be0439f00c5c8464  src/main/java/com/acquiring/simulator/channel/C4EvidenceAttestation.java
++81443121392d48bb5c420a6dbb0b0f02e1c6b735ab1b461e73c7545cec5ae971  src/main/java/com/acquiring/simulator/channel/C4EvidenceVerifier.java
++74d672cf1ccc3e1dc4a333e71ef4397008064599fc19419ec57990472e1a2106  src/main/java/com/acquiring/simulator/channel/C4KeyRegistry.java
++bf15c55f83a1355cbd00423b5c35b6ae759c4de17959c4b9772130f91f3eaf3c  src/main/java/com/acquiring/simulator/channel/C4PrincipalRole.java
+ 29e15d6bf7d6e034680adbe53ff291bca07fcfad43db8d7cc24846645f1766d2  src/main/java/com/acquiring/simulator/channel/C4RelayAttestation.java
+ 69f6b086621ba2b029c30336322f2ecfd2cf383a258dfaa5f673dcbf60b54ee9  src/main/java/com/acquiring/simulator/channel/C4TransportResponse.java
++8df1e2ccbb5317d9640d046f6905369b666e2ab5cad5e14a54627ef1feb4964d  src/main/java/com/acquiring/simulator/channel/C4TrustedPrincipalKey.java
++b16538128588445302b9198134b79cca1ee5ab3f0d802f6246e3219c9f7dc5d0  src/main/java/com/acquiring/simulator/channel/C4VerificationException.java
++7449da044dfcead4f64dd44793a0f1e831b68901d684b3f362d8076b63718b5d  src/main/java/com/acquiring/simulator/channel/C4VerificationViolation.java
++72736bd4c74bd28295c6846cc6e46f3b03ae3829f9f3ce2766a4314f0a345d54  src/main/java/com/acquiring/simulator/channel/C4VerifiedAttestation.java
+ 51efd00a014818a163bd236748f10d45d9be5368b8e58dbd83d106b2cff8c327  src/main/java/com/acquiring/simulator/channel/ChannelAmount.java
+ 301d4f3020a7dd0ab0426a2c5520a61c36c59cd1b6d38864ed2ce2fb96afbc98  src/main/java/com/acquiring/simulator/channel/ChannelAuthorizationRequest.java
+ c5dd34e894ce14dbc543fa1f5adb45996db838695776ce6d84b7792835420180  src/main/java/com/acquiring/simulator/channel/ChannelErrorCode.java
+@@ -173,6 +182,9 @@
+ 43bcccb11f92ed82f5f8e53cb45286049ab40bed0a02c3f36e4628d523558a08  src/test/java/com/acquiring/simulator/aws/ResultServiceWiringTest.java
+ 9348c30f3cba4b41b93f3a8598dac666b31e3c276750fcd24673649f75753c45  src/test/java/com/acquiring/simulator/channel/C3ResponseBuilderTest.java
+ b503fe1b204e045178729a05bef0e582a96ed547ed262e0b327b52e7895e23fc  src/test/java/com/acquiring/simulator/channel/C4CarrierParserTest.java
++3dc0117ebd717350dd1be1e6fbc77cffa6cbe9987385bea4590f5a2b13985161  src/test/java/com/acquiring/simulator/channel/C4EvidenceAttestationSchemaTest.java
++2612a239c41bed4c5068ad853a8e2dbfbf2a9384cf4cb1e40e070e7ab113287c  src/test/java/com/acquiring/simulator/channel/C4EvidenceFixtures.java
++bfab6e844b320dceb882a9baecfab0b2cbb905ff12349ff54471ac1291a7f740  src/test/java/com/acquiring/simulator/channel/C4EvidenceVerifierTest.java
+ 7386ee2ca6bc9943e32e4e9cee4f8b40e002a9df914d022fd553c3704cbd50c5  src/test/java/com/acquiring/simulator/channel/ChannelRequestValidatorTest.java
+ c9246ac278686ebb7d341b3241785360c816de0fe298b19505c789ec5d2a90b4  src/test/java/com/acquiring/simulator/channel/ServerResolvedInstructionMapperTest.java
+ ec22bbacf063e55d6376e137c44bc17b6fe933691f659465f89e93d733fa68d4  src/test/java/com/acquiring/simulator/domain/DeadlineDispositionTest.java

@@ -1,0 +1,87 @@
+[INFO] Scanning for projects...
+[INFO] Loaded 24559 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] 
+[INFO] ------------< com.acquiring.simulator:acquiring-simulator >-------------
+[INFO] Building acquiring-simulator 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ acquiring-simulator ---
+[INFO] Copying 4 resources from src/main/resources to target/classes
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ acquiring-simulator ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 193 source files with javac [debug parameters release 25] to target/classes
+[INFO] /home/pazfernando/projects/acquiring-simulator/src/main/java/com/acquiring/simulator/adapter/aws/AwsRuntime.java: Some input files use or override a deprecated API.
+[INFO] /home/pazfernando/projects/acquiring-simulator/src/main/java/com/acquiring/simulator/adapter/aws/AwsRuntime.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ acquiring-simulator ---
+[INFO] skip non existing resourceDirectory /home/pazfernando/projects/acquiring-simulator/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ acquiring-simulator ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 70 source files with javac [debug parameters release 25] to target/test-classes
+[INFO] /home/pazfernando/projects/acquiring-simulator/src/test/java/com/acquiring/simulator/PostgresAuthorizationCoreIntegrationTest.java: Some input files use or override a deprecated API.
+[INFO] /home/pazfernando/projects/acquiring-simulator/src/test/java/com/acquiring/simulator/PostgresAuthorizationCoreIntegrationTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ acquiring-simulator ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.acquiring.simulator.channel.T3LocalApprovalRetryIntegrationTest
+20:45:43.027 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+20:45:43.031 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+20:45:43.153 [main] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 2.0.5
+20:45:43.251 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.UnixSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+20:45:43.666 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Unix socket (unix:///var/run/docker.sock)
+20:45:43.667 [main] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+20:45:43.683 [main] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.1.3
+  API Version: 1.52
+  Operating System: Linux Mint 22.3
+  Total Memory: 23919 MB
+20:45:43.753 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Creating container for image: testcontainers/ryuk:0.14.0
+20:45:43.757 [main] INFO org.testcontainers.utility.RegistryAuthLocator -- Failure when attempting to lookup auth config. Please ignore if you don't have images in an authenticated registry. Details: (dockerImageName: testcontainers/ryuk:0.14.0, configFile: /home/pazfernando/.docker/config.json, configEnv: DOCKER_AUTH_CONFIG). Falling back to docker-java default behaviour. Exception message: Status 404: No config supplied. Checked in order: /home/pazfernando/.docker/config.json (file not found), DOCKER_AUTH_CONFIG (not set)
+20:45:43.934 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 is starting: 3422363756fd67f3a1cb0bdc5b052e2de404dfdbbc376fdb001ac280fcd35f22
+20:45:44.260 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 started in PT0.506015617S
+20:45:44.266 [main] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+20:45:44.266 [main] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+20:45:44.267 [main] INFO org.testcontainers.DockerClientFactory -- ✔︎ Docker server version should be at least 1.6.0
+20:45:44.267 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:45:44.354 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: 8eee49746f75c0abdae33795c2920db2be1654a53e5d06152a6d9adeaf9ef982
+20:45:46.613 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.345708024S
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.764 s -- in com.acquiring.simulator.channel.T3LocalApprovalRetryIntegrationTest
+[INFO] Running com.acquiring.simulator.channel.LateSignedEvidenceReceiptAtomicIntegrationTest
+20:45:48.728 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:45:48.813 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: 11bf6023baf56816f17974247314592ceac6fdf52487262e65c856ce71f8f18d
+20:45:51.356 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.627829799S
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.771 s -- in com.acquiring.simulator.channel.LateSignedEvidenceReceiptAtomicIntegrationTest
+[INFO] Running com.acquiring.simulator.channel.EvidenceReceiptAtomicIntegrationTest
+20:45:52.501 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:45:52.587 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: e6e175a8c21d405fff826e459c6ed0fa1226df1f69d67325e9b14db9e22e2102
+20:45:55.052 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.550373981S
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.914 s -- in com.acquiring.simulator.channel.EvidenceReceiptAtomicIntegrationTest
+[INFO] Running com.acquiring.simulator.aws.DynamoDispatchIntentGatewayIntegrationTest
+20:45:56.417 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:45:56.496 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: 3e645151c8867bae19020bd95dc0a1e13af55d246d55cd6409e04d0acf71adea
+20:45:58.618 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.201245828S
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.485 s -- in com.acquiring.simulator.aws.DynamoDispatchIntentGatewayIntegrationTest
+[INFO] Running com.acquiring.simulator.aws.DynamoPossibleSendIntegrationTest
+20:45:59.906 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:45:59.989 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: 1ec4864910e54aae12ceabac78ce9cac24269c0faf5a4b2c6946424588f547a6
+20:46:02.209 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.303440696S
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.670 s -- in com.acquiring.simulator.aws.DynamoPossibleSendIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  29.008 s
+[INFO] Finished at: 2026-11-21T20:46:03-05:00
+[INFO] ------------------------------------------------------------------------

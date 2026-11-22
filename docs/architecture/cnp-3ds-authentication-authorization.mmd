@@ -1,0 +1,43 @@
+sequenceDiagram
+    autonumber
+    actor H as Cardholder
+    participant C as Merchant / Payment Gateway
+    participant S as 3DS Server
+    participant D as Scheme Directory Server
+    participant X as Issuer ACS
+    participant P as Multi-Acquirer Processor
+    participant N as Authorization Network
+    participant I as Issuer Authorization
+
+    H->>C: Start e-commerce checkout
+    C->>S: Initiate EMV 3DS authentication
+    S->>D: Authentication Request (AReq)
+    D->>X: Route AReq
+    alt Frictionless authentication outcome
+        X-->>D: Authentication Response (ARes)
+        D-->>S: ARes with authentication outcome
+    else Cardholder challenge required
+        X-->>D: ARes — challenge required
+        D-->>S: ARes — challenge required
+        S-->>C: Challenge parameters
+        C->>X: Establish challenge interaction (CReq)
+        X-->>H: Present authentication challenge
+        H->>X: Complete cardholder verification
+        X-->>C: Challenge completion (CRes as applicable)
+        X->>D: Authentication Results Request (RReq)
+        D->>S: Forward RReq
+        S-->>D: Results Response (RRes)
+    end
+    S-->>C: 3DS outcome / evidence
+    alt Authentication policy permits authorization
+        C->>P: Payment Authorization with 3DS data
+        P->>P: Validate acquirer/scheme 3DS fields
+        P->>N: Authorization with authentication indicators
+        N->>I: Request financial authorization
+        I-->>N: Approved / Declined
+        N-->>P: Authorization result
+        P-->>C: Authorization result
+        C-->>H: Purchase outcome
+    else Authentication policy blocks continuation
+        C-->>H: Authentication failed / checkout stopped
+    end

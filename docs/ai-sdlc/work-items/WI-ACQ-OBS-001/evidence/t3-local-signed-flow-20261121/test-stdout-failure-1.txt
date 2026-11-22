@@ -1,0 +1,171 @@
+[INFO] Scanning for projects...
+[INFO] Loaded 24559 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] 
+[INFO] ------------< com.acquiring.simulator:acquiring-simulator >-------------
+[INFO] Building acquiring-simulator 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ acquiring-simulator ---
+[INFO] Copying 4 resources from src/main/resources to target/classes
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ acquiring-simulator ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ acquiring-simulator ---
+[INFO] skip non existing resourceDirectory /home/pazfernando/projects/acquiring-simulator/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ acquiring-simulator ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ acquiring-simulator ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.acquiring.simulator.channel.T3LocalApprovalRetryIntegrationTest
+20:44:38.106 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+20:44:38.109 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+20:44:38.242 [main] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 2.0.5
+20:44:38.342 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.UnixSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+20:44:38.760 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Unix socket (unix:///var/run/docker.sock)
+20:44:38.761 [main] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+20:44:38.776 [main] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.1.3
+  API Version: 1.52
+  Operating System: Linux Mint 22.3
+  Total Memory: 23919 MB
+20:44:38.845 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Creating container for image: testcontainers/ryuk:0.14.0
+20:44:38.849 [main] INFO org.testcontainers.utility.RegistryAuthLocator -- Failure when attempting to lookup auth config. Please ignore if you don't have images in an authenticated registry. Details: (dockerImageName: testcontainers/ryuk:0.14.0, configFile: /home/pazfernando/.docker/config.json, configEnv: DOCKER_AUTH_CONFIG). Falling back to docker-java default behaviour. Exception message: Status 404: No config supplied. Checked in order: /home/pazfernando/.docker/config.json (file not found), DOCKER_AUTH_CONFIG (not set)
+20:44:39.028 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 is starting: 5c1d1ba172ca42f3ed2ab980d4543cd90931c7472f4364e7d8edee129485bbbb
+20:44:39.362 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 started in PT0.517302555S
+20:44:39.367 [main] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+20:44:39.367 [main] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+20:44:39.368 [main] INFO org.testcontainers.DockerClientFactory -- ✔︎ Docker server version should be at least 1.6.0
+20:44:39.368 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:44:39.450 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: 481a759c3fe4cf7404c81d52ea1b8540445eb2ffda8124c30a8d51464e2e4095
+20:44:42.047 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.679135358S
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 5.805 s <<< FAILURE! -- in com.acquiring.simulator.channel.T3LocalApprovalRetryIntegrationTest
+[ERROR] com.acquiring.simulator.channel.T3LocalApprovalRetryIntegrationTest.signedReceiptApprovalAndIdenticalRetryCommitOnceAndSendOnce -- Time elapsed: 1.047 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+expected: COMMITTED
+ but was: REFUSED
+	at com.acquiring.simulator.channel.T3LocalApprovalRetryIntegrationTest.signedReceiptApprovalAndIdenticalRetryCommitOnceAndSendOnce(T3LocalApprovalRetryIntegrationTest.java:268)
+
+[INFO] Running com.acquiring.simulator.channel.LateSignedEvidenceReceiptAtomicIntegrationTest
+20:44:43.841 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:44:43.926 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: 005622efb63e091a9cc3498fb238fcb81aadd1be4a2f4e40bffbaa6f9b608bc4
+20:44:46.273 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.431566744S
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 3.354 s <<< FAILURE! -- in com.acquiring.simulator.channel.LateSignedEvidenceReceiptAtomicIntegrationTest
+[ERROR] com.acquiring.simulator.channel.LateSignedEvidenceReceiptAtomicIntegrationTest.failingBusinessConditionCommitsNoLateReceiptRecordEventHeadOrSlot -- Time elapsed: 0.553 s <<< ERROR!
+java.lang.IllegalArgumentException: unsupported business currency
+	at com.acquiring.simulator.channel.BusinessCurrencyProjection.isoNumeric(BusinessCurrencyProjection.java:40)
+	at com.acquiring.simulator.adapter.aws.EvidenceReceiptCriticalComposer.requireConsistentEvidence(EvidenceReceiptCriticalComposer.java:259)
+	at com.acquiring.simulator.adapter.aws.EvidenceReceiptCriticalComposer.signedReceipt(EvidenceReceiptCriticalComposer.java:101)
+	at com.acquiring.simulator.adapter.aws.LateSignedEvidenceReceiptComposer.<init>(LateSignedEvidenceReceiptComposer.java:67)
+	at com.acquiring.simulator.adapter.aws.LateSignedEvidenceReceiptComposer.withSlotAccounting(LateSignedEvidenceReceiptComposer.java:96)
+	at com.acquiring.simulator.channel.LateSignedEvidenceReceiptAtomicIntegrationTest.lateChain(LateSignedEvidenceReceiptAtomicIntegrationTest.java:270)
+	at com.acquiring.simulator.channel.LateSignedEvidenceReceiptAtomicIntegrationTest.failingBusinessConditionCommitsNoLateReceiptRecordEventHeadOrSlot(LateSignedEvidenceReceiptAtomicIntegrationTest.java:209)
+
+[ERROR] com.acquiring.simulator.channel.LateSignedEvidenceReceiptAtomicIntegrationTest.lateSignedEvidenceCommitsReceiptLateMetadataRecordEventHeadDedupeAndSlotAtOnce -- Time elapsed: 0.106 s <<< ERROR!
+java.lang.IllegalArgumentException: unsupported business currency
+	at com.acquiring.simulator.channel.BusinessCurrencyProjection.isoNumeric(BusinessCurrencyProjection.java:40)
+	at com.acquiring.simulator.adapter.aws.EvidenceReceiptCriticalComposer.requireConsistentEvidence(EvidenceReceiptCriticalComposer.java:259)
+	at com.acquiring.simulator.adapter.aws.EvidenceReceiptCriticalComposer.signedReceipt(EvidenceReceiptCriticalComposer.java:101)
+	at com.acquiring.simulator.adapter.aws.LateSignedEvidenceReceiptComposer.<init>(LateSignedEvidenceReceiptComposer.java:67)
+	at com.acquiring.simulator.adapter.aws.LateSignedEvidenceReceiptComposer.withSlotAccounting(LateSignedEvidenceReceiptComposer.java:96)
+	at com.acquiring.simulator.channel.LateSignedEvidenceReceiptAtomicIntegrationTest.lateChain(LateSignedEvidenceReceiptAtomicIntegrationTest.java:270)
+	at com.acquiring.simulator.channel.LateSignedEvidenceReceiptAtomicIntegrationTest.lateSignedEvidenceCommitsReceiptLateMetadataRecordEventHeadDedupeAndSlotAtOnce(LateSignedEvidenceReceiptAtomicIntegrationTest.java:166)
+
+[INFO] Running com.acquiring.simulator.channel.EvidenceReceiptAtomicIntegrationTest
+20:44:47.197 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:44:47.281 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: 768afa7ea8b6d1c59fa01ccb3c3d911c9d260e80a7dae9cd56d1f03d6d9e2ada
+20:44:49.519 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.322249022S
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 3.511 s <<< FAILURE! -- in com.acquiring.simulator.channel.EvidenceReceiptAtomicIntegrationTest
+[ERROR] com.acquiring.simulator.channel.EvidenceReceiptAtomicIntegrationTest.failingBusinessConditionCommitsNoReceiptRecordEventHeadOrSlot -- Time elapsed: 0.584 s <<< ERROR!
+java.lang.IllegalArgumentException: unsupported business currency
+	at com.acquiring.simulator.channel.BusinessCurrencyProjection.isoNumeric(BusinessCurrencyProjection.java:40)
+	at com.acquiring.simulator.adapter.aws.EvidenceReceiptCriticalComposer.requireConsistentEvidence(EvidenceReceiptCriticalComposer.java:259)
+	at com.acquiring.simulator.adapter.aws.EvidenceReceiptCriticalComposer.signedReceipt(EvidenceReceiptCriticalComposer.java:101)
+	at com.acquiring.simulator.adapter.aws.EvidenceReceiptCriticalComposer.<init>(EvidenceReceiptCriticalComposer.java:83)
+	at com.acquiring.simulator.adapter.aws.EvidenceReceiptCriticalComposer.withSlotAccounting(EvidenceReceiptCriticalComposer.java:135)
+	at com.acquiring.simulator.channel.EvidenceReceiptAtomicIntegrationTest.approvedChain(EvidenceReceiptAtomicIntegrationTest.java:341)
+	at com.acquiring.simulator.channel.EvidenceReceiptAtomicIntegrationTest.failingBusinessConditionCommitsNoReceiptRecordEventHeadOrSlot(EvidenceReceiptAtomicIntegrationTest.java:272)
+
+[ERROR] com.acquiring.simulator.channel.EvidenceReceiptAtomicIntegrationTest.verifiedApprovedResultCommitsReceiptRecordEventHeadDedupeAndSlotInOneTransaction -- Time elapsed: 0.115 s <<< ERROR!
+java.lang.IllegalArgumentException: unsupported business currency
+	at com.acquiring.simulator.channel.BusinessCurrencyProjection.isoNumeric(BusinessCurrencyProjection.java:40)
+	at com.acquiring.simulator.adapter.aws.EvidenceReceiptCriticalComposer.requireConsistentEvidence(EvidenceReceiptCriticalComposer.java:259)
+	at com.acquiring.simulator.adapter.aws.EvidenceReceiptCriticalComposer.signedReceipt(EvidenceReceiptCriticalComposer.java:101)
+	at com.acquiring.simulator.adapter.aws.EvidenceReceiptCriticalComposer.<init>(EvidenceReceiptCriticalComposer.java:83)
+	at com.acquiring.simulator.adapter.aws.EvidenceReceiptCriticalComposer.withSlotAccounting(EvidenceReceiptCriticalComposer.java:135)
+	at com.acquiring.simulator.channel.EvidenceReceiptAtomicIntegrationTest.approvedChain(EvidenceReceiptAtomicIntegrationTest.java:341)
+	at com.acquiring.simulator.channel.EvidenceReceiptAtomicIntegrationTest.verifiedApprovedResultCommitsReceiptRecordEventHeadDedupeAndSlotInOneTransaction(EvidenceReceiptAtomicIntegrationTest.java:161)
+
+[ERROR] com.acquiring.simulator.channel.EvidenceReceiptAtomicIntegrationTest.exactReceiptReplayPreservesReceiptVersionEventHeadAndSlot -- Time elapsed: 0.115 s <<< ERROR!
+java.lang.IllegalArgumentException: unsupported business currency
+	at com.acquiring.simulator.channel.BusinessCurrencyProjection.isoNumeric(BusinessCurrencyProjection.java:40)
+	at com.acquiring.simulator.adapter.aws.EvidenceReceiptCriticalComposer.requireConsistentEvidence(EvidenceReceiptCriticalComposer.java:259)
+	at com.acquiring.simulator.adapter.aws.EvidenceReceiptCriticalComposer.signedReceipt(EvidenceReceiptCriticalComposer.java:101)
+	at com.acquiring.simulator.adapter.aws.EvidenceReceiptCriticalComposer.<init>(EvidenceReceiptCriticalComposer.java:83)
+	at com.acquiring.simulator.adapter.aws.EvidenceReceiptCriticalComposer.withSlotAccounting(EvidenceReceiptCriticalComposer.java:135)
+	at com.acquiring.simulator.channel.EvidenceReceiptAtomicIntegrationTest.approvedChain(EvidenceReceiptAtomicIntegrationTest.java:341)
+	at com.acquiring.simulator.channel.EvidenceReceiptAtomicIntegrationTest.exactReceiptReplayPreservesReceiptVersionEventHeadAndSlot(EvidenceReceiptAtomicIntegrationTest.java:249)
+
+[ERROR] com.acquiring.simulator.channel.EvidenceReceiptAtomicIntegrationTest.tamperedOrMismatchedEvidenceIsRefusedBeforeAnyWrite -- Time elapsed: 0.105 s <<< ERROR!
+java.lang.IllegalArgumentException: unsupported business currency
+	at com.acquiring.simulator.channel.BusinessCurrencyProjection.isoNumeric(BusinessCurrencyProjection.java:40)
+	at com.acquiring.simulator.adapter.aws.EvidenceReceiptCriticalComposer.requireConsistentEvidence(EvidenceReceiptCriticalComposer.java:259)
+	at com.acquiring.simulator.adapter.aws.EvidenceReceiptCriticalComposer.signedReceipt(EvidenceReceiptCriticalComposer.java:101)
+	at com.acquiring.simulator.adapter.aws.EvidenceReceiptCriticalComposer.<init>(EvidenceReceiptCriticalComposer.java:83)
+	at com.acquiring.simulator.adapter.aws.EvidenceReceiptCriticalComposer.withSlotAccounting(EvidenceReceiptCriticalComposer.java:135)
+	at com.acquiring.simulator.channel.EvidenceReceiptAtomicIntegrationTest.approvedChain(EvidenceReceiptAtomicIntegrationTest.java:341)
+	at com.acquiring.simulator.channel.EvidenceReceiptAtomicIntegrationTest.tamperedOrMismatchedEvidenceIsRefusedBeforeAnyWrite(EvidenceReceiptAtomicIntegrationTest.java:205)
+
+[INFO] Running com.acquiring.simulator.aws.DynamoDispatchIntentGatewayIntegrationTest
+20:44:50.709 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:44:50.803 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: 39365c087bd5cfb72f785a0af28da15193a427f4593906cfacf28aa920331525
+20:44:53.050 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.340507543S
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.555 s -- in com.acquiring.simulator.aws.DynamoDispatchIntentGatewayIntegrationTest
+[INFO] Running com.acquiring.simulator.aws.DynamoPossibleSendIntegrationTest
+20:44:54.266 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:44:54.346 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: 6b4f969e4bee1022c2a9951897da948165b624cf9457acb943edb20b667ba911
+20:44:56.586 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.319965844S
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.646 s -- in com.acquiring.simulator.aws.DynamoPossibleSendIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   T3LocalApprovalRetryIntegrationTest.signedReceiptApprovalAndIdenticalRetryCommitOnceAndSendOnce:268 
+expected: COMMITTED
+ but was: REFUSED
+[ERROR] Errors: 
+[ERROR]   EvidenceReceiptAtomicIntegrationTest.exactReceiptReplayPreservesReceiptVersionEventHeadAndSlot:249->approvedChain:341 » IllegalArgument unsupported business currency
+[ERROR]   EvidenceReceiptAtomicIntegrationTest.failingBusinessConditionCommitsNoReceiptRecordEventHeadOrSlot:272->approvedChain:341 » IllegalArgument unsupported business currency
+[ERROR]   EvidenceReceiptAtomicIntegrationTest.tamperedOrMismatchedEvidenceIsRefusedBeforeAnyWrite:205->approvedChain:341 » IllegalArgument unsupported business currency
+[ERROR]   EvidenceReceiptAtomicIntegrationTest.verifiedApprovedResultCommitsReceiptRecordEventHeadDedupeAndSlotInOneTransaction:161->approvedChain:341 » IllegalArgument unsupported business currency
+[ERROR]   LateSignedEvidenceReceiptAtomicIntegrationTest.failingBusinessConditionCommitsNoLateReceiptRecordEventHeadOrSlot:209->lateChain:270 » IllegalArgument unsupported business currency
+[ERROR]   LateSignedEvidenceReceiptAtomicIntegrationTest.lateSignedEvidenceCommitsReceiptLateMetadataRecordEventHeadDedupeAndSlotAtOnce:166->lateChain:270 » IllegalArgument unsupported business currency
+[INFO] 
+[ERROR] Tests run: 19, Failures: 1, Errors: 6, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[ERROR] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  21.974 s
+[INFO] Finished at: 2026-11-21T20:44:57-05:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.6:test (default-test) on project acquiring-simulator: There are test failures.
+[ERROR] 
+[ERROR] See /home/pazfernando/projects/acquiring-simulator/target/surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

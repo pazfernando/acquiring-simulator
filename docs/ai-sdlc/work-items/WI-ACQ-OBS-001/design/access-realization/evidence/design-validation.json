@@ -1,0 +1,62 @@
+{
+  "artifactSet": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/",
+  "status": "PROPOSAL; documentary only; no deployment, no IaC applied, no approval claimed",
+  "author": "ai-sdlc-devops",
+  "date": "2026-11-20 (America/Bogota)",
+  "runtime": {
+    "harness": "native OpenClaw subagent",
+    "observedModelMetadata": "nan/deepseek-v4-flash",
+    "configuredDefault": true,
+    "modelOverrideApplied": false,
+    "session": "agent:ai-sdlc-devops:subagent:2bad2004-fb26-423c-8a6e-9f0e6f67d383",
+    "providerQualifiedIdExposed": false,
+    "agreesWithImplementationBindingModelFields": true
+  },
+  "files": [
+    { "path": "design.md", "bytes": 41770, "sha256": "83e4ea14b3959dcc6d8535aee0f0dd715783764e8922a72b6c0c3454a40829f4" },
+    { "path": "configuration-schema.md", "bytes": 13716, "sha256": "1f497daade1a8429458e2cc40047adf326a97f2fb6636d583e1bf2e930bf1bb2" },
+    { "path": "evidence/input-identities.json", "sha256": "9436082235d8dc153451fb61ccffaaa612f90e057b4c98a408b9018f739eb4cc" },
+    { "path": "evidence/official-source-excerpts.json", "sha256": "59f338371f9d3b792333ba3572aec7bf0e7ab2fdfc04370af38f4d40a3059a88" }
+  ],
+  "checks": [
+    { "check": "six commissioned design identities recomputed", "command": "sha256sum <six files>", "result": "6/6 MATCH" },
+    { "check": "security review identity", "command": "sha256sum reviews/access-design-20261120/security-review.md", "result": "0d71ea...218e MATCH" },
+    { "check": "scenario matrix rows", "command": "grep -cE '^\\| S[1-8] \\|' design.md", "result": "8" },
+    { "check": "in-scope findings referenced", "command": "grep -oE 'NV-0[1-5]' design.md | sort | uniq -c", "result": "NV-01 x3, NV-02 x1, NV-03 x2, NV-04 x2, NV-05 x1 (out-of-scope pointer)" },
+    { "check": "material decisions enumerated", "command": "grep -oE '\\*\\*D-[A-G]\\*\\*' design.md | sort -u", "result": "D-A..D-G (7)" },
+    { "check": "secret-like content in deliverables", "command": "grep -nE 'BEGIN [A-Z ]*PRIVATE KEY|[0-9]{12}' design.md configuration-schema.md", "result": "no match" },
+    { "check": "files written by this task", "command": "find . -type f | sort", "result": "4 files, all under design/access-realization/" }
+  ],
+  "boundariesObserved": [
+    "No Git or GitHub/provider command executed; branch/HEAD/origin taken from Implementation evidence only.",
+    "No AWS API call, no probe, no deployment, no credential flow, no publication, no deletion.",
+    "No code, adapter, ADR, requirements, contract, WORK_ITEM, plan, status or review file modified.",
+    "No onward delegation; single-agent documentary work.",
+    "MCP availability inherited as incomplete; no MCP-backed check is claimed."
+  ],
+  "sourceChangesObserved": [
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/WORK_ITEM.md",
+      "reviewRecordedSha256": "ed83661ec7efa88ff7e5b3abee7a7ad58db980dcb5e9511be4dc9fcd84c1fca0",
+      "currentSha256": "f041c42f9d3cb1153ba9580b60778d35b04da3d546d3e49f5d525c61f6026650",
+      "handling": "Reported, not overwritten. Coordinator-owned file."
+    }
+  ],
+  "unverified": [
+    "Issuer tenancy capability, plan, quota and configuration",
+    "Repository OIDC subject format (classic vs immutable-ID)",
+    "Native mTLS on WebSocket custom domains (undocumented; not relied on)",
+    "ALB to private API Gateway endpoint forwarding (Option B)",
+    "API Gateway header/body limits for the C4 evidence header",
+    "Header preservation through the WebSocket handshake",
+    "Terraform version availability for use_lockfile",
+    "Provider key-rotation propagation vs Gateway JWKS cache",
+    "KMS/SSM costs and quotas",
+    "Repository visibility"
+  ],
+  "limitations": [
+    "Documentation excerpts are not deployed interoperability evidence.",
+    "No test, scan or handshake was executed; every negative test listed is a future obligation.",
+    "Design assumes the owner-selected direction and does not re-open it; the seven decisions in §14 require owner or Security disposition."
+  ]
+}

@@ -1,0 +1,17 @@
+mtime_local	path
+2026-11-20 16:08:07.796694513 -0500	src/main/java/com/acquiring/simulator/channel/C4CarrierViolation.java
+2026-11-20 16:08:07.796694513 -0500	src/main/java/com/acquiring/simulator/channel/C4CarrierException.java
+2026-11-20 16:09:40.647475511 -0500	src/main/java/com/acquiring/simulator/channel/C4TransportResponse.java
+2026-11-20 16:08:22.175595061 -0500	src/main/java/com/acquiring/simulator/channel/C4CarrierSchema.java
+2026-11-20 16:09:40.647475511 -0500	src/main/java/com/acquiring/simulator/channel/C4EvidenceAttestation.java
+2026-11-20 16:08:39.687689113 -0500	src/main/java/com/acquiring/simulator/channel/C4RelayAttestation.java
+2026-11-20 16:08:47.373168334 -0500	src/main/java/com/acquiring/simulator/channel/C4CarrierEnvelope.java
+2026-11-20 16:08:58.619868622 -0500	src/main/java/com/acquiring/simulator/channel/C4CarrierCanonicalJson.java
+2026-11-20 16:09:14.380848062 -0500	src/main/java/com/acquiring/simulator/channel/C4CarrierCandidate.java
+2026-11-20 16:09:34.030066063 -0500	src/main/java/com/acquiring/simulator/channel/C4CarrierParser.java
+2026-11-20 16:10:33.083707355 -0500	src/test/java/com/acquiring/simulator/channel/C4CarrierParserTest.java
+2026-11-20 16:09:52.770224650 -0500	target/classes/com/acquiring/simulator/channel/C4CarrierParser.class
+2026-11-20 16:10:51.972866344 -0500	target/test-classes/com/acquiring/simulator/channel/C4CarrierParserTest.class
+2026-11-20 16:10:54.129998532 -0500	target/surefire-reports/com.acquiring.simulator.channel.C4CarrierParserTest.txt
+2026-11-20 16:10:54.156000125 -0500	target/surefire-reports/TEST-com.acquiring.simulator.channel.C4CarrierParserTest.xml
+2026-11-18 21:29:51.330241959 -0500	docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/carrier-vectors.json

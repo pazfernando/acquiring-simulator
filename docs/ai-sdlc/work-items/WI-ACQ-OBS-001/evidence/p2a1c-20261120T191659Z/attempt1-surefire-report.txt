@@ -1,0 +1,42 @@
+-------------------------------------------------------------------------------
+Test set: com.acquiring.simulator.protocol.iso8583.Iso8583ScannerTest
+-------------------------------------------------------------------------------
+Tests run: 94, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.583 s <<< FAILURE! -- in com.acquiring.simulator.protocol.iso8583.Iso8583ScannerTest
+com.acquiring.simulator.protocol.iso8583.Iso8583ScannerTest.scannerEnabledFieldsMatchTheHeaderParserProfile -- Time elapsed: 0.071 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+Expecting actual:
+  [3, 4, 7, 11, 22, 25, 32, 37, 38, 39, 41, 42, 48, 49]
+to contain exactly (and in same order):
+  [38, 11, 39, 41, 42, 48, 49, 22, 25, 3, 4, 32, 7, 37]
+but there were differences at these indexes:
+  - element at index 0: expected "38" but was "3"
+  - element at index 1: expected "11" but was "4"
+  - element at index 2: expected "39" but was "7"
+  - element at index 3: expected "41" but was "11"
+  - element at index 4: expected "42" but was "22"
+  - element at index 5: expected "48" but was "25"
+  - element at index 6: expected "49" but was "32"
+  - element at index 7: expected "22" but was "37"
+  - element at index 8: expected "25" but was "38"
+  - element at index 9: expected "3" but was "39"
+  - element at index 10: expected "4" but was "41"
+  - element at index 11: expected "32" but was "42"
+  - element at index 12: expected "7" but was "48"
+  - element at index 13: expected "37" but was "49"
+
+	at com.acquiring.simulator.protocol.iso8583.Iso8583ScannerTest.scannerEnabledFieldsMatchTheHeaderParserProfile(Iso8583ScannerTest.java:267)
+
+com.acquiring.simulator.protocol.iso8583.Iso8583ScannerTest.rejectsNullTruncatedAndHeaderOnlyBodies -- Time elapsed: 0.002 s <<< FAILURE!
+java.lang.AssertionError: 
+
+Expecting actual throwable to be an instance of:
+  com.acquiring.simulator.protocol.iso8583.Iso8583PresenceException
+but was:
+  com.acquiring.simulator.protocol.iso8583.Iso8583FieldException: need 6 octet(s) at body offset 20, only 0 remain
+	at com.acquiring.simulator.protocol.iso8583.Iso8583FieldReader.peekAt(Iso8583FieldReader.java:159)
+	at com.acquiring.simulator.protocol.iso8583.Iso8583FieldReader.peek(Iso8583FieldReader.java:151)
+	at com.acquiring.simulator.protocol.iso8583.Iso8583FieldReader.readFixedDigits(Iso8583FieldReader.java:69)
+	...(88 remaining lines not displayed - this can be changed with Assertions.setMaxStackTraceElementsDisplayed)
+	at com.acquiring.simulator.protocol.iso8583.Iso8583ScannerTest.rejectsNullTruncatedAndHeaderOnlyBodies(Iso8583ScannerTest.java:283)
+

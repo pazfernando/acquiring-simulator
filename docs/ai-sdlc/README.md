@@ -1,3 +1,7 @@
+# Operation A — current status and completion backlog
+
+Start with [current delivery status and traceability](work-items/WI-ACQ-OBS-001/delivery-status.md) and the [actionable completion plan](work-items/WI-ACQ-OBS-001/operation-a-completion-plan.md). Historical work-item paragraphs and specification headers retain their original approval context; later owner decisions and dated implementation evidence must be considered before inferring current status. Component test counts are not product acceptance.
+
 # Current implementation update
 
 For the Operation A AWS path, read `work-items/WI-ACQ-AUTH-001/aws-architecture-update.md` and `../aws-operation-a.md`. Current upstream guide v0.5.2 and consolidated AWS mapping v0.3.0 are pinned under `sources/imports/2026-11-18/`. The original `sources/acquiring_simulator_functional_guide.md` remains the v0.5.1 approval baseline, not the latest source. Previous local approval hashes are historical evidence and are not rewritten. No new independent review/deployment approval is claimed.

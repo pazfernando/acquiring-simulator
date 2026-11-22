@@ -1,0 +1,69 @@
+{
+  "scope": "design documentary inputs, not a whole-tree freeze",
+  "inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "80a7092c0bcf7cd2258c6fde89710f1d952e6c2984b0e2728f077ddc694133b8"
+    },
+    {
+      "path": "docs/ai-sdlc/PROJECT.md",
+      "sha256": "8584a2ed39a3ac548f303bf41bceb8e5e9df3fd3ec678289bdb128560643710e"
+    },
+    {
+      "path": "docs/ai-sdlc/README.md",
+      "sha256": "127d74c552ba84e61961430beeb4e45d63eca6377cd610d0b7abec316c707ded"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/WORK_ITEM.md",
+      "sha256": "ed83661ec7efa88ff7e5b3abee7a7ad58db980dcb5e9511be4dc9fcd84c1fca0"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/adr-operation-a-access-and-environment.md",
+      "sha256": "d51bbf650aca74e82351dacf0e45d0f14c992044b9ff246bc7b8b281920b0b39"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "sha256": "efef3d2272dd54130b404fae43ec90643bc42c5dd4701cc1b6b4e49d4ea0f18c"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/requirements.md",
+      "sha256": "49c5d412e3705c320a2f78b190555f49e7e0fa4662cff9329d259f89e2b459df"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "sha256": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/domain-review.md",
+      "sha256": "73adba20fd70969bf8bb9f23ebde5c5d16aec69fd4694ac32984008b76ee0ca2"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-AUTH-001/WORK_ITEM.md",
+      "sha256": "c09f54b6a97ed65f90ecfcfce014ed49f729d8a2556695b1649b349670e964d2"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-AUTH-001/aws-architecture-update.md",
+      "sha256": "d53b759ee7caf14965bbb6d8655107cd6e086e43f957191549a2b5668c643935"
+    },
+    {
+      "path": "infra/template.yaml",
+      "sha256": "f7637650095ea5166aee9e3d41dbad3d033324c45d48268c70d2bb58d62c1abe"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t1-traceability-20261120/BINDING.txt",
+      "sha256": "0de9bd10ca4d8de7f13ff43d18884cf355e87ef677a45f623eb63323f2423a5f"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t1-traceability-20261120/git-status-before.txt",
+      "sha256": "b83770538498facf44c35d2bbd558ef15d105ef3e497e10ba941dc837b097fd9"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/p2c4-fullsuite-20261120T224632Z/BINDING.txt",
+      "sha256": "17b319736fedc5a3d65381e07b2d89a32424aa24a46716ea6d8493d810e34b69"
+    }
+  ]
+}

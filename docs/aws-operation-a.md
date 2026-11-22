@@ -43,4 +43,10 @@ HTTP 200 carries a business result, including processor rejection and uncertaint
 
 `NETWORK_FAULT` is a Mastercard Lambda operator setting: NONE, REJECT_BEFORE_ISSUER, UNAVAILABLE, DROP_RESPONSE, MALFORMED_RESPONSE, MISMATCHED_RESPONSE, LATE_RESPONSE. It cannot be selected by an HTTP caller. `DROP_RESPONSE` invokes and journals the issuer decision before suppressing delivery. `SIM-DEC-*` exercises issuer decline; `SIM-TMO-*` exercises issuer no response. Logical delays do not sleep or claim real AWS scheduling fidelity. Failure configurations are deterministic fixtures, not scheme rules.
 
+![Operation A AWS implementation](architecture/operation-a-aws.png)
+
+[PNG: Operation A AWS implementation](architecture/operation-a-aws.png)
+
+Editable diagram source: [`architecture/operation-a-aws.mmd`](architecture/operation-a-aws.mmd).
+
 The editable scoped diagram is `architecture/operation-a-aws.mmd`, with matching `operation-a-aws.png` export; the imported upstream C1/C2 and PNG links remain proposals for the broader A/B/C system. Do not label them as the deployed topology.

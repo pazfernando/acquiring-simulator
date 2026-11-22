@@ -1,0 +1,15 @@
+7dc800557ae99b0f67f1249dd4138774612a847c432a0d2c73d48c0350188bdd  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/async-projection-vectors.json
+544e933aeb8ae7e47ec0a54763b068fb38186302f14bc88a5b221684e8dd524b  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/carrier-vectors.json
+8dcc4a4d41d4378ffeab22be3b990da733cb042781d0b049f4b3bd56717bc61f  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/channel-vectors.json
+512c4e71f2cd5a44c2ce371add2979759d86bf33f75bc8a84a08008a9c9313b3  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/documentation-validation.json
+21a86ed8b892d9e28830a5d35842356ae17b40fd951dd4fd00e33fcc4f81a222  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/event-vectors.json
+800bb86177abb93b4445bee7e127b8caa14b20525a1a4f51a9df8b45774783c3  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/evidence-fixtures.json
+800bc07148cf21d2c6b2f5711a5ca97d7119c32855b7d7826088dddcf47c7ff0  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/packed-vectors.json
+38acdad4c10259e9194f4c0f2544e4337c8b3d236583fe784dd446dd8b169ca4  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/response-vectors.json
+dac6fc14fa5919c6d5b1d89730252424d08edecad5c7b0f05d9dfcc6eb5082dc  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/review-manifest.json
+12e938d505294368c734a48f18dff8053d888a11f35454114e185658291693c2  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/state-vectors.json
+e6d30a83367233d9216c2ef162e82d7f67e1b6841de312a0e5dadcec3dace2a8  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/websocket-vectors.json
+b47fb547ab28628b78e4241986638b9379cc4263e1762218192264bb1bc7a93c  pom.xml
+495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md
+de02c533536dcb6e87e4c6e93357efb9efa60c085a59f6f63bbfbb8c0e1fe481  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/iso8583-profile.md
+ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md

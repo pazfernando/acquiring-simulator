@@ -1,0 +1,230 @@
+{
+  "note": "Read-only documentation evidence; excerpts, not complete source snapshots. Truncation recorded per fetch. No documentation example executed.",
+  "sources": [
+    {
+      "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/rest-api-mutual-tls.html",
+      "status": 200,
+      "fetchedAt": "2026-11-20T23:58:18.726Z",
+      "truncated": false,
+      "excerpts": [
+        "# Require client certificates for your API with mutual TLS authentication in API Gateway",
+        "Mutual TLS authentication requires two-way authentication between the client and the server. With mutual TLS, clients must present X.509 certificates to verify their identity to access your API. Mutual TLS is a common requirement for Internet of Things (IoT) and business-to-business applications. ",
+        "You can use mutual TLS along with other [authorization and authentication operations](apigateway-control-access-to-api.md) that API Gateway supports. API Gateway forwards the certificates that clients provide to Lambda authorizers and to backend integrations.",
+        "By default, clients can invoke your API by using the `execute-api` endpoint that API Gateway generates for your API. To ensure that clients can access your API only by using a custom domain name with mutual TLS, disable the default `execute-api` endpoint. To learn more, see [Disable the default endpoint for REST APIs](rest-api-disable-default-endpoint.md). ",
+        "+ [Prerequisites for mutual TLS](#rest-api-mutual-tls-prerequisites)",
+        "+ [Configuring mutual TLS for a custom domain name](#rest-api-mutual-tls-configure)",
+        "+ [Invoke an API by using a custom domain name that requires mutual TLS](#rest-api-mutual-tls-invoke)",
+        "+ [Disable mutual TLS](#rest-api-mutual-tls-disable)",
+        "+ [Troubleshoot mutual TLS for your REST API](#rest-api-mutual-tls-troubleshooting)",
+        "## Prerequisites for mutual TLS",
+        "To configure mutual TLS you need:",
+        " To enable mutual TLS for a REST API, you must configure a custom domain name for your API. You can enable mutual TLS for a custom domain name, and then provide the custom domain name to clients. To access an API by using a custom domain name that has mutual TLS enabled, clients must present certificates that you trust in API requests. You can find more information at [Custom domain name for public REST APIs in API Gateway](how-to-custom-domains.md).",
+        "To use a certificate imported into ACM or a certificate from AWS Private Certificate Authority with mutual TLS, API Gateway needs an `ownershipVerificationCertificate` issued by ACM. This ownership certificate is only used to verify that you have permissions to use the domain name. It is not used for the TLS handshake. If you don't already have a `ownershipVerificationCertificate`, go to [https://console.aws.amazon.com/acm/](https://console.aws.amazon.com/acm/) to set one up.",
+        "You will need to keep this certificate valid for the lifetime of your domain name. If a certificate expires and auto-renew fails, all updates to the domain name will be locked. You will need to update the `ownershipVerificationCertificateArn` with a valid `ownershipVerificationCertificate` before you can make any other changes. The `ownershipVerificationCertificate` cannot be used as a server certificate for another mutual TLS domain in API Gateway. If a certificate is directly re-imported into ACM, the issuer must stay the same.",
+        "Truststores are text files with a `.pem` file extension. They are a trusted list of certificates from Certificate Authorities. To use mutual TLS, create a truststore of X.509 certificates that you trust to access your API.",
+        "API Gateway validates a number of certificate properties. You can use Lambda authorizers to perform additional checks when a client invokes an API, including checking whether a certificate has been revoked. API Gateway validates the following properties:",
+        "## Configuring mutual TLS for a custom domain name",
+        "To configure mutual TLS for a REST API, you must use a Regional custom domain name for your API, with a `TLS_1_2` security policy. For more information about choosing a security policy, see [Choose a security policy for your custom domain in API Gateway](apigateway-custom-domain-tls-version.md).",
+        "Mutual TLS isn't supported for private APIs.",
+        "After you've uploaded your truststore to Amazon S3, you can configure your custom domain name to use mutual TLS. The following [create-domain-name](https://docs.aws.amazon.com/cli/latest/reference/apigateway/create-domain-name.html) creates a custom domain name with mutual TLS:",
+        "## Invoke an API by using a custom domain name that requires mutual TLS",
+        "To invoke an API with mutual TLS enabled, clients must present a trusted certificate in the API request. When a client attempts to invoke your API, API Gateway looks for the client certificate's issuer in your truststore. For API Gateway to proceed with the request, the certificate's issuer and the complete chain of trust up to the root CA certificate must be in your truststore.",
+        "+ is expired",
+        "API Gateway doesn't verify if a certificate has been revoked.",
+        "API Gateway produces certificate warnings only when you update your domain name. API Gateway doesn’t notify you if a previously uploaded certificate expires.",
+        "## Disable mutual TLS",
+        "The following [update-domain-name](https://docs.aws.amazon.com/cli/latest/reference/apigateway/update-domain-name.html) disables mutual TLS:",
+        "## Troubleshoot mutual TLS for your REST API",
+        "The following provides troubleshooting advice for errors and issues that you might encounter when turning on mutual TLS.",
+        " When creating a custom domain name with mutual TLS, API Gateway returns warnings if certificates in the truststore are not valid. This can also occur when updating a custom domain name to use a new truststore. The warnings indicate the issue with the certificate and the subject of the certificate that produced the warning. Mutual TLS is still enabled for your API, but some clients might not be able to access your API.",
+        "The error `\"The certificate subject <certSubject> conflicts with an existing certificate from a different issuer.\"` means multiple Certificate Authorities have issued a certificate for this domain. For each subject in the certificate, there can only be one issuer in API Gateway for mutual TLS domains. You will need to get all of your certificates for that subject through a single issuer. If the problem is with a certificate you don't have control of but you can prove ownership of the domain name, [contact Support](https://console.aws.amazon.com/support/cases#/create) to open a ticket.",
+        "`PENDING_OWNERSHIP_VERIFICATION`: This means your previously verified certificate has expired and ACM was unable to auto-renew it. You will need to renew the certificate or request a new certificate. More information about certificate renewal can be found at [ACM's troubleshooting managed certificate renewal](https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting-renewal.html) guide."
+      ]
+    },
+    {
+      "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-mutual-tls.html",
+      "status": 200,
+      "fetchedAt": "2026-11-20T23:58:19.050Z",
+      "truncated": false,
+      "excerpts": [
+        "# How to turn on mutual TLS authentication for your HTTP APIs in API Gateway",
+        "Mutual TLS authentication requires two-way authentication between the client and the server. With mutual TLS, clients must present X.509 certificates to verify their identity to access your API. Mutual TLS is a common requirement for Internet of Things (IoT) and business-to-business applications. ",
+        "You can use mutual TLS along with other [authorization and authentication operations](apigateway-control-access-to-api.md) that API Gateway supports. API Gateway forwards the certificates that clients provide to Lambda authorizers and to backend integrations.",
+        "By default, clients can invoke your API by using the `execute-api` endpoint that API Gateway generates for your API. To ensure that clients can access your API only by using a custom domain name with mutual TLS, disable the default `execute-api` endpoint. To learn more, see [Disable the default endpoint for HTTP APIs](http-api-disable-default-endpoint.md). ",
+        "## Prerequisites for mutual TLS",
+        "To configure mutual TLS you need:",
+        " To enable mutual TLS for a HTTP API, you must configure a custom domain name for your API. You can enable mutual TLS for a custom domain name, and then provide the custom domain name to clients. To access an API by using a custom domain name that has mutual TLS enabled, clients must present certificates that you trust in API requests. You can find more information at [Custom domain names for HTTP APIs in API Gateway](http-api-custom-domain-names.md).",
+        "To use a certificate imported into ACM or a certificate from AWS Private Certificate Authority with mutual TLS, API Gateway needs an `ownershipVerificationCertificate` issued by ACM. This ownership certificate is only used to verify that you have permissions to use the domain name. It is not used for the TLS handshake. If you don't already have a `ownershipVerificationCertificate`, go to [https://console.aws.amazon.com/acm/](https://console.aws.amazon.com/acm/) to set one up.",
+        "You will need to keep this certificate valid for the lifetime of your domain name. If a certificate expires and auto-renew fails, all updates to the domain name will be locked. You will need to update the `ownershipVerificationCertificateArn` with a valid `ownershipVerificationCertificate` before you can make any other changes. The `ownershipVerificationCertificate` cannot be used as a server certificate for another mutual TLS domain in API Gateway. If a certificate is directly re-imported into ACM, the issuer must stay the same.",
+        "Truststores are text files with a `.pem` file extension. They are a trusted list of certificates from Certificate Authorities. To use mutual TLS, create a truststore of X.509 certificates that you trust to access your API.",
+        "API Gateway validates a number of certificate properties. You can use Lambda authorizers to perform additional checks when a client invokes an API, including checking whether a certificate has been revoked. API Gateway validates the following properties:",
+        "## Configuring mutual TLS for a custom domain name",
+        "To configure mutual TLS for a HTTP API, you must use a Regional custom domain name for your API, with a minimum TLS version of 1.2. To learn more about creating and configuring a custom domain name, see [Set up a Regional custom domain name in API Gateway](apigateway-regional-api-custom-domain-create.md).",
+        "Mutual TLS isn't supported for private APIs.",
+        "After you've uploaded your truststore to Amazon S3, you can configure your custom domain name to use mutual TLS. The following [create-domain-name](https://docs.aws.amazon.com/cli/latest/reference/apigatewayv2/create-domain-name.html) creates a custom domain name with mutual TLS:",
+        "## Invoke an API by using a custom domain name that requires mutual TLS",
+        "To invoke an API with mutual TLS enabled, clients must present a trusted certificate in the API request. When a client attempts to invoke your API, API Gateway looks for the client certificate's issuer in your truststore. For API Gateway to proceed with the request, the certificate's issuer and the complete chain of trust up to the root CA certificate must be in your truststore.",
+        "+ is expired",
+        "API Gateway doesn't verify if a certificate has been revoked.",
+        "API Gateway produces certificate warnings only when you update your domain name. API Gateway doesn’t notify you if a previously uploaded certificate expires.",
+        "## Disable mutual TLS",
+        "To disable mutual TLS for a custom domain name, remove the truststore from your custom domain name, as shown in the following command.",
+        "## Troubleshoot mutual TLS for your HTTP API",
+        "The following provides troubleshooting advice for errors and issues that you might encounter when turning on mutual TLS.",
+        " When creating a custom domain name with mutual TLS, API Gateway returns warnings if certificates in the truststore are not valid. This can also occur when updating a custom domain name to use a new truststore. The warnings indicate the issue with the certificate and the subject of the certificate that produced the warning. Mutual TLS is still enabled for your API, but some clients might not be able to access your API.",
+        "The error `\"The certificate subject <certSubject> conflicts with an existing certificate from a different issuer.\"` means multiple Certificate Authorities have issued a certificate for this domain. For each subject in the certificate, there can only be one issuer in API Gateway for mutual TLS domains. You will need to get all of your certificates for that subject through a single issuer. If the problem is with a certificate you don't have control of but you can prove ownership of the domain name, [contact Support](https://console.aws.amazon.com/support/cases#/create) to open a ticket.",
+        "`PENDING_OWNERSHIP_VERIFICATION`: This means your previously verified certificate has expired and ACM was unable to auto-renew it. You will need to renew the certificate or request a new certificate. More information about certificate renewal can be found at [ACM's troubleshooting managed certificate renewal](https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting-renewal.html) guide."
+      ]
+    },
+    {
+      "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-private-apis.html",
+      "status": 200,
+      "fetchedAt": "2026-11-20T23:57:17.568Z",
+      "truncated": false,
+      "excerpts": [
+        "A private API is a REST API that is only callable from within an Amazon VPC. You can access your API using an [interface VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html), which is an endpoint network interface that you create in your VPC. Interface endpoints are powered by AWS PrivateLink, a technology that enables you to privately access AWS services by using private IP addresses.",
+        "You can also use Direct Connect to establish a connection from an on-premises network to Amazon VPC and then access your private API over that connection. In all cases, traffic to your private API uses secure connections and is isolated from the public internet. Traffic doesn't leave the Amazon network.",
+        "## Best practices for private APIs",
+        "We recommend that you use the following best practices when you create your private API:",
+        "+ Use a single VPC endpoint to access multiple private APIs. This reduces the number of VPC endpoints that you might need.",
+        "+ Associate your VPC endpoint to your API. This creates a Route 53 alias DNS record and simplifies invoking your private API.",
+        "  If you turn on private DNS, you can’t access the default endpoint for public APIs. To access the default endpoint for public APIs, you can turn off private DNS, create a private hosted zone for each private API in your VPC, and then provision the required records in Route 53. This allows your private API to resolve while you can still invoke public default endpoint from your VPC. For more information, see [Creating a private hosted zone](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zone-private-creating.html).",
+        "+ Restrict access to your private API to specific VPCs or VPC endpoints. Add `aws:SourceVpc` or `aws:SourceVpce` conditions to your API's resource policy to restrict access.",
+        "+ For the most secure data perimeter, you can create a VPC endpoint policy. This controls access to the VPC endpoints that can invoke your private API.",
+        "## Considerations for private APIs",
+        "The following considerations might impact your use of private APIs:",
+        "+ You cannot convert a private API to an edge-optimized API.",
+        "+ You can't set the IP address type for private APIs to only allow IPv4 addresses to invoke your private API. Only dualstack is supported. For more information, see [IP address types for REST APIs in API Gateway](api-gateway-ip-address-type.md).",
+        "+ To send traffic using your private API, you can use all IP address types supported by Amazon VPC. You can send dualstack and IPv6 traffic by configuring the settings on your VPC endpoint. You can't modify this using API Gateway. For more information, see [Add IPv6 support for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-migrate-ipv6-add.html).",
+        "+ VPC endpoints for private APIs are subject to the same limitations as other interface VPC endpoints. For more information, see [Access an AWS service using an interface VPC endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) in the *AWS PrivateLink Guide*. For more information about using API Gateway with shared VPCs and shared subnets, see [Shared subnets](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html#interface-endpoint-shared-subnets) in the *AWS PrivateLink Guide*.",
+        "## Next steps for private APIs",
+        " To learn how to create a private API and associate a VPC endpoint see, [Create a private API](apigateway-private-api-create.md). To follow a tutorial where you create dependencies in CloudFormation and a private API in the AWS Management Console, see [Tutorial: Create a private REST API](private-api-tutorial.md)."
+      ]
+    },
+    {
+      "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-jwt-authorizer.html",
+      "status": 200,
+      "fetchedAt": "2026-11-20T23:57:16.301Z",
+      "truncated": false,
+      "excerpts": [
+        "If you configure a JWT authorizer for a route of your API, API Gateway validates the JWTs that clients submit with API requests. API Gateway allows or denies requests based on token validation, and optionally, scopes in the token. If you configure scopes for a route, the token must include at least one of the route's scopes.",
+        "There is no standard mechanism to differentiate JWT access tokens from other types of JWTs, such as OpenID Connect ID tokens. Unless you require ID tokens for API authorization, we recommend that you configure your routes to require authorization scopes. You can also configure your JWT authorizers to require issuers or audiences that your identity provider uses only when issuing JWT access tokens.",
+        "1. Check the token's algorithm and signature by using the public key that is fetched from the issuer's `jwks_uri`. Currently, only RSA-based algorithms are supported. API Gateway caches the public key for up to two hours on a best-effort basis. On a cache miss, API Gateway fetches the public key from the issuer over the network, which adds latency to the request that triggers it. APIs with a low or intermittent request rate are more likely to experience these fetches. Because a public key can remain cached for up to two hours, allow a grace period when you rotate keys, during which both the old and new keys are valid.",
+        "   + [`aud`](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.3) or `client_id` – Must match one of the [`audience`](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/apis-apiid-authorizers-authorizerid.html#apis-apiid-authorizers-authorizerid-model-jwtconfiguration) entries that is configured for the authorizer. API Gateway validates `client_id` only if `aud` is not present. When both `aud` and `client_id` are present, API Gateway evaluates `aud`.",
+        "   + [`scope`](https://datatracker.ietf.org/doc/html/rfc6749#section-3.3) or `scp` – The token must include at least one of the scopes in the route's [`authorizationScopes`](https://docs.aws.amazon.com/apigatewayv2/latest/api-reference/apis-apiid-routes-routeid.html#apis-apiid-routes-routeid-prop-updaterouteinput-authorizationscopes).",
+        "    --jwt-configuration Audience={{audience}},Issuer={{IssuerUrl}}",
+        "  and an Amazon Cognito app client as the audience for the authorizer. The outputs include a URL for an Amazon Cognito hosted UI where clients can ",
+        "      SourceArn: !Sub arn:${AWS::Partition}:execute-api:${AWS::Region}:${AWS::AccountId}:${MyAPI}/$default/$default",
+        "        - !Sub https://${MyAPI}.execute-api.${AWS::Region}.amazonaws.com",
+        "    Value: !Sub https://${HostedUI}.auth.${AWS::Region}.amazoncognito.com/login?client_id=${AppClient}&response_type=token&scope=email+profile&redirect_uri=https://${MyAPI}.execute-api.${AWS::Region}.amazonaws.com",
+        "   --authorization-scopes {{user.email}}"
+      ]
+    },
+    {
+      "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-lambda-auth.html",
+      "status": 200,
+      "fetchedAt": "2026-11-20T23:57:17.876Z",
+      "truncated": false,
+      "excerpts": [
+        "+  You can only use a Lambda authorizer function for the `$connect` route. ",
+        "  arn:aws:execute-api:{{region}}:{{account-id}}:{{api-id}}/{{stage-name}}/$connect",
+        "    \"methodArn\": \"arn:aws:execute-api:us-east-1:123456789012:abcdef123/default/$connect\",",
+        "        \"Host\": \"abcdef123.execute-api.us-east-1.amazonaws.com\",",
+        "            \"abcdef123.execute-api.us-east-1.amazonaws.com\"",
+        "        \"domainName\": \"abcdef123.execute-api.us-east-1.amazonaws.com\",",
+        "        statementOne.Action = 'execute-api:Invoke'; // default action",
+        "        statementOne['Action'] = 'execute-api:Invoke'",
+        "wscat -c 'wss://myapi.execute-api.us-east-1.amazonaws.com/beta?QueryString1=queryValue1' -H HeaderAuth1:headerValue1",
+        "wscat -c wss://myapi.execute-api.us-east-1.amazonaws.com/beta"
+      ]
+    },
+    {
+      "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-custom-domain-names.html",
+      "status": 200,
+      "fetchedAt": "2026-11-20T23:57:58.371Z",
+      "truncated": false,
+      "excerpts": [
+        "https://{{api-id}}.execute-api.{{region}}.amazonaws.com/{{stage}}",
+        "The hostname portion of the URL, `{{api-id}}.execute-api.{{region}}.amazonaws.com` refers to an API endpoint. The default API endpoint name is randomly generated, difficult to recall, and not user-friendly."
+      ]
+    },
+    {
+      "url": "https://docs.github.com/en/actions/how-tos/secure-your-work/security-harden-deployments/oidc-in-aws",
+      "status": 200,
+      "fetchedAt": "2026-11-20T23:58:19.247Z",
+      "truncated": false,
+      "excerpts": [
+        "For repositories created after July 15, 2026, or that have opted in to immutable subject claims, the `sub` claim includes immutable owner and repository IDs (not available on GitHub Enterprise Server). Make sure your trust policy matches the format your repository uses. For more information, see [OpenID Connect reference](/en/actions/reference/security/oidc#immutable-subject-claims).",
+        "If you use a workflow with an environment, the `sub` field must reference the environment name: `repo:ORG-NAME/REPO-NAME:environment:ENVIRONMENT-NAME`. For more information, see [OpenID Connect reference](/en/actions/reference/security/oidc#filtering-for-a-specific-environment).",
+        "    \"token.actions.githubusercontent.com:sub\": \"repo:octo-org/octo-repo:environment:prod\""
+      ]
+    },
+    {
+      "url": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/TTL.html",
+      "status": 200,
+      "fetchedAt": "2026-11-20T23:57:17.212Z",
+      "truncated": false,
+      "excerpts": [
+        "Time To Live (TTL) for DynamoDB is a cost-effective method for deleting items that are no longer relevant. TTL allows you to define a per-item expiration timestamp that indicates when an item is no longer needed. DynamoDB automatically deletes expired items within a few days of their expiration time, without consuming write throughput. ",
+        "To use TTL, first enable it on a table and then define a specific attribute to store the TTL expiration timestamp. The timestamp must be stored as a [Number](HowItWorks.NamingRulesDataTypes.md#HowItWorks.DataTypes) data type in [Unix epoch time format](https://en.wikipedia.org/wiki/Unix_time) at the seconds granularity. Items with a TTL attribute that is not a Number type are ignored by the TTL process. Each time an item is created or updated, you can compute the expiration time and save it in the TTL attribute.",
+        "Items with valid, expired TTL attributes might be deleted by the system at any time, typically within a few days after their expiration. You can still update the expired items that are pending deletion, including changing or removing their TTL attributes. If you update an item's TTL attribute to a timestamp in the future (or remove the TTL attribute) before the item is deleted, the item is no longer considered expired and the TTL process does not delete it. While updating an expired item, we recommended that you use a condition expression to make sure the item has not been subsequently deleted. Use filter expressions to remove expired items from [Scan](Scan.md#Scan.FilterExpression) and [Query](Query.FilterExpression.md) results.",
+        "If you are using [Global Tables version 2019.11.21 (Current)](GlobalTables.md) of global tables and you also use the TTL feature, DynamoDB replicates TTL deletes to all replica tables. The initial TTL delete does not consume Write Capacity Units (WCU) in the region in which the TTL expiry occurs. However, the replicated TTL delete to the replica table(s) consumes a replicated Write Capacity Unit when using provisioned capacity, or Replicated Write Unit when using on-demand capacity mode, in each of the replica regions and applicable charges will apply.",
+        "+ [Working with expired items and time to live (TTL)](ttl-expired-items.md)"
+      ]
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc7523.txt",
+      "status": 200,
+      "fetchedAt": "2026-11-20T23:57:16.788Z",
+      "truncated": true,
+      "excerpts": [
+        "   for client authentication.",
+        "   defines how a JWT can be used as a client authentication mechanism.",
+        "   The use of a security token for client authentication is orthogonal",
+        "   without client authentication or identification.  Whether or not",
+        "   client authentication is needed in conjunction with a JWT",
+        "   authentication, is out of scope.",
+        "   The \"scope\" parameter may be used, as defined in the OAuth Assertion",
+        "   Framework [RFC7521], to indicate the requested scope.",
+        "   \"client_id\" is only needed when a form of client authentication that",
+        "   To use a JWT Bearer Token for client authentication, the client uses",
+        "   The following example demonstrates client authentication using a JWT",
+        "   [RFC6749] or to rely on a JWT for client authentication, the",
+        "   2.   The JWT MUST contain a \"sub\" (subject) claim identifying the",
+        "        B.  For client authentication, the subject MUST be the",
+        "   3.   The JWT MUST contain an \"aud\" (audience) claim containing a",
+        "        audience.  The token endpoint URL of the authorization server",
+        "        authorization server as an intended audience of the JWT.  The",
+        "        its own identity as the intended audience.  In the absence of an",
+        "        MUST compare the audience values using the Simple String",
+        "        used as the audience for a given authorization server must be",
+        "   4.   The JWT MUST contain an \"exp\" (expiration time) claim that",
+        "        authorization server MUST reject any JWT with an expiration time",
+        "   7.   The JWT MAY contain a \"jti\" (JWT ID) claim that provides a",
+        "        ensure that JWTs are not replayed by maintaining the set of used",
+        "        \"jti\" values for the length of time for which the JWT would be",
+        "   grant, as well as the supported types of client authentication, are",
+        "   audience of the JWT is \"https://jwt-rp.example.net\", which is an",
+        "   follows: values for the issuer and audience identifiers, the location"
+      ]
+    },
+    {
+      "url": "https://www.rfc-editor.org/rfc/rfc8705.html",
+      "status": 200,
+      "fetchedAt": "2026-11-20T23:58:00.225Z",
+      "truncated": true,
+      "excerpts": [
+        " This document describes OAuth client authentication and certificate-bound",
+        " mechanism for authentication to the authorization server using mutual TLS,",
+        "- [6.3](https://www.rfc-editor.org/rfc/rfc8705.html#section-6.3). [Certificate Expiration and Bound Access Tokens](https://www.rfc-editor.org/rfc/rfc8705.html#name-certificate-expiration-and-)[¶](https://www.rfc-editor.org/rfc/rfc8705.html#section-toc.1-1.6.2.3.1)",
+        "- [Appendix A](https://www.rfc-editor.org/rfc/rfc8705.html#section-appendix.a). [Example \"cnf\" Claim, Certificate, and JWK](https://www.rfc-editor.org/rfc/rfc8705.html#name-example-cnf-claim-certifica)[¶](https://www.rfc-editor.org/rfc/rfc8705.html#section-toc.1-1.11.1)",
+        " and remote processing in Sections [3.1](https://www.rfc-editor.org/rfc/rfc8705.html#x5t) and",
+        " defines a shared-secret method of client authentication but also",
+        " allows for defining and using additional client authentication mechanisms",
+        " This document describes an additional mechanism of client authentication utilizing",
+        " While [[RFC6749](https://www.rfc-editor.org/rfc/rfc8705.html#RFC6749)] documents client authentication for requests to the token endpoint,",
+        " in [[OpenID.CIBA](https://www.rfc-editor.org/rfc/rfc8705.html#OpenID.CIBA)]) define endpoints that also utilize client authentication,"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "ecosystem-relationships.png": "10irfESjCTy6vgUKxJojTFxN26t0F1yYf",
+  "ecosystem-relationships.mmd": "1NMqH5IvopTEurnDshOPcRP_DKAwIvnhY",
+  "cnp-3ds-authentication-authorization.png": "1F2eluCgXH3rWtWIaI9mrB-_-LAPtzlUO",
+  "cnp-3ds-authentication-authorization.mmd": "1eCPj4WUFbKd6fa1wSLryexzu6FwGdx3v",
+  "card-present-emv-cvm.png": "1xaB82hiUJ0z-Kqxa3wz60tc6M7i-WMps",
+  "card-present-emv-cvm.mmd": "1Hg5_cXOlM5H6BWubfD_c3_1QU6F-ZOGY",
+  "operation-a-payment-authorization.png": "1gwX2TLI0zQbT8bpCrFQBV_Avl83PVqI2",
+  "operation-a-payment-authorization.mmd": "1TdtFaRi5Wuk1lEbwW_hyiG3dR073_vUN",
+  "operation-b-authorization-reversal.png": "1FW7SaatuGhFZzxZeiMD5FlKoeUVuosmi",
+  "operation-b-authorization-reversal.mmd": "1Ae9wJMLcg2q5MRDc3jKzzA9cx-tWmwsx",
+  "operation-c-transaction-status-inquiry.png": "1H0hKuz6ti_IDqH0hIXfLqaIaRjRv46vn",
+  "operation-c-transaction-status-inquiry.mmd": "14KUfxdNHVR8yavSnDP6qTxL6b8_64fIF",
+  "functional-process-landscape.png": "17j4gXTRaqv8IWExSoNzle-B2oud8VL47",
+  "functional-process-landscape.mmd": "1EH4f70HI2jM9KBR6QZgWz9l2gQAiN2KT",
+  "sequence-flow.png": "1nb1gbNagGAvSsfCTi7_JEsmceb0GbsUP",
+  "sequence-flow.mmd": "17e8yzxLZjfEAPX851i9bOrad2kOHm05o",
+  "sequence-flow.md": "1Tkk0ni2n2OB65WmWolRV7fJxoBVZc-4Z",
+  "sequence-recovery.png": "1b2zB6jw9JpRg7QUt1I2BViQzVaRUib-a",
+  "sequence-recovery.mmd": "1PaYQXZq6HO2FSMSTvclyJKvPov486N2K",
+  "sequence-recovery.md": "1w_biAuaVwJwRAva2-vjQu_br1VPqQbp2"
+}

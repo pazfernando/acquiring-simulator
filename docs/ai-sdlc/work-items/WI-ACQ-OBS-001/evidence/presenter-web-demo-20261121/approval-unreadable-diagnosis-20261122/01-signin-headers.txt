@@ -1,0 +1,11 @@
+HTTP/1.1 200 OK
+X-frame-options: DENY
+Referrer-policy: no-referrer
+Date: Sun, 22 Nov 2026 02:45:58 GMT
+Content-security-policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' ws://127.0.0.1:18099 ws://localhost:18099; frame-ancestors 'none'; base-uri 'none'; form-action 'none'; object-src 'none'
+Content-type: application/json; charset=utf-8
+Content-length: 220
+X-content-type-options: nosniff
+Cache-control: no-store
+Set-cookie: PRESENTER_SESSION=Kddt6zasfTvVVHN5Bfwsa-2rKTyF0ZBA3gTMVSiIuUU; Path=/; HttpOnly; SameSite=Strict
+

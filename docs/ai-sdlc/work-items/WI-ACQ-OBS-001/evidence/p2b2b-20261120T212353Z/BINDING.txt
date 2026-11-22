@@ -1,0 +1,68 @@
+work_item: WI-ACQ-OBS-001 (P2b2b RELAY C4 Ed25519 verification extension)
+phase: P2b2b — one RELAY attestation verifier extension, real JDK Signature("Ed25519")
+       for both the inner issuer signature and the network relay countersignature,
+       ephemeral local test keys, sender/role/key/mandate/environment/hash binding
+date_utc: 2026-11-20T21:23:53Z
+repo: /home/pazfernando/projects/acquiring-simulator
+branch: feat/wi-acq-auth-001
+head: cfc456f4f469d9558a78fda8ff9b770b00817315
+incoming_head_expected: cfc456f4f469d9558a78fda8ff9b770b00817315
+origin: https://github.com/pazfernando/acquiring-simulator.git
+model: provider nan / deepseek-v4-flash (no override)
+java_home: /home/pazfernando/.local/opt/jdk-25
+java: Temurin 25.0.5+8-LTS
+maven: Apache Maven 3.10.1 (3afd8084b5629f80b97750906a719879ed4cd283)
+runtime: inactive (no service start, no AWS calls, no HTTP, no storage changes)
+
+prior_phase:
+  P2b2a evidence: docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/p2b2a-20261120T211750Z
+  P2b2a result: 42/42 targeted green (18 verifier + 6 schema + 18 carrier), no rerun
+  P2b2a completion progress recorded in implementation-progress.md by this phase if absent
+
+scope:
+  completed:
+    - RELAY mode verifies both Ed25519 signatures with the JDK Signature("Ed25519") provider:
+      the inner issuer signature over the exact canonical attestation bytes and the
+      network countersignature over the canonical relay object excluding "signature"
+    - authenticated transport sender must equal the configured relay principal NETWORK-SIM
+    - inner attestation signingPrincipal/keyId/issuer signature remain unchanged; the
+      relay cannot replace the issuer signature with its own
+    - relay object binds principal, receiptId, deliveredAt, responseSha256 and
+      canonical inner attestationSha256
+    - relay key resolved by (environmentId, relay principal, relay keyId); configured
+      environment, principal, keyId, NETWORK_SIM role and acquirer mandate all rechecked
+    - inner issuer key resolved and constrained to ISSUER_SIM and an issuer P4 row;
+      acquirer mandate rechecked
+    - candidate body hash, candidate canonical-attestation hash and relay hashes must
+      agree with the signed values
+    - result distinguishes DIRECT from RELAY scope and carries the relay receipt facts
+      without a boolean verified/valid/payment/receipt flag
+  not_done:
+    - no instructionSha256 vs persisted original-instruction comparison
+    - no P6 ISO parse/business binding, duplicate/conflict resolution or atomic
+      evidence+receipt+version+event admission
+    - no late-delivery envelope parser or instruction binding
+    - no HTTP adapter, runtime wiring, key custody/rotation, TLS/IAM principal mapping,
+      external credentials or production key provisioning
+    - no full test suite
+
+tests:
+  command: mvn -o -Dtest=C4EvidenceVerifierTest,C4CarrierParserTest test
+  result: recorded in test-stdout.txt / test-stderr.txt / test-exit.txt
+  full_suite: not run (out of scope)
+
+integrity:
+  source-frozen-pre-run.sha256 and source-after-run.sha256 over src/main, src/test,
+  pom.xml and the three C4 oracles (carrier-vectors.json, channel-contract.md,
+  iso8583-profile.md); required to be byte-identical
+  git-status-before.txt / git-status-after.txt
+  test-compile-*.txt / test-*.txt / test-summary.txt
+  delivered-files.sha256 / evidence.sha256
+  java-version.txt / javac-version.txt / mvn-version.txt
+
+result_label: target-slice local cryptographic verification, not business admission,
+  not a payment confirmation, not a processor receipt, not independent QA, not Security
+  review and not human acceptance
+gates_open: P1, G6; independent Security review pending; P4/business admission later
+git_writes: none performed
+publication: none

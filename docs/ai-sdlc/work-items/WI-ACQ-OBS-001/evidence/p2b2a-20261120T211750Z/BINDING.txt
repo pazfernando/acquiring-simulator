@@ -1,0 +1,80 @@
+work_item: WI-ACQ-OBS-001 (P2b2a DIRECT C4 Ed25519 verification)
+phase: P2b2a — one real DIRECT attestation verifier, JDK Signature("Ed25519"),
+       ephemeral local test keys, sender/role/key/mandate/environment/hash binding
+date_utc: 2026-11-20T21:17:50Z
+repo: /home/pazfernando/projects/acquiring-simulator
+branch: feat/wi-acq-auth-001
+head: cfc456f4f469d9558a78fda8ff9b770b00817315
+incoming_head_expected: cfc456f4f469d9558a78fda8ff9b770b00817315
+origin: https://github.com/pazfernando/acquiring-simulator.git
+model: provider nan / deepseek-v4-flash (no override)
+java_home: /home/pazfernando/.local/opt/jdk-25
+java: Temurin 25.0.5+8-LTS
+maven: Apache Maven 3.10.1 (3afd8084b5629f80b97750906a719879ed4cd283)
+runtime: inactive (no service start, no AWS calls, no HTTP, no storage changes)
+
+scope:
+  completed:
+    - C4EvidenceVerifier: real JDK Signature("Ed25519") verification over the exact
+      canonical attestation bytes against one configured public key resolved by
+      (environmentId, signingPrincipal, keyId)
+    - authenticated internal transport context seam (environmentId, authenticatedSender),
+      never an X header, body assertion, query parameter or client flag
+    - DIRECT only: authenticatedSender == attestation.signingPrincipal
+    - outer keyId == signed keyId == registry key; registry environment/principal/keyId
+      rechecked
+    - P5 role to P4 actor/stage/DE39/result/reason matrix
+      (ISSUER_SIM, PROCESSOR_AUTH, NETWORK_SIM; ACL_AUTH has no signing authority)
+    - acquirer mandate ref must cover the signed acquirerRef
+    - candidate responseBodySha256 and canonicalAttestationSha256 must equal signed values
+    - distinct sanitized violations: RELAY_UNSUPPORTED, HASH_BINDING,
+      ATTESTATION_HASH_BINDING, ENVIRONMENT_BINDING, KEY_BINDING, UNKNOWN_KEY,
+      AUTHENTICATED_SENDER, ROLE_NOT_PERMITTED, MANDATE_BINDING, BAD_SIGNATURE,
+      SIGNATURE_UNAVAILABLE
+    - C4VerifiedAttestation: identity, role, specific attestation type, hashes and
+      verificationScope only; no payment-confirmed or processor-receipt flag
+    - schema correction against approved P1/P2 profile:
+        RRN now 12 uppercase letters/digits (was 12 digits)
+        authorizationId/transactionId/instructionAttemptId now 1–64 (was 1–128)
+        amountMinor now 100..999999 (was 1..999999)
+        authorizationReference now null or exactly 6 uppercase letters/digits (was
+          1..6 printable ASCII)
+  not_done:
+    - RELAY verification: explicitly RELAY_UNSUPPORTED in this slice; relay is next
+    - no instructionSha256 vs persisted original-instruction comparison
+    - no P6 ISO parse/business binding, duplicate/conflict resolution or atomic
+      evidence+receipt+version+event admission
+    - no HTTP adapter, runtime wiring, key custody/rotation, TLS/IAM principal mapping,
+      external credentials or production key provisioning
+    - no full test suite
+
+tests:
+  command: mvn -o -Dtest=C4EvidenceVerifierTest,C4EvidenceAttestationSchemaTest,C4CarrierParserTest -DfailIfNoTests=false test
+  result: Tests run: 42, Failures: 0, Errors: 0, Skipped: 0
+  breakdown:
+    C4EvidenceVerifierTest: 18
+    C4EvidenceAttestationSchemaTest: 6
+    C4CarrierParserTest (regression; shared schema changed): 18
+  exit: 0
+  stderr: empty
+  compile: test-compile exit 0
+  full_suite: not run (out of scope)
+  failure_iterations: none; the first targeted run passed
+
+integrity:
+  source-before.sha256 / source-after.sha256 (224 inputs after; 212 before)
+  source-diff.txt (only intended additions and two intended schema edits)
+  source-diff-exit.txt
+  git-status-before.txt / git-status-after.txt / git-status-final.txt
+  test-compile-stdout.txt / test-compile-stderr.txt / test-compile-exit.txt
+  test-stdout.txt / test-stderr.txt / test-exit.txt / test-summary.txt
+  java-version.txt / javac-version.txt / mvn-version.txt
+  delivered-files.sha256
+  evidence.sha256
+
+result_label: target-slice local cryptographic verification, not business admission,
+  not a payment confirmation, not a processor receipt, not independent QA, not Security
+  review and not human acceptance
+gates_open: P1, G6; independent Security review pending; P4/business admission later
+git_writes: none performed
+publication: none

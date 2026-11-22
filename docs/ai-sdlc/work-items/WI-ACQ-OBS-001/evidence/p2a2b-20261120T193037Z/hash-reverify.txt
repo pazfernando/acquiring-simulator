@@ -1,0 +1,8 @@
+src/main/java/com/acquiring/simulator/protocol/iso8583/Iso8583De48Exception.java: OK
+src/main/java/com/acquiring/simulator/protocol/iso8583/Iso8583De48Response.java: OK
+src/main/java/com/acquiring/simulator/protocol/iso8583/Iso8583De48ResponseParser.java: OK
+src/test/java/com/acquiring/simulator/protocol/iso8583/Iso8583De48ResponseParserTest.java: OK
+SOURCE_EXIT=0
+docs/ai-sdlc/work-items/WI-ACQ-OBS-001/iso8583-profile.md: OK
+docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/packed-vectors.json: OK
+ORACLE_EXIT=0

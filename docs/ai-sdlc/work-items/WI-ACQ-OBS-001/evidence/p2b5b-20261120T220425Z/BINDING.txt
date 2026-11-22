@@ -1,0 +1,12 @@
+# P2b5b bounded recovery — binding
+
+Model: DeepSeek V4 Flash (provider `nan`)
+Binding: /home/pazfernando/projects/acquiring-simulator
+Branch: feat/wi-acq-auth-001
+HEAD: cfc456f4f469d9558a78fda8ff9b770b00817315
+Origin: https://github.com/pazfernando/acquiring-simulator.git
+Configuration: default, no override
+Toolchain: Temurin JDK 25.0.5 (/home/pazfernando/.local/opt/jdk-25), Maven 3.10.1 (/home/pazfernando/.local/opt/maven), offline
+Runtime: inactive. P1 and G6 Security review still pending.
+Scope: compile the two saved files, run ONLY SignedEvidenceReceiptGatewayIntegrationTest.
+No Git write, publication, cloud/credential call, deletion, specification/vector edit or capacity default.

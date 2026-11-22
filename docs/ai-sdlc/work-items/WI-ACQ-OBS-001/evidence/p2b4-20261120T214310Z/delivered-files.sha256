@@ -1,0 +1,5 @@
+87854e5fb0bf7a4dd87a66238da5ab68ef93e3975133a1dc511933a13db2ceac  src/main/java/com/acquiring/simulator/channel/C4P6SignedFieldBinder.java
+f9a7355211dea509047910a20cd90f015a1472f56bc67a19e262fff7e4c75b02  src/main/java/com/acquiring/simulator/channel/C4P6BindingDecision.java
+a8c259cf5d529cd5e205ec08beb68a32a4c613c45e4b0b1a05fb7630b75e7136  src/main/java/com/acquiring/simulator/channel/C4P6BindingException.java
+af0babe43e9d2715973f6a2605fef0b9bffb4b10008c089bede87e1bb71be11e  src/main/java/com/acquiring/simulator/channel/C4P6BindingViolation.java
+ced61701e066e1b8475de1aeb5373508f7778b644f77ce5ae5233e1038ff67d0  src/test/java/com/acquiring/simulator/channel/C4P6SignedFieldBinderTest.java

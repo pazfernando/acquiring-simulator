@@ -1,0 +1,2 @@
+c40ad7b296bf452ee2d1006327aa89126b53f20fdc7e5e02f6af0b99f5fb2066  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/preflight-2026-11-19/ddb-probe.sh
+1955043a8e317e0827f39e14497fffa1074c2cf04ca44300e6ed250feebb0d2c  /tmp/opencode/ddb-probe-scoped-20261120.sh

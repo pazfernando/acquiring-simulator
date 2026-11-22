@@ -1,0 +1,25 @@
+--- docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/preflight-2026-11-19/ddb-probe.sh	2026-11-19 16:57:43.264751095 -0500
++++ /tmp/opencode/ddb-probe-scoped-20261120.sh	2026-11-20 10:52:50.262024379 -0500
+@@ -24,7 +24,7 @@
+ EVT='{"pk":{"S":"TX#t1"},"sk":{"S":"E#000000000001"},"payload":'"$EV"',"eventId":{"S":"EV-1"},"eventSha256":{"S":"abc"}}'
+ 
+ echo "== P4-2 atomic business+event+dedupe+head transaction =="
+-OUT=$(aws dynamodb transact-write-items $EP --client-request-token tok-preflight-'$T' --transact-items '[
++OUT=$(aws dynamodb transact-write-items $EP --client-request-token tok-preflight-${T##acq-preflight-} --transact-items '[
+  {"Put":{"TableName":"'"$T"'","Item":'"$BIZ"',"ConditionExpression":"attribute_not_exists(pk)"}},
+  {"Put":{"TableName":"'"$T"'","Item":'"$EVT"',"ConditionExpression":"attribute_not_exists(pk)"}},
+  {"Put":{"TableName":"'"$T"'","Item":'"$DED"'}},
+@@ -62,10 +62,10 @@
+ 
+ echo "== P4-4 idempotent clientRequestToken (same token, same params) =="
+ REQ='[{"Put":{"TableName":"'"$T"'","Item":{"pk":{"S":"BIZ#k3"},"sk":{"S":"META"},"v":{"N":"1"}}}}]'
+-aws dynamodb transact-write-items $EP --client-request-token tok-dup-'$T' --transact-items "$REQ" >/dev/null 2>&1
+-OUT=$(aws dynamodb transact-write-items $EP --client-request-token tok-dup-'$T' --transact-items "$REQ" 2>&1); rc=$?
++aws dynamodb transact-write-items $EP --client-request-token tok-dup-${T##acq-preflight-} --transact-items "$REQ" >/dev/null 2>&1
++OUT=$(aws dynamodb transact-write-items $EP --client-request-token tok-dup-${T##acq-preflight-} --transact-items "$REQ" 2>&1); rc=$?
+ [ $rc -eq 0 ] && ok "repeat with identical token+params is a no-op success" || no "idempotent repeat failed: $OUT"
+-OUT=$(aws dynamodb transact-write-items $EP --client-request-token tok-dup-'$T' --transact-items '[{"Put":{"TableName":"'"$T"'","Item":{"pk":{"S":"BIZ#k3"},"sk":{"S":"META"},"v":{"N":"2"}}}}]' 2>&1); rc=$?
++OUT=$(aws dynamodb transact-write-items $EP --client-request-token tok-dup-${T##acq-preflight-} --transact-items '[{"Put":{"TableName":"'"$T"'","Item":{"pk":{"S":"BIZ#k3"},"sk":{"S":"META"},"v":{"N":"2"}}}}]' 2>&1); rc=$?
+ [ $rc -ne 0 ] && echo "$OUT" | grep -qi "IdempotentParameterMismatch\|different" && ok "same token + different params rejected (IdempotentParameterMismatch)" || no "token reuse with different params not rejected: $OUT"
+ 
+ echo "== P4-5 HEAD conditional increment / no duplicate sequence =="

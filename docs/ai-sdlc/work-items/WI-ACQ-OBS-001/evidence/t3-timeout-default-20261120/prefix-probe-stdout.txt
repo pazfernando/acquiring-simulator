@@ -1,0 +1,5 @@
+RESPONSE_TIMEOUT_MS present in environment = false
+pre-fix AwsRuntime effective default = 2000 ms
+approved AUTH-001 R20 default       = 30000 ms
+application.properties              = PT30S
+MATCH = false

@@ -1,0 +1,159 @@
+{
+  "note": "Read-only public documentation fetched by ai-sdlc-devops for design-rev2 (Keycloak profile, internal invoke limits). Excerpts, not snapshots. No documentation example executed; no cloud API called. v1 AWS/GitHub/Terraform excerpts remain in evidence/official-source-excerpts.json and are not duplicated here; they are still the cited source for the mTLS, JWT-authorizer, OIDC and S3-backend statements.",
+  "artifactUnderEvidence": {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev2.md",
+    "bytes": 49235,
+    "sha256": "6b15161875e702ebae74e4f76b4b94cae9ffbbb94d6a9fcd42aee563b8f3873c"
+  },
+  "sources": [
+    {
+      "id": "KC-DB",
+      "url": "https://www.keycloak.org/server/db",
+      "status": 200,
+      "fetchedAt": "2026-11-21T01:13:41.242Z",
+      "truncated": true,
+      "rawChars": 57800,
+      "excerpts": [
+        "Amazon Aurora PostgreSQL | postgres | 17.5 | 17.x, 16.x, 15.x",
+        "PostgreSQL | postgres | 18 | 18.x, 17.x, 16.x, 15.x, 14.x",
+        "By default, the server uses the dev-file database... The dev-file database is not suitable for production use-cases, and must be replaced before deploying to production.",
+        "To secure your database connection, configure your PostgreSQL server to use TLS and perform full server certificate verification on the client side.",
+        "--db-tls-mode=verify-server --db-tls-trust-store-file=/path/to/certificate"
+      ],
+      "usedFor": ["design-rev2 §2.2", "§2.3", "§9.2"]
+    },
+    {
+      "id": "KC-PRODUCTION",
+      "url": "https://www.keycloak.org/server/configuration-production",
+      "status": 200,
+      "fetchedAt": "2026-11-21T01:13:40.741Z",
+      "truncated": false,
+      "excerpts": [
+        "Keycloak continually exchanges sensitive data, which means that all communication to and from Keycloak requires a secure communication channel.",
+        "In a production environment, Keycloak instances usually run in a private network, but Keycloak needs to expose certain public facing endpoints",
+        "It is considered a best practice to expose the Keycloak Administration REST API and Console on a different hostname or context-path... Access to REST APIs needs to be blocked on the reverse proxy level, if they are not intended to be publicly exposed.",
+        "If you run Keycloak behind a proxy or load balancer, configure an HTTP health check with the path /health/ready",
+        "a typical production environment contains two or more Keycloak instances"
+      ],
+      "usedFor": ["§2.2", "§2.4", "§2.8"]
+    },
+    {
+      "id": "KC-REVERSE-PROXY",
+      "url": "https://www.keycloak.org/server/reverseproxy",
+      "status": 200,
+      "fetchedAt": "2026-11-21T01:14:37.976Z",
+      "truncated": true,
+      "rawChars": 21250,
+      "excerpts": [
+        "If the TLS connection is terminated at the reverse proxy (edge termination), enabling HTTP through the http-enabled setting is required.",
+        "By default, Keycloak accepts proxy headers from any source. To restrict this, set the proxy-trusted-addresses option...",
+        "Exposed path recommendations: /realms/ Yes; /resources/ Yes; /.well-known/ Yes; /admin/ Only internally; /realms/master/ Only internally; /metrics No; /health No; /lb-check/ Yes",
+        "Do not use forwarded or xforwarded with TLS passthrough. Misconfiguration will leave Keycloak exposed to security vulnerabilities."
+      ],
+      "usedFor": ["§2.4", "§9.6", "§10"]
+    },
+    {
+      "id": "KC-HOSTNAME",
+      "url": "https://www.keycloak.org/server/hostname",
+      "status": 200,
+      "fetchedAt": "2026-11-21T01:14:48.457Z",
+      "truncated": false,
+      "excerpts": [
+        "By default, Keycloak mandates the configuration of the hostname option and does not dynamically resolve URLs. This is a security measure.",
+        "Using fully dynamic URLs (--hostname-strict=false) disables hostname verification... Host header injection attacks",
+        "Using the hostname-admin option does not prevent accessing the Administration REST API endpoints via the frontend URL specified by the hostname option. If you want to restrict access to the Administration REST API, you need to do it on the reverse proxy level.",
+        "hostname-backchannel-dynamic... Set to true if your application accesses Keycloak via a private network."
+      ],
+      "usedFor": ["§2.4", "§2.5"]
+    },
+    {
+      "id": "KC-SUPPORTED",
+      "url": "https://www.keycloak.org/server/supported-configurations",
+      "status": 200,
+      "fetchedAt": "2026-11-21T01:14:37.891Z",
+      "truncated": false,
+      "excerpts": [
+        "Keycloak can be deployed in various environments: Bare Metal / Virtual Machines; Containers; Kubernetes - OpenShift...",
+        "Other non-OpenShift Kubernetes distributions (like Amazon EKS or Azure Kubernetes Service etc.) are supported only in a best-effort manner",
+        "Supported Databases... Amazon Aurora PostgreSQL 17.x, 16.x, 15.x",
+        "The hardware requirements for running Keycloak depend on the expected load and deployment environment."
+      ],
+      "usedFor": ["§2.3 K3 rejection", "§2.3 sizing caveat"]
+    },
+    {
+      "id": "KC-SIGNED-JWT-JAVADOC",
+      "url": "https://www.keycloak.org/docs-api/latest/javadocs/org/keycloak/authentication/authenticators/client/JWTClientAuthenticator.html",
+      "status": 200,
+      "fetchedAt": "2026-11-21T01:13:53.907Z",
+      "truncated": false,
+      "excerpts": [
+        "Client authentication based on JWT signed by client private key.",
+        "This is server side, which verifies JWT from client_assertion parameter",
+        "supportsClientAssertion"
+      ],
+      "usedFor": ["§2.5 item 1"]
+    },
+    {
+      "id": "KC-SERVER-ADMIN",
+      "url": "https://www.keycloak.org/docs/latest/server_admin/index.html",
+      "status": 200,
+      "fetchedAt": "2026-11-21T01:13:55.136Z",
+      "truncated": true,
+      "rawChars": 372355,
+      "excerpts": [
+        "Export files from the Admin Console are not suitable for backups or data transfer between servers. Only boot-time exports are suitable for backups or data transfer between servers.",
+        "Each client has a built-in service account which allows it to obtain an access token.",
+        "Require SSL to one of the following SSL modes: External requests — Users can interact with Keycloak without SSL so long as they stick to private IPv4 addresses such as localhost, 127.0.0.1, 10.x.x.x, 192.168.x.x, 172.16.x.x or IPv6 link-local and unique-local addresses.",
+        "Not-before revocation policies per realm, application and user."
+      ],
+      "usedFor": ["§2.5 realm SSL mode", "§2.6 revocation", "§2.8 backup"]
+    },
+    {
+      "id": "AWS-LAMBDA-QUOTAS",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html",
+      "status": 200,
+      "fetchedAt": "2026-11-21T01:16:11.849Z",
+      "truncated": true,
+      "rawChars": 22613,
+      "excerpts": [
+        "Invocation payload (request and response) | 6 MB each for request and response (synchronous)"
+      ],
+      "usedFor": ["§7 item 3 (internal invoke removes the Gateway body constraint)"]
+    },
+    {
+      "id": "KEYCLOAK-RAW-DOC-FETCH-FAILED",
+      "url": "https://raw.githubusercontent.com/keycloak/keycloak/main/docs/guides/server_admin/topics/clients/client-oidc.adoc",
+      "status": 404,
+      "fetchedAt": "2026-11-21T01:14:22Z",
+      "truncated": false,
+      "excerpts": ["404: Not Found"],
+      "usedFor": [],
+      "interpretationLimit": "Recorded as a failed attempt; no claim rests on it. The signature-algorithm allowlist remains unverified for that reason."
+    },
+    {
+      "id": "KEYCLOAK-PROVIDER-CONFIG-NO-EVIDENCE",
+      "url": "https://www.keycloak.org/server/all-provider-config",
+      "status": 200,
+      "fetchedAt": "2026-11-21T01:14:22.362Z",
+      "truncated": false,
+      "excerpts": ["Retrieved content covered event-listener options only; no client-authenticator configuration documented in the returned portion."],
+      "usedFor": [],
+      "interpretationLimit": "No claim about algorithm allowlists is made."
+    }
+  ],
+  "searches": [
+    {
+      "tool": "web_search",
+      "provider": "duckduckgo",
+      "query": "site:keycloak.org token lifespan access token default minutes realm settings",
+      "resultCount": 5,
+      "note": "Returned forum threads and an unrelated API page; no official statement of a default access-token lifespan was located, so the design sets the value explicitly and records the default as unverified."
+    }
+  ],
+  "notEstablished": [
+    "Keycloak default access-token lifespan",
+    "The exact signature algorithm allowlist in the client credential form",
+    "Per-client token lifespan overrides",
+    "Any Keycloak price, sizing figure or SLA"
+  ]
+}

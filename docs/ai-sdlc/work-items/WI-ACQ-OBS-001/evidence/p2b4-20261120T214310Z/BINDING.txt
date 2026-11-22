@@ -1,0 +1,36 @@
+work_item: WI-ACQ-OBS-001 (P2b4 signed-P5 / P6 field binding)
+phase: P2b4 — ONE pure verified signed-P5 field-binding to persisted original + response bytes
+date_utc: 2026-11-20T21:43:10Z
+repo: /home/pazfernando/projects/acquiring-simulator
+branch: feat/wi-acq-auth-001
+head: cfc456f4f469d9558a78fda8ff9b770b00817315
+head_expected: cfc456f4f469d9558a78fda8ff9b770b00817315
+origin: https://github.com/pazfernando/acquiring-simulator.git
+default_configured_origin: preserved, no override
+model: provider nan / deepseek-v4-flash (configured default, no override)
+runtime: inactive (no service start, no AWS call, no HTTP, no storage change)
+toolchain:
+  JAVA_HOME: /home/pazfernando/.local/opt/jdk-25
+  java: openjdk version "25.0.5" 2026-10-20 LTS
+  mvn: The JAVA_HOME environment variable is not defined correctly,
+
+scope:
+  pure signed-P5 field binding after an actual C4 DIRECT/RELAY verification, over the
+  exact persisted original 0100 octets and the exact received 0110 octets; composes the
+  approved P6 response order (domain -> P4 -> instruction/DE38) and then binds the signed
+  identity/result/evidence/availableAt fields the P6 layers cannot see.
+  no storage admission, no receipt, no duplicate/conflict, no HTTP, no runtime, no private key.
+
+inputs:
+  C4VerifiedAttestation or C4VerifiedLateDelivery from the actual verifier
+  the exact signed C4EvidenceAttestation content whose canonical hash the verified result names
+  current C4AuthenticatedTransportContext (never a client value)
+  immutable persisted original 0100 octets
+  exact received 0110 octets
+  NOT accepted: caller-asserted signature/verified flags, arbitrary trusted-evidence DTOs
+
+state: local construction evidence only; not independent QA, Security review, human
+  acceptance, business admission, payment confirmation or processor receipt.
+gates_open: P1, G6; independent Security review pending
+git_writes: none performed
+publication: none

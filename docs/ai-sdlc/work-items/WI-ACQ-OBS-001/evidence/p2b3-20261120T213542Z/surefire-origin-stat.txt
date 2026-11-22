@@ -1,0 +1,2 @@
+2026-11-20 16:34:34.212146014 -0500\t351\ttarget/surefire-reports/com.acquiring.simulator.channel.C4LateDeliveryTest.txt
+2026-11-20 16:34:34.258139092 -0500\t34174\ttarget/surefire-reports/TEST-com.acquiring.simulator.channel.C4LateDeliveryTest.xml

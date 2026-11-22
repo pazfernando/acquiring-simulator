@@ -1,0 +1,18 @@
+flowchart TB
+    M1["Merchant A / Channels"]
+    M2["Merchant B / Channels"]
+    A1["Acquirer A"]
+    A2["Acquirer B"]
+    P["Multi-Acquirer Payment Processor"]
+    DS["Domestic Card Infrastructure"]
+    CN["International Card Network"]
+    I["Card Issuers"]
+
+    M1 -->|Payment operations for A| P
+    M2 -->|Payment operations for B| P
+    A1 -.->|Processing mandate and rules| P
+    A2 -.->|Processing mandate and rules| P
+    P -->|Domestic route when applicable| DS
+    P -->|Scheme route when applicable| CN
+    DS --> I
+    CN --> I

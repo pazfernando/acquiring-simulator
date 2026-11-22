@@ -1,0 +1,24 @@
+work_item: WI-ACQ-OBS-001 (protocol slice; evidence under OBS, not AUTH-001)
+phase: p2a3c (complete original-instruction response echo binding, remaining fields)
+date_utc: 2026-11-20T19:55:20Z
+repo: /home/pazfernando/projects/acquiring-simulator
+branch: feat/wi-acq-auth-001
+head: cfc456f4f469d9558a78fda8ff9b770b00817315
+origin: https://github.com/pazfernando/acquiring-simulator.git
+model: provider nan / deepseek-v4-flash (no override)
+java_home: /home/pazfernando/.local/opt/jdk-25 (25.0.5)
+maven: /home/pazfernando/.local/opt/maven/bin/mvn (3.10.1)
+runtime: inactive (no service start, no AWS call, no HTTP, no storage change)
+git_writes: none (no add/commit/push/PR/merge)
+scope:
+  added:
+    - Iso8583PhysicalInstruction (DE3/4/7/11/22/25/32/37/41/42/49 original projection)
+    - complete DE48 echo binding: fixture,cvm,crypto,risk,sent,prior
+    - complete physical echo binding via the scanned 0110 message
+    - amount mismatch precedes DE38 (first-failure order preserved)
+    - 5 approved binding negative fixtures through scanner+schema+P4+validator
+    - 2 positive byte fixtures through the same pipeline
+  deferred:
+    full P5 environment/principal/evidence-identity/attestation signature/responseSha256
+    domain amount/currency/Gregorian/DE7-consistency, registry/mandate, freshness, 826 admission
+    packer, C4 carriage, HTTP route, runtime wiring, production caller

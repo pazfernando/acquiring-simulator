@@ -1,0 +1,10 @@
+phase=p1b7b first-authorized-collectedAt persistence/replay metadata
+utc=20261120T184718Z
+repo=/home/pazfernando/projects/acquiring-simulator
+branch=feat/wi-acq-auth-001
+head=cfc456f4f469d9558a78fda8ff9b770b00817315
+origin=https://github.com/pazfernando/acquiring-simulator.git
+model=provider nan, model deepseek-v4-flash (configured default, no override)
+jdk=/home/pazfernando/.local/opt/jdk-25
+maven=/home/pazfernando/.local/opt/maven/bin/mvn (Apache Maven 3.10.1 (3afd8084b5629f80b97750906a719879ed4cd283))
+runtime=inactive (no service start, no AWS calls, no containers started by this capture)

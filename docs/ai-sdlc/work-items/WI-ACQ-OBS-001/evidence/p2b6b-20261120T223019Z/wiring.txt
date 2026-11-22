@@ -1,0 +1,23 @@
+# Wiring check (expected: no matches outside the gateway itself)
+src/main/java/com/acquiring/simulator/adapter/aws/LateSignedEvidenceReceiptGateway.java:181:    public LateSignedEvidenceReceiptGateway(DynamoEventStore store,
+src/main/java/com/acquiring/simulator/adapter/aws/LateSignedEvidenceReceiptGateway.java:195:    public LateSignedEvidenceReceiptGateway(DynamoEventStore store,
+src/main/java/com/acquiring/simulator/adapter/aws/LateSignedEvidenceReceiptGateway.java:94:public final class LateSignedEvidenceReceiptGateway {
+src/test/java/com/acquiring/simulator/channel/LateSignedEvidenceReceiptGatewayIntegrationTest.java:15:import com.acquiring.simulator.adapter.aws.LateSignedEvidenceReceiptGateway;
+src/test/java/com/acquiring/simulator/channel/LateSignedEvidenceReceiptGatewayIntegrationTest.java:166:        LateSignedEvidenceReceiptGateway.Decision decision = gateway(store, repository).admit(
+src/test/java/com/acquiring/simulator/channel/LateSignedEvidenceReceiptGatewayIntegrationTest.java:170:        assertThat(decision.status()).isEqualTo(LateSignedEvidenceReceiptGateway.Status.COMMITTED);
+src/test/java/com/acquiring/simulator/channel/LateSignedEvidenceReceiptGatewayIntegrationTest.java:214:        LateSignedEvidenceReceiptGateway.Decision first = gateway(store, repository).admit(
+src/test/java/com/acquiring/simulator/channel/LateSignedEvidenceReceiptGatewayIntegrationTest.java:217:        assertThat(first.status()).isEqualTo(LateSignedEvidenceReceiptGateway.Status.COMMITTED);
+src/test/java/com/acquiring/simulator/channel/LateSignedEvidenceReceiptGatewayIntegrationTest.java:227:        LateSignedEvidenceReceiptGateway.Decision replay = gateway(store, repository).admit(
+src/test/java/com/acquiring/simulator/channel/LateSignedEvidenceReceiptGatewayIntegrationTest.java:231:        assertThat(replay.status()).isEqualTo(LateSignedEvidenceReceiptGateway.Status.REPLAY);
+src/test/java/com/acquiring/simulator/channel/LateSignedEvidenceReceiptGatewayIntegrationTest.java:253:        LateSignedEvidenceReceiptGateway.Decision committed = gateway(store, repository).admit(
+src/test/java/com/acquiring/simulator/channel/LateSignedEvidenceReceiptGatewayIntegrationTest.java:261:        LateSignedEvidenceReceiptGateway.Decision conflict = gateway(store, repository).admit(
+src/test/java/com/acquiring/simulator/channel/LateSignedEvidenceReceiptGatewayIntegrationTest.java:267:                .isEqualTo(LateSignedEvidenceReceiptGateway.Status.CONTENT_CONFLICT);
+src/test/java/com/acquiring/simulator/channel/LateSignedEvidenceReceiptGatewayIntegrationTest.java:311:        LateSignedEvidenceReceiptGateway.Decision decision =
+src/test/java/com/acquiring/simulator/channel/LateSignedEvidenceReceiptGatewayIntegrationTest.java:317:                .isEqualTo(LateSignedEvidenceReceiptGateway.Status.RECOVERED);
+src/test/java/com/acquiring/simulator/channel/LateSignedEvidenceReceiptGatewayIntegrationTest.java:343:        LateSignedEvidenceReceiptGateway.Decision decision =
+src/test/java/com/acquiring/simulator/channel/LateSignedEvidenceReceiptGatewayIntegrationTest.java:348:        assertThat(decision.status()).isEqualTo(LateSignedEvidenceReceiptGateway.Status.UNKNOWN);
+src/test/java/com/acquiring/simulator/channel/LateSignedEvidenceReceiptGatewayIntegrationTest.java:365:        LateSignedEvidenceReceiptGateway.Decision decision = gateway(store, repository).admit(
+src/test/java/com/acquiring/simulator/channel/LateSignedEvidenceReceiptGatewayIntegrationTest.java:370:                .isEqualTo(LateSignedEvidenceReceiptGateway.Status.NORMAL_RESULT_ADMISSION);
+src/test/java/com/acquiring/simulator/channel/LateSignedEvidenceReceiptGatewayIntegrationTest.java:400:    private LateSignedEvidenceReceiptGateway gateway(DynamoEventStore eventStore,
+src/test/java/com/acquiring/simulator/channel/LateSignedEvidenceReceiptGatewayIntegrationTest.java:402:        return new LateSignedEvidenceReceiptGateway(eventStore, journalRepository, originals,
+src/test/java/com/acquiring/simulator/channel/LateSignedEvidenceReceiptGatewayIntegrationTest.java:92:class LateSignedEvidenceReceiptGatewayIntegrationTest {

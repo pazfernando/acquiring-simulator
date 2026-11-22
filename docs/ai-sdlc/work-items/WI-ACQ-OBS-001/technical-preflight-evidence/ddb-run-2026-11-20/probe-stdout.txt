@@ -1,0 +1,36 @@
+table under test: acq-preflight-1795189977-2996627
+== P4-1 create-table ==
+PASS: table created
+== P4-2 atomic business+event+dedupe+head transaction ==
+PASS: 4-item transaction committed
+  post-commit scan: default(eventual)=4 consistent=4
+PASS: all 4 items visible via STRONGLY CONSISTENT read (count=4)
+== P4-3 condition failure leaves NO partial write ==
+PASS: failed condition cancels the whole transaction
+PASS: no partial business/event/HEAD rows written on cancel
+== P4-3b one transaction cannot touch the SAME item twice ==
+PASS: duplicate-item transaction rejected (ValidationException)
+== P4-4 idempotent clientRequestToken (same token, same params) ==
+PASS: repeat with identical token+params is a no-op success
+PASS: same token + different params rejected (IdempotentParameterMismatch)
+== P4-5 HEAD conditional increment / no duplicate sequence ==
+PASS: HEAD increment with CAS condition (expected=0)
+PASS: stale HEAD CAS rejected (no duplicate sequence allocation)
+PASS: HEAD lastSequence=1 (single allocation)
+== P4-6 Query pagination / cursor round-trip ==
+PASS: page1=2, page2=2 via LastEvaluatedKey from a strongly consistent base-table Query
+PASS: ConsistentRead accepted on base-table Query
+== P4-7 expiry revision compaction metadata ==
+PASS: expiryRevision increment + compact expiredRanges list written
+PASS: expiryRevision=1 readable
+== P4-8 TTL attribute accepted (logical expiry remains app-enforced) ==
+PASS: TTL status ENABLED on attribute expiresAt
+== P4-9 item size limits around the 4096-byte event budget ==
+PASS: 4096-byte payload item written
+PASS: item >400KB rejected by DynamoDB (item-size ceiling confirmed)
+== P4-10 transaction batch limits (expiry worker 40-row batch vs 100-action cap) ==
+PASS: 40-action transaction accepted (delete of nonexistent keys is a no-op, no condition)
+PASS: 101-action transaction rejected (100-action cap confirmed)
+== P4-11 GSI eventual consistency surface ==
+PASS: GSI query path exists (eventual consistency remains a contract property, not a proof)
+================ SUMMARY: pass=21 fail=0 ================

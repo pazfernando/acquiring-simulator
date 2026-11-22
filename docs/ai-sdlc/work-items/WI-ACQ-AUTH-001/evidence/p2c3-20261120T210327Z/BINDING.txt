@@ -1,0 +1,71 @@
+work_item: WI-ACQ-AUTH-001
+phase: p2c3 (pure C3 response envelope + precedence builder)
+date_utc: 2026-11-20T21:03:27Z
+repo: /home/pazfernando/projects/acquiring-simulator
+branch: feat/wi-acq-auth-001
+head: cfc456f4f469d9558a78fda8ff9b770b00817315
+incoming_head_expected: cfc456f4f469d9558a78fda8ff9b770b00817315
+origin: github.com/pazfernando/acquiring-simulator.git
+model: provider nan / deepseek-v4-flash (no override)
+java_home: /home/pazfernando/.local/opt/jdk-25
+maven: /home/pazfernando/.local/opt/maven/bin/mvn
+runtime: inactive (no service start, no AWS calls, no HTTP, no storage changes)
+dirty_tracked: 9 (pre-existing; preserved, not edited by this slice)
+untracked: pre-existing WI-ACQ-OBS-001/protocol/domain work plus this slice
+
+authority:
+  carried_from: trusted internal facts supplied to the builder (admin/auth decision,
+                 durable read result, this-invocation observation, fixed asOf)
+  not_from: client outcome, client snapshot, AuthorizationResult, prompt text
+
+scope:
+  completed:
+    - C3ResponseEnvelope: exact closed 13-key C3 set, typed enums, nullability/version
+      coupling, error allowlist, profile identifier bounds, canonical compact JSON,
+      <=4096 UTF-8 enforcement
+    - C3Response: typed immutable (HttpStatus enum, envelope) pair
+    - C3ResponseBuilder: pure top-down precedence over trusted facts
+      (denial > pre-admission > history-unknown > readable confirmation >
+       unsent claim/admission > current possible-send store unavailable >
+       active/deadline readable possible-send > unreadable restart)
+    - Async observation defects degrade observation/freshness/error only; a committed
+      confirmation is never downgraded, and no retry/Retry-After/redispatch exists
+    - 26/26 approved response-vector cases asserted against expected HTTP + exact bodyUtf8
+    - focused invariant tests: closed key set, denial-no-leak, 401 selection, 404,
+      pre-admission status map, outcome/version/identifier/freshness rejection
+  not_done:
+    - no HTTP adapter, no C4 evidence carriage, no storage/domain wiring
+    - no C1/C2/C5-C8 coupling; no runtime emission
+    - P1 and G6 remain open; P4 remains before this layer
+
+c3_key_count: 13 (asOf, attemptId, authorizationId, businessVersion, contractVersion,
+  correlationId, disposition, error, observation, originalCorrelationId, outcome,
+  serverFreshness, transactionId) — the prompt's "14" is not the contract; C3 defines 13.
+
+tests:
+  command: mvn -Dtest=C3ResponseBuilderTest -DfailIfNoTests=false test
+  result: Tests run: 9, Failures: 0, Errors: 0, Skipped: 0
+  oracle_cases: 26/26 (H01-H26)
+  exit: 0
+  full_suite: not run (out of scope)
+  iterations:
+    - run 1: NPE because compact constructor called canonicalJson(this) before field
+      assignment; fixed by serializing constructor parameters. Not captured as a log.
+    - run 2: H17 disposition mismatch; original facts derived REPLAY from sample attempt
+      ids, but the case is an initial committed decline (COMPLETED). Fixed the fact
+      mapping; H20/H24/H18 corrected the same way. Preserved in test-iterations.md.
+    - run 3 (captured): PASS.
+
+integrity:
+  source-before.sha256 / source-after.sha256 (identical)
+  source-stability.txt
+  git-status-before.txt / git-status-after.txt
+  test-stdout.txt / test-stderr.txt / test-exit.txt
+  compile-stdout.txt / compile-stderr.txt / compile-exit.txt
+  javac-version.txt / mvn-version.txt
+  evidence.sha256
+
+result_label: target-slice completion, not admission, not independent QA, not HTTP/C4
+gates_open: P1, G6 (P4 also remains open)
+git_writes: none performed
+publication: none

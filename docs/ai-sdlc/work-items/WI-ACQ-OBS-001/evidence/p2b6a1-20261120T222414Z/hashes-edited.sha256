@@ -1,0 +1,3 @@
+13740ac79336d48eb430ca52df52e353eb574479078d1b04a8b1953423a5af86  src/test/java/com/acquiring/simulator/channel/LateSignedEvidenceReceiptAtomicIntegrationTest.java
+503fce05a9bda0d8508ec5a63181cd4fdd152dabb34551a3c5d9fc2c0acdac1a  src/main/java/com/acquiring/simulator/adapter/aws/EvidenceReceiptCriticalComposer.java
+f12871bbfa8ae85741989a166240622cc4e07e842b4213ff2fe45244736ec7f5  src/main/java/com/acquiring/simulator/adapter/aws/LateSignedEvidenceReceiptComposer.java

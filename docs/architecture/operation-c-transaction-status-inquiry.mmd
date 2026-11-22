@@ -1,0 +1,17 @@
+sequenceDiagram
+    autonumber
+    participant C as Merchant / Origination Channel
+    participant P as Multi-Acquirer Processor
+    participant A as Acquirer Profile & Access Rules
+    participant T as Transaction Record
+
+    C->>P: Transaction Status Inquiry
+    P->>A: Validate acquirer, merchant, caller access
+    A-->>P: Access permitted / denied
+    alt Access denied
+        P-->>C: Forbidden / Not Found
+    else Access permitted
+        P->>T: Read authorization and reversal history
+        T-->>P: Latest known outcomes and references
+        P-->>C: Transaction Status Response
+    end

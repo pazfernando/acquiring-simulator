@@ -1,0 +1,5 @@
+name	tests	errors	skipped	failures	flakes	time
+com.acquiring.simulator.channel.C4LateDeliveryTest	23	0	0	0	0	0.503
+com.acquiring.simulator.channel.C4EvidenceVerifierTest	33	0	0	0	0	0.173
+com.acquiring.simulator.channel.C4CarrierParserTest	18	0	0	0	0	0.086
+com.acquiring.simulator.channel.C4EvidenceAttestationSchemaTest	6	0	0	0	0	0.031

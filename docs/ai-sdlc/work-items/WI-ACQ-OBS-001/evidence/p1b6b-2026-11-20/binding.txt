@@ -1,0 +1,11 @@
+repository=/home/pazfernando/projects/acquiring-simulator
+git_toplevel=/home/pazfernando/projects/acquiring-simulator
+branch=feat/wi-acq-auth-001
+head=cfc456f4f469d9558a78fda8ff9b770b00817315
+origin_url=https://github.com/pazfernando/acquiring-simulator.git
+model=provider nan, model deepseek-v4-flash (configured default; no override)
+java_home=/home/pazfernando/.local/opt/jdk-25
+java=openjdk version "25.0.5" 2026-10-20 LTS
+mvn=/home/pazfernando/.local/opt/maven/bin/mvn
+mvn_version=Apache Maven 3.10.1 (3afd8084b5629f80b97750906a719879ed4cd283)
+date_utc=2026-11-20T18:05:28Z

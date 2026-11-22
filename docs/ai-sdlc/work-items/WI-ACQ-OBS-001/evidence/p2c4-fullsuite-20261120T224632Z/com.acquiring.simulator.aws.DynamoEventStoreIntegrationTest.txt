@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.acquiring.simulator.aws.DynamoEventStoreIntegrationTest
+-------------------------------------------------------------------------------
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.237 s -- in com.acquiring.simulator.aws.DynamoEventStoreIntegrationTest

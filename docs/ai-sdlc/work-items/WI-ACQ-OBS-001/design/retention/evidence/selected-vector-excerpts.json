@@ -1,0 +1,461 @@
+[
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/state-vectors.json",
+    "json_pointer": "/cases/6",
+    "case": {
+      "id": "S07",
+      "name": "restart-replay",
+      "given": "V01 claimed 2026-11-18T12:00:00Z; service restarted",
+      "when": "identical PAY-001 at 2026-11-19T11:59:59Z ATT-002",
+      "then": "same AUTH-001 generation 1; latest evidence; zero new dispatch"
+    }
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/state-vectors.json",
+    "json_pointer": "/cases/7",
+    "case": {
+      "id": "S08",
+      "name": "expiry-generation",
+      "given": "same retained key unlinked at 2026-11-19T12:00:00Z",
+      "when": "submit valid new request",
+      "then": "generation 2 new aid allowed, original not cancelled"
+    }
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/state-vectors.json",
+    "json_pointer": "/cases/8",
+    "case": {
+      "id": "S09",
+      "name": "linked-expiry",
+      "given": "prior AUTH-001 at 2026-11-19T12:00:01Z",
+      "when": "same key/data retry",
+      "then": "original generation 1 replay no dispatch; foreign/unknown prior rejects before local key lookup"
+    }
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/state-vectors.json",
+    "json_pointer": "/cases/17",
+    "case": {
+      "id": "S18",
+      "name": "retention-reconnect",
+      "given": "event collected2026-11-18T12:00:00Z proposed expiry2026-11-25T12:00:00Z; business reference retained",
+      "when": "poll expired cursor then linked retry",
+      "then": "410 RESYNC_REQUIRED and explicit expired ranges/truncated history; original business reference unaffected, no second dispatch"
+    }
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/state-vectors.json",
+    "json_pointer": "/cases/25",
+    "case": {
+      "id": "S26",
+      "name": "CAS-success-crash-before-send",
+      "given": "POSSIBLE_SEND+critical source event committed, crash before actual invocation",
+      "when": "restart at 12:00:03Z",
+      "then": "202 NOT_CONFIRMED PENDING on retry; cannot claim NOT_DISPATCHED; no resumed invocation"
+    }
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/state-vectors.json",
+    "json_pointer": "/cases/26",
+    "case": {
+      "id": "S27",
+      "name": "send-crash-before-evidence",
+      "given": "POSSIBLE_SEND invocation occurred then crash",
+      "when": "restart without durable reply",
+      "then": "202 NOT_CONFIRMED PENDING, no redispatch; deadline response UNKNOWN"
+    }
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/state-vectors.json",
+    "json_pointer": "/cases/28",
+    "case": {
+      "id": "S29",
+      "name": "unsent-window-boundary",
+      "given": "AUTH-001 CLAIMED_NOT_SENT firstReceipt 2026-11-18T12:00:00Z",
+      "when": "unlinked PAY-001 at 2026-11-19T12:00:00Z",
+      "then": "new generation 2 allowed after normal checks, explicit new-payment warning; old preserved. Prior AUTH-001 still 503 null NOT_DISPATCHED generation 1"
+    }
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/state-vectors.json",
+    "json_pointer": "/cases/34",
+    "case": {
+      "id": "S35",
+      "name": "late-handler-order",
+      "given": "signed issuer evidence received at 12:00:05Z after timeout, no prior processor evidence record",
+      "when": "P5 proof checks then atomic evidence+business+critical queryable event then response; callback/ADOT later",
+      "then": "UNKNOWN becomes APPROVED only after atomic commit; required journal/outbox failure remains NOT_CONFIRMED; history/backend outage alone does not block or revert confirmation"
+    }
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/async-projection-vectors.json",
+    "json_pointer": "/cases/8",
+    "case": {
+      "id": "A09",
+      "name": "Streams-expired-25h",
+      "resetScope": "EVENT-SOURCE:Streams-expired-25h",
+      "given": "source3 committed2026-11-18T12:00:02Z retained seven-day proposal",
+      "when": "query2026-11-19T13:00:02Z after stream expiry",
+      "then": "same table returns3, no projection repair required, no financial operation"
+    }
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/async-projection-vectors.json",
+    "json_pointer": "/cases/9",
+    "case": {
+      "id": "A10",
+      "name": "event-expired-8days",
+      "resetScope": "EVENT-SOURCE:event-expired-8days",
+      "given": "source3 logically expired, journal remains",
+      "when": "query2026-11-26T12:00:02Z",
+      "then": "410/restart source range with explicit expiry/truncation; no resurrected payload or deletion of business evidence"
+    }
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/async-projection-vectors.json",
+    "json_pointer": "/cases/18",
+    "case": {
+      "id": "A19",
+      "name": "payload-expiry-compaction",
+      "resetScope": "EVENT-SOURCE:payload-expiry-compaction",
+      "given": "event1 logically expired, source3 still retained, business refs live",
+      "when": "transactional expiry marker/dedupeEXPIRED then payload removal",
+      "then": "expiryRevision advances, range1explicit, never native TTL silent hole, critical future reserve remains"
+    }
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/websocket-vectors.json",
+    "json_pointer": "/cases/10",
+    "case": {
+      "id": "W11",
+      "name": "retention-truncated",
+      "resetScope": "WS:retention-truncated",
+      "given": "lastcovered0, events1,2 expired with metadata;3retained",
+      "steps": [
+        "reconnectqueryoldcursor",
+        "receive410",
+        "startsnapshotwithrange metadata"
+      ],
+      "expected": "explicit missing historical prefix; retained3 only; no full-history claim",
+      "automaticPaymentPosts": 0,
+      "httpStatus": 410,
+      "body": {
+        "version": 1,
+        "error": "RESYNC_REQUIRED",
+        "reason": "RETENTION_TRUNCATED",
+        "firstRetainedSequence": 3,
+        "lastSequence": 3,
+        "expiryRevision": 2,
+        "expiredRanges": [
+          [
+            1,
+            2
+          ]
+        ],
+        "retentionTruncated": true
+      }
+    }
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/websocket-vectors.json",
+    "json_pointer": "/cases/11",
+    "case": {
+      "id": "W12",
+      "name": "unexplained-source-hole",
+      "resetScope": "WS:unexplained-source-hole",
+      "given": "HEAD3 but record2missing without expiry marker",
+      "steps": [
+        "queryH3 returns1,3"
+      ],
+      "expected": "gapRanges[[2,2]], completefalse, coveredThrough1 SOURCE_INTEGRITY_GAP; no skip",
+      "automaticPaymentPosts": 0
+    }
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/websocket-vectors.json",
+    "json_pointer": "/cases/12",
+    "case": {
+      "id": "W13",
+      "name": "demo-expiry-or-service-revocation",
+      "resetScope": "WS:service-revocation",
+      "given": "connected technical subscription bound to demoJWT expiry and IAM service scope",
+      "steps": [
+        "JWT expires/renewal fails or backend service mandate revoked",
+        "next callback/query/sync validates binding"
+      ],
+      "expected": "deny/close, reauthentication requires new connection generation+catchup; no user CRUD or payment retry",
+      "automaticPaymentPosts": 0
+    }
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/websocket-vectors.json",
+    "json_pointer": "/cases/14",
+    "case": {
+      "id": "W15",
+      "name": "Streams-expired-reconnect",
+      "resetScope": "WS:Streams-expired-reconnect",
+      "given": "sourceevent3age25h within7-day proposal",
+      "steps": [
+        "newgeneration subscribe",
+        "query retained same table"
+      ],
+      "expected": "record3 available without stream cursor or projection replay",
+      "automaticPaymentPosts": 0
+    }
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/websocket-vectors.json",
+    "json_pointer": "/cases/15",
+    "case": {
+      "id": "W16",
+      "name": "offline-no-pending-backlog",
+      "resetScope": "WS:offline-no-pending-backlog",
+      "given": "browseroffline8days",
+      "steps": [
+        "notifierfindsno route",
+        "event expires normally",
+        "browser reconnects"
+      ],
+      "expected": "no durable perbrowserqueue; explicit retention truncation, business reference remains",
+      "automaticPaymentPosts": 0
+    }
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/websocket-vectors.json",
+    "json_pointer": "/cases/24",
+    "case": {
+      "id": "W25",
+      "name": "single-demo-expiry-renewal-binding",
+      "resetScope": "WS:single-demo-expiry-renewal-binding",
+      "given": "same preprovisioned DEMO-USER and separate relay IAM identity, no multiuser management",
+      "steps": [
+        "initial validated JWT expires2026-11-19T12:15:00Z while technical lease would expire12:30:00Z",
+        "close upstreamWS/stop operations at12:15Z, never use expiredJWT",
+        "renew through existing issuer to token exp12:30Z",
+        "reconnect IAM+X-Demo-JWT, new GEN-002, subscribeack/catchup, ignore GEN-001"
+      ],
+      "expected": "connection expiry min(JWTexp,lease)=12:15Z; new binding same demoSubject/different generation, business identity not acquirerRef; no payment resubmission",
+      "automaticPaymentPosts": 0,
+      "claimFixtures": {
+        "status": "EXAMPLE CLAIMS ONLY, no real JWT/signature/network verification",
+        "initial": {
+          "iss": "https://issuer.example.invalid",
+          "aud": "existing-demo-api",
+          "sub": "DEMO-USER",
+          "iat": 1795089600,
+          "exp": 1795090500
+        },
+        "renewed": {
+          "iss": "https://issuer.example.invalid",
+          "aud": "existing-demo-api",
+          "sub": "DEMO-USER",
+          "iat": 1795090500,
+          "exp": 1795091400
+        }
+      },
+      "relayIAMPrincipal": "DEMO-RELAY-SERVICE",
+      "businessContext": {
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A"
+      },
+      "oldGeneration": "GEN-001",
+      "newGeneration": "GEN-002",
+      "claimTimeAnnotations": {
+        "initial": {
+          "iatUTC": "2026-11-19T12:00:00Z",
+          "expUTC": "2026-11-19T12:15:00Z"
+        },
+        "renewed": {
+          "iatUTC": "2026-11-19T12:15:00Z",
+          "expUTC": "2026-11-19T12:30:00Z"
+        }
+      },
+      "technicalLeaseExpiresAtUTC": "2026-11-19T12:30:00Z"
+    }
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/websocket-vectors.json",
+    "json_pointer": "/cases/28",
+    "case": {
+      "id": "W29",
+      "name": "old-ACK-after-reauth",
+      "resetScope": "WS:old-ACK-after-reauth",
+      "given": "oldACK in flight for EPOCH-001; new connectionEPOCH-002 authenticated same demoSubject",
+      "steps": [
+        "newpendingREQ-002/SUB-002",
+        "receiveoldACKREQ-001/EPOCH-001",
+        "ignoreit",
+        "receivecorrectnewACKREQ-002/EPOCH-002"
+      ],
+      "expected": "no rendering/binding from oldACK even SAMEtransaction; newgenerationGEN-002 only; no payment POST",
+      "automaticPaymentPosts": 0,
+      "oldTrustedBinding": {
+        "connectionId": "CONN-001",
+        "connectionEpoch": "EPOCH-001",
+        "demoSubject": "DEMO-USER",
+        "servicePrincipal": "DEMO-RELAY-SERVICE"
+      },
+      "currentTrustedBinding": {
+        "connectionId": "CONN-002",
+        "connectionEpoch": "EPOCH-002",
+        "demoSubject": "DEMO-USER",
+        "servicePrincipal": "DEMO-RELAY-SERVICE"
+      },
+      "oldAck": {
+        "version": 1,
+        "action": "subscribed",
+        "subscriptionId": "SUB-001",
+        "generation": "GEN-001",
+        "headSequence": 2,
+        "expiryRevision": 1,
+        "firstRetainedSequence": 1,
+        "requestId": "REQ-001",
+        "connectionEpoch": "EPOCH-001",
+        "environmentId": "DEMO",
+        "context": {
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A"
+        },
+        "transactionId": "ASYNC-TX-001"
+      },
+      "currentPendingRequest": {
+        "version": 1,
+        "action": "subscribe",
+        "requestId": "REQ-002",
+        "subscriptionId": "SUB-002",
+        "environmentId": "DEMO",
+        "context": {
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A"
+        },
+        "transactionId": "ASYNC-TX-001"
+      },
+      "currentAck": {
+        "version": 1,
+        "action": "subscribed",
+        "subscriptionId": "SUB-002",
+        "generation": "GEN-002",
+        "headSequence": 3,
+        "expiryRevision": 1,
+        "firstRetainedSequence": 1,
+        "requestId": "REQ-002",
+        "connectionEpoch": "EPOCH-002",
+        "environmentId": "DEMO",
+        "context": {
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A"
+        },
+        "transactionId": "ASYNC-TX-001"
+      },
+      "renderedBeforeCurrentAck": []
+    }
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/websocket-vectors.json",
+    "json_pointer": "/cases/29",
+    "case": {
+      "id": "W30",
+      "name": "explicit-removal-fresh-replacement",
+      "resetScope": "WS:explicit-removal-fresh-replacement",
+      "given": "old routeGEN-001 active sameconnectionEPOCH-001",
+      "steps": [
+        "unsubscribeREQUEST-REMOVE-001compareGEN-001",
+        "retireoldK; repeatremoveidempotent",
+        "newREQ-002/SUB-002getsGEN-002",
+        "retryoldREQ-001=>REQUEST_RETIRED"
+      ],
+      "expected": "freshIDsfreshgen, oldroute cannot reactivate; oldleasecleanup never removes newgen; no payment POST",
+      "automaticPaymentPosts": 0,
+      "trustedBinding": {
+        "connectionId": "CONN-001",
+        "connectionEpoch": "EPOCH-001",
+        "demoSubject": "DEMO-USER",
+        "servicePrincipal": "DEMO-RELAY-SERVICE"
+      },
+      "removeRequest": {
+        "version": 1,
+        "action": "unsubscribe",
+        "requestId": "REQ-REMOVE-001",
+        "subscriptionId": "SUB-001",
+        "generation": "GEN-001",
+        "environmentId": "DEMO",
+        "context": {
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A"
+        },
+        "transactionId": "ASYNC-TX-001"
+      },
+      "removeAck": {
+        "version": 1,
+        "action": "unsubscribed",
+        "requestId": "REQ-REMOVE-001",
+        "subscriptionId": "SUB-001",
+        "generation": "GEN-001",
+        "connectionEpoch": "EPOCH-001"
+      },
+      "repeatedRemoveAck": {
+        "version": 1,
+        "action": "unsubscribed",
+        "requestId": "REQ-REMOVE-001",
+        "subscriptionId": "SUB-001",
+        "generation": "GEN-001",
+        "connectionEpoch": "EPOCH-001"
+      },
+      "replacementRequest": {
+        "version": 1,
+        "action": "subscribe",
+        "requestId": "REQ-002",
+        "subscriptionId": "SUB-002",
+        "environmentId": "DEMO",
+        "context": {
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A"
+        },
+        "transactionId": "ASYNC-TX-001"
+      },
+      "replacementAck": {
+        "version": 1,
+        "action": "subscribed",
+        "subscriptionId": "SUB-002",
+        "generation": "GEN-002",
+        "headSequence": 3,
+        "expiryRevision": 1,
+        "firstRetainedSequence": 1,
+        "requestId": "REQ-002",
+        "connectionEpoch": "EPOCH-001",
+        "environmentId": "DEMO",
+        "context": {
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A"
+        },
+        "transactionId": "ASYNC-TX-001"
+      },
+      "oldRequestAfterRemoval": {
+        "version": 1,
+        "action": "subscribe",
+        "requestId": "REQ-001",
+        "subscriptionId": "SUB-001",
+        "environmentId": "DEMO",
+        "context": {
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A"
+        },
+        "transactionId": "ASYNC-TX-001"
+      },
+      "retiredRejection": {
+        "version": 1,
+        "action": "subscriptionRejected",
+        "requestId": "REQ-001",
+        "subscriptionId": "SUB-001",
+        "connectionEpoch": "EPOCH-001",
+        "environmentId": "DEMO",
+        "context": {
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A"
+        },
+        "transactionId": "ASYNC-TX-001",
+        "code": "REQUEST_RETIRED"
+      }
+    }
+  }
+]

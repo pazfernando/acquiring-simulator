@@ -1,0 +1,7 @@
+== references to the new port/adapter in src/main ==
+src/main/java/com/acquiring/simulator/adapter/aws/DynamoNetworkResultGateway.java
+src/main/java/com/acquiring/simulator/domain/port/NetworkResultGateway.java
+== AwsRuntime / AuthorizationService references ==
+(none)
+eda810e9784497cf38933f769cce5e95571d45fc552ba71f7901b0ed95b187e3  src/main/java/com/acquiring/simulator/domain/AuthorizationService.java
+99c32249f1b577dc0645ffed7e2751aa0c1edcdd1b51a22b92ebb639f0f36c7b  src/main/java/com/acquiring/simulator/adapter/aws/AwsRuntime.java

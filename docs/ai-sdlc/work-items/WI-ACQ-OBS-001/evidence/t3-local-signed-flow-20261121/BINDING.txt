@@ -1,0 +1,7 @@
+repository=/home/pazfernando/projects/acquiring-simulator
+expected_branch=feat/wi-acq-auth-001
+expected_head=cfc456f4f469d9558a78fda8ff9b770b00817315
+origin=https://github.com/pazfernando/acquiring-simulator.git
+model=provider nan / deepseek-v4-flash (OpenCode ACP default, no override)
+toolchain=openjdk version "25.0.5" 2026-10-20 LTS; Maven 
+runtime=local tests only; DynamoDB Local; no AWS, deploy, credential flow or Git write

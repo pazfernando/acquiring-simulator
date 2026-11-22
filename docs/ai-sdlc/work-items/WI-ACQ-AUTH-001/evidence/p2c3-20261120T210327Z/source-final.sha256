@@ -1,0 +1,6 @@
+63ecdb96fa9499f0b16ee2d22d3c13f2ae6aa2bd32f2f0b61b316944de1c3079  src/main/java/com/acquiring/simulator/channel/C3ResponseEnvelope.java
+e7531b235b5da336a42fb93a9fc0da5e67a028963f1b630971ae52cb085966db  src/main/java/com/acquiring/simulator/channel/C3Response.java
+eedf90e74235181621dda1a1d061e7724689eb5e76396ce7de353a7f2fde7994  src/main/java/com/acquiring/simulator/channel/C3ResponseBuilder.java
+9348c30f3cba4b41b93f3a8598dac666b31e3c276750fcd24673649f75753c45  src/test/java/com/acquiring/simulator/channel/C3ResponseBuilderTest.java
+495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md
+38acdad4c10259e9194f4c0f2544e4337c8b3d236583fe784dd446dd8b169ca4  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/response-vectors.json

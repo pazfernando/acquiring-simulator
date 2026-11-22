@@ -1,0 +1,14 @@
+# PENDING (not executed in this recovery)
+# Reason: no gateway test class exists in the tree; recovery scope forbids authoring new tests.
+# The slice's targeted test was never saved before the previous abort.
+#
+# Required next step (author the test first, then run exactly this class):
+#   export JAVA_HOME=/home/pazfernando/.local/opt/jdk-25
+#   export PATH="$JAVA_HOME/bin:/home/pazfernando/.local/opt/maven/bin:$PATH"
+#   cd /home/pazfernando/projects/acquiring-simulator
+#   mvn -o -Dtest=DynamoLateEvidenceAdmissionGatewayIntegrationTest test
+#
+# Missing test file (expected path, absent):
+#   src/test/java/com/acquiring/simulator/aws/DynamoLateEvidenceAdmissionGatewayIntegrationTest.java
+#
+# Verified instead in this recovery: mvn -o -q test-compile -> exit 0 (see test-compile.exit.txt).

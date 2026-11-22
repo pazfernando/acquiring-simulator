@@ -1,0 +1,51 @@
+work_item: WI-ACQ-OBS-001 (P2b3 C4 late-delivery envelope + instruction binding)
+recovery_kind: sanitized evidence recovery of an EXISTING targeted Maven run (not a rerun)
+phase: P2b3 — one short evidence recovery only; no code edit, no new feature, no rerun
+date_utc: 2026-11-20T21:35:42Z
+repo: /home/pazfernando/projects/acquiring-simulator
+branch: feat/wi-acq-auth-001
+head: cfc456f4f469d9558a78fda8ff9b770b00817315
+head_expected: cfc456f4f469d9558a78fda8ff9b770b00817315
+origin: https://github.com/pazfernando/acquiring-simulator.git
+default_configured_origin: preserved, no override
+model: provider nan / deepseek-v4-flash (no override)
+runtime: inactive (no service start, no AWS calls, no HTTP, no storage changes)
+
+result_source:
+  existing artifacts only:
+    target/surefire-reports/*.C4LateDeliveryTest.{txt,xml}
+    target/surefire-reports/*.C4EvidenceVerifierTest.{txt,xml}
+    target/surefire-reports/*.C4CarrierParserTest.{txt,xml}
+    target/surefire-reports/*.C4EvidenceAttestationSchemaTest.{txt,xml}
+  plus the pre-existing capture /tmp/opencode/p2b3-run/{stdout,stderr,exit}.txt,
+  copied byte-for-byte to test-stdout.txt / test-stderr.txt / test-exit.txt; copied
+  hashes equal the capture originals (capture-origin-sha256.txt)
+
+test_window_local: 2026-11-20T16:34:34.212-05:00 .. 2026-11-20T16:34:34.504-05:00
+targeted_property: test=C4LateDeliveryTest,C4EvidenceVerifierTest,C4CarrierParserTest,C4EvidenceAttestationSchemaTest
+
+tests_recovered:
+  C4LateDeliveryTest: 23 run, 0 failures, 0 errors, 0 skipped, 0.503 s
+  C4EvidenceVerifierTest: 33 run, 0 failures, 0 errors, 0 skipped, 0.173 s
+  C4CarrierParserTest: 18 run, 0 failures, 0 errors, 0 skipped, 0.086 s
+  C4EvidenceAttestationSchemaTest: 6 run, 0 failures, 0 errors, 0 skipped, 0.031 s
+  total: 80 run, 0 failures, 0 errors, 0 skipped (Surefire aggregate by class summaries)
+  captured result: BUILD SUCCESS, exit code 0, stderr empty (targeted invocation only)
+
+integrity:
+  hashes-current.sha256 over current src/main + src/test + pom.xml + C4 oracles
+  chronology.tsv over current inputs, compiled classes and Surefire outputs
+  surefire-origin-sha256.txt / surefire-origin-stat.txt
+  no attested pre-run hash exists; run-time byte equality is NOT proven
+
+scope_not_verified_here:
+  instructionSha256 vs persisted original wire instruction, P6 ISO parse/business binding,
+  duplicate/conflict resolution, atomic evidence+receipt+version+event admission,
+  HTTP adapter, runtime wiring, key custody/rotation, TLS/IAM principal binding,
+  external credentials, full test suite
+
+state: local construction evidence only; not independent QA, Security review, human
+  acceptance, business admission, payment confirmation or processor receipt.
+gates_open: P1, G6; independent Security review pending
+git_writes: none performed
+publication: none

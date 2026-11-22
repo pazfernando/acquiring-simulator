@@ -1,0 +1,7 @@
+isoNumeric(USD) = 840
+isoNumeric(840) = 840
+isoNumeric(EUR) refused as required
+isoNumeric(usd) refused as required
+isoNumeric(0840) refused as required
+isoNumeric(null) refused as required
+PROJECTION-CHECK: PASS

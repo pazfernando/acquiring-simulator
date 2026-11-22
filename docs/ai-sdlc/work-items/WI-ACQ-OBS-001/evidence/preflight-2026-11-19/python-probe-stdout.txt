@@ -1,0 +1,92 @@
+fixtures=85
+ACCEPT parsed+decoded: 31
+structural-layer negatives detected: 24/24
+non-structural negatives deferred to business layers: 30
+problems=0
+
+-- per-vector --
+PASS	V01-approved-request	ACCEPT	expectedFailure=-	detected=-
+PASS	V02-approved-response	ACCEPT	expectedFailure=-	detected=-
+PASS	V03-decline-request	ACCEPT	expectedFailure=-	detected=-
+PASS	V04-decline-response	ACCEPT	expectedFailure=-	detected=-
+PASS	V05-network-format	ACCEPT	expectedFailure=-	detected=-
+PASS	V06-network-unavailable	ACCEPT	expectedFailure=-	detected=-
+PASS	V07-private-uncertainty	ACCEPT	expectedFailure=-	detected=-
+PASS	V08-late-approval	ACCEPT	expectedFailure=-	detected=-
+PASS	V09-late-decline	ACCEPT	expectedFailure=-	detected=-
+PASS	V10-actual-DE38	ACCEPT	expectedFailure=-	detected=-
+PASS	N-00-network	EVIDENCE_MATRIX	expectedFailure=EVIDENCE_MATRIX	detected=-
+PASS	N-05-processor	EVIDENCE_MATRIX	expectedFailure=EVIDENCE_MATRIX	detected=-
+PASS	N-30-issuer	EVIDENCE_MATRIX	expectedFailure=EVIDENCE_MATRIX	detected=-
+PASS	N-91-issuer	EVIDENCE_MATRIX	expectedFailure=EVIDENCE_MATRIX	detected=-
+PASS	N-unknown-code	EVIDENCE_MATRIX	expectedFailure=EVIDENCE_MATRIX	detected=-
+PASS	N-wrong-op	SCHEMA_ENUM	expectedFailure=SCHEMA_ENUM	detected=SCHEMA_ENUM	v/op
+PASS	N-wrong-correlation	BINDING_INSTRUCTION	expectedFailure=BINDING_INSTRUCTION	detected=-
+PASS	N-wrong-context	BINDING_INSTRUCTION	expectedFailure=BINDING_INSTRUCTION	detected=-
+PASS	N-unsolicited-DE38	BINDING_AUTH_REFERENCE	expectedFailure=BINDING_AUTH_REFERENCE	detected=-
+PASS	N-missing-result	SCHEMA_CANONICAL	expectedFailure=SCHEMA_CANONICAL	detected=SCHEMA_CANONICAL	missing response key result
+PASS	N-missing-actor	SCHEMA_CANONICAL	expectedFailure=SCHEMA_CANONICAL	detected=SCHEMA_CANONICAL	missing response key actor
+PASS	N-missing-evidence	SCHEMA_CANONICAL	expectedFailure=SCHEMA_CANONICAL	detected=SCHEMA_CANONICAL	missing response key evidence
+PASS	B-min-amount	ACCEPT	expectedFailure=-	detected=-
+PASS	B-max-amount	ACCEPT	expectedFailure=-	detected=-
+PASS	B-below-min	DOMAIN_AMOUNT	expectedFailure=DOMAIN_AMOUNT	detected=-
+PASS	B-over-max	DOMAIN_AMOUNT	expectedFailure=DOMAIN_AMOUNT	detected=-
+PASS	B-non-usd	DOMAIN_CURRENCY	expectedFailure=DOMAIN_CURRENCY	detected=-
+PASS	B-DE2	PARSER_FORBIDDEN	expectedFailure=PARSER_FORBIDDEN	detected=PARSER_FORBIDDEN	DE2 not in profile
+PASS	B-DE55	PARSER_FORBIDDEN	expectedFailure=PARSER_FORBIDDEN	detected=PARSER_FORBIDDEN	DE55 not in profile
+PASS	B-alias-11	ACCEPT	expectedFailure=-	detected=-
+PASS	B-alias-12	PARSER_LENGTH	expectedFailure=PARSER_LENGTH	detected=PARSER_LENGTH	DE32 LL=12
+PASS	B-padded-terminal	PARSER_ALPHABET	expectedFailure=PARSER_ALPHABET	detected=PARSER_ALPHABET	DE41 not uppercase AN [TERM001 ]
+PASS	N-missing-DE3	PARSER_REQUIRED	expectedFailure=PARSER_REQUIRED	detected=PARSER_REQUIRED	missing DE3
+PASS	N-secondary	PARSER_SECONDARY	expectedFailure=PARSER_SECONDARY	detected=PARSER_SECONDARY	secondary bitmap present
+PASS	N-bitmap	PARSER_BITMAP	expectedFailure=PARSER_BITMAP	detected=PARSER_BITMAP	bitmap not uppercase hex: G220048108C18000
+PASS	N-MTI	PARSER_MTI	expectedFailure=PARSER_MTI	detected=PARSER_MTI	mti=0800
+PASS	N-truncated	PARSER_TRUNCATED	expectedFailure=PARSER_TRUNCATED	detected=PARSER_TRUNCATED	DE49 body
+PASS	N-trailing	PARSER_END_BODY	expectedFailure=PARSER_END_BODY	detected=PARSER_END_BODY	trailing 1 bytes
+PASS	N-nonascii	PARSER_ASCII	expectedFailure=PARSER_ASCII	detected=PARSER_ASCII	non-ASCII byte
+PASS	Y-2026	ACCEPT	expectedFailure=-	detected=-
+PASS	Y-2027	ACCEPT	expectedFailure=-	detected=-
+FAIL	B-DE48-exact-999	ADMISSION_RESPONSE_CAPACITY	expectedFailure=ADMISSION_RESPONSE_CAPACITY	detected=-
+PASS	N-DE48-1000	PARSER_ALPHABET	expectedFailure=PARSER_ALPHABET	detected=PARSER_ALPHABET	DE49 not numeric [XXX]
+PASS	N-duplicate-key	SCHEMA_CANONICAL	expectedFailure=SCHEMA_CANONICAL	detected=SCHEMA_CANONICAL	out of order or duplicate v
+PASS	N-unknown-key	SCHEMA_CANONICAL	expectedFailure=SCHEMA_CANONICAL	detected=SCHEMA_CANONICAL	unknown key x
+PASS	N-escaped	SCHEMA_CANONICAL	expectedFailure=SCHEMA_CANONICAL	detected=SCHEMA_CANONICAL	charset pay
+PASS	N-ref-129	SCHEMA_LENGTH	expectedFailure=SCHEMA_LENGTH	detected=SCHEMA_LENGTH	pay len 129
+PASS	M-PROCESSOR-FORMAT	ACCEPT	expectedFailure=-	detected=-
+PASS	M-PROCESSOR-DISALLOWED	ACCEPT	expectedFailure=-	detected=-
+PASS	M-NETWORK-DISALLOWED	ACCEPT	expectedFailure=-	detected=-
+PASS	M-PROCESSOR-UNCERTAIN	ACCEPT	expectedFailure=-	detected=-
+PASS	M-PROCESSOR-UNAVAILABLE	ACCEPT	expectedFailure=-	detected=-
+PASS	M-NETWORK-UNAVAILABLE	ACCEPT	expectedFailure=-	detected=-
+PASS	M-authorized-relay	ACCEPT	expectedFailure=-	detected=-
+PASS	N-conflicting-confirmation	BUSINESS_CONFLICT_QUARANTINE	expectedFailure=BUSINESS_CONFLICT_QUARANTINE	detected=-
+PASS	N-missing-DE38-asserted	BINDING_AUTH_REFERENCE	expectedFailure=BINDING_AUTH_REFERENCE	detected=-
+PASS	N-forged-actor	AUTH_ATTESTATION	expectedFailure=AUTH_ATTESTATION	detected=-
+PASS	N-unresolvable-evidence	AUTH_ATTESTATION	expectedFailure=AUTH_ATTESTATION	detected=-
+PASS	N-mismatch-amount	BINDING_INSTRUCTION	expectedFailure=BINDING_INSTRUCTION	detected=-
+PASS	D-leap-valid	ACCEPT	expectedFailure=-	detected=-
+PASS	D-leap-invalid	DOMAIN_DATE	expectedFailure=DOMAIN_DATE	detected=-
+PASS	D-bad-month	DOMAIN_DATE	expectedFailure=DOMAIN_DATE	detected=-
+PASS	D-DE7-mismatch	DOMAIN_DE7	expectedFailure=DOMAIN_DE7	detected=-
+FAIL	D-stale	ADMISSION_FRESHNESS	expectedFailure=ADMISSION_FRESHNESS	detected=-
+PASS	K-empty-key	SCHEMA_CANONICAL	expectedFailure=SCHEMA_CANONICAL	detected=SCHEMA_CANONICAL	bad pair =x
+PASS	K-empty-value	SCHEMA_CANONICAL	expectedFailure=SCHEMA_CANONICAL	detected=SCHEMA_CANONICAL	empty value pay
+PASS	K-out-of-order	SCHEMA_CANONICAL	expectedFailure=SCHEMA_CANONICAL	detected=SCHEMA_CANONICAL	out of order or duplicate v
+PASS	CAP-request-826	ACCEPT	expectedFailure=-	detected=-
+PASS	CAP-request-827	ADMISSION_RESPONSE_CAPACITY	expectedFailure=ADMISSION_RESPONSE_CAPACITY	detected=ADMISSION_RESPONSE_CAPACITY	DE48 827 > 826
+PASS	CAP-response-1	ACCEPT	expectedFailure=-	detected=-
+FAIL	CAP-over-request-1	ADMISSION_RESPONSE_CAPACITY	expectedFailure=ADMISSION_RESPONSE_CAPACITY	detected=-
+PASS	CAP-response-2	ACCEPT	expectedFailure=-	detected=-
+FAIL	CAP-over-request-2	ADMISSION_RESPONSE_CAPACITY	expectedFailure=ADMISSION_RESPONSE_CAPACITY	detected=-
+PASS	CAP-response-3	ACCEPT	expectedFailure=-	detected=-
+FAIL	CAP-over-request-3	ADMISSION_RESPONSE_CAPACITY	expectedFailure=ADMISSION_RESPONSE_CAPACITY	detected=-
+PASS	CAP-response-4	ACCEPT	expectedFailure=-	detected=-
+FAIL	CAP-over-request-4	ADMISSION_RESPONSE_CAPACITY	expectedFailure=ADMISSION_RESPONSE_CAPACITY	detected=-
+PASS	CAP-response-5	ACCEPT	expectedFailure=-	detected=-
+FAIL	CAP-over-request-5	ADMISSION_RESPONSE_CAPACITY	expectedFailure=ADMISSION_RESPONSE_CAPACITY	detected=-
+PASS	CAP-response-6	ACCEPT	expectedFailure=-	detected=-
+FAIL	CAP-over-request-6	ADMISSION_RESPONSE_CAPACITY	expectedFailure=ADMISSION_RESPONSE_CAPACITY	detected=-
+PASS	CAP-response-7	ACCEPT	expectedFailure=-	detected=-
+FAIL	CAP-over-request-7	ADMISSION_RESPONSE_CAPACITY	expectedFailure=ADMISSION_RESPONSE_CAPACITY	detected=-
+PASS	N-response-DE7	DOMAIN_DE7	expectedFailure=DOMAIN_DE7	detected=-
+PASS	N-response-invalid-date	DOMAIN_DATE	expectedFailure=DOMAIN_DATE	detected=-

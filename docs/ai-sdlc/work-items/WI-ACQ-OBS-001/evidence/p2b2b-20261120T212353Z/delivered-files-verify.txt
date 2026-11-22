@@ -1,0 +1,10 @@
+src/main/java/com/acquiring/simulator/channel/C4EvidenceVerifier.java: OK
+src/main/java/com/acquiring/simulator/channel/C4VerifiedAttestation.java: OK
+src/main/java/com/acquiring/simulator/channel/C4VerificationViolation.java: OK
+src/main/java/com/acquiring/simulator/channel/C4KeyRegistry.java: OK
+src/main/java/com/acquiring/simulator/channel/C4PrincipalRole.java: OK
+src/main/java/com/acquiring/simulator/channel/C4RelayAttestation.java: OK
+src/main/java/com/acquiring/simulator/channel/C4CarrierCandidate.java: OK
+src/test/java/com/acquiring/simulator/channel/C4EvidenceFixtures.java: OK
+src/test/java/com/acquiring/simulator/channel/C4EvidenceVerifierTest.java: OK
+delivered_exit=0

@@ -2,66 +2,11 @@
 
 Status: conceptual source corrected for M1/M2; PROPOSED realization, not construction/deployment or rendering/QA evidence. Single demo JWT unchanged; exposure and retention remain separate unapproved choices.
 
-```mermaid
-flowchart TD
-    START([Start]) --> AUTH{HTTP demo JWT and service mandate valid?}
-    AUTH -->|No| AUTHFAIL[Reject unauthorized action; no financial SEND]
-    AUTH -->|Yes| READY[Enable explicit HTTP action; attempt live transport independently]
-    READY --> OPEN{Best-effort authenticated WebSocket opens?}
-    OPEN -->|Yes| LIVE[Live transport ready; no payment action]
-    OPEN -->|No| OFFLINE[Show disconnected observation; HTTP remains usable]
-    READY --> SUBMIT[Viewer explicitly submits POS request through HTTP API]
-    OFFLINE -.->|Explicit viewer action only| SUBMIT
-    LIVE -.->|Explicit viewer action only| SUBMIT
-    SUBMIT --> ACL[Validate and translate private ISO 8583 over HTTPS]
-    ACL --> KEY{Existing validated matching business key or prior?}
-    KEY -->|Yes| REPLAY[Read original operation and outcome; no financial SEND]
-    REPLAY --> RESULT
-    KEY -->|No| CLAIM{Atomic CLAIMED_NOT_SENT plus critical event committed?}
-    CLAIM -->|No or unreadable| FAIL[Truthful unavailable or uncertainty; no automatic financial resend]
-    CLAIM -->|Yes| GATE{Atomic POSSIBLE_SEND plus critical event committed?}
-    GATE -->|No or unreadable| FAIL
-    GATE -->|Yes| SEND[ONE financial downstream invocation for this claimed operation]
-    SEND --> SAVE[Atomically admit verified result or record uncertainty plus critical event]
-    SAVE --> RESULT[Return journal-known outcome or truthful uncertainty]
-    RESULT --> ID[Use returned actual transactionId; existing history uses known ID]
-    ID --> WSREADY{Current authenticated live transport available?}
-    WSREADY -->|No| HISTORY[Optional explicit HTTP history from same source; live disconnected]
-    WSREADY -->|Yes| SUB[Install immutable subscription binding; buffer frames without rendering]
-    SUB --> ACK[Match ACK request and tuple and epoch; observed head A after routing install]
-    ACK --> SNAP[Strongly acquire snapshot H at least A; fix H for all pages]
-    SNAP --> QUERY[HTTP query SAME event table up to H using bound cursor]
-    HISTORY --> HISTSHOW[Show retained history or explicit gaps; no financial SEND]
-    QUERY --> RETAIN{Cursor generation and retention revision valid?}
-    RETAIN -->|Yes| MERGE[Dedup bounded buffer and source pages; render contiguous source order]
-    RETAIN -->|No| GAP[Show expiry or integrity gap; start bounded resync]
-    GAP --> SNAP
-    MERGE --> DISPLAY[Render tasks and recorded journal version with observation gaps]
-    CLAIM -.->|Committed event only| STREAM[DynamoDB Streams event insertion signal]
-    GATE -.->|Committed event only| STREAM
-    SAVE -.->|Committed event only| STREAM
-    STREAM --> NOTIFY[Notification Lambda callback through API Gateway WebSocket]
-    NOTIFY --> DELIVERY{Matching current subscription reachable?}
-    DELIVERY -->|May duplicate| BUFFER[Bounded pre-ACK or live buffer; never render unbound frame]
-    BUFFER --> ACKREADY{Matching current ACK binding established?}
-    ACKREADY -->|Yes| MERGE
-    ACKREADY -->|No| HOLD[Hold bounded frames until matching ACK; reject foreign binding]
-    HOLD -.->|When matching ACK arrives| ACK
-    DELIVERY -->|No or delivery fails| KEEP[Retain source by policy; no durable per-browser backlog]
-    KEEP --> RECOVER[Reconnect or detect WS heartbeat gap; renew JWT if needed]
-    OFFLINE -.-> RECOVER
-    HISTORY -.-> RECOVER
-    RECOVER --> KNOWN{Actual transactionId already known?}
-    KNOWN -->|Yes| SUB
-    KNOWN -->|No| WAITID[Keep transport only; wait for explicit HTTP result or selected history]
-    WAITID -.->|Actual ID becomes available| ID
-    DISPLAY --> WAIT[Wait for live events or explicit action; no one-second HTTP polling]
-    SEND -.-> HOOK[Common best-effort intermediate task hook]
-    HOOK -.-> EVENT[Same source table append if successful]
-    EVENT --> STREAM
-    HOOK -.-> LOSS[Missing task observation remains explicit gap]
-    SEND -.-> ADOT[Asynchronous ADOT; never financial evidence]
-```
+![Console observability activity flow](activity-flow.png)
+
+[PNG: Console observability activity flow](activity-flow.png)
+
+Editable diagram source: [`activity-flow.mmd`](activity-flow.mmd).
 
 ## Interpretation and invariants
 - HTTP JWT/service authentication failure blocks unauthorized submission. WebSocket open/notification failure does NOT block an EXPLICIT HTTP action while HTTP auth and mandatory DynamoDB business/event persistence are healthy. OFFLINE/LIVE arrows are alternative observation paths, never automatic submit or duplicate payment triggers.
@@ -72,7 +17,7 @@ flowchart TD
 - Subscription retries/conflicts/replacement/tombstones follow observation-contract.md O5a and channel-contract.md C8. Reauthentication/new epoch invalidates former ACKs/buffers. Subscribe/reconnect never causes financial SEND.
 - Streams24h is not source retention. Retained source supports later catch-up; expired cursor/generation/retention revision returns resync/truncation, never silent complete history. Finite buffers and no per-browser durable backlog retained. Proposed seven-day payload policy does NOT delete financial journal/evidence/links.
 - Intermediate task hooks obligatory but best-effort delivery; no missing task inferred FAILED. ADOT sampled/drop-prone, no financial proof. Single demo principal/JWT is separate from service IAM and business acquirer context; no multiuser management. Exposure, exact issuer/runtime/Java25 ADOT/IAM/cursor/key/cost/retention preflight remains pending.
-- M1/M2/L1 source report domain-review.md MD5 1bfa8629a5321434515b51a4050f90d5; this is a correction submission, not reviewer closure. Mermaid block and .mmd must remain byte-equal. PNG/Drive artifacts are NOT refreshed by this task; coordinator must synchronize the newly reviewed source revision before claiming visual/publication currency.
+- M1/M2/L1 source report domain-review.md MD5 1bfa8629a5321434515b51a4050f90d5; this is a correction submission, not reviewer closure. The .mmd source remains authoritative and the PNG is its rendered preview. Drive publication of this revision is the coordinator's step and remains pending; do not claim Drive currency from this local preview.
 - Existing source references: [AWS Streams](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html), [Lambda stream processing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [WebSocket callbacks](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html). Prior AWS/Context7 evidence, not fresh remote/runtime verification here.
 
 ## ISO security clarification

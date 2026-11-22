@@ -1,0 +1,62 @@
+sequenceDiagram
+    autonumber
+    participant C as HTML channel test interface
+    participant W as WebSocket API and subscription handler
+    participant Q as HTTP query API/Lambda
+    participant DB as Same DynamoDB event source and routing metadata
+    participant N as Notification Lambda
+    Note over C,W: One demo JWT session, backend IAM stays separate, no token secrets in event frames
+    C->>W: Attempt authenticated live transport
+    alt WebSocket is unavailable
+        W-->>C: Live observation disconnected
+        Note over C,Q: Explicit HTTP payment remains permitted if HTTP authentication and required storage are healthy
+        C->>Q: Optional explicit retained-history request
+        Q->>DB: Read same consultable event source
+        DB-->>Q: Retained records or expiry/gap information
+        Q-->>C: Historical knowledge, not a new payment instruction
+    else Live transport is available
+        W-->>C: Ready with current connection epoch
+        Note over C,Q: Use actual transactionId from admitted HTTP result or existing history, never invent one
+        C->>W: Subscribe with requestId, subscriptionId and immutable transaction/context tuple
+        W->>DB: Conditionally install technical subscription binding/generation
+        DB-->>W: Routing installed, no second event/history payload
+        opt Matching event arrives before ACK
+            DB--)N: Streams event-insertion signal
+            N->>W: Notification for current subscription binding
+            W-->>C: Live frame may duplicate or precede ACK
+            Note over C: Buffer only, do not render before matching ACK
+        end
+        W->>DB: Strong read of observed source head A after routing installation
+        DB-->>W: Observed A and retention metadata
+        W-->>C: ACK matching request, target, epoch and generation, observed A
+        Note over C,W: Identical subscribe retry gets same ACK, retarget conflicts do not rebind
+        C->>Q: Start source catch-up after last covered sequence
+        Q->>DB: Strongly acquire snapshot H at least A and expiry revision
+        DB-->>Q: Snapshot head H fixed for this page set
+        Q-->>C: Snapshot metadata and bound cursor
+        loop Bounded pages up to fixed H
+            C->>Q: Query next page, never a payment POST
+            Q->>DB: Read retained event rows from same source up to H
+            DB-->>Q: Rows and explicit expired or unexplained gap ranges
+            Q-->>C: Page and cursor, never silent omission
+        end
+        C->>C: Validate binding, deduplicate and merge buffered frames with source order
+        opt New event after H
+            DB--)N: Streams signal, source event retained once
+            N->>W: Best-effort at-least-once notification attempt
+            W-->>C: Event frame, possibly repeated
+            C->>C: Deduplicate or query source on a gap
+        end
+        opt Disconnect, expired JWT or silent callback loss
+            C->>W: Reconnect/renew session or request WebSocket head sync
+            W-->>C: New epoch on reconnect, or current observed head on sync
+            Note over C,Q: Repeat bound subscribe/ACK then fixed snapshot catch-up, never resubmit payment
+        end
+        opt Cursor or retained history has expired
+            Q-->>C: Resync required with explicit truncation/expired ranges
+            C->>Q: Start fresh bounded retained-source snapshot
+            Note over C,DB: Approved seven-day functional history expiry does not delete business/evidence references
+        end
+    end
+    Note over DB,N: Streams retention is 24h, reconnect reads retained event table, not a second history projection
+    Note over C,N: No unbounded offline-browser delivery queue, missing task observations remain visible gaps

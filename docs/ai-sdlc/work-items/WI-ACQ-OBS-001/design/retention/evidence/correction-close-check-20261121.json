@@ -1,0 +1,169 @@
+{
+  "checked_at_utc": "2026-11-21T12:34:55.074372+00:00",
+  "scope": "Documentary identity/link/provenance checks only; no product code or tests",
+  "inputs": [
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/adr-operation-a-access-and-environment.md",
+      "sha256_at_open": "d51bbf650aca74e82351dacf0e45d0f14c992044b9ff246bc7b8b281920b0b39",
+      "sha256_at_close": "d51bbf650aca74e82351dacf0e45d0f14c992044b9ff246bc7b8b281920b0b39",
+      "unchanged": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "sha256_at_open": "fd040124319a946d28230aeb3994fb77bac82c00cb59e58b78df9e23531bae27",
+      "sha256_at_close": "fd040124319a946d28230aeb3994fb77bac82c00cb59e58b78df9e23531bae27",
+      "unchanged": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/requirements.md",
+      "sha256_at_open": "49c5d412e3705c320a2f78b190555f49e7e0fa4662cff9329d259f89e2b459df",
+      "sha256_at_close": "49c5d412e3705c320a2f78b190555f49e7e0fa4662cff9329d259f89e2b459df",
+      "unchanged": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "sha256_at_open": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+      "sha256_at_close": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+      "unchanged": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "sha256_at_open": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "sha256_at_close": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/domain-review.md",
+      "sha256_at_open": "73adba20fd70969bf8bb9f23ebde5c5d16aec69fd4694ac32984008b76ee0ca2",
+      "sha256_at_close": "73adba20fd70969bf8bb9f23ebde5c5d16aec69fd4694ac32984008b76ee0ca2",
+      "unchanged": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-AUTH-001/requirements.md",
+      "sha256_at_open": "595ab10f95ba59ebcad6c235162c32f1a35eca519a2d341da8df5e675fe5e840",
+      "sha256_at_close": "595ab10f95ba59ebcad6c235162c32f1a35eca519a2d341da8df5e675fe5e840",
+      "unchanged": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-AUTH-001/aws-architecture-update.md",
+      "sha256_at_open": "d53b759ee7caf14965bbb6d8655107cd6e086e43f957191549a2b5668c643935",
+      "sha256_at_close": "d53b759ee7caf14965bbb6d8655107cd6e086e43f957191549a2b5668c643935",
+      "unchanged": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-AUTH-001/domain-review.md",
+      "sha256_at_open": "a79212fe7ce77353e7f7a70a1f7cb88bc51dc68da2bcb56ce631d6a83b1b9cdd",
+      "sha256_at_close": "a79212fe7ce77353e7f7a70a1f7cb88bc51dc68da2bcb56ce631d6a83b1b9cdd",
+      "unchanged": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/retention-20261121/domain-review.md",
+      "sha256_at_open": "dcdd04ac330491512b04906264760e47e7dce3c3506f78e76688ed209fc4d322",
+      "sha256_at_close": "dcdd04ac330491512b04906264760e47e7dce3c3506f78e76688ed209fc4d322",
+      "unchanged": true
+    }
+  ],
+  "current_document_links": [
+    {
+      "document": "retention-delta.md",
+      "target": "../../reviews/retention-20261121/domain-review.md",
+      "exists": true
+    },
+    {
+      "document": "retention-delta.md",
+      "target": "evidence/revision-note-20261121.md",
+      "exists": true
+    },
+    {
+      "document": "retention-delta.md",
+      "target": "../../evidence/t1-traceability-20261120/BINDING.txt",
+      "exists": true
+    },
+    {
+      "document": "retention-delta.md",
+      "target": "evidence/source-identities-current.json",
+      "exists": true
+    },
+    {
+      "document": "retention-delta.md",
+      "target": "evidence/additional-source-identities.json",
+      "exists": true
+    },
+    {
+      "document": "retention-delta.md",
+      "target": "../../owner-decisions.md",
+      "exists": true
+    },
+    {
+      "document": "retention-delta.md",
+      "target": "../../adr-operation-a-access-and-environment.md",
+      "exists": true
+    },
+    {
+      "document": "retention-delta.md",
+      "target": "../../observation-contract.md",
+      "exists": true
+    },
+    {
+      "document": "retention-delta.md",
+      "target": "../../channel-contract.md",
+      "exists": true
+    },
+    {
+      "document": "retention-delta.md",
+      "target": "../../iso8583-profile.md",
+      "exists": true
+    },
+    {
+      "document": "retention-delta.md",
+      "target": "../../../WI-ACQ-AUTH-001/requirements.md",
+      "exists": true
+    },
+    {
+      "document": "retention-delta.md",
+      "target": "../../../WI-ACQ-AUTH-001/aws-architecture-update.md",
+      "exists": true
+    },
+    {
+      "document": "retention-delta.md",
+      "target": "../../reviews/access-design-20261120/security-review.md",
+      "exists": true
+    },
+    {
+      "document": "retention-delta.md",
+      "target": "evidence/revisions/pre-domain-correction-20261121/retention-delta.md",
+      "exists": true
+    },
+    {
+      "document": "retention-delta.md",
+      "target": "evidence/README.md",
+      "exists": true
+    },
+    {
+      "document": "evidence/README.md",
+      "target": "../../../evidence/t1-traceability-20261120/BINDING.txt",
+      "exists": true
+    },
+    {
+      "document": "evidence/README.md",
+      "target": "../../../evidence/t1-traceability-20261120/git-status-before.txt",
+      "exists": true
+    },
+    {
+      "document": "evidence/README.md",
+      "target": "../../../reviews/access-design-20261120/security-review.md",
+      "exists": true
+    },
+    {
+      "document": "evidence/revision-note-20261121.md",
+      "target": "../../../reviews/retention-20261121/domain-review.md",
+      "exists": true
+    }
+  ],
+  "scenario_rows": 14,
+  "all_scenario_rows_labeled": true,
+  "prior_artifacts_byte_preserved": true,
+  "domain_review_status": "CONDITIONAL; advisory only",
+  "C-U2": "Documentary harmonization OPEN; no owner decision",
+  "NV-05": "OPEN"
+}

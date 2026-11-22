@@ -1,0 +1,6 @@
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.503 s -- in com.acquiring.simulator.channel.C4LateDeliveryTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s -- in com.acquiring.simulator.channel.C4EvidenceAttestationSchemaTest
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 s -- in com.acquiring.simulator.channel.C4CarrierParserTest
+[INFO] Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.173 s -- in com.acquiring.simulator.channel.C4EvidenceVerifierTest
+[INFO] Tests run: 80, Failures: 0, Errors: 0, Skipped: 0
+[INFO] BUILD SUCCESS

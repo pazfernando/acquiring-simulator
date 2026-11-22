@@ -1,0 +1,1 @@
+104 -> 105 worktree entries: line "?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/" appeared during this slice and was NOT created by it; contents not read or modified by this slice (concurrent external work). Refreshed final snapshot included it.

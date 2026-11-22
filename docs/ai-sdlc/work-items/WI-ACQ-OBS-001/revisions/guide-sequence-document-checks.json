@@ -1,0 +1,50 @@
+{
+  "status": "LOCAL DOCUMENT CHECKS ONLY; no renderer/runtime/codec/crypto/QA/Drive/Git operations",
+  "localBaselineMd5": "703fd59f66a3d097147eee79141e2524",
+  "driveBaselineMd5": "69ca7e39cc0cfd595eb19c28c5087c15",
+  "normalizedOverlapEqual": true,
+  "normalization": "Version line abstracted; escaped heading/URL punctuation, equivalent URL-label links, table separator alignment, trailing/blank/nbsp formatting normalized. Business text and Mermaid statements otherwise compared.",
+  "normalizedOverlapLines": 413,
+  "rawOverlapDiff": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/revisions/guide-overlap-local-703fd59f66a3d097147eee79141e2524-vs-drive-69ca7e39cc0cfd595eb19c28c5087c15.diff",
+  "rawOverlapDiffMd5": "cabc9d6ecb2fe0d51fcac4eb468b952b",
+  "section13Preserved": true,
+  "allDriveContentPreservedExceptExplicitTopVersionDate": true,
+  "sections": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15"
+  ],
+  "panels": [
+    {
+      "panel": "sequence-flow",
+      "mermaidBlockEqualsSource": true,
+      "participants": 8,
+      "messages": 33,
+      "controlBlocksBalanced": true
+    },
+    {
+      "panel": "sequence-recovery",
+      "mermaidBlockEqualsSource": true,
+      "participants": 5,
+      "messages": 33,
+      "controlBlocksBalanced": true
+    }
+  ],
+  "mandatoryGatesBeforeSingleFinancialSend": true,
+  "recoveryHasNoPaymentInvocation": true,
+  "installBeforeObservedAckAThenFixedH": true,
+  "localLinksResolved": 18,
+  "protectedDecisionObservationActivityAndImportHashesUnchanged": true
+}

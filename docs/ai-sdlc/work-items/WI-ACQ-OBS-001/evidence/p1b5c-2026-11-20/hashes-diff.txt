@@ -1,0 +1,11 @@
+--- docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/p1b5c-2026-11-20/hashes-pre-test.txt	2026-11-20 12:43:00.953711693 -0500
++++ docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/p1b5c-2026-11-20/hashes-post-test.txt	2026-11-20 12:45:56.693293423 -0500
+@@ -99,7 +99,7 @@
+ 075eccc8d0483547e65a94e915cc7a35db0d2c8cc9c8997b5a6364d6ae4fa714  src/test/java/com/acquiring/simulator/aws/DynamoPossibleSendIntegrationTest.java
+ de56835b42affcd83dc9b1e6537917664a5c167d0de94d76688ff18eb4e2ab12  src/test/java/com/acquiring/simulator/aws/DynamoResultGatewayIntegrationTest.java
+ 9bc49e566acce34ce150d336dedc33e6a2a2d0aedbdf4679a37f9c6c1671f29f  src/test/java/com/acquiring/simulator/aws/DynamoResultTransitionIntegrationTest.java
+-05c3ecb3bb646000b36dac78e230418eb7355e246711548b671550d4233be289  src/test/java/com/acquiring/simulator/aws/NetworkResultServiceWiringTest.java
++5803cdf6683f7b513e06b09e0d5ee9199947907609e2fc5648cd8948c8bd1825  src/test/java/com/acquiring/simulator/aws/NetworkResultServiceWiringTest.java
+ 43bcccb11f92ed82f5f8e53cb45286049ab40bed0a02c3f36e4628d523558a08  src/test/java/com/acquiring/simulator/aws/ResultServiceWiringTest.java
+ 249351cc72b7c7c9fcd508ce6c4068459598bdf11a9526adf40386f771089699  src/test/java/com/acquiring/simulator/domain/event/CanonicalEventCodecTest.java
+ c270391f9fdf021e52c747ccb55db6d5f2785d6374d3eb679133e4fee55deade  src/test/java/com/acquiring/simulator/domain/event/CommittedVersionEvidenceTest.java

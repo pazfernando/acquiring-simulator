@@ -1,0 +1,1 @@
+DIVERGENCE: effective AwsRuntime default 2000 ms != approved 30000 ms (application.properties PT30S)

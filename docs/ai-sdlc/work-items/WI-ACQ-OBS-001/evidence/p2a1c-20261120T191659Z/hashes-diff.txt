@@ -1,0 +1,8 @@
+89a90
+> 5a277e46e02a654031f8cf19a5eed2534ad352437a9f4f9c43d0890e60aa9438  src/main/java/com/acquiring/simulator/protocol/iso8583/Iso8583DataElement.java
+94a96,98
+> 32f7573d24e36e8eb270d389dfe446019c2991f2f8cd9e628084843081c1a112  src/main/java/com/acquiring/simulator/protocol/iso8583/Iso8583Message.java
+> b25ac18eaee52101415f5cd15b9724a080d89dc17752d919fe289d7a0f614a4d  src/main/java/com/acquiring/simulator/protocol/iso8583/Iso8583PresenceException.java
+> 7dc09433c8105dbd90c57f57fa0b286cb3fab0fa7549fc18dc9c8ad226169a00  src/main/java/com/acquiring/simulator/protocol/iso8583/Iso8583Scanner.java
+138a143
+> 39f0bccb39fc1cbf0d25b60a3d39a0799183f92d67e767dc28cd46d4c621569b  src/test/java/com/acquiring/simulator/protocol/iso8583/Iso8583ScannerTest.java

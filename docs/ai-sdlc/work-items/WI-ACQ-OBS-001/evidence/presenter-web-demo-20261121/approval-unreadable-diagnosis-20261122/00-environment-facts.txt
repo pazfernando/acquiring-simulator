@@ -1,0 +1,32 @@
+captured_at_utc=2026-11-22T02:45:54Z
+host_time_local=Sat Nov 21 09:45:54 PM -05 2026
+
+## loopback listeners
+LISTEN 0      50                         [::ffff:127.0.0.1]:18099            *:*    users:(("java",pid=3711694,fd=140))      
+LISTEN 0      50                         [::ffff:127.0.0.1]:8099             *:*    users:(("java",pid=3712272,fd=140))      
+
+## relay 8099 env (coordinator-managed; not driven by this run)
+DYNAMODB_ENDPOINT=http://127.0.0.1:8000
+JOURNAL_TABLE=presenter-journal
+PRESENTER_ENVIRONMENT=local-demo
+PRESENTER_MODE=local-demo
+PRESENTER_DEMO_ACCESS_CODE=7fd3e06af4de333ab14794a11f2602613008
+PRESENTER_DEMO_SUBJECT=DEMO-USER
+PRESENTER_MERCHANT=MID-SIM-01
+EVENT_TABLE=presenter-events
+PRESENTER_TERMINAL=TERM-SIM-01
+PRESENTER_ACQUIRER=ACQ-SIM-01
+
+## relay 18099 env (isolated)
+PRESENTER_PORT=18099
+DYNAMODB_ENDPOINT=http://127.0.0.1:8000
+JOURNAL_TABLE=presenter-it-journal
+AWS_REGION=us-east-1
+PRESENTER_ENVIRONMENT=local-demo-it
+PRESENTER_MODE=local-demo
+PRESENTER_DEMO_ACCESS_CODE=local-it-code-20261122
+PRESENTER_DEMO_SUBJECT=DEMO-USER
+PRESENTER_MERCHANT=MID-SIM-01
+EVENT_TABLE=presenter-it-events
+PRESENTER_TERMINAL=TERM-SIM-01
+PRESENTER_ACQUIRER=ACQ-SIM-01

@@ -1,0 +1,6 @@
+23c23
+< aa2bfe92538c3db399e05023189a9b1a2d8967c01061cb821133fa6032955633  src/main/java/com/acquiring/simulator/domain/AuthorizationService.java
+---
+> eda810e9784497cf38933f769cce5e95571d45fc552ba71f7901b0ed95b187e3  src/main/java/com/acquiring/simulator/domain/AuthorizationService.java
+96a97
+> 43bcccb11f92ed82f5f8e53cb45286049ab40bed0a02c3f36e4628d523558a08  src/test/java/com/acquiring/simulator/aws/ResultServiceWiringTest.java

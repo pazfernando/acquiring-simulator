@@ -1,0 +1,6 @@
+# exact commands (run 2026-11-20)
+set -u
+EV=docs/ai-sdlc/work-items/WI-ACQ-OBS-001/technical-preflight-evidence/ddb-run-2026-11-20
+export AWS_ACCESS_KEY_ID=local AWS_SECRET_ACCESS_KEY=local AWS_DEFAULT_REGION=us-east-1
+aws dynamodb list-tables --endpoint-url http://127.0.0.1:8000 --output text
+bash /tmp/opencode/ddb-probe-scoped-20261120.sh > "$EV/probe-stdout.txt" 2> "$EV/probe-stderr.txt"; echo $? > "$EV/probe-exit.txt"

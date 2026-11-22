@@ -1,0 +1,7 @@
+109a110,112
+> 30fc358948b824d932ee67acf57688c9875f125ec79fa2e65a3cf5ac737083df  src/main/java/com/acquiring/simulator/protocol/iso8583/Iso8583DomainDecision.java
+> 405da1b627ddef40f8823a5fe9d6e2cbcf018d49b14f1eaca9a0237d8e9ca8da  src/main/java/com/acquiring/simulator/protocol/iso8583/Iso8583DomainException.java
+> 472d189cc0d857c58fc0a4f76f64d49920722575546e92985d253e8000c737bc  src/main/java/com/acquiring/simulator/protocol/iso8583/Iso8583DomainValidator.java
+170a174,175
+> b9bc5d99cf995ae7a8b804d37536f8a1c102dc764eff6e56be0dffe1c868b0fa  src/test/java/com/acquiring/simulator/protocol/iso8583/Iso8583DomainCorpusTest.java
+> 3dbbae45b6fc9a4b92adfba1c9d8423d726b1c9173f082d57656fa8d7ab95e48  src/test/java/com/acquiring/simulator/protocol/iso8583/Iso8583DomainValidatorTest.java

@@ -1,0 +1,4 @@
+repo /home/pazfernando/projects/acquiring-simulator
+branch feat/wi-acq-auth-001
+head cfc456f4f469d9558a78fda8ff9b770b00817315
+origin https://github.com/pazfernando/acquiring-simulator.git

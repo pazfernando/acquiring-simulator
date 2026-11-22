@@ -1,0 +1,5 @@
+fixtures=85
+ACCEPT parsed+decoded: 31/31
+structural-layer negatives detected: 24/24
+non-structural negatives deferred to business layers: 30
+problems=0

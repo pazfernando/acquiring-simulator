@@ -1,0 +1,10 @@
+verified_utc=2026-11-20T19:25:00Z
+src/main/java/com/acquiring/simulator/protocol/iso8583/Iso8583DataElement.java: OK
+src/main/java/com/acquiring/simulator/protocol/iso8583/Iso8583Message.java: OK
+src/main/java/com/acquiring/simulator/protocol/iso8583/Iso8583PresenceException.java: OK
+src/main/java/com/acquiring/simulator/protocol/iso8583/Iso8583Scanner.java: OK
+src/test/java/com/acquiring/simulator/protocol/iso8583/Iso8583ScannerTest.java: OK
+SOURCE_EXIT=0
+docs/ai-sdlc/work-items/WI-ACQ-OBS-001/iso8583-profile.md: OK
+docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/packed-vectors.json: OK
+ORACLE_EXIT=0

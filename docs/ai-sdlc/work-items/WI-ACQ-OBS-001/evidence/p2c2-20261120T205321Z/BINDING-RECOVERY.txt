@@ -1,0 +1,10 @@
+work_item: WI-ACQ-OBS-001 (P2c2 recovery)
+branch: feat/wi-acq-auth-001
+head: cfc456f4f469d9558a78fda8ff9b770b00817315
+origin: https://github.com/pazfernando/acquiring-simulator.git
+model: nan/deepseek-v4-flash
+model_override: none
+captured_utc: 2026-11-20T20:57:29Z
+java_home: /home/pazfernando/.local/opt/jdk-25
+maven: /home/pazfernando/.local/opt/maven/bin/mvn
+scope: one targeted mapper test; no full regression, HTTP, service, registry allocation, publication

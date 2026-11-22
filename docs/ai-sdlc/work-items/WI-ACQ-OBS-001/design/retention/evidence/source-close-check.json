@@ -1,0 +1,239 @@
+{
+  "checked_at_utc": "2026-11-21T02:00:11.145132+00:00",
+  "sources": [
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/adr-operation-a-access-and-environment.md",
+      "sha256_at_read": "d51bbf650aca74e82351dacf0e45d0f14c992044b9ff246bc7b8b281920b0b39",
+      "sha256_at_close": "d51bbf650aca74e82351dacf0e45d0f14c992044b9ff246bc7b8b281920b0b39",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "sha256_at_read": "fd040124319a946d28230aeb3994fb77bac82c00cb59e58b78df9e23531bae27",
+      "sha256_at_close": "fd040124319a946d28230aeb3994fb77bac82c00cb59e58b78df9e23531bae27",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/requirements.md",
+      "sha256_at_read": "49c5d412e3705c320a2f78b190555f49e7e0fa4662cff9329d259f89e2b459df",
+      "sha256_at_close": "49c5d412e3705c320a2f78b190555f49e7e0fa4662cff9329d259f89e2b459df",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "sha256_at_read": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+      "sha256_at_close": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "sha256_at_read": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "sha256_at_close": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/domain-review.md",
+      "sha256_at_read": "73adba20fd70969bf8bb9f23ebde5c5d16aec69fd4694ac32984008b76ee0ca2",
+      "sha256_at_close": "73adba20fd70969bf8bb9f23ebde5c5d16aec69fd4694ac32984008b76ee0ca2",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/acceptance-scenarios.md",
+      "sha256_at_read": "1586898418c09dcf092d567a4155b4524a0bc34500bf4ea76ce8f76465aa7733",
+      "sha256_at_close": "1586898418c09dcf092d567a4155b4524a0bc34500bf4ea76ce8f76465aa7733",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-20261120/security-review.md",
+      "sha256_at_read": "0d71ea007e56b12d9873df14126c22640c3abc68052b42db1f47b0a9688d218e",
+      "sha256_at_close": "0d71ea007e56b12d9873df14126c22640c3abc68052b42db1f47b0a9688d218e",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t1-traceability-20261120/BINDING.txt",
+      "sha256_at_read": "e4951cc2f2df75e61a9b9d1ce7bdb0f717d17faf3746c6fda79f5ed02bdfe8db",
+      "sha256_at_close": "e4951cc2f2df75e61a9b9d1ce7bdb0f717d17faf3746c6fda79f5ed02bdfe8db",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t1-traceability-20261120/git-status-before.txt",
+      "sha256_at_read": "b83770538498facf44c35d2bbd558ef15d105ef3e497e10ba941dc837b097fd9",
+      "sha256_at_close": "b83770538498facf44c35d2bbd558ef15d105ef3e497e10ba941dc837b097fd9",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-AUTH-001/simulator-profile.md",
+      "sha256_at_read": "26f63645b7ac562e966fbe0e2530addf8297cd54fc7d18f997a6262d93e586a7",
+      "sha256_at_close": "26f63645b7ac562e966fbe0e2530addf8297cd54fc7d18f997a6262d93e586a7",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-AUTH-001/requirements.md",
+      "sha256_at_read": "595ab10f95ba59ebcad6c235162c32f1a35eca519a2d341da8df5e675fe5e840",
+      "sha256_at_close": "595ab10f95ba59ebcad6c235162c32f1a35eca519a2d341da8df5e675fe5e840",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-AUTH-001/WORK_ITEM.md",
+      "sha256_at_read": "c09f54b6a97ed65f90ecfcfce014ed49f729d8a2556695b1649b349670e964d2",
+      "sha256_at_close": "c09f54b6a97ed65f90ecfcfce014ed49f729d8a2556695b1649b349670e964d2",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-AUTH-001/architecture-decision.md",
+      "sha256_at_read": "066b1b68ff4383768f316ca76431ea9d0fb9d9e5d3ef669581def286f8bee219",
+      "sha256_at_close": "066b1b68ff4383768f316ca76431ea9d0fb9d9e5d3ef669581def286f8bee219",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-AUTH-001/owner-decisions-2026-11-18.md",
+      "sha256_at_read": "1b8da3cc5133cbe1bcf855e2fbbb9f0e73ba65cc6260400e4650181f6e286989",
+      "sha256_at_close": "1b8da3cc5133cbe1bcf855e2fbbb9f0e73ba65cc6260400e4650181f6e286989",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-AUTH-001/implementation-proposal.md",
+      "sha256_at_read": "bb748a9b80a6491251f4f5555cbfd6201d6bb4d7bf037d9b616f551c02c13c7a",
+      "sha256_at_close": "bb748a9b80a6491251f4f5555cbfd6201d6bb4d7bf037d9b616f551c02c13c7a",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-AUTH-001/aws-architecture-update.md",
+      "sha256_at_read": "d53b759ee7caf14965bbb6d8655107cd6e086e43f957191549a2b5668c643935",
+      "sha256_at_close": "d53b759ee7caf14965bbb6d8655107cd6e086e43f957191549a2b5668c643935",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-AUTH-001/acceptance-scenarios.md",
+      "sha256_at_read": "25f890efb1e02d5dbcff23f1ff508ccac549ba8a7ab17f2d7c11e54a984b347f",
+      "sha256_at_close": "25f890efb1e02d5dbcff23f1ff508ccac549ba8a7ab17f2d7c11e54a984b347f",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-AUTH-001/domain-review.md",
+      "sha256_at_read": "a79212fe7ce77353e7f7a70a1f7cb88bc51dc68da2bcb56ce631d6a83b1b9cdd",
+      "sha256_at_close": "a79212fe7ce77353e7f7a70a1f7cb88bc51dc68da2bcb56ce631d6a83b1b9cdd",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/carrier-vectors.json",
+      "sha256_at_read": "544e933aeb8ae7e47ec0a54763b068fb38186302f14bc88a5b221684e8dd524b",
+      "sha256_at_close": "544e933aeb8ae7e47ec0a54763b068fb38186302f14bc88a5b221684e8dd524b",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/evidence-fixtures.json",
+      "sha256_at_read": "800bb86177abb93b4445bee7e127b8caa14b20525a1a4f51a9df8b45774783c3",
+      "sha256_at_close": "800bb86177abb93b4445bee7e127b8caa14b20525a1a4f51a9df8b45774783c3",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/websocket-vectors.json",
+      "sha256_at_read": "e6d30a83367233d9216c2ef162e82d7f67e1b6841de312a0e5dadcec3dace2a8",
+      "sha256_at_close": "e6d30a83367233d9216c2ef162e82d7f67e1b6841de312a0e5dadcec3dace2a8",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/review-manifest.json",
+      "sha256_at_read": "dac6fc14fa5919c6d5b1d89730252424d08edecad5c7b0f05d9dfcc6eb5082dc",
+      "sha256_at_close": "dac6fc14fa5919c6d5b1d89730252424d08edecad5c7b0f05d9dfcc6eb5082dc",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/packed-vectors.json",
+      "sha256_at_read": "800bc07148cf21d2c6b2f5711a5ca97d7119c32855b7d7826088dddcf47c7ff0",
+      "sha256_at_close": "800bc07148cf21d2c6b2f5711a5ca97d7119c32855b7d7826088dddcf47c7ff0",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/state-vectors.json",
+      "sha256_at_read": "12e938d505294368c734a48f18dff8053d888a11f35454114e185658291693c2",
+      "sha256_at_close": "12e938d505294368c734a48f18dff8053d888a11f35454114e185658291693c2",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/response-vectors.json",
+      "sha256_at_read": "38acdad4c10259e9194f4c0f2544e4337c8b3d236583fe784dd446dd8b169ca4",
+      "sha256_at_close": "38acdad4c10259e9194f4c0f2544e4337c8b3d236583fe784dd446dd8b169ca4",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/async-projection-vectors.json",
+      "sha256_at_read": "7dc800557ae99b0f67f1249dd4138774612a847c432a0d2c73d48c0350188bdd",
+      "sha256_at_close": "7dc800557ae99b0f67f1249dd4138774612a847c432a0d2c73d48c0350188bdd",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/channel-vectors.json",
+      "sha256_at_read": "8dcc4a4d41d4378ffeab22be3b990da733cb042781d0b049f4b3bd56717bc61f",
+      "sha256_at_close": "8dcc4a4d41d4378ffeab22be3b990da733cb042781d0b049f4b3bd56717bc61f",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/event-vectors.json",
+      "sha256_at_read": "21a86ed8b892d9e28830a5d35842356ae17b40fd951dd4fd00e33fcc4f81a222",
+      "sha256_at_close": "21a86ed8b892d9e28830a5d35842356ae17b40fd951dd4fd00e33fcc4f81a222",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/documentation-validation.json",
+      "sha256_at_read": "512c4e71f2cd5a44c2ce371add2979759d86bf33f75bc8a84a08008a9c9313b3",
+      "sha256_at_close": "512c4e71f2cd5a44c2ce371add2979759d86bf33f75bc8a84a08008a9c9313b3",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256_at_read": "80a7092c0bcf7cd2258c6fde89710f1d952e6c2984b0e2728f077ddc694133b8",
+      "sha256_at_close": "80a7092c0bcf7cd2258c6fde89710f1d952e6c2984b0e2728f077ddc694133b8",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/README.md",
+      "sha256_at_read": "127d74c552ba84e61961430beeb4e45d63eca6377cd610d0b7abec316c707ded",
+      "sha256_at_close": "127d74c552ba84e61961430beeb4e45d63eca6377cd610d0b7abec316c707ded",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/PROJECT.md",
+      "sha256_at_read": "8584a2ed39a3ac548f303bf41bceb8e5e9df3fd3ec678289bdb128560643710e",
+      "sha256_at_close": "8584a2ed39a3ac548f303bf41bceb8e5e9df3fd3ec678289bdb128560643710e",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/sources/acquiring_simulator_functional_guide.md",
+      "sha256_at_read": "90a798c7e2a1de362993cb4974d306497d7de3567c163a3511c07b194a5ae094",
+      "sha256_at_close": "90a798c7e2a1de362993cb4974d306497d7de3567c163a3511c07b194a5ae094",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/WORK_ITEM.md",
+      "sha256_at_read": "5bee8dae6cf31374249182633dd87a62ecac7db40393bbaacb3d7b54b0fbb3dc",
+      "sha256_at_close": "5bee8dae6cf31374249182633dd87a62ecac7db40393bbaacb3d7b54b0fbb3dc",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/iso8583-profile.md",
+      "sha256_at_read": "de02c533536dcb6e87e4c6e93357efb9efa60c085a59f6f63bbfbb8c0e1fe481",
+      "sha256_at_close": "de02c533536dcb6e87e4c6e93357efb9efa60c085a59f6f63bbfbb8c0e1fe481",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t3-timeout-default-20261120/RESULTS.md",
+      "sha256_at_read": "78ede5b49628658fe8e3b4c0fd22056f3473f524849eba52d270e75ce2e2b194",
+      "sha256_at_close": "78ede5b49628658fe8e3b4c0fd22056f3473f524849eba52d270e75ce2e2b194",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t3-timeout-default-20261120/MANIFEST.md",
+      "sha256_at_read": "a0d2ab884e270895063c698813530bbf52c0a052259ae5bb63d0b63860cf762d",
+      "sha256_at_close": "a0d2ab884e270895063c698813530bbf52c0a052259ae5bb63d0b63860cf762d",
+      "unchanged_during_draft": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t3-timeout-default-20261120/PROGRESS.md",
+      "sha256_at_read": "fe9d90c446f9f95c0632890a5c2538309570978442f14b8f6e6cf68f1f8aa64f",
+      "sha256_at_close": "fe9d90c446f9f95c0632890a5c2538309570978442f14b8f6e6cf68f1f8aa64f",
+      "unchanged_during_draft": true
+    }
+  ]
+}

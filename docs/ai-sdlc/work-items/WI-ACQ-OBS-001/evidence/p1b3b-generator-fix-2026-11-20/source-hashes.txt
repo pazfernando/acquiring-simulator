@@ -1,0 +1,5 @@
+9e18f5a89184f9edffd3a1696bf03a48d94ff87095f8a5f70080c53831537b68  src/main/java/com/acquiring/simulator/domain/IdentifierSource.java
+d4cd03fce1a82c39bf8855c2ac339c694977ec588d0ef82bcd04859d0b0d0817  src/main/java/com/acquiring/simulator/domain/event/SafeIdentifier.java
+10b981d61b4bbd4c316915fadb36289a77d6d32c0dad2aa76480f5e8304ffded  src/main/java/com/acquiring/simulator/domain/AuthorizationService.java
+ef7bbd939fe5788c784bfa5ebd5f497dacd58334b929992b5404af425cc6b469  src/test/java/com/acquiring/simulator/domain/event/SafeIdentifierTest.java
+0b01aa816bbb578e666eda1523ebbe54cb036945fada3fbf86f131ff0ef13959  src/test/java/com/acquiring/simulator/domain/GeneratedIdentifierSanitizerTest.java

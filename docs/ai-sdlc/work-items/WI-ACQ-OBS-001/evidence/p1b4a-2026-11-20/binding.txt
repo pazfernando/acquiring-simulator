@@ -1,0 +1,5 @@
+/home/pazfernando/projects/acquiring-simulator
+feat/wi-acq-auth-001
+cfc456f4f469d9558a78fda8ff9b770b00817315
+https://github.com/pazfernando/acquiring-simulator.git
+60

@@ -1,0 +1,3 @@
+2026-11-20 16:34:34.537097110 -0500\t2710\t/tmp/opencode/p2b3-run/stdout.txt
+2026-11-20 16:34:30.619689225 -0500\t0\t/tmp/opencode/p2b3-run/stderr.txt
+2026-11-20 16:34:34.569331281 -0500\t2\t/tmp/opencode/p2b3-run/exit.txt

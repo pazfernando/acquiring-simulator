@@ -1,0 +1,20 @@
+flowchart TB
+    CP["Card-Present Channel / POS"]
+    CNP["Card-Not-Present Channel / E-Commerce"]
+    CPV["EMV / Cardholder Verification"]
+    AUTH3["3DS Authentication (if applicable)"]
+    VALID["Acquirer, Merchant, Credential and Risk Controls"]
+    AUTH["Payment Authorization"]
+    RESULT{"Authorization Outcome"}
+    REV["Authorization Reversal (merchant- or processor-initiated)"]
+    INQ["Transaction Status Inquiry"]
+    CAP["Capture / Completion (later process)"]
+    DOWN["Clearing, Settlement, Reconciliation (separate guide)"]
+    CP --> CPV --> VALID
+    CNP --> AUTH3 --> VALID
+    VALID --> AUTH --> RESULT
+    RESULT -->|"Approved, where applicable"| CAP
+    RESULT -->|"Cancelled / delivery failure"| REV
+    AUTH -.->|"Read status"| INQ
+    REV -.->|"Read status"| INQ
+    CAP --> DOWN

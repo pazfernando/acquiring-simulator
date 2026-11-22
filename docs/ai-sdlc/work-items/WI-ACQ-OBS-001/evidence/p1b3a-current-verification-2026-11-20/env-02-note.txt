@@ -1,0 +1,1 @@
+ENV-02: second invocation failed with EXIT_CODE=1, 'JAVA_HOME environment variable is not defined correctly'. No compilation or test executed. Retried with JAVA_HOME=/home/pazfernando/.local/opt/jdk-25 (path recorded in p1b3a-2026-11-20/toolchain.txt).

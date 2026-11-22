@@ -1,0 +1,85 @@
+{
+  "artifactSet": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev2.md + evidence-rev2/",
+  "status": "PROPOSAL revision 2; documentary only; no deployment, no IaC, no approval claimed",
+  "author": "ai-sdlc-devops",
+  "date": "2026-11-20 (America/Bogota, evening)",
+  "runtime": {
+    "harness": "native OpenClaw subagent",
+    "observedModelMetadata": "nan/deepseek-v4-flash",
+    "configuredDefault": true,
+    "modelOverrideApplied": false,
+    "providerQualifiedIdExposed": false
+  },
+  "files": [
+    { "path": "design-rev2.md", "bytes": 49235, "sha256": "6b15161875e702ebae74e4f76b4b94cae9ffbbb94d6a9fcd42aee563b8f3873c" },
+    { "path": "evidence-rev2/official-source-excerpts-rev2.json", "bytes": 8820, "sha256": "adebdd076cb09c42f09dfb08855c1873cbfd6505be178c2005a6c42337e8ddfc" },
+    { "path": "evidence-rev2/input-identities-rev2.json", "bytes": 4905, "sha256": "8fe8adac9762540a58cc89bb60c8f1202533691ff9d4f8645a21d9e9da3bea42" }
+  ],
+  "preservationChecks": [
+    { "path": "design.md", "sha256": "83e4ea14b3959dcc6d8535aee0f0dd715783764e8922a72b6c0c3454a40829f4", "result": "UNCHANGED" },
+    { "path": "configuration-schema.md", "sha256": "1f497daade1a8429458e2cc40047adf326a97f2fb6636d583e1bf2e930bf1bb2", "result": "UNCHANGED" },
+    { "path": "compatibility-assessment.md", "sha256": "4886106c0afbf9ded1736ef3c0756c2bc8c738c58c61457faa0a635ecdd836ac", "result": "UNCHANGED" },
+    { "path": "reviews/access-design-20261120/security-review.md", "sha256": "0d71ea007e56b12d9873df14126c22640c3abc68052b42db1f47b0a9688d218e", "result": "UNCHANGED" }
+  ],
+  "structureChecks": [
+    { "check": "scenario rows present", "command": "grep -cE '^\\| (S[1-8]|S5i) \\|' design-rev2.md", "result": "8 rows; S5 present only as a struck-through WITHDRAWN row" },
+    { "check": "S5 withdrawal marked", "command": "grep -c 'WITHDRAWN' design-rev2.md", "result": "1" },
+    { "check": "internal evidence route referenced", "command": "grep -oE 'S5i' | wc -l", "result": "5" },
+    { "check": "code role vocabulary used", "command": "grep -oE 'ACL_AUTH|PROCESSOR_AUTH|NETWORK_SIM|ISSUER_SIM' | sort | uniq -c", "result": "ACL_AUTH 2, PROCESSOR_AUTH 2, NETWORK_SIM 4, ISSUER_SIM 2 — no fifth role" },
+    { "check": "DIAGNOSTIC is a permission, not a role", "command": "grep -n 'DIAGNOSTIC' design-rev2.md", "result": "5 occurrences: delta table row, mapping-table row, consequence paragraph, §8 closing statement, and the removed v1 variable name `OAUTH_CLIENT_ID_EVIDENCE_DIAGNOSTIC`; no row grants it a role" },
+    { "check": "CA items acknowledged", "command": "grep -oE 'CA-[1-5]' | sort | uniq -c", "result": "CA-1..CA-5 each present" },
+    { "check": "irreducible decisions", "command": "grep -cE '\\*\\*K-[1-3]\\*\\*'", "result": "3" },
+    { "check": "Keycloak configuration surface", "command": "grep -oE '`KC_[A-Z_]+`' | sort -u | wc -l", "result": "17 distinct KC_* variables" },
+    { "check": "secret-like content", "command": "grep -nE 'BEGIN [A-Z ]*PRIVATE KEY|[0-9]{12}|client_secret=|password=' design-rev2.md", "result": "no match" },
+    { "check": "files written", "command": "find design/access-realization/evidence-rev2 -type f", "result": "3 files, all new; no other path written" }
+  ],
+  "decisionsRealized": [
+    "D-A: self-managed Keycloak profile (§2) — hosting options K1/K2/K3, recommendation K1, network/TLS, realm and client configuration, key custody/rotation/revocation, token acquisition per party, backup/patching/availability ownership, reachability without an unnecessary public surface",
+    "D-D: WebSocket accepted; lease corrected to min(jwtExp, 900 s) = jwtExp; token lifetime unchanged; reconnect/new-epoch renewal; registry cache ≤30 s",
+    "CA-1: public late-evidence route withdrawn; internal Lambda invoke with resource policy + source conditions; identity from invocation context; Ed25519 unchanged; nine deny paths",
+    "CA-2: v1 role names mapped onto ISSUER_SIM/PROCESSOR_AUTH/NETWORK_SIM/ACL_AUTH; DIAGNOSTIC demoted to a scoped permission",
+    "CA-3: transport-context widening recorded as Implementation's data-model decision; required facts stated, shape not designed",
+    "CA-4: atomic gateways unwired acknowledged; no deployed-atomic claim made",
+    "C4 margin: 6 964 B worst case against 8 192 B bound, 1 228 B margin; margin rules and CI arithmetic guard proposed"
+  ],
+  "boundariesObserved": [
+    "No Git or GitHub/provider command; branch/HEAD/origin from Implementation evidence only",
+    "No AWS/Keycloak API call, no provision, no probe, no credential flow, no login, no deployment",
+    "No Terraform/SAM/realm JSON authored beyond the configuration schema",
+    "No approved-file edit; v1 files preserved",
+    "No onward delegation; no finding closed; no risk accepted for the owner"
+  ],
+  "sourceChangesObserved": [
+    "owner-decisions.md advanced to fd040124... (16582 bytes); reported, not edited",
+    "WORK_ITEM.md remains Coordinator-owned and moving; not used as technical input"
+  ],
+  "unverifiedCarriedForward": [
+    "Issuer capability at the deployed Keycloak release (realm/client behaviour)",
+    "Repository OIDC subject format",
+    "Native mTLS on WebSocket custom domains (undocumented)",
+    "Gateway per-header quota for the C4 evidence header",
+    "WebSocket header preservation",
+    "Terraform version for use_lockfile",
+    "KMS/SSM costs",
+    "Repository visibility"
+  ],
+  "unverifiedAdded": [
+    "Keycloak default access-token lifespan and per-client overrides",
+    "Deployed signature-algorithm allowlist in the client credential form",
+    "Advertised token_endpoint_auth_method=private_key_jwt in the discovery document",
+    "Not-before revocation semantics and JWKS-cache convergence",
+    "ALB to Keycloak proxy-header trust with dynamic ALB addresses",
+    "Availability of SSM port forwarding for admin access",
+    "Aurora Serverless v2 minimum-ACU billing and Fargate sizing",
+    "Boot-time realm import behaviour on image upgrade",
+    "Keycloak version pin and upgrade-guide applicability",
+    "Presenter-local key file protection",
+    "Lambda resource-policy limits and exact SourceArn/SourceAccount form",
+    "Absence of any internet-reachable late-evidence path (design assertion, to be proven by deployed inventory)"
+  ],
+  "limitations": [
+    "Documentation excerpts are not deployed interoperability evidence",
+    "No test, scan, handshake or provisioning was executed; every deny test listed is a future obligation",
+    "Three owner decisions remain (K-1 availability, K-2 operations ownership, K-3 presenter-local key acceptance); no others were minted"
+  ]
+}

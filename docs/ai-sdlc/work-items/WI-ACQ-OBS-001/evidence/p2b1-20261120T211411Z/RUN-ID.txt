@@ -1,0 +1,7 @@
+evidence_dir: p2b1-20261120T211411Z (capture time)
+originating_run_id: 2026-11-20T16-10-53_008-jvmRun1
+originating_booter_jar: target/surefire/surefirebooter-20261120161053125_3.jar (removed by later Maven runs)
+surefire_artifacts_kept_in_place:
+  target/surefire-reports/com.acquiring.simulator.channel.C4CarrierParserTest.txt
+  target/surefire-reports/TEST-com.acquiring.simulator.channel.C4CarrierParserTest.xml
+capture_note: this directory was created during recovery; it is not the run directory.

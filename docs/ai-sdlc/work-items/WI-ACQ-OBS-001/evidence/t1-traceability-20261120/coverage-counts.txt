@@ -1,0 +1,8 @@
+# Coverage counts recomputed from requirement-traceability.md (status column)
+# date=2026-11-20T23:59:12Z
+set_rows total A B C
+OBS_REQUIREMENTS 25 13 9 3
+OBS_SCENARIOS 28 3 19 6
+AUTH_LINKED 14 13 1 0
+# independent verification column: PENDING on every mapped row
+# end-to-end integrated rows: 0

@@ -1,0 +1,64 @@
+sequenceDiagram
+    autonumber
+    actor D as Demo presenter
+    participant C as HTML channel test interface
+    participant A as HTTP API authentication
+    participant P as Processor and channel ACL
+    participant DB as DynamoDB business and event source
+    participant S as Simulated switch/network
+    participant I as Simulated issuer
+    participant T as ADOT technical telemetry
+    Note over D,A: One demo JWT principal, existing issuer/session checks and backend service IAM remain distinct
+    D->>C: Explicitly submit a synthetic POS authorization
+    C->>A: HTTP request using current authenticated demo session
+    A->>A: Validate JWT and current mandate
+    break Authentication is invalid
+        A-->>C: Reject, no payment dispatch
+    end
+    A->>P: Accepted channel request and business context
+    P--)T: Redacted technical observations asynchronously throughout processing
+    P->>P: Validate supported input, prior reference and resolved payment data
+    break Input, context or reference is rejected
+        P-->>A: Safe rejection, no dispatch
+        A-->>C: Rejected request, not an invented issuer decline
+    end
+    P->>DB: Resolve business key or explicit original reference
+    DB-->>P: Existing operation or eligible new instruction
+    break Existing matching operation is replayed
+        P-->>A: Original reference and latest journal-known result or uncertainty
+        A-->>C: Replay only, no new financial instruction
+    end
+    P->>DB: Atomic CLAIMED_NOT_SENT plus critical consultable event
+    DB-->>P: Commit result
+    break Claim commit is failed or unreadable
+        P-->>A: Truthful not-dispatched or unavailable state
+        A-->>C: No automatic payment retry
+    end
+    P->>DB: Atomic POSSIBLE_SEND plus critical consultable event
+    DB-->>P: Send-gate commit result
+    break Send gate is not durably confirmed
+        P-->>A: Truthful unsent or uncertain state from available evidence
+        A-->>C: No automatic payment retry
+    end
+    P->>S: ONE financial invocation: private ISO8583 over selected HTTPS boundary
+    Note over P,S: Service identity and response evidence controls apply, IP allowlist alone is not authentication
+    alt Explicit network rejection before issuer forwarding
+        S-->>P: Verified network rejection, no issuer decision
+    else Instruction is forwarded to issuer
+        S->>I: Simulated issuer authorization instruction
+        I-->>S: Issuer decision when available
+        S-->>P: Correlated reply, or missing/invalid/late response
+    end
+    alt Verified correlated issuer decision or explicit rejection is received
+        P->>DB: Atomic verified receipt, business version and critical event
+        DB-->>P: Evidence commit result
+    else No valid timely confirmation
+        P->>DB: Record conservative uncertainty and critical event when persistence is available
+        DB-->>P: Commit result or persistence fault
+    end
+    P-->>A: Confirmed result only if durably admitted, otherwise truthful uncertainty
+    A-->>C: Outcome, actual admitted transactionId and observation status
+    C-->>D: Keep payment result separate from observation completeness
+    Note over P,DB: Critical events are stored once and queryable, required persistence precedes dispatch
+    Note over C,DB: WebSocket/notifier failure does not block this HTTP flow when required storage is healthy
+    Note over C,T: Common task hooks are transversal to every implemented/future flow, lost intermediate tasks remain gaps

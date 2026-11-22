@@ -1,0 +1,8 @@
+repo=/home/pazfernando/projects/acquiring-simulator
+branch=feat/wi-acq-auth-001
+head=cfc456f4f469d9558a78fda8ff9b770b00817315
+origin=https://github.com/pazfernando/acquiring-simulator.git
+model=nan/deepseek-v4-flash
+model_override=none
+runtime=inactive
+timestamp_utc=2026-11-20T20:15:46Z

@@ -1,0 +1,2 @@
+089d76caece80bc74f666973cbd422185136e542e2a31d7be9614a3dd29df066  src/main/java/com/acquiring/simulator/adapter/aws/PossibleSendCriticalComposer.java
+075eccc8d0483547e65a94e915cc7a35db0d2c8cc9c8997b5a6364d6ae4fa714  src/test/java/com/acquiring/simulator/aws/DynamoPossibleSendIntegrationTest.java

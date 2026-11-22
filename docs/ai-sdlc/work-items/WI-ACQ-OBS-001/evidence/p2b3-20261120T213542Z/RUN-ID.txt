@@ -1,0 +1,3 @@
+20261120T213542Z
+model: nan/deepseek-v4-flash (no override)
+recovery_kind: sanitized evidence recovery of an EXISTING targeted run (not a rerun)

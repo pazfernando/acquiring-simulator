@@ -1,0 +1,30 @@
+sequenceDiagram
+    autonumber
+    participant C as Merchant / Origination Channel
+    participant P as Multi-Acquirer Processor
+    participant A as Acquirer Profile & Merchant Rules
+    participant T as Transaction Record
+    participant N as Approved Network / Domestic Route
+    participant I as Card Issuer
+
+    C->>P: Authorization Reversal Request
+    P->>A: Validate acquirer and merchant permissions
+    A-->>P: Acquirer context and policy
+    P->>T: Find original authorization and references
+    T-->>P: Recorded outcome, amount, network references
+    alt Not eligible or already resolved
+        P-->>C: Reversal Rejected / Prior Result
+    else Reversal permitted
+        P->>T: Register reversal instruction
+        P->>N: Reversal Request / Advice
+        N->>I: Forward Reversal as applicable
+        alt Response / acknowledgement received
+            I-->>N: Reversal Response / Acknowledgement
+            N-->>P: Reversal Result
+            P->>T: Record reversal result
+            P-->>C: Reversal Outcome
+        else Confirmation unavailable
+            P->>T: Record unconfirmed reversal
+            P-->>C: Reversal Outcome Unknown
+        end
+    end

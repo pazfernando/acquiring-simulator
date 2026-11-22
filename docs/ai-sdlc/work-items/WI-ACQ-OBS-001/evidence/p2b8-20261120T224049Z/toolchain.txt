@@ -1,0 +1,2 @@
+JAVA_HOME=/home/pazfernando/.local/opt/jdk-25
+Maven=/home/pazfernando/.local/opt/maven/bin/mvn

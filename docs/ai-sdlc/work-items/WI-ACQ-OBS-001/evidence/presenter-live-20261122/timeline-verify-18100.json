@@ -1,0 +1,54 @@
+{
+  "port": 18100,
+  "checks": [
+    {
+      "name": "index.html served",
+      "ok": true,
+      "detail": "status=200"
+    },
+    {
+      "name": "session accepted",
+      "ok": true,
+      "detail": "status=200 body=b'{\"identityMode\":\"LOCAL_TEST_FIXTURE\",\"subject\":\"DEMO-USER\",\"environmentId\":\"local-demo\",\"context\":{\"acquirerRef\":\"ACQ-SIM-01\",\"merchantRef\":\"MID-SIM-01\",\"terminalRef\":\"TERM-SIM-01\"},\"expiresAt\":\"2026-'"
+    },
+    {
+      "name": "session cookie issued",
+      "ok": true,
+      "detail": "['PRESENTER_SESSION=JZHI9Zkuyf_bn_9qaDIjThfOD2rIsfLVBi9WDB4UfIA; Path=/; HttpOnly; SameSite=Strict']"
+    },
+    {
+      "name": "authorization accepted",
+      "ok": true,
+      "detail": "status=200 body=b'{\"asOf\":\"2026-11-22T03:15:52Z\",\"attemptId\":\"ATT-AUTH-3c2552daf64e453e8365a1bd\",\"authorizationId\":\"AUTH-3c2552daf64e453e8365a1bd\",\"businessVersion\":3,\"contractVersion\":\"1\",\"correlationId\":\"CORR-VERIFY-144737609FD5\",\"disposition\":\"COMPLETED\",\"error\":null,\"observation\":\"COMPLETE\",\"originalCorrelationId'"
+    },
+    {
+      "name": "catch-up returns ordered rows",
+      "ok": true,
+      "detail": "status=200 rows=3 seqs=[1, 2, 3]"
+    },
+    {
+      "name": "websocket upgrade 101",
+      "ok": true,
+      "detail": "HTTP/1.1 101 Switching Protocols"
+    },
+    {
+      "name": "ready frame",
+      "ok": true,
+      "detail": "{'version': 1, 'action': 'ready', 'connectionEpoch': '394a378262b01399e196bad1557a4c67', 'environmentId': 'local-demo', 'identityMode': 'LOCAL_TEST_FIXTURE'}"
+    },
+    {
+      "name": "subscribe ACK",
+      "ok": true,
+      "detail": "[{\"version\": 1, \"action\": \"subscribed\", \"requestId\": \"REQ-VERIFY-A050D886E5F4\", \"subscriptionId\": \"SUB-VERIFY-51ABA1F08436482C\", \"connectionEpoch\": \"394a378262b01399e196bad1557a4c67\", \"environmentId\": \"local-demo\", \"context\": {\"acquirerRef\": \"ACQ-SIM-01\", \"merchantRef\": \"MID-SIM-01\"}, \"transactionId"
+    },
+    {
+      "name": "sync inventory",
+      "ok": true,
+      "detail": "{\"version\": 1, \"action\": \"sync\", \"subscriptions\": [{\"subscriptionId\": \"SUB-VERIFY-51ABA1F08436482C\", \"transactionId\": \"PAY-VERIFY-2A7D75CE7FB9\", \"generation\": 1, \"headSequence\": 3, \"expiryRevision\": 0, \"firstRetainedSequence\": 1}]}"
+    }
+  ],
+  "failures": [],
+  "transactionId": "PAY-VERIFY-2A7D75CE7FB9",
+  "eventRows": 3,
+  "ok": true
+}

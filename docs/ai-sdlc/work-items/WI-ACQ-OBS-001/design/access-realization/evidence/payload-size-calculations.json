@@ -1,0 +1,62 @@
+{
+  "artifact": "design/access-realization/compatibility-assessment.md",
+  "section": "2. C4 late evidence and Ed25519 signing versus Gateway header/body limits",
+  "purpose": "Show whether the current C4 payload fits the declared carriage bounds, and how much headroom remains.",
+  "method": "Computed offline with a Python 3 stdlib script that builds canonical RFC 8785 ordered JSON from the closed key sets and the declared maximum lengths in the Java sources. No Java was executed, no fixture was signed, no Gateway or network behaviour was observed. This is arithmetic over declared bounds, not an executed codec test.",
+  "inputs": [
+    "src/main/java/com/acquiring/simulator/channel/C4CarrierParser.java (bounds 5464/4096/2048/8192, HEADER_NAME)",
+    "src/main/java/com/acquiring/simulator/channel/C4LateDeliveryParser.java (bounds 8192/2048/4096/64)",
+    "src/main/java/com/acquiring/simulator/channel/C4EvidenceAttestation.java (31 field bounds)",
+    "src/main/java/com/acquiring/simulator/channel/C4CarrierEnvelope.java (6 keys, 64-byte signature -> 88 base64 chars)",
+    "src/main/java/com/acquiring/simulator/channel/C4LateDeliveryEnvelope.java (4 keys)",
+    "src/main/java/com/acquiring/simulator/channel/C4CarrierCanonicalJson.java (key order, compact separators)",
+    "src/main/java/com/acquiring/simulator/channel/HttpApiV2Wire.java (totalHeaderBytes = name + 2 + value + 2)"
+  ],
+  "assumptions": [
+    "Every string field is at its declared maximum and printable ASCII, so no JSON escaping inflates the value.",
+    "Numeric maxima use the widest decimal representation the declared range allows (generation -> 10 digits, amountMinor -> 6 digits).",
+    "availableAt uses the longest RFC3339 form the schema accepts (30 characters with 9 fractional digits).",
+    "The relay object's deliveredAt follows the same 30-character assumption; the relay signature is 88 base64 characters.",
+    "Header overhead counts Content-Type, X-Simulator-Profile and X-Simulator-Evidence only, exactly as HttpApiV2Wire.totalHeaderBytes counts them.",
+    "The late envelope carries the evidence as nested JSON, not base64, so the late body is not inflated by 4/3."
+  ],
+  "results": {
+    "attestationWorstBytes": 503,
+    "relayObjectWorstBytes": 555,
+    "directEnvelopeWorstBytes": 738,
+    "directEnvelopeWorstBase64Chars": 984,
+    "relayEnvelopeWorstBytes": 1288,
+    "relayEnvelopeWorstBase64Chars": 1720,
+    "body2048Base64Chars": 2732,
+    "lateEnvelopeDirectWorstBytes": 3606,
+    "lateEnvelopeRelayWorstBytes": 4156,
+    "lateEnvelopeWithEvidenceAt4096CapBytes": 6964,
+    "totalHeaderBytesDirectWorst": 1082,
+    "totalHeaderBytesRelayWorst": 1818
+  },
+  "declaredBounds": {
+    "evidenceHeaderEncodedChars": 5464,
+    "evidenceDecodedBytes": 4096,
+    "responseBodyBytes": 2048,
+    "totalResponseHeaderBytes": 8192,
+    "lateEnvelopeBytes": 8192,
+    "lateResponseBodyBytes": 2048,
+    "lateEvidenceBytes": 4096,
+    "lateReceiptIdChars": 64
+  },
+  "margins": {
+    "directDecodedBytes": 3358,
+    "relayDecodedBytes": 2808,
+    "directEncodedChars": 4480,
+    "relayEncodedChars": 3744,
+    "lateEnvelopeDirectBytes": 4586,
+    "lateEnvelopeRelayBytes": 4036,
+    "lateEnvelopeAtEvidenceCapBytes": 1228
+  },
+  "conclusion": "The current payload fits: the largest normal response needs a 1720-character header value and 1818 total header bytes against 5464/8192; the largest late delivery needs 4156 bytes against 8192. Identifier indirection is not needed on size grounds. The narrowest margin is a late delivery that uses the full 4096-byte evidence allowance (6964 of 8192). The remaining risk is the unverified Gateway per-header quota for the normal response, not the payload size.",
+  "limits": [
+    "Declared bounds are not observed Gateway behaviour; the proposal's §15.5 leaves the quota unverified and this file does not close it.",
+    "The calculation says nothing about header preservation through a real handshake, about compression, or about platform-added response headers beyond noting they consume the remaining slack.",
+    "An executed Java-size test was not run; the values are reproducible from the cited source bounds and this method."
+  ]
+}

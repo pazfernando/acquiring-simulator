@@ -1,0 +1,73 @@
+{
+  "artifact": "design/access-realization/compatibility-assessment.md",
+  "purpose": "SHA-256 identities of every input cited by the compatibility assessment, computed locally at the time of the pass.",
+  "computedAt": "2026-11-20 (America/Bogota)",
+  "method": "sha256sum over each path from the repository root /home/pazfernando/projects/acquiring-simulator; no Git command executed.",
+  "repositoryBinding": {
+    "branch": "feat/wi-acq-auth-001",
+    "head": "cfc456f4f469d9558a78fda8ff9b770b00817315",
+    "origin": "https://github.com/pazfernando/acquiring-simulator.git",
+    "workingTree": "DIRTY (pre-existing changes and untracked files); no whole-tree freeze claimed",
+    "bindingSource": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t1-traceability-20261120/BINDING.txt"
+  },
+  "pinnedProposalInputs": [
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design.md", "sha256": "83e4ea14b3959dcc6d8535aee0f0dd715783764e8922a72b6c0c3454a40829f4", "match": "MATCH (recorded in design-validation.json and owner-decisions.md)" },
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/configuration-schema.md", "sha256": "1f497daade1a8429458e2cc40047adf326a97f2fb6636d583e1bf2e930bf1bb2", "match": "MATCH" },
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/decision-proposal.md", "sha256": "becbabcdf9038c16bf5a0040051ea606db556d22bba44ddf2321b8f3fe219166", "match": "MATCH (owner-decisions.md approved-identities list)" },
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md", "sha256": "3def7c2aff7df5b3a149757aa9411574da6d574abd4c33dc4c4f6504589c9bc0", "match": "ADVANCED, not drifted", "note": "design.md pins efef3d2272dd54130b404fae43ec90643bc42c5dd4701cc1b6b4e49d4ea0f18c, taken before the owner appended the D-D/D-A section. The append is the decision context this assessment must record; the proposal bytes are unchanged." }
+  ],
+  "governingDocuments": [
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/adr-operation-a-access-and-environment.md", "sha256": "d51bbf650aca74e82351dacf0e45d0f14c992044b9ff246bc7b8b281920b0b39" },
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md", "sha256": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca" },
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md", "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a" },
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/requirements.md", "sha256": "49c5d412e3705c320a2f78b190555f49e7e0fa4662cff9329d259f89e2b459df" },
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/WORK_ITEM.md", "sha256": "d2489282f9eb33e8d7d6ada9d2c021aeed11b3033b9f22eded6e30e628f74f6c", "note": "coordinator-owned; advanced since design-validation.json recorded f041c42f9d3cb1153ba9580b60778d35b04da3d546d3e49f5d525c61f6026650; not edited by this pass" },
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-20261120/security-review.md", "sha256": "0d71ea007e56b12d9873df14126c22640c3abc68052b42db1f47b0a9688d218e", "note": "open NV-01..NV-05 and AD-01; this assessment does not close any of them" }
+  ],
+  "configurationAndCode": [
+    { "path": "infra/template.yaml", "sha256": "f7637650095ea5166aee9e3d41dbad3d033324c45d48268c70d2bb58d62c1abe" },
+    { "path": "src/main/java/com/acquiring/simulator/adapter/aws/ProcessorHandler.java", "sha256": "33de30443b4ccce0ed477b403b80265a61288204fef5e6affecb2fcdba076bc7" },
+    { "path": "src/main/java/com/acquiring/simulator/adapter/aws/MastercardHandler.java", "sha256": "71bbd9a8b50280fc3c56ac8b607a2f55a24ff92e2b89fce65e0506c3a71e2cdc" },
+    { "path": "src/main/java/com/acquiring/simulator/adapter/aws/IssuerHandler.java", "sha256": "d652e60bfdc028f85ea35b73821438de9ab59f9d003d857dc7e9616228cdf407" },
+    { "path": "src/main/java/com/acquiring/simulator/adapter/aws/LambdaDownstream.java", "sha256": "3bdbb425c5107c83dc693b3bc0d6f242cbff595eb8e32fe6a55c3a903f05dca7" },
+    { "path": "src/main/java/com/acquiring/simulator/adapter/aws/AwsRuntime.java", "sha256": "ee0b6f664cff978a1f114e1a555f83e6bde9f32e9b32f15b925f362d1d5cbf1f" },
+    { "path": "src/main/java/com/acquiring/simulator/adapter/aws/DynamoClaimGateway.java", "sha256": "c223f15a5637da8de7ffc8ab2d1d6d524d51db6426ac05235acfed3eeed50ff5" },
+    { "path": "src/main/java/com/acquiring/simulator/adapter/aws/DynamoEventStore.java", "sha256": "7fa3a17142fbc79aeacc94efc0bdc165260ad7f2757f67b843b3f71825687c7d" },
+    { "path": "src/main/java/com/acquiring/simulator/adapter/aws/LateEvidenceAdmissionGateway.java", "sha256": "190be46d5a7b1e209dae77ffb59238f7dcc8ea05b506a8d7b11acf958ea9223e" },
+    { "path": "src/main/java/com/acquiring/simulator/domain/AuthorizationService.java", "sha256": "7b85394840bf56b6e70b96c87e6f7a9be67d52e0d8f34932c6440672b32915f0" },
+    { "path": "src/main/java/com/acquiring/simulator/domain/event/EventTableKeys.java", "sha256": "ed70d170b2fea2ac6b8fd5b5e5370f76423edc479895ce0d172430e593b6892c" },
+    { "path": "src/main/java/com/acquiring/simulator/domain/port/EventStore.java", "sha256": "f67b90d5b966ec546decafc9fcb05b9d51216c9cd2a41312df4013938abbe4f4" },
+    { "path": "src/main/java/com/acquiring/simulator/domain/event/EventSubmission.java", "sha256": "5a3673bbd3d72d1daafa70965f5401d743d789c16ea3990f2fab3158c97036e1" },
+    { "path": "src/main/java/com/acquiring/simulator/domain/model/AuthorizedContext.java", "sha256": "ca360e5fee39971f7eb1094301233f030979983ff0f5bf63651c4e89dd6eab69" },
+    { "path": "src/main/java/com/acquiring/simulator/channel/C4CarrierParser.java", "sha256": "6bf69cb229b3d57f96bc9306ea2f24ed91d7c01a278804112a678a4a05ed8065" },
+    { "path": "src/main/java/com/acquiring/simulator/channel/C4LateDeliveryParser.java", "sha256": "8220362f137ab3f755f57de470c976f029bd644d32d7c490e92ca934c5880cfc" },
+    { "path": "src/main/java/com/acquiring/simulator/channel/C4CarrierEnvelope.java", "sha256": "27e3b43b1b519c0302a036b98a2e214b0ec22e6a690acb0b0e1ccd2b11b0c073" },
+    { "path": "src/main/java/com/acquiring/simulator/channel/C4LateDeliveryEnvelope.java", "sha256": "2a9fad87b2db9267962f8133b7265b8016ce16afbf776d1421d8589492ab148e" },
+    { "path": "src/main/java/com/acquiring/simulator/channel/C4EvidenceAttestation.java", "sha256": "407f048e9d53cd8df6c888d6bbcef7d922b6afc3f7ddf8c7be0439f00c5c8464" },
+    { "path": "src/main/java/com/acquiring/simulator/channel/C4CarrierCanonicalJson.java", "sha256": "6873b78be2b85e4c40eed94dd4c737797eeb7df658a1d383aeec123997e0a745" },
+    { "path": "src/main/java/com/acquiring/simulator/channel/C4HttpCarriageBridge.java", "sha256": "2b53103f0ff4faaf0cbf7e8153fd4b2b4a29d341c2d566198c56883673a9cf04" },
+    { "path": "src/main/java/com/acquiring/simulator/channel/C4PrincipalRole.java", "sha256": "4f18d52448cc5f90adbbc55039e185ea68bf838c97bbdbc4e55cdc4a69a6244b" },
+    { "path": "src/main/java/com/acquiring/simulator/channel/C4KeyRegistry.java", "sha256": "12d5ca1ff47fdc7f54dade58912035f99d9e5d31eb7cc40b0749143ff0b8a247" },
+    { "path": "src/main/java/com/acquiring/simulator/channel/C4AuthenticatedTransportContext.java", "sha256": "4994f2ddeccbc0ec819f2d9c403b96dd59e63ba4a5d6b267b29fa91ccc2fd73a" },
+    { "path": "src/main/java/com/acquiring/simulator/channel/C4LateDeliveryVerifier.java", "sha256": "471f7d474e8d664c480c7391884c2a40a09370776fed6eac44e5932fc4d84aa8" },
+    { "path": "src/main/java/com/acquiring/simulator/channel/HttpApiV2Wire.java", "sha256": "5362e63b4e49c3c0d425b1403a8acc19e53f2cb24a4908b951827e432b09683e" },
+    { "path": "src/main/java/com/acquiring/simulator/channel/HttpApiV2RequestDecoder.java", "sha256": "8511b640a2351c87665a897ae741855f887e18636a1ebeace78ea95781e453b2" },
+    { "path": "src/main/java/com/acquiring/simulator/channel/HttpApiV2ResponseEncoder.java", "sha256": "3e4e77203329040a90691cbaf2968912edb3dadb52e926df31afa4a261e80a50" }
+  ],
+  "testsCited": [
+    { "path": "src/test/java/com/acquiring/simulator/aws/AwsTransportTest.java", "sha256": "46f99d25b843ed209dd37a6e494345ed9fe6aabfa9e05d45375a613d5ce3704c" },
+    { "path": "src/test/java/com/acquiring/simulator/aws/ObsAcceptanceAtomicChainIntegrationTest.java", "sha256": "48be479e627f1827e2d2fa5d3013ac03b5e697dc3fe321f2b2c7117882eb5269" },
+    { "path": "src/test/java/com/acquiring/simulator/channel/HttpApiV2InternalRouteTest.java", "sha256": "ade365c45d8b13abf400be2e1ba9da1db38aed8295cb287fb3f4fcb8646b223c" },
+    { "path": "src/test/java/com/acquiring/simulator/channel/C4CarrierParserTest.java", "sha256": "b503fe1b204e045178729a05bef0e582a96ed547ed262e0b327b52e7895e23fc" },
+    { "path": "src/test/java/com/acquiring/simulator/channel/C4LateDeliveryTest.java", "sha256": "08d7c71982d6a22d384e9be6ea8a02e3169920dcc440193569cac5936a4ec143" }
+  ],
+  "vectorsReadAsProposedInputs": [
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/websocket-vectors.json", "sha256": "e6d30a83367233d9216c2ef162e82d7f67e1b6841de312a0e5dadcec3dace2a8", "note": "status: PROPOSED future QA inputs; not executed behaviour" },
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/evidence-fixtures.json", "sha256": "800bb86177abb93b4445bee7e127b8caa14b20525a1a4f51a9df8b45774783c3" },
+    { "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/carrier-vectors.json", "sha256": "544e933aeb8ae7e47ec0a54763b068fb38186302f14bc88a5b221684e8dd524b" }
+  ],
+  "observations": [
+    "All four pinned artifacts are byte-identical to their recorded identities except owner-decisions.md, whose only change is the owner append that records D-D and D-A and cites design.md.",
+    "The reuse of p2c4 suite evidence (959 tests) is inherited; no test was executed by this pass."
+  ]
+}

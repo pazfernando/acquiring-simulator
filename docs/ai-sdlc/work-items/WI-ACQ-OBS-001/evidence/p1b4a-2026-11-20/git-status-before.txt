@@ -1,0 +1,62 @@
+ M AGENTS.md
+ M docs/ai-sdlc/sources/acquiring_simulator_functional_guide.md
+ M docs/ai-sdlc/work-items/WI-ACQ-OBS-001/WORK_ITEM.md
+ M docs/ai-sdlc/work-items/WI-ACQ-OBS-001/activity-flow.md
+ M docs/ai-sdlc/work-items/WI-ACQ-OBS-001/domain-review.md
+ M docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md
+ M docs/aws-operation-a.md
+ M src/main/java/com/acquiring/simulator/adapter/aws/DynamoAuthorizationRepository.java
+ M src/main/java/com/acquiring/simulator/domain/AuthorizationService.java
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/guide-merge-notes.md
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/implementation-progress.md
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/png-first-drive-assets.json
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/revisions/domain-review-md5-295c1a3601dd099f172a40d27b73e4b3.md
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/revisions/guide-drive-baseline-md5-69ca7e39cc0cfd595eb19c28c5087c15.md
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/revisions/guide-local-baseline-md5-703fd59f66a3d097147eee79141e2524.md
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/revisions/guide-overlap-local-703fd59f66a3d097147eee79141e2524-vs-drive-69ca7e39cc0cfd595eb19c28c5087c15.diff
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/revisions/guide-sequence-document-checks.json
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/sequence-flow.md
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/sequence-flow.mmd
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/sequence-flow.png
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/sequence-recovery.md
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/sequence-recovery.mmd
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/sequence-recovery.png
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/technical-preflight-evidence/
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/technical-preflight.md
+?? docs/architecture/card-present-emv-cvm.mmd
+?? docs/architecture/card-present-emv-cvm.png
+?? docs/architecture/cnp-3ds-authentication-authorization.mmd
+?? docs/architecture/cnp-3ds-authentication-authorization.png
+?? docs/architecture/ecosystem-relationships.mmd
+?? docs/architecture/ecosystem-relationships.png
+?? docs/architecture/functional-process-landscape.mmd
+?? docs/architecture/functional-process-landscape.png
+?? docs/architecture/operation-a-payment-authorization.mmd
+?? docs/architecture/operation-a-payment-authorization.png
+?? docs/architecture/operation-b-authorization-reversal.mmd
+?? docs/architecture/operation-b-authorization-reversal.png
+?? docs/architecture/operation-c-transaction-status-inquiry.mmd
+?? docs/architecture/operation-c-transaction-status-inquiry.png
+?? src/main/java/com/acquiring/simulator/adapter/aws/AtomicClaimGateway.java
+?? src/main/java/com/acquiring/simulator/adapter/aws/ClaimCriticalComposer.java
+?? src/main/java/com/acquiring/simulator/adapter/aws/CriticalWriteComposer.java
+?? src/main/java/com/acquiring/simulator/adapter/aws/DynamoClaimGateway.java
+?? src/main/java/com/acquiring/simulator/adapter/aws/DynamoDispatchIntentGateway.java
+?? src/main/java/com/acquiring/simulator/adapter/aws/DynamoEventStore.java
+?? src/main/java/com/acquiring/simulator/adapter/aws/PossibleSendCriticalComposer.java
+?? src/main/java/com/acquiring/simulator/adapter/aws/ResultCriticalComposer.java
+?? src/main/java/com/acquiring/simulator/domain/IdentifierSource.java
+?? src/main/java/com/acquiring/simulator/domain/event/
+?? src/main/java/com/acquiring/simulator/domain/port/ClaimGateway.java
+?? src/main/java/com/acquiring/simulator/domain/port/DispatchIntentGateway.java
+?? src/main/java/com/acquiring/simulator/domain/port/EventStore.java
+?? src/test/java/com/acquiring/simulator/aws/AtomicClaimServiceWiringIntegrationTest.java
+?? src/test/java/com/acquiring/simulator/aws/DispatchIntentServiceWiringTest.java
+?? src/test/java/com/acquiring/simulator/aws/DynamoAtomicClaimRecoveryIntegrationTest.java
+?? src/test/java/com/acquiring/simulator/aws/DynamoCriticalClaimIntegrationTest.java
+?? src/test/java/com/acquiring/simulator/aws/DynamoDispatchIntentGatewayIntegrationTest.java
+?? src/test/java/com/acquiring/simulator/aws/DynamoEventStoreIntegrationTest.java
+?? src/test/java/com/acquiring/simulator/aws/DynamoPossibleSendIntegrationTest.java
+?? src/test/java/com/acquiring/simulator/aws/DynamoResultTransitionIntegrationTest.java
+?? src/test/java/com/acquiring/simulator/domain/

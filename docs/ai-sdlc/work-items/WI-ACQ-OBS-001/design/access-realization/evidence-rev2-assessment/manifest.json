@@ -1,0 +1,933 @@
+{
+  "artifact": {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/compatibility-assessment-rev2.md",
+    "role": "assessed document (the rev2 delta pass)",
+    "bytes": 30779,
+    "sha256": "2f7cfe054aae7d908948288b6e67799aef7c864e1acaeb67c7444e63c432b930"
+  },
+  "purpose": "Companion evidence for the rev2 delta compatibility pass: the identities the assessment read, the pins it verified, the recomputed payload arithmetic behind the margin claim, and what remains unverified.",
+  "produced_for": "design/access-realization/compatibility-assessment-rev2.md",
+  "generated_utc": "2026-11-21T12:25:44Z",
+  "generated_by": "post-hoc evidence completion after the interrupted run; composes and re-verifies, does not re-run the assessment",
+  "authority": "Evidence only. Not approval, not QA, not Security review, not construction authorization, not a plan. Read-only inspection. No file outside this manifest was written; no code, test, contract, requirements or status file was edited; no Git write.",
+  "binding": {
+    "branch": "feat/wi-acq-auth-001",
+    "head": "cfc456f4f469d9558a78fda8ff9b770b00817315",
+    "working_tree": "dirty, with pre-existing modified and untracked files; no whole-tree freeze or clean-HEAD claim",
+    "git_commands_run": "read-only rev-parse and status only"
+  },
+  "environment": {
+    "java": "absent",
+    "mvn": "absent",
+    "terraform": "absent",
+    "sam": "absent",
+    "jq": "absent",
+    "aws_cli": "present at /home/pazfernando/.local/bin/aws, not invoked",
+    "python": "3.12.3, standard library arithmetic only"
+  },
+  "pinned_hash_verification": {
+    "method": "SHA-256 recomputed from disk for each file in the writing process; each value was written only after its own file had been hashed. Abbreviated hashes in the document were compared on prefix and suffix.",
+    "all_match": true,
+    "entries": [
+      {
+        "item": "design-rev2.md",
+        "role": "proposal under assessment",
+        "document_value": "6b15161875e702ebae74e4f76b4b94cae9ffbbb94d6a9fcd42aee563b8f3873c",
+        "recomputed_sha256": "6b15161875e702ebae74e4f76b4b94cae9ffbbb94d6a9fcd42aee563b8f3873c",
+        "match": true,
+        "bytes_observed": 49235,
+        "bytes_documented": 49235,
+        "bytes_match": true
+      },
+      {
+        "item": "evidence-rev2/input-identities-rev2.json",
+        "role": "rev2 input identity set",
+        "document_value": "8fe8adac9762540a58cc89bb60c8f1202533691ff9d4f8645a21d9e9da3bea42",
+        "recomputed_sha256": "8fe8adac9762540a58cc89bb60c8f1202533691ff9d4f8645a21d9e9da3bea42",
+        "match": true,
+        "bytes_observed": 4905
+      },
+      {
+        "item": "evidence-rev2/official-source-excerpts-rev2.json",
+        "role": "rev2 official source excerpts",
+        "document_value": "adebdd076cb09c42f09dfb08855c1873cbfd6505be178c2005a6c42337e8ddfc",
+        "recomputed_sha256": "adebdd076cb09c42f09dfb08855c1873cbfd6505be178c2005a6c42337e8ddfc",
+        "match": true,
+        "bytes_observed": 8820
+      },
+      {
+        "item": "evidence-rev2/revision-validation.json",
+        "role": "rev2 revision validation",
+        "document_value": "7b720c0de1d20755c9bbcd69b3aff2595d1df79724667d3bc6d6a222a4e56652",
+        "recomputed_sha256": "7b720c0de1d20755c9bbcd69b3aff2595d1df79724667d3bc6d6a222a4e56652",
+        "match": true,
+        "bytes_observed": 6640
+      },
+      {
+        "item": "design.md",
+        "role": "revision 1 design (superseded for topology)",
+        "document_value": "83e4ea14b3959dcc6d8535aee0f0dd715783764e8922a72b6c0c3454a40829f4",
+        "recomputed_sha256": "83e4ea14b3959dcc6d8535aee0f0dd715783764e8922a72b6c0c3454a40829f4",
+        "match": true,
+        "bytes_observed": 41770
+      },
+      {
+        "item": "configuration-schema.md",
+        "role": "v1 configuration schema",
+        "document_value": "1f497daade1a8429458e2cc40047adf326a97f2fb6636d583e1bf2e930bf1bb2",
+        "recomputed_sha256": "1f497daade1a8429458e2cc40047adf326a97f2fb6636d583e1bf2e930bf1bb2",
+        "match": true,
+        "bytes_observed": 13716
+      },
+      {
+        "item": "compatibility-assessment.md",
+        "role": "v1 assessment, preserved and not rewritten",
+        "document_value": "4886106c0afbf9ded1736ef3c0756c2bc8c738c58c61457faa0a635ecdd836ac",
+        "recomputed_sha256": "4886106c0afbf9ded1736ef3c0756c2bc8c738c58c61457faa0a635ecdd836ac",
+        "match": true,
+        "bytes_observed": 32966
+      },
+      {
+        "item": "../../owner-decisions.md",
+        "role": "owner authority for D-A / CA-1 / D-D",
+        "document_value": "fd040124319a946d28230aeb3994fb77bac82c00cb59e58b78df9e23531bae27",
+        "recomputed_sha256": "fd040124319a946d28230aeb3994fb77bac82c00cb59e58b78df9e23531bae27",
+        "match": true,
+        "bytes_observed": 16582,
+        "bytes_documented": 16582,
+        "bytes_match": true
+      },
+      {
+        "item": "../../channel-contract.md",
+        "role": "pinned C4 / C7 contract",
+        "document_value": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+        "recomputed_sha256": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+        "match": true,
+        "bytes_observed": 22172
+      },
+      {
+        "item": "../../observation-contract.md",
+        "role": "pinned observation contract",
+        "document_value": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+        "recomputed_sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+        "match": true,
+        "bytes_observed": 31164
+      }
+    ]
+  },
+  "inputs": [
+    {
+      "path": "infra/template.yaml",
+      "role": "SAM template: one HttpApi + native TestJwt authorizer, three functions, no Permission/VpcConfig",
+      "bytes": 3787,
+      "sha256": "f7637650095ea5166aee9e3d41dbad3d033324c45d48268c70d2bb58d62c1abe"
+    },
+    {
+      "path": "pom.xml",
+      "role": "dependency set: no ssm artifact, no JOSE/JWT library",
+      "bytes": 4073,
+      "sha256": "b47fb547ab28628b78e4241986638b9379cc4263e1762218192264bb1bc7a93c"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/adapter/aws/ProcessorHandler.java",
+      "role": "only identity input is requestContext.authorizer.jwt.claims.sub",
+      "bytes": 3276,
+      "sha256": "33de30443b4ccce0ed477b403b80265a61288204fef5e6affecb2fcdba076bc7"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/adapter/aws/AwsRuntime.java",
+      "role": "env() returns the value; processor() installs no gateways",
+      "bytes": 2635,
+      "sha256": "ee0b6f664cff978a1f114e1a555f83e6bde9f32e9b32f15b925f362d1d5cbf1f"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/domain/model/AuthorizedContext.java",
+      "role": "registry type with no client-plane fields",
+      "bytes": 531,
+      "sha256": "ca360e5fee39971f7eb1094301233f030979983ff0f5bf63651c4e89dd6eab69"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4KeyRegistry.java",
+      "role": "default-deny diagnosticForwardPermitted, no role",
+      "bytes": 1743,
+      "sha256": "12d5ca1ff47fdc7f54dade58912035f99d9e5d31eb7cc40b0749143ff0b8a247"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4PrincipalRole.java",
+      "role": "four enum values; ACL_AUTH has no signing authority",
+      "bytes": 931,
+      "sha256": "4f18d52448cc5f90adbbc55039e185ea68bf838c97bbdbc4e55cdc4a69a6244b"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4EvidenceVerifier.java",
+      "role": "P5->P4 row map; ACL_AUTH -> null",
+      "bytes": 15871,
+      "sha256": "3d8b1c8b90e1521dcf0c09ecb9b379d3781d3dac3bd075fc605eedce2f98e2df"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4EvidenceAttestation.java",
+      "role": "31 declared field bounds (arithmetic input)",
+      "bytes": 6048,
+      "sha256": "407f048e9d53cd8df6c888d6bbcef7d922b6afc3f7ddf8c7be0439f00c5c8464"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4RelayAttestation.java",
+      "role": "seven relay keys, fixed principal, 64-byte signature",
+      "bytes": 3449,
+      "sha256": "76d5beb2a6d3beafc1086b85c3d74c879b9f9d07ff93f21cd370c232ed163c1f"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4CarrierEnvelope.java",
+      "role": "six envelope keys, DIRECT/RELAY shape",
+      "bytes": 3712,
+      "sha256": "27e3b43b1b519c0302a036b98a2e214b0ec22e6a690acb0b0e1ccd2b11b0c073"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4CarrierCanonicalJson.java",
+      "role": "exact canonical emitter: key order, separators, escaping",
+      "bytes": 6743,
+      "sha256": "6873b78be2b85e4c40eed94dd4c737797eeb7df658a1d383aeec123997e0a745"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4CarrierSchema.java",
+      "role": "alphabet and length validators; PRINTABLE_ASCII includes quote and backslash",
+      "bytes": 5520,
+      "sha256": "97fb8831e463e4b798a2fdb72252c7ff419831d38e6af64000683bc8fa72702d"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4CarrierParser.java",
+      "role": "bounds 5464/4096/2048/8192 and header name",
+      "bytes": 16507,
+      "sha256": "6bf69cb229b3d57f96bc9306ea2f24ed91d7c01a278804112a678a4a05ed8065"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4LateDeliveryParser.java",
+      "role": "bounds 8192/2048/4096/64",
+      "bytes": 10638,
+      "sha256": "8220362f137ab3f755f57de470c976f029bd644d32d7c490e92ca934c5880cfc"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4LateDeliveryEnvelope.java",
+      "role": "four late-envelope keys",
+      "bytes": 2933,
+      "sha256": "2a9fad87b2db9267962f8133b7265b8016ce16afbf776d1421d8589492ab148e"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4AuthenticatedTransportContext.java",
+      "role": "authenticatedSender is a 1-64 profile-alphabet id",
+      "bytes": 1025,
+      "sha256": "4994f2ddeccbc0ec819f2d9c403b96dd59e63ba4a5d6b267b29fa91ccc2fd73a"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4HttpCarriageBridge.java",
+      "role": "normal-response header set and total-header check",
+      "bytes": 4563,
+      "sha256": "2b53103f0ff4faaf0cbf7e8153fd4b2b4a29d341c2d566198c56883673a9cf04"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4LateDeliveryVerifier.java",
+      "role": "package-private verifyForwarded path",
+      "bytes": 4269,
+      "sha256": "471f7d474e8d664c480c7391884c2a40a09370776fed6eac44e5932fc4d84aa8"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/HttpApiV2Wire.java",
+      "role": "totalHeaderBytes = name + 2 + value + 2",
+      "bytes": 9908,
+      "sha256": "5362e63b4e49c3c0d425b1403a8acc19e53f2cb24a4908b951827e432b09683e"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/adapter/aws/SignedEvidenceAdmissionService.java",
+      "role": "refuses any non-direct/relay sender; not production-wired",
+      "bytes": 10519,
+      "sha256": "b012051a8f572f1b6f7ca091a196c86f9c096b60c8ec0a5975ed7b0976b5916d"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/adapter/aws/LateEvidenceAdmissionGateway.java",
+      "role": "no C4 verification; caller-supplied deadline/capacity/environment/instanceId",
+      "bytes": 29704,
+      "sha256": "190be46d5a7b1e209dae77ffb59238f7dcc8ea05b506a8d7b11acf958ea9223e"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/adapter/aws/LateSignedEvidenceReceiptGateway.java",
+      "role": "calls C4EvidenceVerifier.verify, not verifyForwarded",
+      "bytes": 38612,
+      "sha256": "60452dba321ece4f1b4e1000c10c96ef6c16fe607e97669bf684461f99704eb1"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/domain/port/EventStore.java",
+      "role": "exactly three operations, no range/cursor read",
+      "bytes": 1378,
+      "sha256": "f67b90d5b966ec546decafc9fcb05b9d51216c9cd2a41312df4013938abbe4f4"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/adapter/aws/DynamoEventStore.java",
+      "role": "query cursors explicitly out of scope",
+      "bytes": 20983,
+      "sha256": "7fa3a17142fbc79aeacc94efc0bdc165260ad7f2757f67b843b3f71825687c7d"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/domain/event/EventHead.java",
+      "role": "HEAD metadata fields",
+      "bytes": 455,
+      "sha256": "9a0d38ad72f0ddf7cbd96d8c0b67f979cdcd88e61036273a34fa1dc859e26bf7"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/domain/event/EventTableKeys.java",
+      "role": "zero-padded E#<sequence> sort keys",
+      "bytes": 2528,
+      "sha256": "ed70d170b2fea2ac6b8fd5b5e5370f76423edc479895ce0d172430e593b6892c"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/domain/AuthorizationService.java",
+      "role": "history() reads the journal repository, not the event table",
+      "bytes": 53029,
+      "sha256": "7b85394840bf56b6e70b96c87e6f7a9be67d52e0d8f34932c6440672b32915f0"
+    },
+    {
+      "path": "src/test/java/com/acquiring/simulator/channel/C4LateDeliveryTest.java",
+      "role": "the three diagnostic-permission tests",
+      "bytes": 25484,
+      "sha256": "08d7c71982d6a22d384e9be6ea8a02e3169920dcc440193569cac5936a4ec143"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/evidence/payload-size-calculations.json",
+      "role": "v1 arithmetic whose figures this pass withdraws or confirms",
+      "bytes": 4191,
+      "sha256": "62cd5060d90bd9fc3e389cd0a5e1128ff7c328b31e802b66ce96ad90a0ce2ca4"
+    },
+    {
+      "path": "/home/pazfernando/.m2/repository/com/amazonaws/aws-lambda-java-core/1.2.3/aws-lambda-java-core-1.2.3.jar",
+      "role": "locally cached aws-lambda-java-core 1.2.3 (Context method surface)",
+      "bytes": 10603,
+      "sha256": "59e36aa26029fbb8f542b023fff86422a5577105764d31839b56d495d73faa5c"
+    }
+  ],
+  "arithmetic_basis": {
+    "method": "Declared-bound recomputation from the record constructors and the canonical emitter. Each figure was produced by assembling the exact canonical JSON string and measuring it, with a second independent summation agreeing. No Java executed, no emitter run, no fixture signed.",
+    "bound_sources": [
+      "C4EvidenceAttestation.java constructor (31 field rules; KEYS order)",
+      "C4RelayAttestation.java constructor (7 keys, principal fixed NETWORK-SIM, signature 64 bytes)",
+      "C4CarrierEnvelope.java (6 keys, DIRECT/RELAY)",
+      "C4LateDeliveryEnvelope.java (4 keys)",
+      "C4CarrierCanonicalJson.java attestation()/envelope()/relay()/lateEnvelope() and quote()",
+      "C4CarrierParser.java MAX_ENCODED_CHARS/MAX_DECODED_BYTES/MAX_BODY_BYTES/MAX_TOTAL_HEADER_BYTES",
+      "C4LateDeliveryParser.java MAX_LATE_ENVELOPE_BYTES/MAX_RESPONSE_BODY_BYTES/MAX_EVIDENCE_BYTES/MAX_RECEIPT_ID_CHARS",
+      "HttpApiV2Wire.totalHeaderBytes (name + 2 + value + 2)",
+      "C4HttpCarriageBridge.normalResponse (Content-Type, X-Simulator-Profile, X-Simulator-Evidence)"
+    ],
+    "assumptions": [
+      "Every string field is at its declared maximum length and printable ASCII; the no-escaping column therefore counts no escape sequences.",
+      "Integers use the widest decimal form the declared range allows: amountMinor 6 digits, generation 10 digits, schemaVersion 1 digit.",
+      "availableAt uses the longest form the RFC3339 pattern accepts, 30 characters (9 fractional digits).",
+      "relay.deliveredAt is likewise 30 characters and the relay signature is 88 base64 characters of 64 bytes.",
+      "authorizationReference maxes at 6 characters (its null form is shorter).",
+      "The escaping column doubles only the four PRINTABLE_ASCII text fields (actor, stage, result, reason), assuming every character is a quote or backslash, which is the shape maximum.",
+      "The late envelope nests evidence as JSON, so the inner envelope is not base64-inflated."
+    ],
+    "formulas": {
+      "attestation": "2 braces + sum over 31 keys of (len(key)+3) + 30 commas + sum of value encodings (string = chars+2, integer = digits, null = 4)",
+      "relay_object": "2 braces + sum over 7 keys of (len(key)+3) + 6 commas + value encodings; principal fixed at 11 chars",
+      "envelope": "2 braces + 6 fields; the relay field is the literal null (4 bytes) for DIRECT",
+      "late_envelope": "2 braces + 4 fields with evidence nested as JSON",
+      "base64_chars": "4 * ceil(bytes/3)",
+      "total_header_bytes": "(name+2+value+2) summed over Content-Type, X-Simulator-Profile, X-Simulator-Evidence",
+      "header_overhead_without_evidence_value": 100
+    },
+    "field_table": [
+      {
+        "key": "DE39",
+        "rule": "digits",
+        "declared_bound": "exactly 2",
+        "max_serialized_chars": 2,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "DE7",
+        "rule": "digits",
+        "declared_bound": "exactly 10",
+        "max_serialized_chars": 10,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "RRN",
+        "rule": "uppercase-alnum",
+        "declared_bound": "exactly 12",
+        "max_serialized_chars": 12,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "STAN",
+        "rule": "digits",
+        "declared_bound": "exactly 6",
+        "max_serialized_chars": 6,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "acquirerRef",
+        "rule": "id (profile alphabet)",
+        "declared_bound": "max 128",
+        "max_serialized_chars": 128,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "actor",
+        "rule": "printable text",
+        "declared_bound": "max 64",
+        "max_serialized_chars": 64,
+        "json_escaping_risk": true
+      },
+      {
+        "key": "amountMinor",
+        "rule": "integer",
+        "declared_bound": "100..999999",
+        "max_serialized_chars": 6,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "authorizationId",
+        "rule": "id",
+        "declared_bound": "max 64",
+        "max_serialized_chars": 64,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "authorizationReference",
+        "rule": "uppercase-alnum or null",
+        "declared_bound": "exactly 6 or null",
+        "max_serialized_chars": 6,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "availableAt",
+        "rule": "RFC3339 UTC",
+        "declared_bound": "max 30 (9 fractional digits)",
+        "max_serialized_chars": 30,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "correlationId",
+        "rule": "id",
+        "declared_bound": "max 64",
+        "max_serialized_chars": 64,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "currency",
+        "rule": "digits",
+        "declared_bound": "exactly 3",
+        "max_serialized_chars": 3,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "environmentId",
+        "rule": "id",
+        "declared_bound": "max 64",
+        "max_serialized_chars": 64,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "evidenceId",
+        "rule": "id",
+        "declared_bound": "max 64",
+        "max_serialized_chars": 64,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "generation",
+        "rule": "integer",
+        "declared_bound": "1..2147483647",
+        "max_serialized_chars": 10,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "instructionAttemptId",
+        "rule": "id",
+        "declared_bound": "max 64",
+        "max_serialized_chars": 64,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "instructionSha256",
+        "rule": "lowercase hex",
+        "declared_bound": "exactly 64",
+        "max_serialized_chars": 64,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "keyId",
+        "rule": "id",
+        "declared_bound": "max 64",
+        "max_serialized_chars": 64,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "merchantRef",
+        "rule": "id",
+        "declared_bound": "max 128",
+        "max_serialized_chars": 128,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "paymentRef",
+        "rule": "id",
+        "declared_bound": "max 128",
+        "max_serialized_chars": 128,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "producerPrincipal",
+        "rule": "id",
+        "declared_bound": "max 64",
+        "max_serialized_chars": 64,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "profile",
+        "rule": "fixed literal",
+        "declared_bound": "SIM-ISO87A-v1 (13)",
+        "max_serialized_chars": 13,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "reason",
+        "rule": "printable text",
+        "declared_bound": "max 64",
+        "max_serialized_chars": 64,
+        "json_escaping_risk": true
+      },
+      {
+        "key": "responseSha256",
+        "rule": "lowercase hex",
+        "declared_bound": "exactly 64",
+        "max_serialized_chars": 64,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "result",
+        "rule": "printable text",
+        "declared_bound": "max 64",
+        "max_serialized_chars": 64,
+        "json_escaping_risk": true
+      },
+      {
+        "key": "schemaVersion",
+        "rule": "fixed integer",
+        "declared_bound": "1",
+        "max_serialized_chars": 1,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "sent",
+        "rule": "digits",
+        "declared_bound": "exactly 14",
+        "max_serialized_chars": 14,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "signingPrincipal",
+        "rule": "id",
+        "declared_bound": "max 64",
+        "max_serialized_chars": 64,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "stage",
+        "rule": "printable text",
+        "declared_bound": "max 64",
+        "max_serialized_chars": 64,
+        "json_escaping_risk": true
+      },
+      {
+        "key": "terminalRef",
+        "rule": "id",
+        "declared_bound": "max 128",
+        "max_serialized_chars": 128,
+        "json_escaping_risk": false
+      },
+      {
+        "key": "transactionId",
+        "rule": "id",
+        "declared_bound": "max 64",
+        "max_serialized_chars": 64,
+        "json_escaping_risk": false
+      }
+    ],
+    "results": {
+      "attestation_31_keys_max_no_escaping": 2084,
+      "attestation_31_keys_max_escaping": 2340,
+      "attestation_minimum_valid_serialization": 731,
+      "relay_object_max": 502,
+      "direct_envelope_max_bytes": 2319,
+      "direct_envelope_max_base64_chars": 3092,
+      "direct_envelope_max_escaping": 2575,
+      "direct_envelope_max_escaping_base64_chars": 3436,
+      "relay_envelope_max_bytes": 2816,
+      "relay_envelope_max_base64_chars": 3756,
+      "relay_envelope_max_escaping": 3072,
+      "relay_envelope_max_escaping_base64_chars": 4096,
+      "body_2048_base64_chars": 2732,
+      "late_direct_max_bytes": 5187,
+      "late_direct_max_escaping": 5443,
+      "late_relay_max_bytes": 5684,
+      "late_relay_max_escaping": 5940,
+      "late_inner_evidence_at_4096_cap": 6964,
+      "structural_floor_zero_length_values": 443,
+      "floor_with_two_quotes_per_string_plus_one_digit_per_integer": 502,
+      "floor_with_two_quotes_per_31_values": 505
+    },
+    "margin": {
+      "bound_late_envelope_bytes": 8192,
+      "cap_conditional_6964_margin": 1228,
+      "achievable_relay_max_margin": 2508,
+      "achievable_relay_max_margin_escaping": 2252,
+      "normal_response_total_header_bytes_relay_max": 3856,
+      "normal_response_total_header_bytes_relay_max_escaping": 4196,
+      "normal_response_total_header_bytes_at_1720_chars": 1820,
+      "bound_total_header_bytes": 8192
+    },
+    "comparison_with_assessed_document": [
+      {
+        "claim": "late envelope, inner evidence at the 4,096 cap = 6,964 B",
+        "document": 6964,
+        "recomputed": 6964,
+        "verdict": "reproduces exactly"
+      },
+      {
+        "claim": "margin to the 8,192 bound at that cap = 1,228 B",
+        "document": 1228,
+        "recomputed": 1228,
+        "verdict": "reproduces exactly"
+      },
+      {
+        "claim": "attestation at declared maxima = 2,084 B",
+        "document": 2084,
+        "recomputed": 2084,
+        "verdict": "reproduces exactly"
+      },
+      {
+        "claim": "attestation at declared maxima with escaping = 2,340 B",
+        "document": 2340,
+        "recomputed": 2340,
+        "verdict": "reproduces exactly"
+      },
+      {
+        "claim": "DIRECT envelope max = 2,319 B / 3,092 chars",
+        "document": [
+          2319,
+          3092
+        ],
+        "recomputed": [
+          2319,
+          3092
+        ],
+        "verdict": "reproduces exactly"
+      },
+      {
+        "claim": "DIRECT envelope max with escaping = 2,575 B / 3,436 chars",
+        "document": [
+          2575,
+          3436
+        ],
+        "recomputed": [
+          2575,
+          3436
+        ],
+        "verdict": "reproduces exactly"
+      },
+      {
+        "claim": "RELAY envelope max = 2,816 B / 3,756 chars",
+        "document": [
+          2816,
+          3756
+        ],
+        "recomputed": [
+          2816,
+          3756
+        ],
+        "verdict": "reproduces exactly"
+      },
+      {
+        "claim": "RELAY envelope max with escaping = 3,072 B / 4,096 chars",
+        "document": [
+          3072,
+          4096
+        ],
+        "recomputed": [
+          3072,
+          4096
+        ],
+        "verdict": "reproduces exactly"
+      },
+      {
+        "claim": "late envelope, DIRECT max = 5,187 B",
+        "document": 5187,
+        "recomputed": 5187,
+        "verdict": "reproduces exactly"
+      },
+      {
+        "claim": "late envelope, RELAY max = 5,684 B",
+        "document": 5684,
+        "recomputed": 5684,
+        "verdict": "reproduces exactly"
+      },
+      {
+        "claim": "achievable late maximum with escaping = 5,940 B",
+        "document": 5940,
+        "recomputed": 5940,
+        "verdict": "reproduces exactly"
+      },
+      {
+        "claim": "remaining margin 2,508 B / 2,252 B",
+        "document": [
+          2508,
+          2252
+        ],
+        "recomputed": [
+          2508,
+          2252
+        ],
+        "verdict": "reproduces exactly"
+      },
+      {
+        "claim": "normal-response header total at true maxima = 3,856 B / 4,196 B",
+        "document": [
+          3856,
+          4196
+        ],
+        "recomputed": [
+          3856,
+          4196
+        ],
+        "verdict": "reproduces exactly"
+      },
+      {
+        "claim": "normal-response header total at the 1,720-char tight case = 1,818 B",
+        "document": 1818,
+        "recomputed": 1820,
+        "verdict": "DOES NOT REPRODUCE"
+      },
+      {
+        "claim": "empty-value floor of the 31-key attestation = 505 B",
+        "document": 505,
+        "recomputed": 502,
+        "verdict": "DOES NOT REPRODUCE"
+      },
+      {
+        "claim": "a 503-byte all-maxima attestation is impossible",
+        "document": "impossible",
+        "recomputed": {
+          "minimum_valid_attestation_bytes": 731
+        },
+        "verdict": "conclusion holds, but not by the stated floor: the minimum VALID attestation is 731 B, so no 503-byte attestation exists"
+      }
+    ],
+    "v1_figures_not_reproduced": [
+      {
+        "field": "attestationWorstBytes",
+        "v1": 503,
+        "recomputed": 2084,
+        "note": "v1 describes a fixture-sized attestation, not the declared maxima"
+      },
+      {
+        "field": "relayObjectWorstBytes",
+        "v1": 555,
+        "recomputed": 502
+      },
+      {
+        "field": "directEnvelopeWorstBytes",
+        "v1": 738,
+        "recomputed": 2319
+      },
+      {
+        "field": "relayEnvelopeWorstBytes",
+        "v1": 1288,
+        "recomputed": 2816
+      },
+      {
+        "field": "lateEnvelopeDirectWorstBytes",
+        "v1": 3606,
+        "recomputed": 5187
+      },
+      {
+        "field": "lateEnvelopeRelayWorstBytes",
+        "v1": 4156,
+        "recomputed": 5684
+      },
+      {
+        "field": "totalHeaderBytesRelayWorst",
+        "v1": 1818,
+        "recomputed": 1820
+      },
+      {
+        "field": "lateEnvelopeWithEvidenceAt4096CapBytes",
+        "v1": 6964,
+        "recomputed": 6964,
+        "note": "reproduces"
+      }
+    ]
+  },
+  "discrepancies_in_assessed_document": [
+    {
+      "id": "D-1",
+      "type": "arithmetic stated inside the assessed document",
+      "where": "compatibility-assessment-rev2.md section 5 item 4 table, row 'Rev2 section 7 tight case'",
+      "stated": "1,720 chars -> 1,818 total app header bytes",
+      "recomputed": 1820,
+      "detail": "HttpApiV2Wire.totalHeaderBytes counts name+2+value+2 for each header: Content-Type (12+2+24+2 = 40) + X-Simulator-Profile (19+2+13+2 = 36) + X-Simulator-Evidence (20+2+1720+2 = 1744) = 1,820, not 1,818. The 1,818 figure is inherited from evidence/payload-size-calculations.json totalHeaderBytesRelayWorst and from design-rev2.md section 7 (line 216). The document's other two header rows (3,856 and 4,196) already use the correct overhead of 100, so its own table is internally inconsistent by 2 bytes.",
+      "materiality": "2 bytes; no conclusion changes. The document was not edited.",
+      "affects": [
+        "compatibility-assessment-rev2.md section 5 item 4 table",
+        "design-rev2.md section 7 line 216",
+        "evidence/payload-size-calculations.json totalHeaderBytesRelayWorst"
+      ]
+    },
+    {
+      "id": "D-2",
+      "type": "arithmetic, definitional",
+      "where": "compatibility-assessment-rev2.md section 5, paragraph after the second table",
+      "stated": "serializing the 31 keys with every value empty already costs 505 bytes",
+      "recomputed": 502,
+      "detail": "505 counts two quote characters for all 31 values, but the three integer fields serialize unquoted with at least one digit. Key names + quotes + colons + commas + braces = 443; the 28 string fields add 2 each (56); the 3 integers add 1 each (3); total 502. 505 is a coherent 'everything empty' abstraction, so this is a definitional gap rather than a plain error.",
+      "materiality": "The stated floor no longer excludes 503 by itself. The document's conclusion is nevertheless correct for a stronger reason: the minimum VALID attestation is 731 bytes, so no 503-byte attestation can exist.",
+      "affects": [
+        "compatibility-assessment-rev2.md section 5 paragraph 3"
+      ]
+    }
+  ],
+  "unverified_and_gaps": [
+    {
+      "item": "section 6 'New contradictions introduced by rev2'",
+      "status": "ABSENT FROM THE ASSESSED DOCUMENT",
+      "detail": "The file is 30,779 bytes / 183 lines and ends immediately after that heading, with no section body and nothing after it. No section 6 verdict exists to substantiate. This manifest records the truncation and does not reconstruct the section."
+    },
+    {
+      "item": "evidence-rev2-assessment/source-identities.json (linked at document line 29)",
+      "status": "LINK UNRESOLVED BY DESIGN",
+      "detail": "Only one manifest was authorized for this directory. The identity table it would carry is inputs[] here."
+    },
+    {
+      "item": "evidence-rev2-assessment/payload-arithmetic-rev2.json (linked at document line 137)",
+      "status": "LINK UNRESOLVED BY DESIGN",
+      "detail": "Only one manifest was authorized. The field table and arithmetic it would carry are arithmetic_basis here."
+    },
+    {
+      "item": "AWS API Gateway per-single-header quota (the document's only named unverified constraint)",
+      "status": "NOT SUBSTANTIABLE FROM DISK",
+      "detail": "No AWS page or captured response in this checkout states a per-header cap. Only the application-side 8,192-byte total-header check exists (C4CarrierParser.MAX_TOTAL_HEADER_BYTES)."
+    },
+    {
+      "item": "deployed Keycloak behaviour (RS256 allowlist, token lifespan, realm and client configuration)",
+      "status": "NOT SUBSTANTIABLE FROM DISK",
+      "detail": "No Keycloak artifact, realm export or captured response is in the checkout, and no API call was made."
+    },
+    {
+      "item": "that a real verifier admits the declared-maxima payloads, especially the escaping variant",
+      "status": "NOT EXECUTED",
+      "detail": "java and mvn are absent, so the suite was not run and no emitter output was produced. Every payload figure is arithmetic over declared bounds, not serialized bytes from the real emitter."
+    },
+    {
+      "item": "the document's runtime claims (session model metadata nan/deepseek-v4-flash, no model override, no delegation)",
+      "status": "NOT SUBSTANTIABLE FROM DISK",
+      "detail": "Session metadata is not recorded in the repository."
+    },
+    {
+      "item": "the document's process claims (aws CLI never invoked, no AWS or Keycloak call, no Git write)",
+      "status": "PARTIALLY VERIFIABLE",
+      "detail": "Tool presence was verified. Non-invocation cannot be proven from disk. This pass ran only read-only git commands and made no AWS call."
+    },
+    {
+      "item": "line-level citations beyond the spot-checked set",
+      "status": "PARTIALLY VERIFIED",
+      "detail": "Checked against the files: observation-contract.md 29/38/43; channel-contract.md 42/52/57; owner-decisions.md 86 and 90-92; C4PrincipalRole.java 25-26; C4EvidenceVerifier.java 266-278; C4KeyRegistry.java 34-38; EventStore.java 16-31; DynamoEventStore.java 45; C4LateDeliveryTest.java 355/378/402; C4CarrierSchema.java 22-23; C4RelayAttestation.java 29; ProcessorHandler.java 28-37; AwsRuntime.java 23-27; LateEvidenceAdmissionGateway.java 31-38 and 167-187; SignedEvidenceAdmissionService.java 142-151; LateSignedEvidenceReceiptGateway.java 238-246; infra/template.yaml 47-60 and 61-113. Other line numbers were not re-verified individually."
+    },
+    {
+      "item": "the document's statement that no cursor type exists anywhere in src/",
+      "status": "SUBSTANTIATED WITH NUANCE",
+      "detail": "No signed catch-up cursor type exists. The token 'cursor' appears only as DynamoDB paging variables in DynamoAuthorizationRepository and as an ISO8583 field-reader javadoc, neither of which is the C7 cursor."
+    }
+  ],
+  "substantiated_claims": [
+    {
+      "claim": "branch/HEAD feat/wi-acq-auth-001 / cfc456f4f469d9558a78fda8ff9b770b00817315, working tree dirty",
+      "evidence": "read-only git rev-parse and git status"
+    },
+    {
+      "claim": "ProcessorHandler accepts only payload 2.0 / POST /authorizations and reads only claims.sub",
+      "evidence": "ProcessorHandler.java:28-37"
+    },
+    {
+      "claim": "AuthorizedContext carries only acquirerRef, merchantRef, callerId, permittedRoutes",
+      "evidence": "AuthorizedContext.java:9-13"
+    },
+    {
+      "claim": "AwsRuntime.env returns the environment value directly, with no name indirection",
+      "evidence": "AwsRuntime.java:23-27"
+    },
+    {
+      "claim": "no oauth/oidc/client_assertion/private_key_jwt/jwks/bearer match relevant to client authentication in src/main or infra",
+      "evidence": "case-insensitive scan; the only substring hit is 'oAuthor' inside DynamoAuthorizationRepository"
+    },
+    {
+      "claim": "no HTTP client for a token endpoint and no relay component",
+      "evidence": "no HttpClient, HttpURLConnection or java.net.http use in src/main"
+    },
+    {
+      "claim": "pom declares no ssm artifact and no JOSE/JWT library",
+      "evidence": "pom.xml:27-31 lists dynamodb, lambda, aws-lambda-java-core, jackson only"
+    },
+    {
+      "claim": "the Lambda Context exposes exactly the listed methods, and getInvokedFunctionArn is the invoked function's own ARN",
+      "evidence": "method names read from Context.class in the 1.2.3 jar: getAwsRequestId, getLogGroupName, getLogStreamName, getFunctionName, getFunctionVersion, getInvokedFunctionArn, getIdentity, getClientContext, getRemainingTimeInMillis, getMemoryLimitInMB, getLogger"
+    },
+    {
+      "claim": "one HttpApi with DefaultAuthorizer TestJwt, three functions, no Lambda::Permission and no VpcConfig",
+      "evidence": "infra/template.yaml:47-60 and 61-113; keyword scan finds neither Permission nor VpcConfig"
+    },
+    {
+      "claim": "C4LateDeliveryParser.parse has no caller in src/main",
+      "evidence": "callers exist only under src/test"
+    },
+    {
+      "claim": "ACL_AUTH has no evidence-signing authority and the P5->P4 row map returns null for it",
+      "evidence": "C4PrincipalRole.java:25-27; C4EvidenceVerifier.java:266-278"
+    },
+    {
+      "claim": "diagnosticForwardPermitted is a separate default-deny permission that confers no role",
+      "evidence": "C4KeyRegistry.java:34-38"
+    },
+    {
+      "claim": "the signed facade refuses a non-direct/relay sender, and the late signed gateway calls verify rather than verifyForwarded",
+      "evidence": "SignedEvidenceAdmissionService.java:142-151; LateSignedEvidenceReceiptGateway.java:238-246"
+    },
+    {
+      "claim": "EventStore exposes only append/find/head and DynamoEventStore excludes query cursors",
+      "evidence": "EventStore.java:16-31; DynamoEventStore.java:45"
+    },
+    {
+      "claim": "the pinned contract lines quoted in the document exist verbatim at the cited lines",
+      "evidence": "observation-contract.md:29,38,43; channel-contract.md:42,52,57; owner-decisions.md:86"
+    },
+    {
+      "claim": "D-A is resolved to self-managed Keycloak on the owner's instruction 'autogestionado'",
+      "evidence": "owner-decisions.md:90-92; the resolution entry supersedes the earlier NOT YET RESOLVED note at :88"
+    },
+    {
+      "claim": "java, mvn, terraform, sam and jq are absent; the aws CLI exists on PATH",
+      "evidence": "command -v per tool; aws at /home/pazfernando/.local/bin/aws. Non-invocation is a process fact, not a disk fact."
+    }
+  ],
+  "reference_resolution": {
+    "source-identities.json": "absorbed into inputs[]",
+    "payload-arithmetic-rev2.json": "absorbed into arithmetic_basis",
+    "note": "The assessed document links both paths. The one-manifest instruction means neither file was written, so those two relative links remain unresolved; the content they would carry is present here."
+  },
+  "counts": {
+    "files_hashed": 42,
+    "pinned_items_verified": 10,
+    "pinned_items_matched": 10,
+    "discrepancies": 2,
+    "unverified_items": 10,
+    "substantiated_claims": 17
+  }
+}

@@ -1,0 +1,19 @@
+BINDING.txt: OK
+EVIDENCE-MANIFEST.md: OK
+PROGRESS.md: OK
+c4-regression-exit.txt: OK
+c4-regression-stderr.txt: OK
+c4-regression-stdout.txt: OK
+delivered-files-verify.txt: OK
+delivered-files.sha256: OK
+git-status-after.txt: OK
+git-status-before.txt: OK
+git-status-diff.txt: OK
+hashes-after.sha256: OK
+hashes-diff.txt: OK
+hashes-frozen-pre-run.sha256: OK
+head-after.txt: OK
+targeted-exit.txt: OK
+targeted-stderr.txt: OK
+targeted-stdout.txt: OK
+EVIDENCE_VERIFY_EXIT=0

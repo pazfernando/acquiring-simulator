@@ -1,0 +1,1 @@
+ENV-01: first invocation failed with EXIT_CODE=127, 'mvn: command not found'. No build/test executed. Retried with absolute path /home/pazfernando/.local/opt/maven/bin/mvn (same Maven 3.10.1 recorded in p1b3a-2026-11-20/toolchain.txt).

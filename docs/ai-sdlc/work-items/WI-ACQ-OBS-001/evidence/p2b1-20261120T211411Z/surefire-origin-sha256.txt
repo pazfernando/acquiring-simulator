@@ -1,0 +1,2 @@
+628d7163f1e0c71f56e151e88cea565cc5862952773ce08e08cc6e95143be073  target/surefire-reports/com.acquiring.simulator.channel.C4CarrierParserTest.txt
+b006d3bd87f66e23baafb5b87d1067c015f04625f731968d6505a8d7d5bcfec2  target/surefire-reports/TEST-com.acquiring.simulator.channel.C4CarrierParserTest.xml

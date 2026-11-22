@@ -1,0 +1,1 @@
+JAVA_HOME=/home/pazfernando/.local/opt/jdk-25 /home/pazfernando/.local/opt/maven/bin/mvn -o -B test

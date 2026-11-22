@@ -1,0 +1,3 @@
+d782b052dd937a29e767cc3562f959669ae3436101b3431d1e19090d026d6615  ../evidence/preflight-2026-11-19/IsoProbe.java
+88528ecadbf6c41676ea211cd8dbfe07e170555d64ba7340174678752ac7cc3d  ../evidence/preflight-2026-11-19/packed-fixtures.tsv
+a895a6a3fd42c921b0d9d3d917e7e7a517c462e8251f03ca24bf5a29ca16eaf5  ../evidence/preflight-2026-11-19/iso_probe.py

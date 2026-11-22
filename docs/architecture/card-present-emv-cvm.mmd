@@ -1,0 +1,23 @@
+sequenceDiagram
+    autonumber
+    actor H as Cardholder
+    participant C as Card / Payment Device
+    participant T as Merchant POS Terminal
+    participant P as Multi-Acquirer Processor
+    participant N as Approved Card Network / Domestic Route
+    participant I as Issuer / Delegated Authorizer
+    H->>T: Present card or payment device
+    T->>C: Execute EMV contact / contactless interaction
+    C-->>T: EMV application data / transaction cryptogram
+    opt Cardholder verification required
+        H->>T: Complete applicable CVM (PIN / CDCVM / other)
+        Note over T,P: Protect online PIN block if applicable, never expose plaintext PIN
+    end
+    T->>P: Authorization with POS, EMV and CVM evidence
+    P->>P: Apply merchant, terminal and acquirer profile controls
+    P->>N: Route eligible authorization with protected evidence
+    N->>I: Forward authorization
+    I-->>N: Financial authorization decision
+    N-->>P: Authorization response
+    P-->>T: Authorization result
+    T-->>H: Present result / complete terminal flow

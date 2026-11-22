@@ -1,0 +1,920 @@
+{
+  "manifest": "design/access-realization/evidence/manifest.json",
+  "purpose": "Closes the dangling reference in compatibility-assessment.md §8: the evidence index the assessment points to. It lists every file the assessment relies on with size and SHA-256 recomputed from disk, states which pinned inputs were verified, and records what remains unverified. Documentary only; not a freeze, not approval, not QA, not a Security verdict.",
+  "artifactUnderEvidence": {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/compatibility-assessment.md",
+    "bytes": 32966,
+    "sha256": "4886106c0afbf9ded1736ef3c0756c2bc8c738c58c61457faa0a635ecdd836ac",
+    "note": "Identity of the assessment this manifest supports; matches the SHA-256 given at hand-off (4886106c…836ac)."
+  },
+  "producedAt": "2026-11-20 (America/Bogota)",
+  "hashedAtLocal": "2026-11-20T20:11:09-05:00",
+  "selfExclusion": "This manifest does not list itself; its own SHA-256 is reported to the requester and can be recomputed with sha256sum. The five files in this evidence directory carry no earlier recorded identity, so their SHA-256 is recorded here for the first time.",
+  "method": "SHA-256 over file bytes plus file size for every path, from the repository root; JSON assembled by a local Python 3 script. No Git command, no network call, no build, no test execution, and no filesystem change other than writing this file. owner-decisions.md was hashed at the start of the pass and again immediately before this file was written.",
+  "repositoryBinding": {
+    "branch": "feat/wi-acq-auth-001",
+    "head": "cfc456f4f469d9558a78fda8ff9b770b00817315",
+    "origin": "https://github.com/pazfernando/acquiring-simulator.git",
+    "workingTree": "DIRTY (pre-existing changes and untracked files); no whole-tree freeze and no clean-HEAD claim",
+    "bindingSource": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t1-traceability-20261120/BINDING.txt",
+    "bindingSourceIdentity": "e4951cc2f2df75e61a9b9d1ce7bdb0f717d17faf3746c6fda79f5ed02bdfe8db (verified MATCH)"
+  },
+  "documentIdentityClaims": [
+    {
+      "item": "design.md",
+      "claimedIn": "§0",
+      "documentValue": "83e4ea14b3959dcc6d8535aee0f0dd715783764e8922a72b6c0c3454a40829f4",
+      "onDisk": "83e4ea14b3959dcc6d8535aee0f0dd715783764e8922a72b6c0c3454a40829f4",
+      "verdict": "MATCH"
+    },
+    {
+      "item": "configuration-schema.md",
+      "claimedIn": "§0",
+      "documentValue": "1f497daade1a8429458e2cc40047adf326a97f2fb6636d583e1bf2e930bf1bb2",
+      "onDisk": "1f497daade1a8429458e2cc40047adf326a97f2fb6636d583e1bf2e930bf1bb2",
+      "verdict": "MATCH"
+    },
+    {
+      "item": "decision-proposal.md",
+      "claimedIn": "§0",
+      "documentValue": "becbabcdf9038c16bf5a0040051ea606db556d22bba44ddf2321b8f3fe219166",
+      "onDisk": "becbabcdf9038c16bf5a0040051ea606db556d22bba44ddf2321b8f3fe219166",
+      "verdict": "MATCH"
+    },
+    {
+      "item": "owner-decisions.md",
+      "claimedIn": "§0",
+      "documentValue": "3def7c2aff7df5b3a149757aa9411574da6d574abd4c33dc4c4f6504589c9bc0",
+      "onDisk": "a4dde437495d7a96765ac322dc8e12680570325de384d5d657e7b7bf28b60b7e",
+      "onDiskBytes": 15172,
+      "onDiskMtime": "2026-11-20T20:08:28-05:00",
+      "verdict": "STALE ON DISK — advanced by another session after the assessment; see advancedAfterAssessment"
+    },
+    {
+      "item": "WORK_ITEM.md",
+      "claimedIn": "§0",
+      "documentValue": "d2489282f9eb33e8d7d6ada9d2c021aeed11b3033b9f22eded6e30e628f74f6c",
+      "onDisk": "d2489282f9eb33e8d7d6ada9d2c021aeed11b3033b9f22eded6e30e628f74f6c",
+      "verdict": "MATCH"
+    }
+  ],
+  "verifiedPinnedInputs": {
+    "verified": 4,
+    "of": 5,
+    "verifiedItems": [
+      "design.md",
+      "configuration-schema.md",
+      "decision-proposal.md",
+      "WORK_ITEM.md"
+    ],
+    "statement": "Four of the five pinned inputs in compatibility-assessment.md §0 are byte-identical on disk. The fifth, owner-decisions.md, equalled the document's value (3def7c2a…, 13781 bytes) when first hashed in this pass and was then rewritten by another session at 2026-11-20T20:08:28-05:00 to a4dde437… (15172 bytes). The document's value was correct when written and is now stale; it is reported here and was not edited.",
+    "consistencyChecks": [
+      {
+        "claim": "design.md pins owner-decisions.md at efef3d22…",
+        "result": "CONFIRMED (design.md:15)"
+      },
+      {
+        "claim": "design-validation.json recorded WORK_ITEM.md at f041c42f…",
+        "result": "CONFIRMED (design-validation.json sourceChangesObserved)"
+      },
+      {
+        "claim": "the reused suite recorded 959 tests, 63 classes, 0 failures",
+        "result": "CONFIRMED in p2c4-fullsuite-20261120T224632Z/RESULTS.md"
+      }
+    ]
+  },
+  "files": [
+    {
+      "path": "docs/ai-sdlc/PROJECT.md",
+      "bytes": 3061,
+      "sha256": "8584a2ed39a3ac548f303bf41bceb8e5e9df3fd3ec678289bdb128560643710e",
+      "roles": [
+        "supporting-input"
+      ],
+      "recordedIdentities": [
+        "8584a2ed39a3ac548f303bf41bceb8e5e9df3fd3ec678289bdb128560643710e"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/WORK_ITEM.md",
+      "bytes": 38311,
+      "sha256": "d2489282f9eb33e8d7d6ada9d2c021aeed11b3033b9f22eded6e30e628f74f6c",
+      "roles": [
+        "governing-document",
+        "supporting-input"
+      ],
+      "recordedIdentities": [
+        "d2489282f9eb33e8d7d6ada9d2c021aeed11b3033b9f22eded6e30e628f74f6c",
+        "f041c42f9d3cb1153ba9580b60778d35b04da3d546d3e49f5d525c61f6026650"
+      ],
+      "status": "MATCH",
+      "supersededRecordedIdentities": [
+        "f041c42f9d3cb1153ba9580b60778d35b04da3d546d3e49f5d525c61f6026650"
+      ]
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/adr-operation-a-access-and-environment.md",
+      "bytes": 4274,
+      "sha256": "d51bbf650aca74e82351dacf0e45d0f14c992044b9ff246bc7b8b281920b0b39",
+      "roles": [
+        "commission-input",
+        "governing-document"
+      ],
+      "recordedIdentities": [
+        "d51bbf650aca74e82351dacf0e45d0f14c992044b9ff246bc7b8b281920b0b39"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "bytes": 22172,
+      "sha256": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+      "roles": [
+        "commission-input",
+        "governing-document"
+      ],
+      "recordedIdentities": [
+        "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/decision-proposal.md",
+      "bytes": 9053,
+      "sha256": "becbabcdf9038c16bf5a0040051ea606db556d22bba44ddf2321b8f3fe219166",
+      "roles": [
+        "pinned-input"
+      ],
+      "recordedIdentities": [
+        "becbabcdf9038c16bf5a0040051ea606db556d22bba44ddf2321b8f3fe219166"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/configuration-schema.md",
+      "bytes": 13716,
+      "sha256": "1f497daade1a8429458e2cc40047adf326a97f2fb6636d583e1bf2e930bf1bb2",
+      "roles": [
+        "pinned-input"
+      ],
+      "recordedIdentities": [
+        "1f497daade1a8429458e2cc40047adf326a97f2fb6636d583e1bf2e930bf1bb2"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design.md",
+      "bytes": 41770,
+      "sha256": "83e4ea14b3959dcc6d8535aee0f0dd715783764e8922a72b6c0c3454a40829f4",
+      "roles": [
+        "pinned-input"
+      ],
+      "recordedIdentities": [
+        "83e4ea14b3959dcc6d8535aee0f0dd715783764e8922a72b6c0c3454a40829f4"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/evidence/design-validation.json",
+      "bytes": 4004,
+      "sha256": "3739e668c43b036b9bfabbf5487b714a6ede80dd5763236e6ab4dce8ff7fdf0b",
+      "roles": [
+        "evidence-companion"
+      ],
+      "recordedIdentities": [],
+      "status": "RECORDED-HERE-FIRST"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/evidence/input-identities.json",
+      "bytes": 4547,
+      "sha256": "9436082235d8dc153451fb61ccffaaa612f90e057b4c98a408b9018f739eb4cc",
+      "roles": [
+        "evidence-companion"
+      ],
+      "recordedIdentities": [],
+      "status": "RECORDED-HERE-FIRST"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/evidence/official-source-excerpts.json",
+      "bytes": 14764,
+      "sha256": "59f338371f9d3b792333ba3572aec7bf0e7ab2fdfc04370af38f4d40a3059a88",
+      "roles": [
+        "evidence-companion"
+      ],
+      "recordedIdentities": [],
+      "status": "RECORDED-HERE-FIRST"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/evidence/payload-size-calculations.json",
+      "bytes": 4191,
+      "sha256": "62cd5060d90bd9fc3e389cd0a5e1128ff7c328b31e802b66ce96ad90a0ce2ca4",
+      "roles": [
+        "evidence-companion"
+      ],
+      "recordedIdentities": [],
+      "status": "RECORDED-HERE-FIRST"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/evidence/source-identities.json",
+      "bytes": 9706,
+      "sha256": "c1cf7f335f1e4c249d8659896841c0ecdad51a744e18448c688afe9e4877ccdb",
+      "roles": [
+        "evidence-companion"
+      ],
+      "recordedIdentities": [],
+      "status": "RECORDED-HERE-FIRST"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/retention/retention-delta.md",
+      "bytes": 244,
+      "sha256": "208402a2dcef2867ff8f1c2283d50ac921c635bf47c761b7ba5d11d470cc090f",
+      "roles": [
+        "supporting-input"
+      ],
+      "recordedIdentities": [
+        "208402a2dcef2867ff8f1c2283d50ac921c635bf47c761b7ba5d11d470cc090f"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/domain-review.md",
+      "bytes": 12953,
+      "sha256": "73adba20fd70969bf8bb9f23ebde5c5d16aec69fd4694ac32984008b76ee0ca2",
+      "roles": [
+        "commission-input"
+      ],
+      "recordedIdentities": [
+        "73adba20fd70969bf8bb9f23ebde5c5d16aec69fd4694ac32984008b76ee0ca2"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t1-traceability-20261120/BINDING.txt",
+      "bytes": 943,
+      "sha256": "e4951cc2f2df75e61a9b9d1ce7bdb0f717d17faf3746c6fda79f5ed02bdfe8db",
+      "roles": [
+        "repository-binding"
+      ],
+      "recordedIdentities": [
+        "e4951cc2f2df75e61a9b9d1ce7bdb0f717d17faf3746c6fda79f5ed02bdfe8db"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t1-traceability-20261120/git-status-before.txt",
+      "bytes": 7249,
+      "sha256": "b83770538498facf44c35d2bbd558ef15d105ef3e497e10ba941dc837b097fd9",
+      "roles": [
+        "repository-binding"
+      ],
+      "recordedIdentities": [
+        "b83770538498facf44c35d2bbd558ef15d105ef3e497e10ba941dc837b097fd9"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "bytes": 31164,
+      "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "roles": [
+        "commission-input",
+        "governing-document"
+      ],
+      "recordedIdentities": [
+        "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "bytes": 15172,
+      "sha256": "a4dde437495d7a96765ac322dc8e12680570325de384d5d657e7b7bf28b60b7e",
+      "roles": [
+        "commission-input",
+        "pinned-input"
+      ],
+      "recordedIdentities": [
+        "3def7c2aff7df5b3a149757aa9411574da6d574abd4c33dc4c4f6504589c9bc0",
+        "efef3d2272dd54130b404fae43ec90643bc42c5dd4701cc1b6b4e49d4ea0f18c"
+      ],
+      "status": "ADVANCED-AFTER-ASSESSMENT",
+      "supersededRecordedIdentities": [
+        "3def7c2aff7df5b3a149757aa9411574da6d574abd4c33dc4c4f6504589c9bc0",
+        "efef3d2272dd54130b404fae43ec90643bc42c5dd4701cc1b6b4e49d4ea0f18c"
+      ]
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/requirements.md",
+      "bytes": 18189,
+      "sha256": "49c5d412e3705c320a2f78b190555f49e7e0fa4662cff9329d259f89e2b459df",
+      "roles": [
+        "commission-input",
+        "governing-document"
+      ],
+      "recordedIdentities": [
+        "49c5d412e3705c320a2f78b190555f49e7e0fa4662cff9329d259f89e2b459df"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-20261120/evidence/closing-implementation-binding.txt",
+      "bytes": 943,
+      "sha256": "e4951cc2f2df75e61a9b9d1ce7bdb0f717d17faf3746c6fda79f5ed02bdfe8db",
+      "roles": [
+        "supporting-input"
+      ],
+      "recordedIdentities": [
+        "e4951cc2f2df75e61a9b9d1ce7bdb0f717d17faf3746c6fda79f5ed02bdfe8db"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-20261120/evidence/input-identities.json",
+      "bytes": 2787,
+      "sha256": "876056999992840108a334e3b96fd57ba05378644d584db3fc6fbe95b9fbe4d0",
+      "roles": [
+        "supporting-input"
+      ],
+      "recordedIdentities": [
+        "876056999992840108a334e3b96fd57ba05378644d584db3fc6fbe95b9fbe4d0"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-20261120/evidence/official-source-excerpts.json",
+      "bytes": 30397,
+      "sha256": "5fc099c904f93325f3bc7348da343b018cfb1fc833be502a3479ba5d2d071494",
+      "roles": [
+        "supporting-input"
+      ],
+      "recordedIdentities": [
+        "5fc099c904f93325f3bc7348da343b018cfb1fc833be502a3479ba5d2d071494"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-20261120/evidence/review-validation.json",
+      "bytes": 715,
+      "sha256": "866c14631d184433d1564e923a05e38bd438fa0660ca679a01abfe6b1478a205",
+      "roles": [
+        "supporting-input"
+      ],
+      "recordedIdentities": [
+        "866c14631d184433d1564e923a05e38bd438fa0660ca679a01abfe6b1478a205"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-20261120/security-review.md",
+      "bytes": 27613,
+      "sha256": "0d71ea007e56b12d9873df14126c22640c3abc68052b42db1f47b0a9688d218e",
+      "roles": [
+        "commission-input",
+        "governing-document"
+      ],
+      "recordedIdentities": [
+        "0d71ea007e56b12d9873df14126c22640c3abc68052b42db1f47b0a9688d218e"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/carrier-vectors.json",
+      "bytes": 44768,
+      "sha256": "544e933aeb8ae7e47ec0a54763b068fb38186302f14bc88a5b221684e8dd524b",
+      "roles": [
+        "proposed-vector-input"
+      ],
+      "recordedIdentities": [
+        "544e933aeb8ae7e47ec0a54763b068fb38186302f14bc88a5b221684e8dd524b"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/evidence-fixtures.json",
+      "bytes": 205760,
+      "sha256": "800bb86177abb93b4445bee7e127b8caa14b20525a1a4f51a9df8b45774783c3",
+      "roles": [
+        "proposed-vector-input"
+      ],
+      "recordedIdentities": [
+        "800bb86177abb93b4445bee7e127b8caa14b20525a1a4f51a9df8b45774783c3"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/websocket-vectors.json",
+      "bytes": 65845,
+      "sha256": "e6d30a83367233d9216c2ef162e82d7f67e1b6841de312a0e5dadcec3dace2a8",
+      "roles": [
+        "proposed-vector-input"
+      ],
+      "recordedIdentities": [
+        "e6d30a83367233d9216c2ef162e82d7f67e1b6841de312a0e5dadcec3dace2a8"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "infra/template.yaml",
+      "bytes": 3787,
+      "sha256": "f7637650095ea5166aee9e3d41dbad3d033324c45d48268c70d2bb58d62c1abe",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "f7637650095ea5166aee9e3d41dbad3d033324c45d48268c70d2bb58d62c1abe"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/adapter/aws/AwsRuntime.java",
+      "bytes": 2635,
+      "sha256": "ee0b6f664cff978a1f114e1a555f83e6bde9f32e9b32f15b925f362d1d5cbf1f",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "ee0b6f664cff978a1f114e1a555f83e6bde9f32e9b32f15b925f362d1d5cbf1f"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/adapter/aws/DynamoClaimGateway.java",
+      "bytes": 7419,
+      "sha256": "c223f15a5637da8de7ffc8ab2d1d6d524d51db6426ac05235acfed3eeed50ff5",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "c223f15a5637da8de7ffc8ab2d1d6d524d51db6426ac05235acfed3eeed50ff5"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/adapter/aws/DynamoEventStore.java",
+      "bytes": 20983,
+      "sha256": "7fa3a17142fbc79aeacc94efc0bdc165260ad7f2757f67b843b3f71825687c7d",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "7fa3a17142fbc79aeacc94efc0bdc165260ad7f2757f67b843b3f71825687c7d"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/adapter/aws/IssuerHandler.java",
+      "bytes": 2213,
+      "sha256": "d652e60bfdc028f85ea35b73821438de9ab59f9d003d857dc7e9616228cdf407",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "d652e60bfdc028f85ea35b73821438de9ab59f9d003d857dc7e9616228cdf407"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/adapter/aws/LambdaDownstream.java",
+      "bytes": 1763,
+      "sha256": "3bdbb425c5107c83dc693b3bc0d6f242cbff595eb8e32fe6a55c3a903f05dca7",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "3bdbb425c5107c83dc693b3bc0d6f242cbff595eb8e32fe6a55c3a903f05dca7"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/adapter/aws/LateEvidenceAdmissionGateway.java",
+      "bytes": 29704,
+      "sha256": "190be46d5a7b1e209dae77ffb59238f7dcc8ea05b506a8d7b11acf958ea9223e",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "190be46d5a7b1e209dae77ffb59238f7dcc8ea05b506a8d7b11acf958ea9223e"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/adapter/aws/MastercardHandler.java",
+      "bytes": 1058,
+      "sha256": "71bbd9a8b50280fc3c56ac8b607a2f55a24ff92e2b89fce65e0506c3a71e2cdc",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "71bbd9a8b50280fc3c56ac8b607a2f55a24ff92e2b89fce65e0506c3a71e2cdc"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/adapter/aws/ProcessorHandler.java",
+      "bytes": 3276,
+      "sha256": "33de30443b4ccce0ed477b403b80265a61288204fef5e6affecb2fcdba076bc7",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "33de30443b4ccce0ed477b403b80265a61288204fef5e6affecb2fcdba076bc7"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4AuthenticatedTransportContext.java",
+      "bytes": 1025,
+      "sha256": "4994f2ddeccbc0ec819f2d9c403b96dd59e63ba4a5d6b267b29fa91ccc2fd73a",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "4994f2ddeccbc0ec819f2d9c403b96dd59e63ba4a5d6b267b29fa91ccc2fd73a"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4CarrierCanonicalJson.java",
+      "bytes": 6743,
+      "sha256": "6873b78be2b85e4c40eed94dd4c737797eeb7df658a1d383aeec123997e0a745",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "6873b78be2b85e4c40eed94dd4c737797eeb7df658a1d383aeec123997e0a745"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4CarrierEnvelope.java",
+      "bytes": 3712,
+      "sha256": "27e3b43b1b519c0302a036b98a2e214b0ec22e6a690acb0b0e1ccd2b11b0c073",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "27e3b43b1b519c0302a036b98a2e214b0ec22e6a690acb0b0e1ccd2b11b0c073"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4CarrierParser.java",
+      "bytes": 16507,
+      "sha256": "6bf69cb229b3d57f96bc9306ea2f24ed91d7c01a278804112a678a4a05ed8065",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "6bf69cb229b3d57f96bc9306ea2f24ed91d7c01a278804112a678a4a05ed8065"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4EvidenceAttestation.java",
+      "bytes": 6048,
+      "sha256": "407f048e9d53cd8df6c888d6bbcef7d922b6afc3f7ddf8c7be0439f00c5c8464",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "407f048e9d53cd8df6c888d6bbcef7d922b6afc3f7ddf8c7be0439f00c5c8464"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4HttpCarriageBridge.java",
+      "bytes": 4563,
+      "sha256": "2b53103f0ff4faaf0cbf7e8153fd4b2b4a29d341c2d566198c56883673a9cf04",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "2b53103f0ff4faaf0cbf7e8153fd4b2b4a29d341c2d566198c56883673a9cf04"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4KeyRegistry.java",
+      "bytes": 1743,
+      "sha256": "12d5ca1ff47fdc7f54dade58912035f99d9e5d31eb7cc40b0749143ff0b8a247",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "12d5ca1ff47fdc7f54dade58912035f99d9e5d31eb7cc40b0749143ff0b8a247"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4LateDeliveryEnvelope.java",
+      "bytes": 2933,
+      "sha256": "2a9fad87b2db9267962f8133b7265b8016ce16afbf776d1421d8589492ab148e",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "2a9fad87b2db9267962f8133b7265b8016ce16afbf776d1421d8589492ab148e"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4LateDeliveryParser.java",
+      "bytes": 10638,
+      "sha256": "8220362f137ab3f755f57de470c976f029bd644d32d7c490e92ca934c5880cfc",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "8220362f137ab3f755f57de470c976f029bd644d32d7c490e92ca934c5880cfc"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4LateDeliveryVerifier.java",
+      "bytes": 4269,
+      "sha256": "471f7d474e8d664c480c7391884c2a40a09370776fed6eac44e5932fc4d84aa8",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "471f7d474e8d664c480c7391884c2a40a09370776fed6eac44e5932fc4d84aa8"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4PrincipalRole.java",
+      "bytes": 931,
+      "sha256": "4f18d52448cc5f90adbbc55039e185ea68bf838c97bbdbc4e55cdc4a69a6244b",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "4f18d52448cc5f90adbbc55039e185ea68bf838c97bbdbc4e55cdc4a69a6244b"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/HttpApiV2RequestDecoder.java",
+      "bytes": 6460,
+      "sha256": "8511b640a2351c87665a897ae741855f887e18636a1ebeace78ea95781e453b2",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "8511b640a2351c87665a897ae741855f887e18636a1ebeace78ea95781e453b2"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/HttpApiV2ResponseEncoder.java",
+      "bytes": 3337,
+      "sha256": "3e4e77203329040a90691cbaf2968912edb3dadb52e926df31afa4a261e80a50",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "3e4e77203329040a90691cbaf2968912edb3dadb52e926df31afa4a261e80a50"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/HttpApiV2Wire.java",
+      "bytes": 9908,
+      "sha256": "5362e63b4e49c3c0d425b1403a8acc19e53f2cb24a4908b951827e432b09683e",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "5362e63b4e49c3c0d425b1403a8acc19e53f2cb24a4908b951827e432b09683e"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/domain/AuthorizationService.java",
+      "bytes": 53029,
+      "sha256": "7b85394840bf56b6e70b96c87e6f7a9be67d52e0d8f34932c6440672b32915f0",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "7b85394840bf56b6e70b96c87e6f7a9be67d52e0d8f34932c6440672b32915f0"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/domain/event/EventSubmission.java",
+      "bytes": 1768,
+      "sha256": "5a3673bbd3d72d1daafa70965f5401d743d789c16ea3990f2fab3158c97036e1",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "5a3673bbd3d72d1daafa70965f5401d743d789c16ea3990f2fab3158c97036e1"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/domain/event/EventTableKeys.java",
+      "bytes": 2528,
+      "sha256": "ed70d170b2fea2ac6b8fd5b5e5370f76423edc479895ce0d172430e593b6892c",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "ed70d170b2fea2ac6b8fd5b5e5370f76423edc479895ce0d172430e593b6892c"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/domain/model/AuthorizedContext.java",
+      "bytes": 531,
+      "sha256": "ca360e5fee39971f7eb1094301233f030979983ff0f5bf63651c4e89dd6eab69",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "ca360e5fee39971f7eb1094301233f030979983ff0f5bf63651c4e89dd6eab69"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/domain/port/EventStore.java",
+      "bytes": 1378,
+      "sha256": "f67b90d5b966ec546decafc9fcb05b9d51216c9cd2a41312df4013938abbe4f4",
+      "roles": [
+        "code-or-configuration"
+      ],
+      "recordedIdentities": [
+        "f67b90d5b966ec546decafc9fcb05b9d51216c9cd2a41312df4013938abbe4f4"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/test/java/com/acquiring/simulator/aws/AwsTransportTest.java",
+      "bytes": 5536,
+      "sha256": "46f99d25b843ed209dd37a6e494345ed9fe6aabfa9e05d45375a613d5ce3704c",
+      "roles": [
+        "test-cited"
+      ],
+      "recordedIdentities": [
+        "46f99d25b843ed209dd37a6e494345ed9fe6aabfa9e05d45375a613d5ce3704c"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/test/java/com/acquiring/simulator/aws/ObsAcceptanceAtomicChainIntegrationTest.java",
+      "bytes": 19050,
+      "sha256": "48be479e627f1827e2d2fa5d3013ac03b5e697dc3fe321f2b2c7117882eb5269",
+      "roles": [
+        "test-cited"
+      ],
+      "recordedIdentities": [
+        "48be479e627f1827e2d2fa5d3013ac03b5e697dc3fe321f2b2c7117882eb5269"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/test/java/com/acquiring/simulator/channel/C4CarrierParserTest.java",
+      "bytes": 19887,
+      "sha256": "b503fe1b204e045178729a05bef0e582a96ed547ed262e0b327b52e7895e23fc",
+      "roles": [
+        "test-cited"
+      ],
+      "recordedIdentities": [
+        "b503fe1b204e045178729a05bef0e582a96ed547ed262e0b327b52e7895e23fc"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/test/java/com/acquiring/simulator/channel/C4LateDeliveryTest.java",
+      "bytes": 25484,
+      "sha256": "08d7c71982d6a22d384e9be6ea8a02e3169920dcc440193569cac5936a4ec143",
+      "roles": [
+        "test-cited"
+      ],
+      "recordedIdentities": [
+        "08d7c71982d6a22d384e9be6ea8a02e3169920dcc440193569cac5936a4ec143"
+      ],
+      "status": "MATCH"
+    },
+    {
+      "path": "src/test/java/com/acquiring/simulator/channel/HttpApiV2InternalRouteTest.java",
+      "bytes": 11078,
+      "sha256": "ade365c45d8b13abf400be2e1ba9da1db38aed8295cb287fb3f4fcb8646b223c",
+      "roles": [
+        "test-cited"
+      ],
+      "recordedIdentities": [
+        "ade365c45d8b13abf400be2e1ba9da1db38aed8295cb287fb3f4fcb8646b223c"
+      ],
+      "status": "MATCH"
+    }
+  ],
+  "suiteEvidenceInherited": {
+    "directory": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/p2c4-fullsuite-20261120T224632Z",
+    "claimInAssessment": "reused result: 959 tests, 63 classes, 0 failures; not rerun by this pass",
+    "fileCount": 157,
+    "totalBytes": 2405951,
+    "aggregateSha256": "37f082a83c3ad63f51a76699848bf928d2581432f7df040b38898e6f87e90c34",
+    "aggregateMethod": "SHA-256 over the concatenation of '<sha256>  <filename>\\n' for every file in the directory, sorted by that line (sha256 first, then filename)",
+    "selfChecksumFile": "evidence.sha256",
+    "selfChecksumVerified": "156 of 156 entries verified OK (the list excludes itself)",
+    "keyArtifacts": {
+      "BINDING.txt": {
+        "bytes": 611,
+        "sha256": "17b319736fedc5a3d65381e07b2d89a32424aa24a46716ea6d8493d810e34b69"
+      },
+      "RESULTS.md": {
+        "bytes": 5983,
+        "sha256": "94063e61853cb34ad25b4659cc859a214f31563e62ce42cd827fd32f51abf5ad"
+      },
+      "surefire-summary.tsv": {
+        "bytes": 9445,
+        "sha256": "9f5cda3ab87d4723c617956241b65dd78ab1bbd7976cfe1e18961b47a85bb884"
+      },
+      "test-exit.txt": {
+        "bytes": 2,
+        "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+      },
+      "evidence.sha256": {
+        "bytes": 19779,
+        "sha256": "073ea3a6520fbcf6a0ab92aadd56110123fe9af93079e6a04e4260327efd27c5"
+      }
+    },
+    "note": "Inherited evidence. The 959/63/0 aggregate was read from RESULTS.md, not re-executed."
+  },
+  "advancedAfterAssessment": {
+    "count": 1,
+    "items": [
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+        "recordedIn": "source-identities.json",
+        "recordedSha256": "3def7c2aff7df5b3a149757aa9411574da6d574abd4c33dc4c4f6504589c9bc0",
+        "recordedMatchField": "ADVANCED, not drifted",
+        "onDiskSha256": "a4dde437495d7a96765ac322dc8e12680570325de384d5d657e7b7bf28b60b7e",
+        "onDiskBytes": 15172
+      },
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+        "recordedIn": "input-identities.json",
+        "recordedSha256": "efef3d2272dd54130b404fae43ec90643bc42c5dd4701cc1b6b4e49d4ea0f18c",
+        "recordedMatchField": true,
+        "onDiskSha256": "a4dde437495d7a96765ac322dc8e12680570325de384d5d657e7b7bf28b60b7e",
+        "onDiskBytes": 15172
+      }
+    ],
+    "materiality": "owner-decisions.md gained the section 'D-A resolved: self-managed Keycloak — 2026-11-20 (evening)' after the assessment was written. The assessment records D-A as open (§0: 'D-A — OAuth/OIDC issuer: OPEN. No issuer is selected.'; §8: 'does not select an OAuth issuer (D-A stays open)'). Those statements were true of the input read and are now out of date. No other assessment finding turns on the issuer identity.",
+    "actionTaken": "Reported only. Neither the assessment nor owner-decisions.md was edited."
+  },
+  "supersededEarlierIdentities": {
+    "count": 1,
+    "items": [
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/WORK_ITEM.md",
+        "recordedIn": "input-identities.json",
+        "recordedSha256": "f041c42f9d3cb1153ba9580b60778d35b04da3d546d3e49f5d525c61f6026650",
+        "recordedMatchField": null,
+        "onDiskSha256": "d2489282f9eb33e8d7d6ada9d2c021aeed11b3033b9f22eded6e30e628f74f6c",
+        "note": "Earlier identity, superseded before the assessment; the assessment records the current value."
+      }
+    ],
+    "note": "Files whose earlier recorded identity was already superseded before the assessment. The assessment records the current value, so there is no discrepancy in the document."
+  },
+  "unverified": [
+    "API Gateway per-header value quota for the normal C4 response header (§2 item 3): no AWS page in the reviewed evidence asserts a cap above ~1.7 KB; the local need is 1720 characters and 1818 total header bytes.",
+    "Platform-added response headers on a deployed Gateway response (§2 structural note): app-side totalHeaderBytes does not count them; not measured.",
+    "Header preservation through a real WebSocket handshake: never observed.",
+    "Native mTLS on WebSocket custom domains: undocumented, not relied on, not disproven.",
+    "ALB to private API Gateway endpoint forwarding (Option B): not tested.",
+    "WebSocket reachability through interface VPC endpoints: the cited page did not resolve; no claim is made.",
+    "Provider key-rotation propagation versus the Gateway JWKS cache: documentary only.",
+    "Terraform behaviour for use_lockfile in this repository: no .tf file and no .github/ directory exists in the checkout.",
+    "Repository OIDC subject format (classic versus immutable-ID claims) and repository visibility.",
+    "KMS/SSM costs and quotas.",
+    "Certificate revocation enforcement at the edge: AWS documents that API Gateway does not verify revocation; not tested.",
+    "Atomic admission at runtime (CA-4): implemented but not wired in AwsRuntime; no deployed atomic claim exists.",
+    "C1 console route POST /console/v1/authorizations and the C2 ISO byte contract at the Lambda seam: absent from the running code; compatibility is inferred from contracts, not exercised.",
+    "The 959-test suite result: inherited from the p2c4 evidence directory, not rerun by this pass.",
+    "Payload-size figures: arithmetic over declared source bounds; no Java was executed and no fixture was signed.",
+    "Keycloak hosting, network placement, TLS, realm/client configuration and key custody: decided after the assessment; not designed or verified here.",
+    "Contract deltas CA-1 (public late-evidence route) and CA-5 (C6/O4 IAM-signed $connect): not amended; no owner or Security disposition recorded.",
+    "Issuer capability, tenancy, plan and quota: the owner selected self-managed Keycloak after the assessment; capability and quota remain unverified."
+  ],
+  "notClaimed": [
+    "Not a whole-tree or clean-HEAD freeze: the working tree is dirty and two relied-on files are owner/coordinator-owned and moving.",
+    "Not approval, QA, independent review, Security verdict or construction authorization.",
+    "No test, build, scan, handshake, cloud/provider call or Git command was executed for this manifest.",
+    "Only this file was written by this pass; no other document, code, test or contract was touched."
+  ],
+  "counts": {
+    "filesListed": 60,
+    "filesMatched": 54,
+    "filesAdvancedAfterAssessment": 1,
+    "filesWithSupersededEarlierRecord": 1,
+    "filesMissing": 0,
+    "filesRecordedHereFirst": 5,
+    "suiteFilesVerifiedByAggregate": 157,
+    "unverifiedItems": 18
+  }
+}

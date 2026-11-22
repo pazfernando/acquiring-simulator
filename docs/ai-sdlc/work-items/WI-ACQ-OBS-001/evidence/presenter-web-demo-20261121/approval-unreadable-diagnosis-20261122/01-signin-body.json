@@ -1,0 +1,1 @@
+{"identityMode":"LOCAL_TEST_FIXTURE","subject":"DEMO-USER","environmentId":"local-demo-it","context":{"acquirerRef":"ACQ-SIM-01","merchantRef":"MID-SIM-01","terminalRef":"TERM-SIM-01"},"expiresAt":"2026-11-22T03:00:58Z"}

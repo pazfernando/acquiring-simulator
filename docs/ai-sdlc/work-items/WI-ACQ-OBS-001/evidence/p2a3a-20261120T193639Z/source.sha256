@@ -1,0 +1,4 @@
+2aa986da571753f4de21c1b3dab00849f8cbe11d1bc092747de3400eb8d1a771  src/main/java/com/acquiring/simulator/protocol/iso8583/Iso8583P4MatrixValidator.java
+92b415935935825061f03a362c95e40e1f786fcdec26165b9c57c5f7d9dc2ffb  src/main/java/com/acquiring/simulator/protocol/iso8583/Iso8583P4MatrixDecision.java
+a3da1f11ba557ad49fa9bf5345a741302dc8536903de02c3e67c17389f70633d  src/main/java/com/acquiring/simulator/protocol/iso8583/Iso8583P4MatrixException.java
+849f21be8561f4ecc8db3e77b52bae250e57e7aae8c9a6f715fe31ecc2dbf7b9  src/test/java/com/acquiring/simulator/protocol/iso8583/Iso8583P4MatrixValidatorTest.java

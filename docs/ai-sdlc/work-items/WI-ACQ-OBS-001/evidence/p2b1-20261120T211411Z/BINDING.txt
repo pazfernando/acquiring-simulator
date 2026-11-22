@@ -1,0 +1,17 @@
+work_item: WI-ACQ-OBS-001 (P2b1 signed carrier evidence)
+recovery_kind: sanitized evidence recovery of an EXISTING targeted run (not a rerun)
+branch: feat/wi-acq-auth-001
+head: cfc456f4f469d9558a78fda8ff9b770b00817315
+origin: https://github.com/pazfernando/acquiring-simulator.git
+model: nan/deepseek-v4-flash
+model_override: none
+java_home: /home/pazfernando/.local/opt/jdk-25
+java_bin: openjdk version "25.0.5" 2026-10-20 LTS
+maven_bin: Apache Maven 3.10.1 (3afd8084b5629f80b97750906a719879ed4cd283)
+captured_at_utc: 20261120T211411Z
+result_source: existing surefire artifacts target/surefire-reports/com.acquiring.simulator.channel.C4CarrierParserTest.txt and target/surefire-reports/TEST-com.acquiring.simulator.channel.C4CarrierParserTest.xml
+run_window_local: 2026-11-20T16:10:53.008-05:00 .. 2026-11-20T16:10:54.156-05:00
+scope: one strict C4 carrier outer-envelope/base64/body-hash parser+model and targeted tests
+not_verified_here: Ed25519 signature, key resolution, P5 role/mandate, transport auth, P6 ISO, HTTP, storage, runtime
+this_recovery_performed: read-only capture; no test rerun; no source edit; no git write; no network; no HTTP; no deletion
+state: runtime inactive; P1/G6 open; no independent QA/Security/human acceptance
