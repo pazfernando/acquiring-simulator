@@ -1,0 +1,2 @@
+CONSOLE_DEV_PORT=8100
+launch: JAVA_HOME=/home/pazfernando/.local/opt/jdk-25 java -cp target/classes:target/classpath.txt com.acquiring.simulator.console.dev.ConsoleDevHarness --port=8100

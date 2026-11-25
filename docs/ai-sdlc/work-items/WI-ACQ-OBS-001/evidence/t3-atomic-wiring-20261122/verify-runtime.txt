@@ -1,0 +1,9 @@
+repository=/home/pazfernando/projects/acquiring-simulator
+branch=feat/wi-acq-auth-001
+head=5bbd4eb5d49be036e695e5f25a8c83c4f7d5ac14
+frozen_paths=292
+java=openjdk version "25.0.5" 2026-10-20 LTS
+maven=Apache Maven 3.10.1 (3afd8084b5629f80b97750906a719879ed4cd283)
+model_observed=nan/deepseek-v4-flash (session model; no override)
+freeze_scope=src/main, src/test, src/main/resources, pom.xml
+freeze_limitation=post-edit baseline (AwsRuntime already modified; new test file already present)

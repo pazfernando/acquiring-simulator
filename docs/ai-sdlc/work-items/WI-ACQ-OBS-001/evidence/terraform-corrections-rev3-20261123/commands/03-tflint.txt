@@ -1,0 +1,3 @@
+$ tflint --init && tflint --recursive --format compact   (cwd infra/terraform)
+All plugins are already installed
+exit=0

@@ -1,0 +1,98 @@
+### CONTROL: unmutated copy
+    exit: 0
+    All policy checks passed.
+    RESULT: CONTROL PASSED
+
+### CASE: literal value in the module call
+    expected violation: origin-verify-literal
+    exit: 1
+      FAIL  origin-verify-literal: envs/stack/main.tf: origin_verify_secret assigned a literal
+    RESULT: NEGATIVE TEST PASSED (assertion fired)
+
+### CASE: reserved X-Amz- header name
+    expected violation: origin-verify-denied-name
+    exit: 1
+      FAIL  origin-verify-denied-name: 'X-Amz-Origin-Verify' matches a CloudFront-reserved prefix
+    RESULT: NEGATIVE TEST PASSED (assertion fired)
+
+### CASE: output exposes the generated value
+    expected violation: origin-verify-output
+    exit: 1
+      FAIL  origin-verify-output: envs/stack/outputs.tf: output leaked exposes the custody value
+    RESULT: NEGATIVE TEST PASSED (assertion fired)
+
+### CASE: header in an authored log format
+    expected violation: log-token-leak
+    exit: 1
+      FAIL  log-token-leak: modules/api/main.tf: credential/custody field 'x-origin-verify' in access log format
+    RESULT: NEGATIVE TEST PASSED (assertion fired)
+
+### CASE: WAF redaction of the header removed
+    expected violation: origin-verify-waf-redaction
+    exit: 1
+      FAIL  origin-verify-waf-redaction: WAF logging must redact 'x-origin-verify' (found ['authorization', 'sec-websocket-protocol'])
+    RESULT: NEGATIVE TEST PASSED (assertion fired)
+
+### CASE: value carried as a CI variable
+    expected violation: origin-verify-ci
+    exit: 1
+      FAIL  origin-verify-ci: .github/workflows/terraform.yml: the custody value must not be a CI variable
+    RESULT: NEGATIVE TEST PASSED (assertion fired)
+
+### CASE: origin verification header removed
+    expected violation: origin-verify-header
+    exit: 1
+      FAIL  origin-verify-header: console: the /api/* origin must add exactly one custom header, found 0
+    RESULT: NEGATIVE TEST PASSED (assertion fired)
+
+### CASE: module variable defaulted
+    expected violation: origin-verify-default
+    exit: 1
+      FAIL  origin-verify-default: modules/console/variables.tf: origin_verify_secret must not have a default
+    RESULT: NEGATIVE TEST PASSED (assertion fired)
+
+### CASE: generated length under 32
+    expected violation: origin-verify-entropy
+    exit: 1
+      FAIL  origin-verify-entropy: origin_verify: length must be at least 32 (found 16)
+    RESULT: NEGATIVE TEST PASSED (assertion fired)
+
+### CASE: special characters enabled
+    expected violation: origin-verify-entropy
+    exit: 1
+      FAIL  origin-verify-entropy: origin_verify: special characters must stay disabled (token-safe header value)
+    RESULT: NEGATIVE TEST PASSED (assertion fired)
+
+### CASE: EDGE_ORIGIN_VERIFY mapping removed
+    expected violation: origin-verify-env
+    exit: 1
+      FAIL  origin-verify-env: modules/api: console Lambda must map EDGE_ORIGIN_VERIFY from var.edge_origin_verify
+    RESULT: NEGATIVE TEST PASSED (assertion fired)
+
+### CASE: expected-value variable not sensitive
+    expected violation: origin-verify-env
+    exit: 1
+      FAIL  origin-verify-env: modules/api: edge_origin_verify must be sensitive
+      FAIL  origin-verify-env: modules/api: no sensitive, default-free edge_origin_verify variable
+    RESULT: NEGATIVE TEST PASSED (assertion fired)
+
+### CASE: caching enabled on /api/*
+    expected violation: origin-verify-cache-disabled
+    exit: 1
+      FAIL  origin-verify-cache-disabled: api_disabled: default_ttl/max_ttl must both be 0 for /api/* (found 0/86400)
+      FAIL  origin-verify-cache-disabled: no zero-TTL cache policy resolved for the /api/* behavior
+    RESULT: NEGATIVE TEST PASSED (assertion fired)
+
+### CASE: second origin resolves api_fqdn
+    expected violation: origin-verify-single-origin
+    exit: 1
+      FAIL  origin-verify-single-origin: exactly one CloudFront origin must resolve api_fqdn (found 2)
+    RESULT: NEGATIVE TEST PASSED (assertion fired)
+
+### CASE: header name in CloudFront Function source
+    expected violation: origin-verify-not-in-function
+    exit: 1
+      FAIL  origin-verify-not-in-function: spa_fallback: CloudFront Function source references 'X-Origin-Verify'
+    RESULT: NEGATIVE TEST PASSED (assertion fired)
+
+AGGREGATE: ALL-NEGATIVE-TESTS-PASSED

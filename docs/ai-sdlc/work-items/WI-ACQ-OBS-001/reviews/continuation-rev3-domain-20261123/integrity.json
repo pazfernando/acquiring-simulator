@@ -1,0 +1,201 @@
+[
+  {
+    "manifest": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/OUTPUTS.SHA256SUMS",
+    "sha256": "2000bb004e68e6d2974bef3067baeae6774f1922a21dca4ea18fecf6944ab467",
+    "pin_match": true,
+    "entries": [
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/INPUTS.SHA256SUMS",
+        "sha256": "d1f1afe99a491dfca37ea4c6d49de26e9a2f334ffe5e641249e1e062b11f98e4",
+        "match": true
+      },
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/PROGRESS.md",
+        "sha256": "18ce59a8c122aa588d11858b386df7b3d9d190faa2c387dc8d568ed75cc04b58",
+        "match": true
+      },
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/README.md",
+        "sha256": "2130fa87a601015db6923e64d3172a48ca8d14b84e6d3fca016e4a7f85c1d867",
+        "match": true
+      },
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/acceptance-scenarios.md",
+        "sha256": "1cc09f281f1a595b5f72c7b48b3e6364105fb783fd4f71edc1538a37d622076a",
+        "match": true
+      },
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/browser-flow.md",
+        "sha256": "1738c3746a4c85bed4e5cf0d31f883247a97df2e9377035cf295303044abb728",
+        "match": true
+      },
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/carrier-vectors.json",
+        "sha256": "544e933aeb8ae7e47ec0a54763b068fb38186302f14bc88a5b221684e8dd524b",
+        "match": true
+      },
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/construction-handoff.md",
+        "sha256": "9d56574e3d80404ac036826ab358ce68b52ecf71eb5111ef79f27e8af4535483",
+        "match": true
+      },
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/contracts.md",
+        "sha256": "33d5fb3c8ef6b4aa6baae3389c74032efb1faa6d809a3f09268910edf9ca1f10",
+        "match": true
+      },
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/disposition-ledger.md",
+        "sha256": "6a4dbdeb72f41a670fc88658588ff59c66b2fc93dadd59e50a0acf06fe84b6cd",
+        "match": true
+      },
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/evidence-fixtures.json",
+        "sha256": "800bb86177abb93b4445bee7e127b8caa14b20525a1a4f51a9df8b45774783c3",
+        "match": true
+      },
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/finding-matrix.md",
+        "sha256": "7f225c9864be75a432a241113990f49a7a8cc0e58d97eeeeb66bd63b143023e2",
+        "match": true
+      },
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/identity-map.md",
+        "sha256": "b099fe8e396f6b65fdba61de1ed4e8968b54def835b97ae28dd0da515673ebae",
+        "match": true
+      },
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/inherited-candidate.md",
+        "sha256": "6b1e525f9071ca7f6117386da0ac8a0bb8f30ee050f7a75963e254e22d08c822",
+        "match": true
+      },
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/integrity.json",
+        "sha256": "586583496437c00d8944c29e661eaa80e2322d1b6b450141725655bab8c9f477",
+        "match": true
+      },
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/late-original-fixtures.json",
+        "sha256": "5b156fdfe570761e41529497b8f231c41e5c727acf038fd1f0bd7486950fc328",
+        "match": true
+      },
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/old-prior-fixtures.json",
+        "sha256": "f07439b6d93d4002209db34b9bf9871c7ee1c381a8b5be2b5a0ac0cc324b345c",
+        "match": true
+      },
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/response-vectors.json",
+        "sha256": "38acdad4c10259e9194f4c0f2544e4337c8b3d236583fe784dd446dd8b169ca4",
+        "match": true
+      },
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/setup-overlays.json",
+        "sha256": "b962a433e7127acab439b959b2ca902d6d0d9680ff27763f47c8c50b9d70a8f6",
+        "match": true
+      },
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/verification.md",
+        "sha256": "e29d19d0c5dcee0740bc8ebe5ba39ebef02f06018ce801c3a09d5d74efafa1c0",
+        "match": true
+      },
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/websocket-vectors.json",
+        "sha256": "066753c90ca1808c36909d62c1b496b3ce309f153987558c1a558e5ba69ffcb9",
+        "match": true
+      },
+      {
+        "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/wire-fixtures.json",
+        "sha256": "e03a2747a34aabf19a0d7d4da038d1fe0124faf246b6b088d34b4f70d5a82936",
+        "match": true
+      }
+    ]
+  },
+  {
+    "manifest": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/terraform-corrections-rev3-20261123/CHANGED-FILES.sha256",
+    "sha256": "27223b5b71ea4f00532aa2b62370fd369c04cc26c423c1687de327a3df7b98f4",
+    "pin_match": true,
+    "entries": [
+      {
+        "path": ".github/workflows/terraform.yml",
+        "sha256": "6c42231b59d76cc68ef01b17b0e8480a6d2d30984551ce585a76baa7429b3ce5",
+        "match": true
+      },
+      {
+        "path": "infra/terraform/README.md",
+        "sha256": "ea6190ab5b3d707352e99ce7410bd269355310b925efdf4aa72c0557c1d8f96d",
+        "match": true
+      },
+      {
+        "path": "infra/terraform/tools/policy_checks.py",
+        "sha256": "bf6c3c56e5d01779aa1e5411d8607c2dbc3b7aeaae0e9cdeb39b578f191b9ed6",
+        "match": true
+      },
+      {
+        "path": "infra/terraform/modules/api/main.tf",
+        "sha256": "7ec90b86c5a327a8565d4b951d0f7c59b21cd210c4e727f3fc6c5ae8143356f9",
+        "match": true
+      },
+      {
+        "path": "infra/terraform/modules/api/outputs.tf",
+        "sha256": "7d3c627f92ad16d2e4751f4c05b14905d4c526ffd40b7958fb77f43e26c2e366",
+        "match": true
+      },
+      {
+        "path": "infra/terraform/modules/api/variables.tf",
+        "sha256": "77aa779a05ff730f832c73c531f94383671da0206597fc6cd4cf9b20cbe1f888",
+        "match": true
+      },
+      {
+        "path": "infra/terraform/modules/console/main.tf",
+        "sha256": "00131a1dbabfa955f93eb3c3ccd8c6b8641375724e9d5a162daa4863392e9241",
+        "match": true
+      },
+      {
+        "path": "infra/terraform/modules/console/variables.tf",
+        "sha256": "a8e9d77f09984713a5f85d246ef54bc9d8a95ef37c2a96afde42ab195d492876",
+        "match": true
+      },
+      {
+        "path": "infra/terraform/modules/data/main.tf",
+        "sha256": "b4dc0b79d870ee179783aec533da98552047515626d8b11f2bd0847337aa732d",
+        "match": true
+      },
+      {
+        "path": "infra/terraform/modules/data/variables.tf",
+        "sha256": "e77fa81cc1e87730f6cb0fb69357758587ad5dea1becfc3f73792b72b692b2c7",
+        "match": true
+      },
+      {
+        "path": "infra/terraform/modules/keycloak/main.tf",
+        "sha256": "aeb4aaa4b065db113765c3c70f5991c9e9843deef2c16d976e993dbfd3c528c0",
+        "match": true
+      },
+      {
+        "path": "infra/terraform/modules/ws/main.tf",
+        "sha256": "9d9dec201eea3dcb3b28f1080b2435eac570e1d3c9fa5c3e70548c506d68f297",
+        "match": true
+      },
+      {
+        "path": "infra/terraform/envs/stack/main.tf",
+        "sha256": "07f3d5a745e90b1df09fcda3bfd312373903511720b536afe5dbbd889661259f",
+        "match": true
+      },
+      {
+        "path": "infra/terraform/envs/stack/dns.tf",
+        "sha256": "6da8fc6dbff96bcd683cc46595381b5b5a41e17429e8eb13b9249dcaab4148f5",
+        "match": true
+      },
+      {
+        "path": "infra/terraform/envs/stack/outputs.tf",
+        "sha256": "a9d809d80e80ee49eb338c4cc8c93dc2049e417548a39674b5cc69278dc5c7d4",
+        "match": true
+      },
+      {
+        "path": "infra/terraform/envs/stack/variables.tf",
+        "sha256": "d1f7efa1bf2a4253d7a9cd24d77f67247d23c1b924e2a8bf5d3ec61dc8f8ed90",
+        "match": true
+      }
+    ]
+  }
+]

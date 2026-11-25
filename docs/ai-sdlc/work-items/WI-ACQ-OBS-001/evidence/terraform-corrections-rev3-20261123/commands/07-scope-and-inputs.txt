@@ -1,0 +1,39 @@
+# Protected inputs and write-scope evidence (regenerated after final edit)
+UTC 2026-11-24T01:29:29Z
+
+== review evidence hashes (expected from dispatch) ==
+9dabe22497b5379b9c5808da18b02dcdf76a7048ffc14611c15c6a6e9b73a8c1  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/continuation-rev2-domain-20261123/domain-review.md
+760ca956a980bf31224b7552d9d3a901b6be4881f8c9caec7f8630fbb89b260d  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/continuation-rev2-security-20261123/security-review.md
+
+== inputs.json / next-slices.json pins recomputed ==
+inputs.json: 11 pins, 11 match, 0 mismatch
+next-slices.json: 5 pins, 5 match, 0 mismatch
+
+== reviewed rev2 candidate packet ==
+entries OK: 14/14
+a3bbb25da508aa890d0c1bcc6b6d143dc36b922d2bd07ffaff5f2d9fc46ce48c  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev2-20261123/OUTPUTS.SHA256SUMS
+
+== final hashes of files written by this run (repo-root relative) ==
+.github/workflows/terraform.yml: OK
+infra/terraform/README.md: OK
+infra/terraform/tools/policy_checks.py: OK
+infra/terraform/modules/api/main.tf: OK
+infra/terraform/modules/api/outputs.tf: OK
+infra/terraform/modules/api/variables.tf: OK
+infra/terraform/modules/console/main.tf: OK
+infra/terraform/modules/console/variables.tf: OK
+infra/terraform/modules/data/main.tf: OK
+infra/terraform/modules/data/variables.tf: OK
+infra/terraform/modules/keycloak/main.tf: OK
+infra/terraform/modules/ws/main.tf: OK
+infra/terraform/envs/stack/main.tf: OK
+infra/terraform/envs/stack/dns.tf: OK
+infra/terraform/envs/stack/outputs.tf: OK
+infra/terraform/envs/stack/variables.tf: OK
+
+== legacy artifact preserved ==
+f7637650095ea5166aee9e3d41dbad3d033324c45d48268c70d2bb58d62c1abe  infra/template.yaml
+
+== not touched (application/contracts/normative sources) ==
+src/, pom.xml, requirements.md, observation-contract.md, acceptance-scenarios.md, channel-contract.md, owner-decisions.md, design/, reviews/ — no writes by this run.
+Concurrent Requirements output design/contract-deltas/continuation-rev3-20261123/ is another owner's write; not modified here.

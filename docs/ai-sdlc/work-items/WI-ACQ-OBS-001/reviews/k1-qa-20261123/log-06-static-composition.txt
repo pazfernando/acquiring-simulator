@@ -1,0 +1,33 @@
+== imports of ConsoleRuntime.java:
+3:import com.acquiring.simulator.console.ConsoleAuthorizationRoute;
+4:import com.acquiring.simulator.console.ConsoleHistoryRoute;
+5:import com.acquiring.simulator.console.ConsoleHttpRequest;
+6:import com.acquiring.simulator.console.ConsoleHttpResponse;
+7:import com.acquiring.simulator.console.ConsoleIntegrationEntryPoint;
+8:import com.acquiring.simulator.console.ConsoleOriginDenialSink;
+9:import com.acquiring.simulator.console.ConsoleOriginVerificationGate;
+10:import com.acquiring.simulator.console.StandardStreamOriginDenialSink;
+11:import java.time.Clock;
+12:import java.util.Objects;
+13:import java.util.function.Function;
+
+== references to dev stub / jwt composition in production composition (adapter/aws):
+(none = isolated)
+
+== all main-tree references to console.dev classes:
+src/main/java/com/acquiring/simulator/console/dev/DevStubTokenIssuer.java
+src/main/java/com/acquiring/simulator/console/dev/ConsoleDevConfig.java
+src/main/java/com/acquiring/simulator/console/dev/ConsoleDevServer.java
+src/main/java/com/acquiring/simulator/console/dev/DevIssuerSimulator.java
+src/main/java/com/acquiring/simulator/console/dev/ConsoleDevHarness.java
+src/main/java/com/acquiring/simulator/console/ConsoleTokenDecoder.java
+
+== all main-tree references to console.jwt classes outside console/jwt:
+src/main/java/com/acquiring/simulator/console/DemoConsoleAuthorizer.java
+src/main/java/com/acquiring/simulator/console/ConsoleTokenDecoder.java
+(none = jwt package unused by other main code; composition seam is opt-in)
+
+== ConsoleHandler entry:
+28: * {@link ConsoleRuntime}, which reads {@code EDGE_ORIGIN_VERIFY} through
+47:        this(() -> ConsoleRuntime.consoleEntryPoint());
+52:        this(() -> ConsoleRuntime.consoleEntryPoint(environment));

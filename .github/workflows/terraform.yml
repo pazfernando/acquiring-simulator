@@ -1,0 +1,210 @@
+name: terraform
+
+# Authored only. Nothing in this workflow has been executed.
+#
+# - Pull requests run local-only static checks: no AWS credentials, no backend.
+# - The plan job runs only on manual dispatch and enters the `terraform-plan`
+#   environment (protect it with required reviewers).
+# - The apply job runs only when the dispatcher types APPLY and enters the
+#   `terraform-apply` environment, whose protection rules are the human
+#   deployment approval. It is intentionally not reachable from a pull request.
+on:
+  pull_request:
+    paths:
+      - "infra/terraform/**"
+      - ".github/workflows/terraform.yml"
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: "Type PLAN to plan, or APPLY to run the gated apply job"
+        required: true
+        default: "PLAN"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: terraform-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  TF_IN_AUTOMATION: "true"
+  TF_INPUT: "false"
+  # Required repository/environment variables (none has a default in code):
+  #   AWS_ACCOUNT_ID, AWS_REGION, AWS_ROLE_ARN, ENVIRONMENT, OIDC_SUBJECT,
+  #   TF_STATE_BUCKET, TF_STATE_KEY, TF_STATE_KMS_KEY_ARN, DNS_ZONE_ID,
+  #   CONSOLE_FQDN, API_FQDN, AUTH_FQDN, WS_FQDN, ACL_FQDN, PROCESSOR_FQDN,
+  #   and the certificate / audience / artifact / truststore variables.
+  # Missing values make the plan fail closed; none is invented in the workflow.
+  TF_VAR_aws_account_id: ${{ vars.AWS_ACCOUNT_ID }}
+  TF_VAR_environment: ${{ vars.ENVIRONMENT }}
+  TF_VAR_github_oidc_subject: ${{ vars.OIDC_SUBJECT }}
+  TF_VAR_state_bucket_arn: ${{ vars.TF_STATE_BUCKET_ARN }}
+  TF_VAR_state_kms_key_arn: ${{ vars.TF_STATE_KMS_KEY_ARN }}
+  TF_VAR_dns_zone_id: ${{ vars.DNS_ZONE_ID }}
+  TF_VAR_console_fqdn: ${{ vars.CONSOLE_FQDN }}
+  TF_VAR_api_fqdn: ${{ vars.API_FQDN }}
+  TF_VAR_auth_fqdn: ${{ vars.AUTH_FQDN }}
+  TF_VAR_ws_fqdn: ${{ vars.WS_FQDN }}
+  TF_VAR_acl_fqdn: ${{ vars.ACL_FQDN }}
+  TF_VAR_processor_fqdn: ${{ vars.PROCESSOR_FQDN }}
+
+jobs:
+  static:
+    name: Format, validate, lint, policy
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4.0.1
+        with:
+          terraform_version: 1.17.2
+          terraform_wrapper: false
+
+      - name: Format check
+        run: terraform fmt -check -recursive -diff
+        working-directory: infra/terraform
+
+      - name: Validate bootstrap root
+        run: |
+          terraform init -backend=false -input=false -no-color
+          terraform validate -no-color
+        working-directory: infra/terraform/bootstrap
+
+      - name: Validate stack root
+        run: |
+          terraform init -backend=false -input=false -no-color
+          terraform validate -no-color
+        working-directory: infra/terraform/envs/stack
+
+      - name: Set up tflint
+        uses: terraform-linters/setup-tflint@6ffdbaa3be476b3431f7275c26966ef32ff60337 # v6.3.2
+        with:
+          tflint_version: v0.66.0
+
+      - name: tflint
+        run: |
+          tflint --init
+          tflint --recursive --format compact
+        working-directory: infra/terraform
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+
+      - name: Policy checks
+        run: |
+          python -m pip install --disable-pip-version-check python-hcl2==7.3.1
+          python infra/terraform/tools/policy_checks.py
+
+  plan:
+    name: Plan (manual, no state change)
+    if: github.event_name == 'workflow_dispatch'
+    needs: static
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: terraform-plan
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Assume the deploy role via GitHub OIDC
+        uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          role-session-name: terraform-plan
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4.0.1
+        with:
+          terraform_version: 1.17.2
+          terraform_wrapper: false
+
+      - name: Init
+        working-directory: infra/terraform/envs/stack
+        run: |
+          terraform init -input=false -no-color \
+            -backend-config="bucket=${{ vars.TF_STATE_BUCKET }}" \
+            -backend-config="key=${{ vars.TF_STATE_KEY }}" \
+            -backend-config="region=${{ vars.AWS_REGION }}" \
+            -backend-config="encrypt=true" \
+            -backend-config="use_lockfile=true" \
+            -backend-config="kms_key_id=${{ vars.TF_STATE_KMS_KEY_ARN }}"
+
+      - name: Plan
+        working-directory: infra/terraform/envs/stack
+        run: terraform plan -input=false -lock-timeout=5m -no-color -out=tfplan
+
+      - name: Render reviewable plan text
+        working-directory: infra/terraform/envs/stack
+        run: terraform show -no-color tfplan > plan.txt
+
+      - name: Upload plan text
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: terraform-plan-${{ github.sha }}
+          path: infra/terraform/envs/stack/plan.txt
+          retention-days: 7
+          if-no-files-found: error
+
+  apply:
+    name: Apply (human-gated)
+    if: github.event_name == 'workflow_dispatch' && inputs.confirm == 'APPLY'
+    needs:
+      - static
+      - plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    environment: terraform-apply
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Assume the deploy role via GitHub OIDC
+        uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+          role-session-name: terraform-apply
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4.0.1
+        with:
+          terraform_version: 1.17.2
+          terraform_wrapper: false
+
+      - name: Init
+        working-directory: infra/terraform/envs/stack
+        run: |
+          terraform init -input=false -no-color \
+            -backend-config="bucket=${{ vars.TF_STATE_BUCKET }}" \
+            -backend-config="key=${{ vars.TF_STATE_KEY }}" \
+            -backend-config="region=${{ vars.AWS_REGION }}" \
+            -backend-config="encrypt=true" \
+            -backend-config="use_lockfile=true" \
+            -backend-config="kms_key_id=${{ vars.TF_STATE_KMS_KEY_ARN }}"
+
+      - name: Plan again for the applied plan file
+        working-directory: infra/terraform/envs/stack
+        run: terraform plan -input=false -lock-timeout=5m -no-color -out=tfplan
+
+      - name: Apply the reviewed plan
+        working-directory: infra/terraform/envs/stack
+        run: terraform apply -input=false -no-color -lock-timeout=5m tfplan

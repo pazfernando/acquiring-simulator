@@ -1,0 +1,70 @@
+{
+  "addendum": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/d5-ws-issuance.md",
+  "sha256": "c7ef28ef0279d94e9896d5c7a003b62864edebbd69847867449888f2e45a5b7b",
+  "bytes": 14430,
+  "purpose": "Answers the two D-5 questions left to DevOps: how the public console-demo client obtains a WS-only demo token from self-managed Keycloak, and how svc-console-ws is disposed of without a bypass. Proposal only; D-5 remains OPEN.",
+  "questions": {
+    "Q1_issuance": {
+      "answer": "console-demo (public, PKCE) performs a second authorize with prompt=none and scope=ws.observe; a scope-gated Audience mapper on the optional ws-observe client scope yields aud=WS API and no other audience; lifetime <=900 s, no refresh for that token; $connect requires issuer/signature/expiry, WS audience, ws.observe, azp=console-demo, sub=demo subject and exact Origin.",
+      "client": "console-demo (public, authorization code + PKCE S256, exact HTTPS redirect)",
+      "flow": "second authorization request with prompt=none, top-level redirect, no iframe; interactive fallback on login_required",
+      "audience": "WS API resource only (optional client scope audience mapper)",
+      "scope": "ws.observe only",
+      "separate_or_narrowed": "separate token from the same client and subject, with disjoint audience/scope from the console token",
+      "lifetime": "<=900 s, no refresh token for the WS token, re-authorize instead",
+      "authorizer_checks": [
+        "subprotocol contains fixed protocol id + JWT",
+        "signature via issuer JWKS, RSA alg allowlist, known kid",
+        "iss equals deployed realm issuer",
+        "aud contains WS API",
+        "scope contains ws.observe",
+        "azp == console-demo (allowlist of one)",
+        "sub == configured single demo subject",
+        "exp/nbf/iat within skew, total <=900 s",
+        "Origin exactly https://console.<domain>",
+        "authorizer cache TTL 0",
+        "echo fixed protocol id only, never the token"
+      ]
+    },
+    "Q2_svc_console_ws": {
+      "answer": "Retired: no consumer remains, and even a recreated/renamed confidential client is rejected because $connect allowlists azp=console-demo and sub=demo subject — audience/scope alone would not have prevented the bypass.",
+      "disposition": "retire (delete client, credential, registry row, configuration variables)",
+      "bypass_prevention_layers": [
+        "client deleted: no assertion key exists",
+        "azp allowlist = {console-demo}",
+        "sub == demo subject (client_credentials carries a service-account subject)",
+        "audience/scope checks are necessary but not sufficient, and are not relied on alone"
+      ],
+      "callback_separation": "notifier uses IAM SigV4 execute-api:ManageConnections scoped to this API/stage; no Keycloak client, no OAuth token, no browser token; CI asserts only the notifier role holds that permission"
+    }
+  },
+  "config_changes": {
+    "removed": ["svc-console-ws client", "OAUTH_CLIENT_ID_CONSOLE_WS", "OAUTH_SCOPES_CONSOLE_WS", "OAUTH_KEY_CONSOLE_WS"],
+    "added_keycloak": ["optional client scope console-api (console audience, console.demo)", "optional client scope ws-observe (WS audience, ws.observe)"],
+    "added_variables": ["WS_SCOPE", "WS_AUDIENCE", "WS_ALLOWED_AZP", "WS_ALLOWED_SUBJECT", "WS_PROMPT_MODE", "WS_SUBPROTOCOL_BEARER", "DEMO_WS_TOKEN_TTL_SECONDS"],
+    "table_changes": ["connection record: replace serviceBinding with azp + tokenClass=demo-ws; keep epoch/sub/environment/registryVersion/tokenExpiry/leaseExpiry"],
+    "logging": ["exclude Sec-WebSocket-Protocol and Authorization from all log formats; CI assertion"],
+    "iam": ["confirm only the notifier role holds execute-api:ManageConnections on this API/stage"]
+  },
+  "security_conditions": {
+    "registry_revocation": "connection record + per-frame + idle scheduler re-read; REVOKED closes <=1 heartbeat; failed read fails closed; no refresh on the WS token",
+    "subprotocol_log_hygiene": "log format exclusion + CI assertion; fallback = 30 s single-use ticket minted by the console API (authenticated endpoint, not a relay)",
+    "exact_origin": "authorizer equality; forged Origin by non-browser clients is acknowledged, so Origin is context protection, not authentication",
+    "rate_limits": "<=6 connect attempts/min/subject plus pre-auth IP/concurrency; token endpoint and prompt=none under the same WAF rule"
+  },
+  "unverified": [
+    "pinned Keycloak release applies optional-scope audience mapper only when requested",
+    "prompt=none with PKCE behaves silently with a live SSO session and returns login_required otherwise",
+    "azp and demo sub are present on the second-authorize token",
+    "API Gateway WS $connect authorizer receives Sec-WebSocket-Protocol for the selected API type",
+    "JWT grammar/length limits in Sec-WebSocket-Protocol on the deployed stack",
+    "log-field exclusion is configurable on CloudFront/API Gateway/WAF as claimed",
+    "refresh-with-narrowed-scope alternative (only if needed)",
+    "SSO expiry behaviour mid-demonstration"
+  ],
+  "notClaimed": [
+    "D-5 is not closed",
+    "No realm, client scope, mapper, authorizer, log configuration or IAM policy was created or inspected",
+    "No token minted, no socket opened, no deployment or cloud call"
+  ]
+}

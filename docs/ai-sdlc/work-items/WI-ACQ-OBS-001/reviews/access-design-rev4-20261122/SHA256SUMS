@@ -1,0 +1,5 @@
+# SHA256SUMS — independent Security review of access design revision 4
+# Review directory: reviews/access-design-rev4-20261122/
+# Recorded at completion (2026-11-22). This sidecar deliberately excludes its own digest.
+# Input identities (nine, all MATCH at open; five recomputed unchanged at close) are in security-review.md §2/§16.
+c418f93a70fc41fc282ba5c2ea5c28714d14337f02c7d58ee4ecb97c8d123ed2  /home/pazfernando/projects/acquiring-simulator/docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-rev4-20261122/security-review.md

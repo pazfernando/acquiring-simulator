@@ -1,0 +1,4 @@
+$ cd infra/terraform/bootstrap && terraform init -backend=false -input=false && terraform validate
+Success! The configuration is valid.
+
+exit=0

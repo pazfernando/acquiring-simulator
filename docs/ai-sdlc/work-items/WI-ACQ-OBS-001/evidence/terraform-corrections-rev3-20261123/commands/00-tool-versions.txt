@@ -1,0 +1,25 @@
+# Tool versions
+UTC 2026-11-24T01:27:35Z  local 2026-11-23T20:27:35-0500
+
+Terraform v1.17.2
+on linux_amd64
+
+
+TFLint version 0.66.0
++ ruleset.terraform (0.17.0-bundled)
+
+1.7.12
+installed by downloading from release page
+built with go1.26.1 compiler for linux/amd64
+
+Python 3.12.3
+python-hcl2 7.3.1
+
+provider "registry.terraform.io/hashicorp/aws" {
+  version     = "6.74.0"
+  constraints = "6.74.0"
+
+# Install provenance: user-local, checksum-verified (see devops-report section 6)
+sha256 terraform binary: dbfef0be43ba2117481be510d3b83a2d8cdfa6ae7ec69c5aeb04b3947956ff7e
+sha256 tflint binary:    8f33a3e34dd83cd4bf43646f2e8492d4d5bb8941036a9ae517b611e56004e70d
+sha256 actionlint binary:c872d6db8c6bf83a8eaa704fc93999f027d55dffbc63b8a6abdccb47df5f4cd4

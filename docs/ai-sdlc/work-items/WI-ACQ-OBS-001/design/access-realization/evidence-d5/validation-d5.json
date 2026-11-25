@@ -1,0 +1,51 @@
+{
+  "addendumSet": "design/access-realization/d5-ws-issuance.md + evidence-d5/",
+  "status": "PROPOSAL; answers D-5 questions; closes nothing; no approval",
+  "author": "ai-sdlc-devops",
+  "date": "2026-11-22 (America/Bogota)",
+  "runtime": {
+    "harness": "native OpenClaw subagent",
+    "observedModelMetadata": "nan/deepseek-v4-flash",
+    "configuredDefault": true,
+    "modelOverrideApplied": false
+  },
+  "files": [
+    { "path": "d5-ws-issuance.md", "bytes": 14430, "sha256": "c7ef28ef0279d94e9896d5c7a003b62864edebbd69847867449888f2e45a5b7b" },
+    { "path": "evidence-d5/issuance-decision.json", "bytes": 5303, "sha256": "b83a24df4a53d7bd4d54850a0e146602f19773df81b929629919a25760e9a32a" }
+  ],
+  "inputIntegrity": [
+    { "path": "design/contract-deltas/operation-a-contract-delta.md", "sha256": "6b1e525f9071ca7f6117386da0ac8a0bb8f30ee050f7a75963e254e22d08c822", "verdict": "MATCH" },
+    { "path": "design/contract-deltas/evidence/clause-index.json", "sha256": "62c76ec6d8609f4120d192901a8cf83a0ce3e1c71e6a32101bbb34d0fc1428ab", "verdict": "MATCH" },
+    { "path": "design/access-realization/design-rev4.md", "sha256": "3926423e9f42f6949647e5904271b6f6818b977301b66e81ffcf334f10c5dc56", "verdict": "MATCH" },
+    { "path": "owner-decisions.md", "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6", "verdict": "OBSERVED (advanced from 9bf166fe...); not edited" }
+  ],
+  "branchHead": {
+    "value": "5bbd4eb5d49be036e695e5f25a8c83c4f7d5ac14",
+    "source": "supplied by the commission as an owner commit",
+    "verifiedByThisRole": false,
+    "note": "No Git command executed"
+  },
+  "preservationChecks": [
+    { "path": "design/contract-deltas/operation-a-contract-delta.md", "result": "UNCHANGED" },
+    { "path": "design/access-realization/design-rev4.md", "result": "UNCHANGED" },
+    { "path": "observation-contract.md", "result": "UNCHANGED" },
+    { "path": "channel-contract.md", "result": "UNCHANGED" },
+    { "path": "requirements.md", "result": "UNCHANGED" }
+  ],
+  "answers": {
+    "Q1": "console-demo obtains a separate WS-only token via prompt=none authorize with scope=ws.observe; scope-gated audience mapper yields aud=WS API; $connect enforces issuer/WS audience/ws.observe/azp=console-demo/sub=demo subject/exact Origin and cache TTL 0.",
+    "Q2": "svc-console-ws is retired; the $connect azp+sub allowlist (not the audience) is what makes a service token unable to pass; callbacks remain IAM-only and are a different credential system."
+  },
+  "boundariesObserved": [
+    "No Git/provider command; HEAD recorded as supplied",
+    "No AWS or Keycloak call, no realm/client inspection, no token minted, no socket opened",
+    "No Terraform or SAM authored; configuration-only statements",
+    "No approved file, delta bundle, review or earlier proposal modified",
+    "No onward delegation; no self-approval; D-5 not closed"
+  ],
+  "limitations": [
+    "Keycloak client-scope audience gating and prompt=none behaviour are designed, not observed",
+    "Subprotocol carriage by the WebSocket authorizer on the chosen API type is unverified",
+    "Log-exclusion configurability is asserted as a requirement, not proven"
+  ]
+}

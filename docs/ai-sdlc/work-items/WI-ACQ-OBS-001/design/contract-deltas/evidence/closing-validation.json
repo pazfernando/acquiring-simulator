@@ -1,0 +1,892 @@
+{
+  "checked_at_utc": "2026-11-23T01:13:25.097615+00:00",
+  "scope": "Documentary byte/excerpt/link/provenance checks; no product code or tests",
+  "revision_review_sha256": "81c258c8a25c8d107e71621f4b3409de7a44ef6521f3edf885049ff20b5f7d22",
+  "review_verdict": "CONDITIONAL; changed revision requires independent review",
+  "prior_bundle": [
+    {
+      "previous_path": "operation-a-contract-delta.md",
+      "preserved_path": "previous-version/pre-domain-revision-20261122/operation-a-contract-delta.md",
+      "sha256": "30808ae27e9d130664049503b93cd2d445650db6346690602ef965d8ac9bc302",
+      "matches": true
+    },
+    {
+      "previous_path": "evidence/SHA256SUMS",
+      "preserved_path": "previous-version/pre-domain-revision-20261122/evidence/SHA256SUMS",
+      "sha256": "c9cfd09080768938337c26a305531865173e40c4934746fe3227acaca3c0de0f",
+      "matches": true
+    },
+    {
+      "previous_path": "evidence/owner-record-drift.json",
+      "preserved_path": "previous-version/pre-domain-revision-20261122/evidence/owner-record-drift.json",
+      "sha256": "585f4d7ee0eeeace30d089b883438380991db6beac4e2a793354c57f2f47f961",
+      "matches": true
+    },
+    {
+      "previous_path": "evidence/input-identities.json",
+      "preserved_path": "previous-version/pre-domain-revision-20261122/evidence/input-identities.json",
+      "sha256": "ef324089776d3e96e6ec297bfed2c09acb1e2ebc56cdc85fe7a170577cfe2486",
+      "matches": true
+    },
+    {
+      "previous_path": "evidence/owner-decisions-as-reviewed-9bf166fe.md",
+      "preserved_path": "previous-version/pre-domain-revision-20261122/evidence/owner-decisions-as-reviewed-9bf166fe.md",
+      "sha256": "9bf166feed3eed4c0b4d6d4e441ae1ef44d3826a8bdab0cad65277bcd8127cdb",
+      "matches": true
+    },
+    {
+      "previous_path": "evidence/README.md",
+      "preserved_path": "previous-version/pre-domain-revision-20261122/evidence/README.md",
+      "sha256": "139e45011b6ac46777499e849af8c05d2e2df5605687c6947d9705f1de6229dd",
+      "matches": true
+    },
+    {
+      "previous_path": "evidence/closing-validation.json",
+      "preserved_path": "previous-version/pre-domain-revision-20261122/evidence/closing-validation.json",
+      "sha256": "2bd86d75a61ef94f54a40b40606bce21c7051ebe94d6757ee73edc1ca31b34a4",
+      "matches": true
+    },
+    {
+      "previous_path": "evidence/clause-index.json",
+      "preserved_path": "previous-version/pre-domain-revision-20261122/evidence/clause-index.json",
+      "sha256": "41f74a84a1090150f80ed60841ad0d00a03304fcb780ab8ac67320d9fb25b891",
+      "matches": true
+    }
+  ],
+  "revision_inputs": [
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/contract-delta-20261122/domain-review.md",
+      "sha256_at_read": "81c258c8a25c8d107e71621f4b3409de7a44ef6521f3edf885049ff20b5f7d22",
+      "sha256_at_close": "81c258c8a25c8d107e71621f4b3409de7a44ef6521f3edf885049ff20b5f7d22",
+      "unchanged": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/iso8583-profile.md",
+      "sha256_at_read": "de02c533536dcb6e87e4c6e93357efb9efa60c085a59f6f63bbfbb8c0e1fe481",
+      "sha256_at_close": "de02c533536dcb6e87e4c6e93357efb9efa60c085a59f6f63bbfbb8c0e1fe481",
+      "unchanged": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-AUTH-001/requirements.md",
+      "sha256_at_read": "595ab10f95ba59ebcad6c235162c32f1a35eca519a2d341da8df5e675fe5e840",
+      "sha256_at_close": "595ab10f95ba59ebcad6c235162c32f1a35eca519a2d341da8df5e675fe5e840",
+      "unchanged": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "sha256_at_read": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+      "sha256_at_close": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+      "unchanged": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "sha256_at_read": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "sha256_at_close": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "unchanged": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/acceptance-scenarios.md",
+      "sha256_at_read": "1586898418c09dcf092d567a4155b4524a0bc34500bf4ea76ce8f76465aa7733",
+      "sha256_at_close": "1586898418c09dcf092d567a4155b4524a0bc34500bf4ea76ce8f76465aa7733",
+      "unchanged": true
+    },
+    {
+      "path": "docs/ai-sdlc/sources/acquiring_simulator_functional_guide.md",
+      "sha256_at_read": "90a798c7e2a1de362993cb4974d306497d7de3567c163a3511c07b194a5ae094",
+      "sha256_at_close": "90a798c7e2a1de362993cb4974d306497d7de3567c163a3511c07b194a5ae094",
+      "unchanged": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "sha256_at_read": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "sha256_at_close": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "unchanged": true
+    }
+  ],
+  "source_clause_checks": [
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 35,
+      "end": 39,
+      "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 42,
+      "end": 43,
+      "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "start": 51,
+      "end": 53,
+      "sha256": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 26,
+      "end": 31,
+      "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 90,
+      "end": 99,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 82,
+      "end": 86,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 138,
+      "end": 142,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "start": 5,
+      "end": 5,
+      "sha256": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "start": 51,
+      "end": 52,
+      "sha256": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 36,
+      "end": 36,
+      "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/iso8583-profile.md",
+      "start": 59,
+      "end": 64,
+      "sha256": "de02c533536dcb6e87e4c6e93357efb9efa60c085a59f6f63bbfbb8c0e1fe481",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 90,
+      "end": 99,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 138,
+      "end": 142,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 46,
+      "end": 50,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 56,
+      "end": 60,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 123,
+      "end": 142,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 138,
+      "end": 142,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/requirements.md",
+      "start": 55,
+      "end": 55,
+      "sha256": "49c5d412e3705c320a2f78b190555f49e7e0fa4662cff9329d259f89e2b459df",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/requirements.md",
+      "start": 61,
+      "end": 61,
+      "sha256": "49c5d412e3705c320a2f78b190555f49e7e0fa4662cff9329d259f89e2b459df",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/iso8583-profile.md",
+      "start": 59,
+      "end": 64,
+      "sha256": "de02c533536dcb6e87e4c6e93357efb9efa60c085a59f6f63bbfbb8c0e1fe481",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 82,
+      "end": 86,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 138,
+      "end": 142,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 38,
+      "end": 38,
+      "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 42,
+      "end": 43,
+      "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "start": 52,
+      "end": 52,
+      "sha256": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev4.md",
+      "start": 154,
+      "end": 172,
+      "sha256": "3926423e9f42f6949647e5904271b6f6818b977301b66e81ffcf334f10c5dc56",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev4.md",
+      "start": 258,
+      "end": 263,
+      "sha256": "3926423e9f42f6949647e5904271b6f6818b977301b66e81ffcf334f10c5dc56",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 82,
+      "end": 86,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 90,
+      "end": 99,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 138,
+      "end": 142,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 42,
+      "end": 45,
+      "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 59,
+      "end": 60,
+      "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "start": 57,
+      "end": 57,
+      "sha256": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/iso8583-profile.md",
+      "start": 59,
+      "end": 64,
+      "sha256": "de02c533536dcb6e87e4c6e93357efb9efa60c085a59f6f63bbfbb8c0e1fe481",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 82,
+      "end": 86,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 138,
+      "end": 142,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 37,
+      "end": 37,
+      "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "start": 51,
+      "end": 53,
+      "sha256": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/requirements.md",
+      "start": 27,
+      "end": 27,
+      "sha256": "49c5d412e3705c320a2f78b190555f49e7e0fa4662cff9329d259f89e2b459df",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev4.md",
+      "start": 85,
+      "end": 143,
+      "sha256": "3926423e9f42f6949647e5904271b6f6818b977301b66e81ffcf334f10c5dc56",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 90,
+      "end": 99,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 138,
+      "end": 142,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "start": 5,
+      "end": 5,
+      "sha256": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 35,
+      "end": 38,
+      "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "start": 51,
+      "end": 52,
+      "sha256": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev3.md",
+      "start": 155,
+      "end": 167,
+      "sha256": "cdd65729ec04708e9bd96626d29980d616fa32261620825987c9eb2cc7d63d2a",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev4.md",
+      "start": 219,
+      "end": 224,
+      "sha256": "3926423e9f42f6949647e5904271b6f6818b977301b66e81ffcf334f10c5dc56",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/iso8583-profile.md",
+      "start": 83,
+      "end": 94,
+      "sha256": "de02c533536dcb6e87e4c6e93357efb9efa60c085a59f6f63bbfbb8c0e1fe481",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "start": 24,
+      "end": 36,
+      "sha256": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 90,
+      "end": 99,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 138,
+      "end": 142,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 101,
+      "end": 107,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev2.md",
+      "start": 133,
+      "end": 141,
+      "sha256": "6b15161875e702ebae74e4f76b4b94cae9ffbbb94d6a9fcd42aee563b8f3873c",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev3.md",
+      "start": 217,
+      "end": 219,
+      "sha256": "cdd65729ec04708e9bd96626d29980d616fa32261620825987c9eb2cc7d63d2a",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev3.md",
+      "start": 137,
+      "end": 151,
+      "sha256": "cdd65729ec04708e9bd96626d29980d616fa32261620825987c9eb2cc7d63d2a",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 117,
+      "end": 129,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 90,
+      "end": 99,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 117,
+      "end": 121,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 123,
+      "end": 127,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/requirements.md",
+      "start": 25,
+      "end": 29,
+      "sha256": "49c5d412e3705c320a2f78b190555f49e7e0fa4662cff9329d259f89e2b459df",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/requirements.md",
+      "start": 76,
+      "end": 78,
+      "sha256": "49c5d412e3705c320a2f78b190555f49e7e0fa4662cff9329d259f89e2b459df",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 90,
+      "end": 99,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 82,
+      "end": 86,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 138,
+      "end": 142,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/acceptance-scenarios.md",
+      "start": 36,
+      "end": 37,
+      "sha256": "1586898418c09dcf092d567a4155b4524a0bc34500bf4ea76ce8f76465aa7733",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/acceptance-scenarios.md",
+      "start": 55,
+      "end": 66,
+      "sha256": "1586898418c09dcf092d567a4155b4524a0bc34500bf4ea76ce8f76465aa7733",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/websocket-vectors.json",
+      "start": 1,
+      "end": 4,
+      "sha256": "e6d30a83367233d9216c2ef162e82d7f67e1b6841de312a0e5dadcec3dace2a8",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 45,
+      "end": 62,
+      "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 82,
+      "end": 86,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 138,
+      "end": 142,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 74,
+      "end": 79,
+      "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 46,
+      "end": 50,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/retention/retention-delta.md",
+      "start": 1,
+      "end": 5,
+      "sha256": "d11ead64f0bd3928b4112b29c408eab1d3e0f9401b84a4580e3d4adb8b35fd76",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/adr-operation-a-access-and-environment.md",
+      "start": 11,
+      "end": 21,
+      "sha256": "d51bbf650aca74e82351dacf0e45d0f14c992044b9ff246bc7b8b281920b0b39",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/iso8583-profile.md",
+      "start": 89,
+      "end": 100,
+      "sha256": "de02c533536dcb6e87e4c6e93357efb9efa60c085a59f6f63bbfbb8c0e1fe481",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 123,
+      "end": 127,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 90,
+      "end": 99,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 43,
+      "end": 43,
+      "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 52,
+      "end": 52,
+      "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 59,
+      "end": 62,
+      "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "start": 57,
+      "end": 57,
+      "sha256": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 86,
+      "end": 86,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev3.md",
+      "start": 173,
+      "end": 186,
+      "sha256": "cdd65729ec04708e9bd96626d29980d616fa32261620825987c9eb2cc7d63d2a",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/iso8583-profile.md",
+      "start": 59,
+      "end": 64,
+      "sha256": "de02c533536dcb6e87e4c6e93357efb9efa60c085a59f6f63bbfbb8c0e1fe481",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 82,
+      "end": 86,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 138,
+      "end": 142,
+      "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/iso8583-profile.md",
+      "start": 59,
+      "end": 64,
+      "sha256": "de02c533536dcb6e87e4c6e93357efb9efa60c085a59f6f63bbfbb8c0e1fe481",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/iso8583-profile.md",
+      "start": 83,
+      "end": 94,
+      "sha256": "de02c533536dcb6e87e4c6e93357efb9efa60c085a59f6f63bbfbb8c0e1fe481",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/iso8583-profile.md",
+      "start": 99,
+      "end": 100,
+      "sha256": "de02c533536dcb6e87e4c6e93357efb9efa60c085a59f6f63bbfbb8c0e1fe481",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "start": 26,
+      "end": 36,
+      "sha256": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 26,
+      "end": 31,
+      "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "exact_match": true
+    },
+    {
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/../WI-ACQ-AUTH-001/requirements.md",
+      "start": 92,
+      "end": 97,
+      "sha256": "595ab10f95ba59ebcad6c235162c32f1a35eca519a2d341da8df5e675fe5e840",
+      "exact_match": true
+    }
+  ],
+  "local_link_checks": [
+    {
+      "file": "operation-a-contract-delta.md",
+      "target": "../../reviews/access-design-rev4-20261122/security-review.md",
+      "exists": true
+    },
+    {
+      "file": "operation-a-contract-delta.md",
+      "target": "../access-realization/design-rev4.md",
+      "exists": true
+    },
+    {
+      "file": "operation-a-contract-delta.md",
+      "target": "../../owner-decisions.md",
+      "exists": true
+    },
+    {
+      "file": "operation-a-contract-delta.md",
+      "target": "evidence/clause-index.json",
+      "exists": true
+    },
+    {
+      "file": "operation-a-contract-delta.md",
+      "target": "evidence/owner-decisions-as-reviewed-9bf166fe.md",
+      "exists": true
+    },
+    {
+      "file": "operation-a-contract-delta.md",
+      "target": "../../reviews/contract-delta-20261122/domain-review.md",
+      "exists": true
+    },
+    {
+      "file": "operation-a-contract-delta.md",
+      "target": "previous-version/pre-domain-revision-20261122/operation-a-contract-delta.md",
+      "exists": true
+    }
+  ],
+  "delta_count": 13,
+  "classification_counts": {
+    "PROPOSED NORMATIVE CHANGE": 10,
+    "SOURCED CLARIFICATION": 2,
+    "OPEN CONFLICT": 1
+  },
+  "classifications_unchanged": true,
+  "D-5": "OPEN CONFLICT",
+  "G-1_to_G-5": "Explicit candidate guardrails; not promoted or verified",
+  "NV-05": "OPEN; R-1/R-2 do not close retention realization",
+  "approved_files_modified_by_this_author": false,
+  "model_override": false
+}

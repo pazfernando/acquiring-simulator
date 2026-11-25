@@ -1,0 +1,4 @@
+hashdiff_exit=0
+sha256sum_check_exit=0
+git_status_diff_exit=0
+head_unchanged=yes

@@ -1,0 +1,54 @@
+Vendor evidence: CloudFront origin custom headers (override + denylist + use case)
+URL: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html
+Fetched (UTC): 2026-11-24T03:11Z run, saved by curl -sL
+meta: http_code=200 bytes=22856
+sha256(captured HTML): 54bf92372e2c7d49830610e074a2f62a4133b725ba4ca160735603b69cc8700c
+bytes: 22856
+
+--- Quoted: override semantics ---
+If the header names and values that you specify are not already present in the viewer
+ request, CloudFront adds them to the origin request. If a header is present, CloudFront overwrites
+ the header value before forwarding the request to the origin.
+
+--- Quoted: anti-bypass use case ---
+You can use custom headers to control access to content. By configuring
+ your origin to respond to requests only when they include a custom header
+ that gets added by CloudFront, you prevent users from bypassing CloudFront and accessing
+ your content directly on the origin. For more information, see Restrict access to files on custom origins .
+
+--- Quoted: headers CloudFront cannot add ---
+You can’t configure CloudFront to add any of the following headers to requests that it sends
+ to your origin: 
+ Cache-Control 
+ Connection 
+ Content-Length 
+ Cookie 
+ Host 
+ If-Match 
+ If-Modified-Since 
+ If-None-Match 
+ If-Range 
+ If-Unmodified-Since 
+ Max-Forwards 
+ Pragma 
+ Proxy-Authenticate 
+ Proxy-Authorization 
+ Proxy-Connection 
+ Range 
+ Request-Range 
+ TE 
+ Trailer 
+ Transfer-Encoding 
+ Upgrade 
+ Via 
+ Headers that begin with X-Amz- 
+ Headers that begin with X-Edge- 
+ X-Real-Ip
+
+--- Assessment ---
+1. CloudFront overwrites a viewer-supplied header of the same name before
+   forwarding, so a direct caller cannot forge X-Origin-Verify.
+2. The documented anti-bypass pattern is exactly 'respond only when the
+   request includes a custom header that gets added by CloudFront'.
+3. 'X-Origin-Verify' is absent from the disallowed list above; policy check
+   18 encodes that list so a rename cannot silently collide with it.

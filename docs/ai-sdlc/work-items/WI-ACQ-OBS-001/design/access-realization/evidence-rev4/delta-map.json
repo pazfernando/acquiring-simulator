@@ -1,0 +1,93 @@
+{
+  "document": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev4.md",
+  "purpose": "Machine-readable delta map for the architecture change (relay removal, public console, disposable Keycloak), including the carry-forward verdict for each earlier finding and the contract contradictions that Requirements must resolve. Proposal only; closes nothing.",
+  "ownerAuthority": {
+    "K-1": "one Keycloak task",
+    "K-2": "no maintenance commitment; disposable; rebuild with a newer release rather than repair",
+    "K-3": "presenter-local relay removed entirely; presentation in the cloud; local only for tests and the test database",
+    "P-1": "publicly reachable console; single demo login as the only gate; attempt rate limiting"
+  },
+  "changes": [
+    {
+      "id": "R-1",
+      "change": "Relay removed; browser speaks directly to a cloud console API with only the demo OAuth token",
+      "section": "§1, §1.2",
+      "why": "owner K-3 'no necesitamos ningun relay'",
+      "removes": ["loopback listener", "relay session cookie", "relay CSRF model", "relay-held tokens", "presenter-local key"]
+    },
+    {
+      "id": "R-2",
+      "change": "mTLS + OAuth service identity relocated to console→ACL and ACL→processor; browser hop carries no service identity",
+      "section": "§1.1",
+      "why": "no local component exists to hold a certificate; service identity belongs between services",
+      "clients": { "console→ACL": "svc-console", "ACL→processor": "svc-acl", "evidence": "internal invoke, no OAuth" }
+    },
+    {
+      "id": "R-3",
+      "change": "Public console: CloudFront + private S3 (OAC) + same-origin /api → HTTP API with JWT authorizer; WAF + rate limits; CSP; no CORS",
+      "section": "§2",
+      "why": "owner P-1 'lo primero'",
+      "residual": "demo credential is the only gate; synthetic history and synthetic payment initiation are reachable by anyone holding it"
+    },
+    {
+      "id": "R-4",
+      "change": "Keycloak operating model is rebuild-not-repair; no on-call, SLA, HA, backup recovery or restore rehearsal",
+      "section": "§4",
+      "why": "owner K-1 and K-2",
+      "supersedes": "rev2 §2.8 backup/PITR/restore and patching language"
+    },
+    {
+      "id": "R-5",
+      "change": "Service clients renamed: svc-console-relay → svc-console; svc-console-ws and svc-acl retained; console-demo public client unchanged in kind",
+      "section": "§7.3",
+      "why": "the relay principal loses its consumer",
+      "note": "rotation minima from SR2-03 now apply to three service clients"
+    },
+    {
+      "id": "R-6",
+      "change": "WebSocket is browser-direct; token carried in Sec-WebSocket-Protocol; exact Origin enforced; one credential instead of two",
+      "section": "§3",
+      "why": "browsers cannot set arbitrary headers on WebSocket; the relay that could is gone",
+      "deltaForSecurity": "identity count reduced from two to one at $connect (D-5)"
+    },
+    {
+      "id": "R-7",
+      "change": "Demo token in browser memory only; refresh token in memory with rotation (recommended) or re-login; no cookie at the API",
+      "section": "§2.2",
+      "why": "no relay to hold server-side session state"
+    },
+    {
+      "id": "R-8",
+      "change": "Version move = change image digest, recreate with a fresh database, import the realm, re-verify",
+      "section": "§4.1",
+      "why": "disposable model; in-place migration is not the chosen path"
+    }
+  ],
+  "carryForward": [
+    { "id": "SR2-01", "status": "carried intact", "section": "§5 (rev3 §1)", "invalidated": false, "note": "evidence path untouched by relay removal" },
+    { "id": "SR2-02", "status": "carried intact", "section": "§5 (rev3 §2)", "invalidated": false, "note": "deny/condition strategy unchanged; also applies to console downstream invoke" },
+    { "id": "SR2-03", "status": "carried, client set reduced", "section": "§5", "invalidated": false, "note": "relay key class disappears; minima unchanged" },
+    { "id": "SR2-04", "status": "carried intact", "section": "§5 (rev3 §6)", "invalidated": false, "note": "payload/cursor corrections unaffected" },
+    { "id": "relay-capability-wording", "status": "superseded", "section": "§1.2, §2.6", "invalidated": true, "reason": "the relay no longer exists; capability now sits with the demo token and svc-console" },
+    { "id": "ws-obligations", "status": "carried and restated", "section": "§3.4", "invalidated": false, "note": "now applies to a browser client" }
+  ],
+  "contractContradictions": [
+    { "id": "D-1", "documents": ["observation-contract.md O4", "observation-contract.md O5", "channel-contract.md C6"], "issue": "relay/IAM-signed $connect and X-Demo-JWT no longer exist", "owner": "Requirements + Security" },
+    { "id": "D-2", "documents": ["channel-contract.md C1", "channel-contract.md C6"], "issue": "local relay holds JWT; loopback session model", "owner": "Requirements" },
+    { "id": "D-3", "documents": ["owner-decisions.md D3 2026-11-19"], "issue": "screen-share and no-public-hosting text superseded by K-3/P-1", "owner": "Coordinator records supersession" },
+    { "id": "D-4", "documents": ["requirements.md R19", "requirements.md R25"], "issue": "loopback relay premise; WS realization wording", "owner": "Requirements" },
+    { "id": "D-5", "documents": ["channel-contract.md C6", "observation-contract.md O5"], "issue": "two identities at $connect now one", "owner": "Security + Requirements" },
+    { "id": "D-6", "documents": ["observation-contract.md O5", "observation-contract.md O7"], "issue": "service/environment scope at connect with no service identity", "owner": "Requirements" },
+    { "id": "D-7", "documents": ["no contract"], "issue": "rate limiting, CORS/CSP and public exposure undefined", "owner": "Requirements" },
+    { "id": "D-8", "documents": ["channel-contract.md C1"], "issue": "console.write/service identity on the console hop", "owner": "Requirements" },
+    { "id": "D-9", "documents": ["design-rev2 §2.8", "design-rev3 §3"], "issue": "backup/restore/patching superseded by rebuild-not-repair", "owner": "Requirements + DevOps" }
+  ],
+  "decisions": {
+    "newOwnerDecisions": 0,
+    "implementationChoices": [
+      "refresh token in memory with rotation vs re-login every ≤900 s (§2.2)",
+      "Sec-WebSocket-Protocol token carriage vs one-time ticket (§3.2)"
+    ],
+    "possibleEscalation": "If Security rejects the single-credential socket (D-5), the options are a cloud broker (revisiting 'no relay') or HTTP-only observation."
+  }
+}

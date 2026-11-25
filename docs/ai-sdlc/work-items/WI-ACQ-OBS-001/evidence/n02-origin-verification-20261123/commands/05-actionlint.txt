@@ -1,0 +1,2 @@
+$ actionlint .github/workflows/*.yml
+exit=0

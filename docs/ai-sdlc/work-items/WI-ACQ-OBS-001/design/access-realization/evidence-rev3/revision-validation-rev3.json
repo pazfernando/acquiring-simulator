@@ -1,0 +1,65 @@
+{
+  "artifactSet": "design/access-realization/design-rev3.md + evidence-rev3/",
+  "status": "PROPOSAL revision 3 — correction pass; documentary only; closes no finding; no approval",
+  "author": "ai-sdlc-devops",
+  "date": "2026-11-22 (America/Bogota)",
+  "runtime": {
+    "harness": "native OpenClaw subagent",
+    "observedModelMetadata": "nan/deepseek-v4-flash",
+    "configuredDefault": true,
+    "modelOverrideApplied": false,
+    "providerQualifiedIdExposed": false
+  },
+  "files": [
+    { "path": "design-rev3.md", "bytes": 39967, "sha256": "cdd65729ec04708e9bd96626d29980d616fa32261620825987c9eb2cc7d63d2a" },
+    { "path": "evidence-rev3/correction-map.json", "bytes": 6833, "sha256": "66a3757ffd616314fa3e46e0dbd784538941495a572fe854e56f67050d62cb99" },
+    { "path": "evidence-rev3/input-identities-rev3.json", "bytes": 3746, "sha256": "08919b2111e84d1d20f1f0fe5db4a0e128a04c4471e0a682ddb8b60da6ff92d5" },
+    { "path": "evidence-rev3/official-source-excerpts-rev3.json", "bytes": 5566, "sha256": "09c1fb853dd4f8d8718409ad287dfaf428a51919628f1045fb529042012812e7" }
+  ],
+  "preservationChecks": [
+    { "path": "design-rev2.md", "sha256": "6b15161875e702ebae74e4f76b4b94cae9ffbbb94d6a9fcd42aee563b8f3873c", "result": "UNCHANGED" },
+    { "path": "design.md", "sha256": "83e4ea14b3959dcc6d8535aee0f0dd715783764e8922a72b6c0c3454a40829f4", "result": "UNCHANGED" },
+    { "path": "configuration-schema.md", "sha256": "1f497daade1a8429458e2cc40047adf326a97f2fb6636d583e1bf2e930bf1bb2", "result": "UNCHANGED" },
+    { "path": "compatibility-assessment.md", "sha256": "4886106c0afbf9ded1736ef3c0756c2bc8c738c58c61457faa0a635ecdd836ac", "result": "UNCHANGED" },
+    { "path": "compatibility-assessment-rev2.md", "sha256": "2f7cfe054aae7d908948288b6e67799aef7c864e1acaeb67c7444e63c432b930", "result": "UNCHANGED" },
+    { "path": "reviews/access-design-rev2-20261122/security-review.md", "sha256": "b74e5a686525a1c2ceff6713e23e938f4e54f0538a9587240ce8307d1dc38120", "result": "UNCHANGED" },
+    { "path": "reviews/access-design-rev2-20261121/security-review.md", "sha256": "6b964f0520daa181edc96f1553c5fb990000113ed3c28560bdfc67cace310a31", "result": "UNCHANGED" },
+    { "path": "owner-decisions.md", "sha256": "0368976f5b1efc557aa0729a59054023ca1a2761e5b1a141544746e5b4073f29", "result": "UNCHANGED" }
+  ],
+  "structureChecks": [
+    { "check": "commissioned review hash", "command": "sha256sum reviews/access-design-rev2-20261122/security-review.md", "result": "b74e5a68... MATCH" },
+    { "check": "corrections present", "command": "grep -oE 'SR2-0[1-4]' | sort | uniq -c", "result": "SR2-01 x5, SR2-02 x6, SR2-03 x5, SR2-04 x4" },
+    { "check": "sender ids enumerated", "command": "grep -oE 'SND-[A-Z]+-0[0-9]' | sort | uniq -c", "result": "SND-PROC-01 x1, SND-NET-01 x2, SND-DIAG-01 x2" },
+    { "check": "owner decisions referenced", "command": "grep -oE 'K-[1-3]' | sort | uniq -c", "result": "K-1/K-2/K-3 x3 each, treated as pending with recommended defaults" },
+    { "check": "relay wording corrected, old phrase only as withdrawal", "command": "grep -nE 'no payment authority|no evidence or payment authority'", "result": "2 hits: the delta-table row quoting the withdrawn v1 phrasing, and the explicit withdrawal sentence; the literal 'no payment authority' claim now appears only inside that withdrawal" },
+    { "check": "secret-like content", "command": "grep -nE 'BEGIN [A-Z ]*PRIVATE KEY|[0-9]{12}|client_secret='", "result": "no match" },
+    { "check": "writes outside the two permitted paths", "command": "none performed", "result": "only design-rev3.md and evidence-rev3/ created" }
+  ],
+  "boundariesObserved": [
+    "Read-only inspection of the commissioned review, rev2, compatibility-assessment-rev2, its manifest, owner decisions, the binding and four source files",
+    "No Git/provider command, no AWS or Keycloak API call, no probe, no credential flow, no login, no deployment, no pipeline run, no publication, no test execution",
+    "No approved file, review, assessment or earlier proposal modified",
+    "No onward delegation; no self-approval; no finding closed"
+  ],
+  "documentationFetched": [
+    "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html (200, 2026-11-22T23:45:07Z)",
+    "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html (200, truncated, 23:45:14Z)",
+    "https://docs.aws.amazon.com/lambda/latest/dg/java-context.html (200, 23:45:07Z)",
+    "https://docs.aws.amazon.com/lambda/latest/dg/permissions-source-function-arn.html (200, 23:45:32Z)"
+  ],
+  "unverifiedHighlights": [
+    "aws:PrincipalArn behaviour in a Lambda resource policy for assumed-role sessions",
+    "Resource-policy Deny propagation to qualified ARNs",
+    "lambda:SourceFunctionArn presence on Lambda-to-Lambda Invoke and behaviour with versions/aliases",
+    "Organization/SCP availability and semantics against a resource-policy-bearing Lambda",
+    "Keycloak dual assertion-key support per client",
+    "Late-delivery horizon for the C4 verify-window",
+    "Any network-origin condition key for lambda:InvokeFunction",
+    "Measured reconnect/token rates under cohort expiry"
+  ],
+  "limitations": [
+    "Documentation excerpts are not deployed interoperability evidence",
+    "No policy was simulated, no function invoked, no rotation or reconnect measured",
+    "The design's provenance mechanism depends on deployment-time registry seeding and policy correctness, neither of which exists yet"
+  ]
+}

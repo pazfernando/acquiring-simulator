@@ -1,0 +1,23 @@
+# Pinned-provider schema verification (N-04 and N-02 alternatives)
+probe root: /tmp/schema-probe (required_version = 1.17.2, hashicorp/aws = 6.74.0, lock file copied from envs/stack)
+schema json sha256: 39fbf1a36606764ce5b5fc0667ca85cdf7ba34192a39323d1c696b924b6102da
+generated: 2026-11-23 20:23:01.834372480 -0500
+
+aws_apigatewayv2_api.disable_execute_api_endpoint present: True
+  provider metadata: {'type': 'bool', 'description_kind': 'plain', 'optional': True}
+aws_apigatewayv2_domain_name.mutual_tls_authentication present: True
+  mtls attributes: ['truststore_uri', 'truststore_version']
+cloudfront origin sub-blocks: ['custom_header', 'custom_origin_config', 'origin_shield', 's3_origin_config', 'vpc_origin_config']
+cloudfront origin attributes: ['connection_attempts', 'connection_timeout', 'domain_name', 'origin_access_control_id', 'origin_id', 'origin_path', 'response_completion_timeout']
+cloudfront origin client-certificate/mTLS field present: False
+aws_cloudfront_function present: True
+cloudfront behavior function_association present: True
+wafv2 logging redacted_fields block types: ['method', 'query_string', 'single_header', 'uri_path']
+wafv2 associate resource present: True
+
+# AWS WAF supported resource types (read from docs.aws.amazon.com, fetched 2026-11-23):
+  Amazon API Gateway REST API, ALB, AppSync GraphQL, Cognito user pool, App Runner, Bedrock AgentCore Gateway, Verified Access
+  -> HTTP APIs (apigatewayv2) are NOT listed; a stage-level WAF cannot bound the console HTTP API origin.
+# API Gateway @connections custom-domain rule (docs fetched 2026-11-23):
+  'If you use a custom domain name for your WebSocket API, remove the stage variable from your function code.'
+  -> notifier WS_MANAGEMENT_ENDPOINT = https://<ws_fqdn> (no stage) with the default endpoint disabled.

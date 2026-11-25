@@ -1,0 +1,2 @@
+src/main/java/com/acquiring/simulator/adapter/aws/AwsRuntime.java
+src/test/java/com/acquiring/simulator/adapter/aws/AwsRuntimeAtomicWiringIntegrationTest.java

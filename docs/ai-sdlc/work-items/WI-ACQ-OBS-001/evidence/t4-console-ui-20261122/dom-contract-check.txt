@@ -1,0 +1,12 @@
+# node --check (ES modules)
+PASS console-ui/js/app.js
+PASS console-ui/js/form.js
+PASS console-ui/js/render.js
+PASS console-ui/js/session-history.js
+PASS console-ui/js/token/dev-stub-provider.js
+PASS console-ui/js/token/oidc-pkce-client.js
+
+# DOM contract: getElementById ids referenced by JS vs ids present in index.html
+referenced ids: 19
+present ids: 35
+missing: (none)

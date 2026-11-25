@@ -1,0 +1,2 @@
+Note: docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/h1-qa-recheck-20261123/tools/QaH1Driver.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.

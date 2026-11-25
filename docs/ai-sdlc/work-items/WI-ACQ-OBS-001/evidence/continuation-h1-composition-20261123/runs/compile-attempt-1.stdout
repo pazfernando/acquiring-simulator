@@ -1,0 +1,17 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /home/pazfernando/projects/acquiring-simulator/src/main/java/com/acquiring/simulator/adapter/aws/ConsoleHandler.java:[47,9] reference to ConsoleHandler is ambiguous
+  both constructor ConsoleHandler(java.util.function.Function<java.lang.String,java.lang.String>) in com.acquiring.simulator.adapter.aws.ConsoleHandler and constructor ConsoleHandler(java.util.function.Supplier<com.acquiring.simulator.console.ConsoleIntegrationEntryPoint>) in com.acquiring.simulator.adapter.aws.ConsoleHandler match
+[ERROR] /home/pazfernando/projects/acquiring-simulator/src/main/java/com/acquiring/simulator/adapter/aws/ConsoleHandler.java:[47,14] incompatible types: invalid method reference
+    incompatible types: java.lang.String cannot be converted to java.util.function.Function<java.lang.String,java.lang.String>
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.15.0:compile (default-compile) on project acquiring-simulator: Compilation failure: Compilation failure: 
+[ERROR] /home/pazfernando/projects/acquiring-simulator/src/main/java/com/acquiring/simulator/adapter/aws/ConsoleHandler.java:[47,9] reference to ConsoleHandler is ambiguous
+[ERROR]   both constructor ConsoleHandler(java.util.function.Function<java.lang.String,java.lang.String>) in com.acquiring.simulator.adapter.aws.ConsoleHandler and constructor ConsoleHandler(java.util.function.Supplier<com.acquiring.simulator.console.ConsoleIntegrationEntryPoint>) in com.acquiring.simulator.adapter.aws.ConsoleHandler match
+[ERROR] /home/pazfernando/projects/acquiring-simulator/src/main/java/com/acquiring/simulator/adapter/aws/ConsoleHandler.java:[47,14] incompatible types: invalid method reference
+[ERROR]     incompatible types: java.lang.String cannot be converted to java.util.function.Function<java.lang.String,java.lang.String>
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,0 +1,54 @@
+{
+  "artifactSet": "design/access-realization/design-rev4.md + evidence-rev4/",
+  "status": "PROPOSAL revision 4 — architecture delta; documentary only; closes no finding; no approval",
+  "author": "ai-sdlc-devops",
+  "date": "2026-11-22 (America/Bogota)",
+  "runtime": {
+    "harness": "native OpenClaw subagent",
+    "observedModelMetadata": "nan/deepseek-v4-flash",
+    "configuredDefault": true,
+    "modelOverrideApplied": false,
+    "providerQualifiedIdExposed": false
+  },
+  "files": [
+    { "path": "design-rev4.md", "bytes": 35358, "sha256": "3926423e9f42f6949647e5904271b6f6818b977301b66e81ffcf334f10c5dc56" },
+    { "path": "evidence-rev4/delta-map.json", "bytes": 6560, "sha256": "d1067db442e8ca49cde008da529bd068a6651336e16244c729c495564319b7b6" },
+    { "path": "evidence-rev4/input-identities-rev4.json", "bytes": 2937, "sha256": "6acc9c0d2f1679875650b4db2c2cae3069ccfb8c12c703fd8d374b9e7a1f5129" }
+  ],
+  "preservationChecks": [
+    { "path": "design-rev3.md", "sha256": "cdd65729ec04708e9bd96626d29980d616fa32261620825987c9eb2cc7d63d2a", "result": "UNCHANGED" },
+    { "path": "evidence-rev3/correction-map.json", "sha256": "66a3757ffd616314fa3e46e0dbd784538941495a572fe854e56f67050d62cb99", "result": "UNCHANGED" },
+    { "path": "design-rev2.md", "sha256": "6b15161875e702ebae74e4f76b4b94cae9ffbbb94d6a9fcd42aee563b8f3873c", "result": "UNCHANGED" },
+    { "path": "design.md", "sha256": "83e4ea14b3959dcc6d8535aee0f0dd715783764e8922a72b6c0c3454a40829f4", "result": "UNCHANGED" },
+    { "path": "configuration-schema.md", "sha256": "1f497daade1a8429458e2cc40047adf326a97f2fb6636d583e1bf2e930bf1bb2", "result": "UNCHANGED" },
+    { "path": "reviews/access-design-rev2-20261122/security-review.md", "sha256": "b74e5a686525a1c2ceff6713e23e938f4e54f0538a9587240ce8307d1dc38120", "result": "UNCHANGED" }
+  ],
+  "structureChecks": [
+    { "check": "sections present once each", "command": "grep -n '^## ' design-rev4.md", "result": "§0-§11, 12 headings, no duplicates" },
+    { "check": "relay language removed from the design body", "command": "grep -n '127.0.0.1' design-rev4.md", "result": "2 hits, neither a design: a removal statement ('No 127.0.0.1 listener') and a quotation of the superseded contract text in D-1" },
+    { "check": "carry-forward items referenced", "command": "grep -oE 'SR2-0[1-4]' design-rev4.md | sort | uniq -c", "result": "SR2-01 x6, SR2-02 x3, SR2-03 x3, SR2-04 x4 (delta table, carry table, finding map)" },
+    { "check": "contradictions enumerated", "command": "grep -oE '\\*\\*D-[1-9]\\*\\*' design-rev4.md | sort -u | wc -l", "result": "9 (D-1..D-9)" },
+    { "check": "secret-like content", "command": "python re: 12-digit runs outside hex; PRIVATE KEY blocks; client_secret=; aws_secret_access_key", "result": "0 occurrences of each" },
+    { "check": "writes outside the two permitted paths", "command": "none performed", "result": "only design-rev4.md and evidence-rev4/ created" }
+  ],
+  "hopIdentitySummary": {
+    "browserToConsole": "TLS + demo OAuth token only",
+    "browserToWebSocket": "TLS + demo OAuth token only (Sec-WebSocket-Protocol)",
+    "consoleToAcl": "mTLS + OAuth service token (svc-console)",
+    "aclToProcessor": "mTLS + OAuth service token (svc-acl)",
+    "processorToNetworkToIssuer": "IAM only",
+    "evidenceAdmission": "internal invoke, function identity + registry, no OAuth"
+  },
+  "boundariesObserved": [
+    "Read-only inspection of rev3, its correction map, the FAIL review, owner decisions and the cited contracts",
+    "No Git/provider command, no AWS or Keycloak API call, no probe, no credential flow, no login, no deployment, no pipeline run, no publication, no test execution",
+    "No Terraform or SAM authored; schema is configuration-only",
+    "No approved file, review, assessment or earlier proposal modified",
+    "No onward delegation; no self-approval; no finding closed"
+  ],
+  "limitations": [
+    "CloudFront-to-API-Gateway same-origin routing and WebSocket custom-domain behaviour are designed, not verified",
+    "No rate limit, CSP, WAF rule or CORS behaviour was exercised",
+    "The single-credential WebSocket is a delta that Security must judge; it is not covered by the D-D text as recorded"
+  ]
+}

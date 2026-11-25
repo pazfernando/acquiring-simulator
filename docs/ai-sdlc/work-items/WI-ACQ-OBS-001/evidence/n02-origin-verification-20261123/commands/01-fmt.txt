@@ -1,0 +1,2 @@
+$ cd infra/terraform && terraform fmt -recursive -check -diff
+exit=0 (0 = canonical, no diff above)

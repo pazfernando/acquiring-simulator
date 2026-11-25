@@ -1,0 +1,5 @@
+captured_at_utc=2026-11-23T23:46:37Z
+branch=feat/wi-acq-auth-001
+head=5bbd4eb5d49be036e695e5f25a8c83c4f7d5ac14
+expected_head=5bbd4eb5d49be036e695e5f25a8c83c4f7d5ac14
+owner_authorization=local UI task continuation (inter-session recovery); no push/PR/merge/deploy

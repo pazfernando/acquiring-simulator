@@ -1,0 +1,129 @@
+[INFO] Scanning for projects...
+[INFO] Loaded 24559 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] 
+[INFO] ------------< com.acquiring.simulator:acquiring-simulator >-------------
+[INFO] Building acquiring-simulator 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ acquiring-simulator ---
+[INFO] Copying 4 resources from src/main/resources to target/classes
+[INFO] Copying 4 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ acquiring-simulator ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ acquiring-simulator ---
+[INFO] skip non existing resourceDirectory /home/pazfernando/projects/acquiring-simulator/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ acquiring-simulator ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ acquiring-simulator ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.acquiring.simulator.console.ConsoleHistoryRouteDynamoIntegrationTest
+22:40:53.444 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+22:40:53.447 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+22:40:53.581 [main] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 2.0.5
+22:40:53.718 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.UnixSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+22:40:54.151 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Unix socket (unix:///var/run/docker.sock)
+22:40:54.152 [main] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+22:40:54.167 [main] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.1.3
+  API Version: 1.52
+  Operating System: Linux Mint 22.3
+  Total Memory: 23919 MB
+22:40:54.270 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Creating container for image: testcontainers/ryuk:0.14.0
+22:40:54.275 [main] INFO org.testcontainers.utility.RegistryAuthLocator -- Failure when attempting to lookup auth config. Please ignore if you don't have images in an authenticated registry. Details: (dockerImageName: testcontainers/ryuk:0.14.0, configFile: /home/pazfernando/.docker/config.json, configEnv: DOCKER_AUTH_CONFIG). Falling back to docker-java default behaviour. Exception message: Status 404: No config supplied. Checked in order: /home/pazfernando/.docker/config.json (file not found), DOCKER_AUTH_CONFIG (not set)
+22:40:54.456 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 is starting: ff0b6d831a2736fdb2523f23a0cce4bd3e952178ea83231b144f9be0f2bed763
+22:40:54.831 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 started in PT0.561177916S
+22:40:54.836 [main] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+22:40:54.836 [main] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+22:40:54.837 [main] INFO org.testcontainers.DockerClientFactory -- ✔︎ Docker server version should be at least 1.6.0
+22:40:54.837 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+22:40:54.926 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: 10e4aa8e4ba76c174229bff76d5e79688f03116ea5871962d6b2ca6c312d568a
+22:40:57.656 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.819227281S
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 5.574 s <<< FAILURE! -- in com.acquiring.simulator.console.ConsoleHistoryRouteDynamoIntegrationTest
+[ERROR] com.acquiring.simulator.console.ConsoleHistoryRouteDynamoIntegrationTest.paginationKeepsTheFrozenHeadWhenTheSourceGrows -- Time elapsed: 0.641 s <<< ERROR!
+com.acquiring.simulator.domain.event.EventValidationException: CONTEXT_MISMATCH at context: event context does not match the collector partition
+	at com.acquiring.simulator.adapter.aws.DynamoEventStore.requireCollectorContext(DynamoEventStore.java:213)
+	at com.acquiring.simulator.adapter.aws.DynamoEventStore.appendInternal(DynamoEventStore.java:103)
+	at com.acquiring.simulator.adapter.aws.DynamoEventStore.append(DynamoEventStore.java:96)
+	at com.acquiring.simulator.adapter.aws.DynamoEventStore.append(DynamoEventStore.java:77)
+	at com.acquiring.simulator.console.ConsoleHistoryRouteDynamoIntegrationTest.append(ConsoleHistoryRouteDynamoIntegrationTest.java:248)
+	at com.acquiring.simulator.console.ConsoleHistoryRouteDynamoIntegrationTest.paginationKeepsTheFrozenHeadWhenTheSourceGrows(ConsoleHistoryRouteDynamoIntegrationTest.java:168)
+
+[ERROR] com.acquiring.simulator.console.ConsoleHistoryRouteDynamoIntegrationTest.changedRetentionRevisionAgainstTheRealHeadForcesFourTen -- Time elapsed: 0.027 s <<< ERROR!
+com.acquiring.simulator.domain.event.EventValidationException: CONTEXT_MISMATCH at context: event context does not match the collector partition
+	at com.acquiring.simulator.adapter.aws.DynamoEventStore.requireCollectorContext(DynamoEventStore.java:213)
+	at com.acquiring.simulator.adapter.aws.DynamoEventStore.appendInternal(DynamoEventStore.java:103)
+	at com.acquiring.simulator.adapter.aws.DynamoEventStore.append(DynamoEventStore.java:96)
+	at com.acquiring.simulator.adapter.aws.DynamoEventStore.append(DynamoEventStore.java:77)
+	at com.acquiring.simulator.console.ConsoleHistoryRouteDynamoIntegrationTest.append(ConsoleHistoryRouteDynamoIntegrationTest.java:248)
+	at com.acquiring.simulator.console.ConsoleHistoryRouteDynamoIntegrationTest.changedRetentionRevisionAgainstTheRealHeadForcesFourTen(ConsoleHistoryRouteDynamoIntegrationTest.java:199)
+
+[ERROR] com.acquiring.simulator.console.ConsoleHistoryRouteDynamoIntegrationTest.snapshotReadsTheRetainedRowsAndReportsCompleteCoverage -- Time elapsed: 0.026 s <<< ERROR!
+com.acquiring.simulator.domain.event.EventValidationException: CONTEXT_MISMATCH at context: event context does not match the collector partition
+	at com.acquiring.simulator.adapter.aws.DynamoEventStore.requireCollectorContext(DynamoEventStore.java:213)
+	at com.acquiring.simulator.adapter.aws.DynamoEventStore.appendInternal(DynamoEventStore.java:103)
+	at com.acquiring.simulator.adapter.aws.DynamoEventStore.append(DynamoEventStore.java:96)
+	at com.acquiring.simulator.adapter.aws.DynamoEventStore.append(DynamoEventStore.java:77)
+	at com.acquiring.simulator.console.ConsoleHistoryRouteDynamoIntegrationTest.append(ConsoleHistoryRouteDynamoIntegrationTest.java:248)
+	at com.acquiring.simulator.console.ConsoleHistoryRouteDynamoIntegrationTest.snapshotReadsTheRetainedRowsAndReportsCompleteCoverage(ConsoleHistoryRouteDynamoIntegrationTest.java:142)
+
+[ERROR] com.acquiring.simulator.console.ConsoleHistoryRouteDynamoIntegrationTest.physicallyMissingRetainedRowIsAnExplicitGapNotAFabricatedEvent -- Time elapsed: 0.022 s <<< ERROR!
+com.acquiring.simulator.domain.event.EventValidationException: CONTEXT_MISMATCH at context: event context does not match the collector partition
+	at com.acquiring.simulator.adapter.aws.DynamoEventStore.requireCollectorContext(DynamoEventStore.java:213)
+	at com.acquiring.simulator.adapter.aws.DynamoEventStore.appendInternal(DynamoEventStore.java:103)
+	at com.acquiring.simulator.adapter.aws.DynamoEventStore.append(DynamoEventStore.java:96)
+	at com.acquiring.simulator.adapter.aws.DynamoEventStore.append(DynamoEventStore.java:77)
+	at com.acquiring.simulator.console.ConsoleHistoryRouteDynamoIntegrationTest.append(ConsoleHistoryRouteDynamoIntegrationTest.java:248)
+	at com.acquiring.simulator.console.ConsoleHistoryRouteDynamoIntegrationTest.physicallyMissingRetainedRowIsAnExplicitGapNotAFabricatedEvent(ConsoleHistoryRouteDynamoIntegrationTest.java:223)
+
+[INFO] Running com.acquiring.simulator.console.ConsoleOriginVerificationGateTest
+[ERROR] Tests run: 9, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.086 s <<< FAILURE! -- in com.acquiring.simulator.console.ConsoleOriginVerificationGateTest
+[ERROR] com.acquiring.simulator.console.ConsoleOriginVerificationGateTest.verifiedOriginIsNotAuthenticationAndTheCredentialSeamStillRefuses -- Time elapsed: 0.008 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+expected: 401
+ but was: 405
+	at com.acquiring.simulator.console.ConsoleOriginVerificationGateTest.verifiedOriginIsNotAuthenticationAndTheCredentialSeamStillRefuses(ConsoleOriginVerificationGateTest.java:272)
+
+[INFO] Running com.acquiring.simulator.console.ConsoleHistoryRouteTest
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 s -- in com.acquiring.simulator.console.ConsoleHistoryRouteTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   ConsoleOriginVerificationGateTest.verifiedOriginIsNotAuthenticationAndTheCredentialSeamStillRefuses:272 
+expected: 401
+ but was: 405
+[ERROR] Errors: 
+[ERROR]   ConsoleHistoryRouteDynamoIntegrationTest.changedRetentionRevisionAgainstTheRealHeadForcesFourTen:199->append:248 » EventValidation CONTEXT_MISMATCH at context: event context does not match the collector partition
+[ERROR]   ConsoleHistoryRouteDynamoIntegrationTest.paginationKeepsTheFrozenHeadWhenTheSourceGrows:168->append:248 » EventValidation CONTEXT_MISMATCH at context: event context does not match the collector partition
+[ERROR]   ConsoleHistoryRouteDynamoIntegrationTest.physicallyMissingRetainedRowIsAnExplicitGapNotAFabricatedEvent:223->append:248 » EventValidation CONTEXT_MISMATCH at context: event context does not match the collector partition
+[ERROR]   ConsoleHistoryRouteDynamoIntegrationTest.snapshotReadsTheRetainedRowsAndReportsCompleteCoverage:142->append:248 » EventValidation CONTEXT_MISMATCH at context: event context does not match the collector partition
+[INFO] 
+[ERROR] Tests run: 33, Failures: 1, Errors: 4, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[ERROR] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.245 s
+[INFO] Finished at: 2026-11-23T22:40:59-05:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.6:test (default-test) on project acquiring-simulator: There are test failures.
+[ERROR] 
+[ERROR] See /home/pazfernando/projects/acquiring-simulator/target/surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

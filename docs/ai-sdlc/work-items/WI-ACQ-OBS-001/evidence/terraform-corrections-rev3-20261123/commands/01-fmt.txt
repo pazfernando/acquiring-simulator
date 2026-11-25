@@ -1,0 +1,2 @@
+$ terraform fmt -recursive -check -diff   (cwd infra/terraform)
+exit=0

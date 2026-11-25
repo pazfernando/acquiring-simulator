@@ -1,0 +1,182 @@
+[
+  {
+    "path": "docs/ai-sdlc/PROJECT.md",
+    "expected": "8584a2ed39a3ac548f303bf41bceb8e5e9df3fd3ec678289bdb128560643710e",
+    "actual": "8584a2ed39a3ac548f303bf41bceb8e5e9df3fd3ec678289bdb128560643710e",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/sources/acquiring_simulator_functional_guide.md",
+    "expected": "90a798c7e2a1de362993cb4974d306497d7de3567c163a3511c07b194a5ae094",
+    "actual": "90a798c7e2a1de362993cb4974d306497d7de3567c163a3511c07b194a5ae094",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/WORK_ITEM.md",
+    "expected": "400a40d94197459b890de1c987381f385610b0b6053f6c7bcb2e8cd79c4673b2",
+    "actual": "400a40d94197459b890de1c987381f385610b0b6053f6c7bcb2e8cd79c4673b2",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+    "expected": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+    "actual": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/requirements.md",
+    "expected": "49c5d412e3705c320a2f78b190555f49e7e0fa4662cff9329d259f89e2b459df",
+    "actual": "49c5d412e3705c320a2f78b190555f49e7e0fa4662cff9329d259f89e2b459df",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+    "expected": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+    "actual": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/acceptance-scenarios.md",
+    "expected": "1586898418c09dcf092d567a4155b4524a0bc34500bf4ea76ce8f76465aa7733",
+    "actual": "1586898418c09dcf092d567a4155b4524a0bc34500bf4ea76ce8f76465aa7733",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+    "expected": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+    "actual": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev4.md",
+    "expected": "3926423e9f42f6949647e5904271b6f6818b977301b66e81ffcf334f10c5dc56",
+    "actual": "3926423e9f42f6949647e5904271b6f6818b977301b66e81ffcf334f10c5dc56",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/operation-a-contract-delta.md",
+    "expected": "6b1e525f9071ca7f6117386da0ac8a0bb8f30ee050f7a75963e254e22d08c822",
+    "actual": "6b1e525f9071ca7f6117386da0ac8a0bb8f30ee050f7a75963e254e22d08c822",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-rev4-20261122/security-review.md",
+    "expected": "c418f93a70fc41fc282ba5c2ea5c28714d14337f02c7d58ee4ecb97c8d123ed2",
+    "actual": "c418f93a70fc41fc282ba5c2ea5c28714d14337f02c7d58ee4ecb97c8d123ed2",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/handoffs/continuation-20261123/commission.md",
+    "expected": "f8936ea5b7c0727ee0f4aca9fcd3eeb9cc7df515a239a7168a7336ce4beee419",
+    "actual": "f8936ea5b7c0727ee0f4aca9fcd3eeb9cc7df515a239a7168a7336ce4beee419",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/handoffs/continuation-20261123/inputs.json",
+    "expected": "3f5027ee12585f2a088790e0cbdf28d5151d902679eb0ff70e5420c7f720c846",
+    "actual": "3f5027ee12585f2a088790e0cbdf28d5151d902679eb0ff70e5420c7f720c846",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/continuation-domain-20261123/domain-review.md",
+    "expected": "d9122615a5ff053da77e43d16c45695f6fc20c601004c39d174d2c3735b4825a",
+    "actual": "d9122615a5ff053da77e43d16c45695f6fc20c601004c39d174d2c3735b4825a",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/deployment-continuation-20261123/devops-report.md",
+    "expected": "7d7e0e8839a743e5880357802b5155367c504820944872ceb6a783b2fd5e31c6",
+    "actual": "7d7e0e8839a743e5880357802b5155367c504820944872ceb6a783b2fd5e31c6",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/continuation-preflight-20261123/HANDOFF.md",
+    "expected": "ed1d285e7798f2c64eb7835dd14fdb18b6924d2fca54ccb7bc8a6a0283822d7a",
+    "actual": "ed1d285e7798f2c64eb7835dd14fdb18b6924d2fca54ccb7bc8a6a0283822d7a",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev2-20261123/INPUTS.SHA256SUMS",
+    "expected": "dcad08815ecaccf13ed703e458343edb7cf74f9b6711bd2483619e771f719bf0",
+    "actual": "dcad08815ecaccf13ed703e458343edb7cf74f9b6711bd2483619e771f719bf0",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev2-20261123/acceptance-scenarios.md",
+    "expected": "86d2788a0f348cbd0d6478fabb04d444ef4e06ab044426d38ee8bc28125066e5",
+    "actual": "86d2788a0f348cbd0d6478fabb04d444ef4e06ab044426d38ee8bc28125066e5",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev2-20261123/construction-handoff.md",
+    "expected": "9718f9c95fdedf6615a914c7aa7fdc4ac63ea8d3b495ba5e5ee90ed638e726b6",
+    "actual": "9718f9c95fdedf6615a914c7aa7fdc4ac63ea8d3b495ba5e5ee90ed638e726b6",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev2-20261123/contracts.md",
+    "expected": "436660e6c51f03ec05226c6188ac0b987f9166158d15059deb38334e4ceca13a",
+    "actual": "436660e6c51f03ec05226c6188ac0b987f9166158d15059deb38334e4ceca13a",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev2-20261123/disposition-ledger.md",
+    "expected": "6a4dbdeb72f41a670fc88658588ff59c66b2fc93dadd59e50a0acf06fe84b6cd",
+    "actual": "6a4dbdeb72f41a670fc88658588ff59c66b2fc93dadd59e50a0acf06fe84b6cd",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev2-20261123/identity-map.md",
+    "expected": "b099fe8e396f6b65fdba61de1ed4e8968b54def835b97ae28dd0da515673ebae",
+    "actual": "b099fe8e396f6b65fdba61de1ed4e8968b54def835b97ae28dd0da515673ebae",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev2-20261123/inherited-candidate.md",
+    "expected": "6b1e525f9071ca7f6117386da0ac8a0bb8f30ee050f7a75963e254e22d08c822",
+    "actual": "6b1e525f9071ca7f6117386da0ac8a0bb8f30ee050f7a75963e254e22d08c822",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev2-20261123/integrity.json",
+    "expected": "f853213cc6ef418521263073142350210f746ed616fb59bd4ca6dffd75d8d4a9",
+    "actual": "f853213cc6ef418521263073142350210f746ed616fb59bd4ca6dffd75d8d4a9",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev2-20261123/progress.md",
+    "expected": "350315102459e11a0da87a36971d600b2f1f756c243efbb8b744ffd58e8e6e12",
+    "actual": "350315102459e11a0da87a36971d600b2f1f756c243efbb8b744ffd58e8e6e12",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev2-20261123/response-vectors.json",
+    "expected": "38acdad4c10259e9194f4c0f2544e4337c8b3d236583fe784dd446dd8b169ca4",
+    "actual": "38acdad4c10259e9194f4c0f2544e4337c8b3d236583fe784dd446dd8b169ca4",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev2-20261123/verification.md",
+    "expected": "2d8215310d8376a9067ddda766a3c0ff3fbbc2d8d35ff1e97c54903d062fde53",
+    "actual": "2d8215310d8376a9067ddda766a3c0ff3fbbc2d8d35ff1e97c54903d062fde53",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev2-20261123/websocket-vectors.json",
+    "expected": "066753c90ca1808c36909d62c1b496b3ce309f153987558c1a558e5ba69ffcb9",
+    "actual": "066753c90ca1808c36909d62c1b496b3ce309f153987558c1a558e5ba69ffcb9",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev2-20261123/wire-fixtures.json",
+    "expected": "e03a2747a34aabf19a0d7d4da038d1fe0124faf246b6b088d34b4f70d5a82936",
+    "actual": "e03a2747a34aabf19a0d7d4da038d1fe0124faf246b6b088d34b4f70d5a82936",
+    "match": true
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev2-20261123/README.md",
+    "expected": "c1f256cc1a08e068d89cbdda2e72fecf4e3953c2fe2f1a365d8a619c49c2e5ac",
+    "actual": "c1f256cc1a08e068d89cbdda2e72fecf4e3953c2fe2f1a365d8a619c49c2e5ac",
+    "match": true
+  }
+]

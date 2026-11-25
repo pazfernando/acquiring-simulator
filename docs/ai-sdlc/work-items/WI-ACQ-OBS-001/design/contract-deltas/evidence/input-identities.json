@@ -1,0 +1,86 @@
+[
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+    "sha256": "9bf166feed3eed4c0b4d6d4e441ae1ef44d3826a8bdab0cad65277bcd8127cdb",
+    "lines": 142,
+    "role": "authority overlay"
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/requirements.md",
+    "sha256": "49c5d412e3705c320a2f78b190555f49e7e0fa4662cff9329d259f89e2b459df",
+    "lines": 87,
+    "role": "read-only source; status per document"
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+    "sha256": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+    "lines": 62,
+    "role": "read-only source; status per document"
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+    "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+    "lines": 88,
+    "role": "read-only source; status per document"
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/acceptance-scenarios.md",
+    "sha256": "1586898418c09dcf092d567a4155b4524a0bc34500bf4ea76ce8f76465aa7733",
+    "lines": 66,
+    "role": "read-only source; status per document"
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/websocket-vectors.json",
+    "sha256": "e6d30a83367233d9216c2ef162e82d7f67e1b6841de312a0e5dadcec3dace2a8",
+    "lines": 1871,
+    "role": "read-only source; status per document"
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev2.md",
+    "sha256": "6b15161875e702ebae74e4f76b4b94cae9ffbbb94d6a9fcd42aee563b8f3873c",
+    "lines": 394,
+    "role": "proposal"
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev3.md",
+    "sha256": "cdd65729ec04708e9bd96626d29980d616fa32261620825987c9eb2cc7d63d2a",
+    "lines": 269,
+    "role": "proposal"
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev4.md",
+    "sha256": "3926423e9f42f6949647e5904271b6f6818b977301b66e81ffcf334f10c5dc56",
+    "lines": 313,
+    "role": "proposal"
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-rev4-20261122/security-review.md",
+    "sha256": "c418f93a70fc41fc282ba5c2ea5c28714d14337f02c7d58ee4ecb97c8d123ed2",
+    "lines": 185,
+    "role": "read-only source; status per document"
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/retention/retention-delta.md",
+    "sha256": "d11ead64f0bd3928b4112b29c408eab1d3e0f9401b84a4580e3d4adb8b35fd76",
+    "lines": 142,
+    "role": "proposal"
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/retention-20261121/domain-review.md",
+    "sha256": "dcdd04ac330491512b04906264760e47e7dce3c3506f78e76688ed209fc4d322",
+    "lines": 151,
+    "role": "read-only source; status per document"
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t1-traceability-20261120/BINDING.txt",
+    "sha256": "e4951cc2f2df75e61a9b9d1ce7bdb0f717d17faf3746c6fda79f5ed02bdfe8db",
+    "lines": 17,
+    "role": "read-only source; status per document"
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/adr-operation-a-access-and-environment.md",
+    "sha256": "d51bbf650aca74e82351dacf0e45d0f14c992044b9ff246bc7b8b281920b0b39",
+    "lines": 27,
+    "role": "Owner-selected direction; per-record realization unresolved"
+  }
+]

@@ -1,0 +1,4 @@
+# DOM contract: ids referenced by app.js and form names referenced by form.js
+getElementById refs: 19 missing in index.html: []
+form field names used: 0 missing in index.html: []
+RESULT: PASS

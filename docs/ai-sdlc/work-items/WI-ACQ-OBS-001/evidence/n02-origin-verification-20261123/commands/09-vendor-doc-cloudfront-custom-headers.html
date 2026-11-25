@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Add custom headers to origin requests - Amazon CloudFront</title><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="assets_root" content="/assets" /><meta name="target_state" content="add-origin-custom-headers" /><meta name="default_state" content="add-origin-custom-headers" /><link rel="icon" type="image/ico" href="/assets/images/favicon.ico" /><link rel="shortcut icon" type="image/ico" href="/assets/images/favicon.ico" /><link rel="canonical" href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" /><link rel="alternate" type="text/markdown" href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.md" title="Markdown version" /><meta name="description" content="Add custom headers to requests that CloudFront sends to your origin." /><meta name="deployment_region" content="IAD" /><meta name="product" content="Amazon CloudFront" /><meta name="guide" content="Developer Guide" /><meta name="abstract" content="Provides a conceptual overview of and instructions for configuring features for Amazon CloudFront, a web service that speeds up distribution of your static and dynamic web content to end users." /><meta name="guide-locale" content="en_us" /><meta name="tocs" content="toc-contents.json" /><link rel="canonical" href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" /><link rel="alternate" href="https://docs.aws.amazon.com/id_id/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" hreflang="id-id" /><link rel="alternate" href="https://docs.aws.amazon.com/id_id/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" hreflang="id" /><link rel="alternate" href="https://docs.aws.amazon.com/de_de/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" hreflang="de-de" /><link rel="alternate" href="https://docs.aws.amazon.com/de_de/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" hreflang="de" /><link rel="alternate" href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" hreflang="en-us" /><link rel="alternate" href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" hreflang="en" /><link rel="alternate" href="https://docs.aws.amazon.com/es_es/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" hreflang="es-es" /><link rel="alternate" href="https://docs.aws.amazon.com/es_es/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" hreflang="es" /><link rel="alternate" href="https://docs.aws.amazon.com/fr_fr/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" hreflang="fr-fr" /><link rel="alternate" href="https://docs.aws.amazon.com/fr_fr/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" hreflang="fr" /><link rel="alternate" href="https://docs.aws.amazon.com/it_it/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" hreflang="it-it" /><link rel="alternate" href="https://docs.aws.amazon.com/it_it/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" hreflang="it" /><link rel="alternate" href="https://docs.aws.amazon.com/ja_jp/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" hreflang="ja-jp" /><link rel="alternate" href="https://docs.aws.amazon.com/ja_jp/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" hreflang="ja" /><link rel="alternate" href="https://docs.aws.amazon.com/ko_kr/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" hreflang="ko-kr" /><link rel="alternate" href="https://docs.aws.amazon.com/ko_kr/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" hreflang="ko" /><link rel="alternate" href="https://docs.aws.amazon.com/pt_br/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" hreflang="pt-br" /><link rel="alternate" href="https://docs.aws.amazon.com/pt_br/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" hreflang="pt" /><link rel="alternate" href="https://docs.aws.amazon.com/zh_cn/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" hreflang="zh-cn" /><link rel="alternate" href="https://docs.aws.amazon.com/zh_tw/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" hreflang="zh-tw" /><link rel="alternate" href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" hreflang="x-default" /><meta name="feedback-item" content="CloudFront" /><meta name="this_doc_product" content="Amazon CloudFront" /><meta name="this_doc_guide" content="Developer Guide" /><head xmlns="http://www.w3.org/1999/xhtml"> <script defer="" src="/assets/r/awsdocs-doc-page.2.0.0.js"></script><link href="/assets/r/awsdocs-doc-page.2.0.0.css" rel="stylesheet"/></head>
+<script defer="" id="awsc-panorama-bundle" type="text/javascript" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'cloudfront'}"></script><meta id="panorama-serviceSubSection" value="Developer Guide" /><meta id="panorama-serviceConsolePage" value="Add custom headers to origin requests" /></head><body class="awsdocs awsui"><div class="awsdocs-container"><p><a href="add-origin-custom-headers.md">View a markdown version of this page</a></p><awsdocs-header></awsdocs-header><awsui-app-layout id="app-layout" class="awsui-util-no-gutters" ng-controller="ContentController as $ctrl" header-selector="awsdocs-header" navigation-hide="false" navigation-width="$ctrl.navWidth" navigation-open="$ctrl.navOpen" navigation-change="$ctrl.onNavChange($event)" tools-hide="$ctrl.hideTools" tools-width="$ctrl.toolsWidth" tools-open="$ctrl.toolsOpen" tools-change="$ctrl.onToolsChange($event)"><div id="guide-toc" dom-region="navigation"><awsdocs-toc></awsdocs-toc></div><div id="main-column" dom-region="content" tabindex="-1"><awsdocs-view class="awsdocs-view"><div id="awsdocs-content"><head><title>Add custom headers to origin requests - Amazon CloudFront</title><meta name="pdf" content="/pdfs/AmazonCloudFront/latest/DeveloperGuide/AmazonCloudFront_DevGuide.pdf#add-origin-custom-headers" /><meta name="rss" content="amazon-cf-doc-releases.rss" /><meta name="forums" content="https://repost.aws/tags/TA8pHF0m5aQdawzT2gwPcVYQ" /><meta name="feedback" content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=CloudFront&amp;topic_url=https://docs.aws.amazon.com/en_us/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" /><meta name="feedback-yes" content="feedbackyes.html?topic_url=https://docs.aws.amazon.com/en_us/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" /><meta name="feedback-no" content="feedbackno.html?topic_url=https://docs.aws.amazon.com/en_us/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html" /><meta name="keywords" content="Amazon CloudFront,CloudFront,cache,distribution,edge,HTTP,HTTPS,media,origin,streaming,request,response,behavior,viewer,custom headers,origin requests,use cases to use custom headers" /><script type="application/ld+json">
+{
+    "@context" : "https://schema.org",
+    "@type" : "BreadcrumbList",
+    "itemListElement" : [
+      {
+        "@type" : "ListItem",
+        "position" : 1,
+        "name" : "AWS",
+        "item" : "https://aws.amazon.com"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 2,
+        "name" : "Amazon CloudFront",
+        "item" : "https://docs.aws.amazon.com/cloudfront/index.html"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 3,
+        "name" : "Developer Guide",
+        "item" : "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 4,
+        "name" : "Request and response behavior",
+        "item" : "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehavior.html"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 5,
+        "name" : "Add custom headers to origin requests",
+        "item" : "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/RequestAndResponseBehavior.html"
+      }
+    ]
+}
+</script></head><body><div id="main"><div style="display: none"><a href="/pdfs/AmazonCloudFront/latest/DeveloperGuide/AmazonCloudFront_DevGuide.pdf#add-origin-custom-headers" target="_blank" rel="noopener noreferrer" title="Open PDF"></a></div><div id="breadcrumbs" class="breadcrumb"><a href="/index.html">Documentation</a><a href="/cloudfront/index.html">Amazon CloudFront</a><a href="Introduction.html">Developer Guide</a></div><div id="page-toc-src"><a href="#add-origin-custom-headers-use-cases">Use cases</a><a href="#add-origin-custom-headers-configure">Configure CloudFront to add custom headers to origin requests</a><a href="#add-origin-custom-headers-denylist">Custom headers that CloudFront can’t add to origin requests</a><a href="#add-origin-custom-headers-forward-authorization">Configure CloudFront to forward the Authorization header</a></div><div id="main-content" class="awsui-util-container"><div id="main-col-body"><awsdocs-language-banner data-service="$ctrl.pageService"></awsdocs-language-banner><h1 class="topictitle" id="add-origin-custom-headers">Add custom headers to origin requests</h1><div class="awsdocs-page-header-container"><awsdocs-page-header></awsdocs-page-header><awsdocs-filter-selector id="awsdocs-filter-selector"></awsdocs-filter-selector></div><p>You can configure CloudFront to add custom headers to the requests that it sends to your origin.
+		You can use custom headers to send and gather information from your origin that you don’t
+		get with typical viewer requests. You can even customize the headers for each origin. CloudFront
+		supports custom headers for custom origins and Amazon S3 origins.</p><div class="highlights" id="inline-topiclist"><h2 class="awsdocs-topiclist-title">Contents</h2><ul><li><p><a href="./add-origin-custom-headers.html#add-origin-custom-headers-use-cases">Use cases</a></p></li><li><p><a href="./add-origin-custom-headers.html#add-origin-custom-headers-configure">Configure CloudFront to add custom headers to origin requests</a></p></li><li><p><a href="./add-origin-custom-headers.html#add-origin-custom-headers-denylist">Custom headers that CloudFront can’t add to origin requests</a></p></li><li><p><a href="./add-origin-custom-headers.html#add-origin-custom-headers-forward-authorization">Configure CloudFront to forward the Authorization header</a></p></li></ul></div>
+		<h2 id="add-origin-custom-headers-use-cases">Use cases</h2>
+		<p>You can use custom headers, such as the following examples:</p>
+		<div class="variablelist">
+			 
+			 
+			 
+			 
+		<dl>
+				<dt><b><span class="term">Identifying requests from CloudFront</span></b></dt>
+				<dd>
+					<p>You can identify the requests that your origin receives from CloudFront. This
+						can be useful if you want to know if users are bypassing CloudFront, or if you’re
+						using more than one CDN and you want information about which requests are
+						coming from each CDN.</p>
+					<div class="awsdocs-note"><div class="awsdocs-note-title"><awsui-icon name="status-info" variant="link"></awsui-icon><div class="awsdocs-block-title">Note</div></div><div class="awsdocs-note-text"><p>If you’re using an Amazon S3 origin and you enable <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html">Amazon S3
+								server access logging</a>, the logs don’t include header
+							information.</p></div></div>
+				</dd>
+			
+				<dt><b><span class="term">Determining which requests come from a particular distribution</span></b></dt>
+				<dd>
+					<p>If you configure more than one CloudFront distribution to use the same origin,
+						you can add different custom headers in each distribution. You can then use
+						the logs from your origin to determine which requests came from which CloudFront
+						distribution.</p>
+				</dd>
+			
+				<dt><b><span class="term">Enabling cross-origin resource sharing (CORS)</span></b></dt>
+				<dd>
+					<p>If some of your viewers don’t support cross-origin resource sharing
+						(CORS), you can configure CloudFront to always add the <code class="code">Origin</code> header
+						to requests that it sends to your origin. Then you can configure your origin
+						to return the <code class="code">Access-Control-Allow-Origin</code> header for every
+						request. You must also <a href="./header-caching.html#header-caching-web-cors">configure
+							CloudFront to respect CORS settings</a>.</p>
+				</dd>
+			
+				<dt><b><span class="term">Controlling access to content</span></b></dt>
+				<dd>
+					<p>You can use custom headers to control access to content. By configuring
+						your origin to respond to requests only when they include a custom header
+						that gets added by CloudFront, you prevent users from bypassing CloudFront and accessing
+						your content directly on the origin. For more information, see <a href="./private-content-overview.html#forward-custom-headers-restrict-access">Restrict access to files on custom origins</a>.</p>
+				</dd>
+			</dl></div>
+	 
+		<h2 id="add-origin-custom-headers-configure">Configure CloudFront to add custom headers to origin requests</h2>
+		<p>To configure a distribution to add custom headers to requests that it sends to your
+			origin, update the origin configuration using one of the following methods:</p>
+		<div class="itemizedlist">
+			 
+			 
+		<ul class="itemizedlist"><li class="listitem">
+				<p><b>CloudFront console</b> – When you create or
+					update a distribution, specify header names and values in the <b>Add
+						custom headers</b> settings. For more information, see <a href="./DownloadDistValuesOrigin.html#DownloadDistValuesOriginCustomHeaders">Add custom header</a>.</p>
+			</li><li class="listitem">
+				<p><b>CloudFront API</b> – For each origin that you
+					want to add custom headers to, specify the header names and values in the
+						<code class="code">CustomHeaders</code> field inside <code class="code">Origin</code>. For more
+					information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_CreateDistribution.html">CreateDistribution</a> or <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a> in the
+						<em>Amazon CloudFront API Reference</em>.</p>
+			</li></ul></div>
+		<p>If the header names and values that you specify are not already present in the viewer
+			request, CloudFront adds them to the origin request. If a header is present, CloudFront overwrites
+			the header value before forwarding the request to the origin.</p>
+		<p>For the quotas that apply to origin custom headers, see <a href="./cloudfront-limits.html#limits-custom-headers">Quotas on headers</a>.</p>
+	 
+		<h2 id="add-origin-custom-headers-denylist">Custom headers that CloudFront can’t add to origin requests</h2>
+		<p>You can’t configure CloudFront to add any of the following headers to requests that it sends
+			to your origin:</p>
+		<div class="itemizedlist">
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+		<ul class="itemizedlist"><li class="listitem">
+				<p><code class="code">Cache-Control</code></p>
+			</li><li class="listitem">
+				<p><code class="code">Connection</code></p>
+			</li><li class="listitem">
+				<p><code class="code">Content-Length</code></p>
+			</li><li class="listitem">
+				<p><code class="code">Cookie</code></p>
+			</li><li class="listitem">
+				<p><code class="code">Host</code></p>
+			</li><li class="listitem">
+				<p><code class="code">If-Match</code></p>
+			</li><li class="listitem">
+				<p><code class="code">If-Modified-Since</code></p>
+			</li><li class="listitem">
+				<p><code class="code">If-None-Match</code></p>
+			</li><li class="listitem">
+				<p><code class="code">If-Range</code></p>
+			</li><li class="listitem">
+				<p><code class="code">If-Unmodified-Since</code></p>
+			</li><li class="listitem">
+				<p><code class="code">Max-Forwards</code></p>
+			</li><li class="listitem">
+				<p><code class="code">Pragma</code></p>
+			</li><li class="listitem">
+				<p><code class="code">Proxy-Authenticate</code></p>
+			</li><li class="listitem">
+				<p><code class="code">Proxy-Authorization</code></p>
+			</li><li class="listitem">
+				<p><code class="code">Proxy-Connection</code></p>
+			</li><li class="listitem">
+				<p><code class="code">Range</code></p>
+			</li><li class="listitem">
+				<p><code class="code">Request-Range</code></p>
+			</li><li class="listitem">
+				<p><code class="code">TE</code></p>
+			</li><li class="listitem">
+				<p><code class="code">Trailer</code></p>
+			</li><li class="listitem">
+				<p><code class="code">Transfer-Encoding</code></p>
+			</li><li class="listitem">
+				<p><code class="code">Upgrade</code></p>
+			</li><li class="listitem">
+				<p><code class="code">Via</code></p>
+			</li><li class="listitem">
+				<p>Headers that begin with <code class="code">X-Amz-</code></p>
+			</li><li class="listitem">
+				<p>Headers that begin with <code class="code">X-Edge-</code></p>
+			</li><li class="listitem">
+				<p><code class="code">X-Real-Ip</code></p>
+			</li></ul></div>
+	 
+		<h2 id="add-origin-custom-headers-forward-authorization">Configure CloudFront to forward the <code class="code">Authorization</code> header</h2>
+		<p>When CloudFront forwards a viewer request to your origin, CloudFront removes some viewer headers
+			by default, including the <code class="code">Authorization</code> header. To make sure that your
+			origin always receives the <code class="code">Authorization</code> header in origin requests, you
+			have the following options:</p>
+		<div class="itemizedlist">
+			 
+			 
+			 
+		<ul class="itemizedlist"><li class="listitem">
+				<p>Add the <code class="code">Authorization</code> header to the cache key using a cache
+					policy. All headers in the cache key are automatically included in origin
+					requests. For more information, see <a href="./controlling-the-cache-key.html">Control the cache key with a policy</a>.</p>
+			</li><li class="listitem">
+				<p>Add the <code class="code">Authorization</code> header individually in an origin request
+					policy. For more information, see <a href="./controlling-origin-requests.html">Control origin requests with a policy</a>.</p>
+			</li><li class="listitem">
+				<p>Use an origin request policy that forwards all viewer headers to the origin.
+					CloudFront provides a managed origin request policy for this use case, called
+					<b>Managed-AllViewer</b>. For more information, see
+					<a href="./using-managed-origin-request-policies.html">Use managed origin request policies</a>.</p>
+			</li></ul></div>
+		<div class="awsdocs-note awsdocs-important"><div class="awsdocs-note-title"><awsui-icon name="status-warning" variant="error"></awsui-icon><div class="awsdocs-block-title">Important</div></div><div class="awsdocs-note-text"><p>If you forward the <code class="code">Authorization</code> header to your origin without
+				including it in the cache key, make sure that your origin does not rely on the
+				<code class="code">Authorization</code> header for access control of cached content. When the
+				<code class="code">Authorization</code> header is not part of the cache key, CloudFront can serve the
+				same cached response to both authorized and unauthorized viewers. Either include the
+				<code class="code">Authorization</code> header in the cache key using a cache policy, or disable
+				caching entirely for origins that require origin-side authorization processing.</p></div></div>
+	<awsdocs-copyright class="copyright-print"></awsdocs-copyright><awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}"></awsdocs-thumb-feedback></div><noscript><div><div><div><div id="js_error_message"><p><img src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png" alt="Warning" /> <strong>Javascript is disabled or is unavailable in your browser.</strong></p><p>To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions.</p></div></div></div></div></noscript><div id="main-col-footer" class="awsui-util-font-size-0"><div id="doc-conventions"><a target="_top" href="/general/latest/gr/docconventions.html">Document Conventions</a></div><div class="prev-next"><div id="previous" class="prev-link" accesskey="p" href="./RequestAndResponseBehaviorOriginGroups.html">Request and response behavior for origin groups</div><div id="next" class="next-link" accesskey="n" href="./RangeGETs.html">How CloudFront processes range GETs</div></div></div><awsdocs-page-utilities></awsdocs-page-utilities></div><div id="quick-feedback-yes" style="display: none;"><div class="title">Did this page help you? - Yes</div><div class="content"><p>Thanks for letting us know we're doing a good job!</p><p>If you've got a moment, please tell us what we did right so we can do more of it.</p><p><awsui-button id="fblink" rel="noopener noreferrer" target="_blank" text="Feedback" click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=CloudFront&amp;topic_url=https://docs.aws.amazon.com/en_us/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html"></awsui-button></p></div></div><div id="quick-feedback-no" style="display: none;"><div class="title">Did this page help you? - No</div><div class="content"><p>Thanks for letting us know this page needs work. We're sorry we let you down.</p><p>If you've got a moment, please tell us how we can make the documentation better.</p><p><awsui-button id="fblink" rel="noopener noreferrer" target="_blank" text="Feedback" click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=CloudFront&amp;topic_url=https://docs.aws.amazon.com/en_us/AmazonCloudFront/latest/DeveloperGuide/add-origin-custom-headers.html"></awsui-button></p></div></div></div></body></div></awsdocs-view><div class="page-loading-indicator" id="page-loading-indicator"><awsui-spinner size="large"></awsui-spinner></div></div><div id="tools-panel" dom-region="tools"><awsdocs-tools-panel id="awsdocs-tools-panel"></awsdocs-tools-panel></div></awsui-app-layout><awsdocs-cookie-banner class="doc-cookie-banner"></awsdocs-cookie-banner></div></body></html>

@@ -1,0 +1,12 @@
+# Terraform working data and state must never be committed. The repository
+# root ignores the Java/IDE artefacts; this keeps state, plans, crash logs and
+# provider downloads out of the tree regardless of the root rules.
+.terraform/
+.terraform.tfstate.lock.info
+*.tfstate
+*.tfstate.*
+*.tfplan
+*.tfvars
+*.tfvars.json
+crash.log
+crash.*.log

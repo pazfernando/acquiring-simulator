@@ -1,0 +1,2 @@
+cd /home/pazfernando/projects/acquiring-simulator
+JAVA_HOME=/home/pazfernando/.local/opt/jdk-25 /home/pazfernando/.local/opt/maven/bin/mvn -o -q -DskipTests compile

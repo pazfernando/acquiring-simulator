@@ -1,0 +1,15 @@
+8584a2ed39a3ac548f303bf41bceb8e5e9df3fd3ec678289bdb128560643710e  docs/ai-sdlc/PROJECT.md
+2f4d32b392e5c717366faf91bfe9351add695c94eec0788d04c152304e0bd83c  docs/ai-sdlc/README.md
+67609d985a3bf195f87492274deb87932fdd1e2064ef2402fcb2f1563b7c75cb  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/WORK_ITEM.md
+2000bb004e68e6d2974bef3067baeae6774f1922a21dca4ea18fecf6944ab467  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/OUTPUTS.SHA256SUMS
+33d5fb3c8ef6b4aa6baae3389c74032efb1faa6d809a3f09268910edf9ca1f10  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/contracts.md
+e03a2747a34aabf19a0d7d4da038d1fe0124faf246b6b088d34b4f70d5a82936  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/wire-fixtures.json
+b099fe8e396f6b65fdba61de1ed4e8968b54def835b97ae28dd0da515673ebae  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/identity-map.md
+6a4dbdeb72f41a670fc88658588ff59c66b2fc93dadd59e50a0acf06fe84b6cd  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/disposition-ledger.md
+174f821ee93c961793ce4c5de4bec6f7a7e53cd91d45c021fd871e349442bb76  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/continuation-h1-qa-fixes-20261123/RESULTS.md
+9529c000b76b66b297c9cf7f2225d9d7c8ae068eafdbf1014232e9e9f5899c44  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/continuation-h1-20261123/RESULTS.md
+2ac3c71662d725bf86a8db4adf86be8447f3405c5aaed6757fd8f6c0152e8844  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/h1-qa-20261123/qa-report.md
+388f5f794990079aa8ad26138cbc41065495c9a338ebde9d7b34e9d1dd461906  src/main/java/com/acquiring/simulator/console/ConsoleHistoryCursorCodec.java
+51ad2b71ee41b5e9efe5ecb73e2cebb191ea0f5323781cb7e818f2046b9a840e  src/main/java/com/acquiring/simulator/console/ConsoleHistoryRoute.java
+390a2bdaafc73299ec90d98ead9804c514b3c1f4741e01e969ea0f7d12b9b76c  src/main/java/com/acquiring/simulator/domain/model/AuthorizedContext.java
+483d4773e466ff22a4c8f31b2c502b5f639a9c2c95565e4d1fc068b6003eac51  src/test/java/com/acquiring/simulator/console/ConsoleHistoryRouteTest.java

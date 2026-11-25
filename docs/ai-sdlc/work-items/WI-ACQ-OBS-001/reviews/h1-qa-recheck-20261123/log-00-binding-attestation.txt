@@ -1,0 +1,55 @@
+# QA binding re-attestation (read-only, logged 2026-11-23T23:2x-05:00)
+
+## Prior QA report hash (coordinator pin)
+2ac3c71662d725bf86a8db4adf86be8447f3405c5aaed6757fd8f6c0152e8844  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/h1-qa-20261123/qa-report.md
+expected: 2ac3c71662d725bf86a8db4adf86be8447f3405c5aaed6757fd8f6c0152e8844
+
+## Adopted contract manifest continuation-rev3-20261123
+2000bb004e68e6d2974bef3067baeae6774f1922a21dca4ea18fecf6944ab467  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/OUTPUTS.SHA256SUMS
+expected: 2000bb004e68e6d2974bef3067baeae6774f1922a21dca4ea18fecf6944ab467 (manifest content)
+INPUTS.SHA256SUMS: OK
+PROGRESS.md: OK
+README.md: OK
+acceptance-scenarios.md: OK
+browser-flow.md: OK
+carrier-vectors.json: OK
+construction-handoff.md: OK
+contracts.md: OK
+disposition-ledger.md: OK
+evidence-fixtures.json: OK
+finding-matrix.md: OK
+identity-map.md: OK
+inherited-candidate.md: OK
+integrity.json: OK
+late-original-fixtures.json: OK
+old-prior-fixtures.json: OK
+response-vectors.json: OK
+setup-overlays.json: OK
+verification.md: OK
+websocket-vectors.json: OK
+wire-fixtures.json: OK
+
+## Implementation fix evidence changed-files.sha256 (8 files)
+sha256sum: docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/continuation-h1-qa-fixes-20261123/changed-files.sha256: No such file or directory
+
+## Fix-run exit files
+compile.exit=EXIT=0
+focused-console-suites.exit=EXIT=1
+focused-console-suites-attempt2.exit=EXIT=0
+
+## Git note
+QA did not run any Git/provider command (routing contract: Git evidence comes through
+Implementation's configured coding runtime). Branch feat/wi-acq-auth-001 HEAD 5bbd4eb and
+'no commit made' are cited from the implementation fix evidence; content-level binding is
+attested above by re-verifying the changed-file and contract hashes against this working tree.
+
+## Implementation fix evidence changed-files.sha256 (8 files) — from repo root
+src/main/java/com/acquiring/simulator/console/ConsolePrincipal.java: OK
+src/main/java/com/acquiring/simulator/console/DemoConsoleAuthorizer.java: OK
+src/main/java/com/acquiring/simulator/console/ConsoleHistoryCursorCodec.java: OK
+src/main/java/com/acquiring/simulator/console/ConsoleHistoryRoute.java: OK
+src/main/java/com/acquiring/simulator/domain/model/AuthorizedContext.java: OK
+src/test/java/com/acquiring/simulator/console/ConsoleHistoryRouteTest.java: OK
+src/test/java/com/acquiring/simulator/console/ConsoleHistoryRouteDynamoIntegrationTest.java: OK
+src/test/java/com/acquiring/simulator/console/ConsoleOriginVerificationGateTest.java: OK
+CHANGED_FILES_CHECK_EXIT=0

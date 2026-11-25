@@ -1,0 +1,10 @@
+{
+  "observed_at_utc": "2026-11-23T00:19:19.729137+00:00",
+  "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+  "initial_sha256": "9bf166feed3eed4c0b4d6d4e441ae1ef44d3826a8bdab0cad65277bcd8127cdb",
+  "current_sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+  "preserved_initial_snapshot": "evidence/owner-decisions-as-reviewed-9bf166fe.md",
+  "initial_142_lines_exact_hash_verified": true,
+  "new_lines": "143\u2013155; local atomic-runtime wiring authorization, no new access direction or public endpoint authorization",
+  "access_decision_clauses_unchanged": true
+}

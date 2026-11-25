@@ -1,0 +1,26 @@
+src/main/java/com/acquiring/simulator/console/ConsoleAuthenticationException.java: OK
+src/main/java/com/acquiring/simulator/console/ConsoleAuthorizationRoute.java: OK
+src/main/java/com/acquiring/simulator/console/ConsoleAuthorizer.java: OK
+src/main/java/com/acquiring/simulator/console/ConsoleContextRegistry.java: OK
+src/main/java/com/acquiring/simulator/console/ConsoleHistoryCursorCodec.java: OK
+src/main/java/com/acquiring/simulator/console/ConsoleHistoryQuery.java: OK
+src/main/java/com/acquiring/simulator/console/ConsoleHistoryRoute.java: OK
+src/main/java/com/acquiring/simulator/console/ConsoleHttpRequest.java: OK
+src/main/java/com/acquiring/simulator/console/ConsoleHttpResponse.java: OK
+src/main/java/com/acquiring/simulator/console/ConsoleIntegrationEntryPoint.java: OK
+src/main/java/com/acquiring/simulator/console/ConsoleOriginDenial.java: OK
+src/main/java/com/acquiring/simulator/console/ConsoleOriginDenialSink.java: OK
+src/main/java/com/acquiring/simulator/console/ConsoleOriginVerificationGate.java: OK
+src/main/java/com/acquiring/simulator/console/ConsolePrincipal.java: OK
+src/main/java/com/acquiring/simulator/console/ConsoleRateLimitHook.java: OK
+src/main/java/com/acquiring/simulator/console/ConsoleRequestIdentity.java: OK
+src/main/java/com/acquiring/simulator/console/ConsoleTokenClaims.java: OK
+src/main/java/com/acquiring/simulator/console/ConsoleTokenDecoder.java: OK
+src/main/java/com/acquiring/simulator/console/DemoConsoleAuthorizer.java: OK
+src/main/java/com/acquiring/simulator/console/StandardStreamOriginDenialSink.java: OK
+src/test/java/com/acquiring/simulator/console/ConsoleAuthorizationRouteTest.java: OK
+src/test/java/com/acquiring/simulator/console/ConsoleHistoryRouteDynamoIntegrationTest.java: OK
+src/test/java/com/acquiring/simulator/console/ConsoleHistoryRouteTest.java: OK
+src/test/java/com/acquiring/simulator/console/ConsoleOriginVerificationGateTest.java: OK
+src/test/java/com/acquiring/simulator/console/ConsoleSubmissionAtomicIntegrationTest.java: OK
+sha256sum: WARNING: 2 lines are improperly formatted

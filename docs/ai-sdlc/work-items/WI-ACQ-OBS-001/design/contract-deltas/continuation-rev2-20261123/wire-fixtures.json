@@ -1,0 +1,144 @@
+{
+  "status": "PROPOSED documentary wire values, not signed tokens/cursors or executed HTTP",
+  "clockEpochSeconds": 1795089600,
+  "claims": {
+    "http": {
+      "iss": "https://auth.example.invalid/realms/acq-DEMO",
+      "aud": [
+        "urn:acq:DEMO:console"
+      ],
+      "azp": "console-demo",
+      "sub": "DEMO-USER",
+      "scope": "openid console.demo",
+      "iat": 1795089600,
+      "nbf": 1795089600,
+      "exp": 1795090500
+    },
+    "ws": {
+      "iss": "https://auth.example.invalid/realms/acq-DEMO",
+      "aud": [
+        "urn:acq:DEMO:ws"
+      ],
+      "azp": "console-demo",
+      "sub": "DEMO-USER",
+      "scope": "openid ws.observe",
+      "iat": 1795089600,
+      "nbf": 1795089600,
+      "exp": 1795090500
+    }
+  },
+  "authorizeRequests": {
+    "http": {
+      "client_id": "console-demo",
+      "response_type": "code",
+      "redirect_uri": "https://console.example.invalid/auth/callback",
+      "scope": "openid console.demo",
+      "code_challenge_method": "S256",
+      "code_challenge": "DOC_CHALLENGE_HTTP",
+      "state": "DOC_STATE_HTTP",
+      "nonce": "DOC_NONCE_HTTP"
+    },
+    "ws": {
+      "client_id": "console-demo",
+      "response_type": "code",
+      "redirect_uri": "https://console.example.invalid/auth/callback",
+      "scope": "openid ws.observe",
+      "prompt": "none",
+      "code_challenge_method": "S256",
+      "code_challenge": "DOC_CHALLENGE_WS",
+      "state": "DOC_STATE_WS",
+      "nonce": "DOC_NONCE_WS"
+    }
+  },
+  "cursorUnsignedHarnessBinding": {
+    "version": 1,
+    "issuer": "https://auth.example.invalid/realms/acq-DEMO",
+    "azp": "console-demo",
+    "subject": "DEMO-USER",
+    "environment": "DEMO",
+    "registryMandateId": "M-1",
+    "registryVersion": 1,
+    "context": {
+      "acquirerRef": "ACQ-A",
+      "merchantRef": "MERCHANT-A",
+      "terminalRef": "TERMINAL-A"
+    },
+    "transactionId": "TX-001",
+    "generation": "READ-1",
+    "epoch": null,
+    "H": 3,
+    "R": 1,
+    "F": 1,
+    "lastSequence": 1,
+    "issuedAt": 1795089600,
+    "expiresAt": 1795090500,
+    "keyId": "DOC-KEY-1"
+  },
+  "historyErrors": {
+    "400": {
+      "version": 1,
+      "error": "INVALID_CURSOR",
+      "action": null
+    },
+    "401": {
+      "version": 1,
+      "error": "UNAUTHENTICATED",
+      "action": null
+    },
+    "403": {
+      "version": 1,
+      "error": "CONTEXT_DENIED",
+      "action": null
+    },
+    "404": {
+      "version": 1,
+      "error": "NOT_FOUND",
+      "action": null
+    },
+    "410": {
+      "version": 1,
+      "error": "RESYNC_REQUIRED",
+      "action": "RESYNC_REQUIRED"
+    },
+    "503": {
+      "version": 1,
+      "error": "AUTHORIZATION_UNAVAILABLE",
+      "action": null
+    }
+  },
+  "historyGapPage": {
+    "version": 1,
+    "transactionId": "TX-001",
+    "snapshotHead": 3,
+    "expiryRevision": 1,
+    "firstRetainedSequence": 3,
+    "events": [],
+    "coveredThrough": 2,
+    "expiredRanges": [
+      [
+        1,
+        2
+      ]
+    ],
+    "gapRanges": [
+      [
+        3,
+        3
+      ]
+    ],
+    "nextCursor": null,
+    "completeThroughSnapshot": false,
+    "retentionTruncated": true
+  },
+  "wsHandshake": {
+    "offeredProtocolEntries": [
+      "<configured-fixed-protocol>",
+      "<signed-compact-WS-access-token>"
+    ],
+    "acceptedProtocolEntries": [
+      "<configured-fixed-protocol>"
+    ],
+    "Origin": "https://console.example.invalid"
+  },
+  "c3File": "response-vectors.json"
+}

@@ -1,0 +1,26 @@
+# probe at 2026-11-23T23:47:03Z against http://127.0.0.1:8100
+
+## GET /
+HTTP/1.1 200 OK
+X-frame-options: DENY
+Referrer-policy: no-referrer
+Date: Mon, 23 Nov 2026 23:47:03 GMT
+Content-security-policy: default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; form-action 'none'; base-uri 'none'; frame-ancestors 'none'
+Content-type: text/html; charset=utf-8
+Cross-origin-opener-policy: same-origin
+Cross-origin-resource-policy: same-origin
+Content-length: 9920
+X-content-type-options: nosniff
+Cache-control: no-store
+
+
+## GET /config.json
+{"mode":"dev-stub","stub":true,"issuer":"https://auth.dev.invalid/realms/console-dev-stub","clientId":"console-demo","audience":"console-api","scope":"console.demo","redirectUri":"http://127.0.0.1:8100/","tokenEndpoint":"/dev/v1/stub-token","demoContext":{"acquirerRef":"ACQ-SIM-001","merchantRef":"MERCH-SIM-001","terminalRef":"TERM-SIM-001","currency":"USD"},"history":{"mode":"session-only","serverReadImplemented":false}}
+## static assets (status only)
+styles.css -> 200 text/css; charset=utf-8
+js/app.js -> 200 text/javascript; charset=utf-8
+js/form.js -> 200 text/javascript; charset=utf-8
+js/render.js -> 200 text/javascript; charset=utf-8
+js/session-history.js -> 200 text/javascript; charset=utf-8
+js/token/dev-stub-provider.js -> 200 text/javascript; charset=utf-8
+js/token/oidc-pkce-client.js -> 200 text/javascript; charset=utf-8

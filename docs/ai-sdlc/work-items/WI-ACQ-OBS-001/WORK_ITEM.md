@@ -14,6 +14,7 @@ Independent reviewer: ai-sdlc-security, native OpenClaw/Codex, observed model gp
 Follow-up ownership:
 - DevOps run `03515333-84b0-42dd-b373-0a07b2db78b6` delivered the proposal in `design/access-realization/` ([design.md](design/access-realization/design.md), SHA-256 `83e4ea14b3959dcc6d8535aee0f0dd715783764e8922a72b6c0c3454a40829f4`; [configuration-schema.md](design/access-realization/configuration-schema.md), SHA-256 `1f497daade1a8429458e2cc40047adf326a97f2fb6636d583e1bf2e930bf1bb2`). Proposal only: private REST does not support native Gateway mTLS, so it recommends a Regional custom domain with mTLS on public authenticated ingress; WebSocket has a `$connect`-only authorizer and no documented native mTLS. No silent substitution of owner-selected mTLS/OAuth; seven marked decisions remain for owner or Security disposition.
 - Requirements run `819be151-6edb-4e96-812f-e7fcbc632744` drafts record-specific retention/expiry and no-resend clarification in `design/retention/`. It currently holds only a saved stub and source-identity evidence because the configured model reached a provider quota; retry is scheduled, and independent acquiring-domain review follows the exact revision.
+- Independent Security re-review of the revised access design delivered by ai-sdlc-security on the owner-recorded `openai/gpt-6.1-sol`: [security-review.md](reviews/access-design-rev2-20261122/security-review.md), SHA-256 `b74e5a686525a1c2ceff6713e23e938f4e54f0538a9587240ce8307d1dc38120`, design verdict **FAIL** with two confirmed IMPORTANT defects on the internal late-evidence path and an advisory on rotation overlap. The design gate therefore stays blocked; DevOps run `21388b05-0754-4889-bc24-b1a030729257` prepares `design-rev3.md`, and a further independent review follows. The earlier review in `reviews/access-design-rev2-20261121/` ran on a different model and is retained as supplementary input only.
 - Independent acquiring-domain review of the retention draft delivered: [domain-review.md](reviews/retention-20261121/domain-review.md), SHA-256 `dcdd04ac330491512b04906264760e47e7dce3c3506f78e76688ed209fc4d322`, verdict CONDITIONAL. It confirms the no-resend identity and ordering semantics, confirms R20/A07 fix the 30-second default so U2 needs documentary harmonization rather than an owner decision, and holds that event tombstones cannot replace authoritative business evidence. Requirements run `e6ee31a9-71f8-40d0-a182-4eb1c61a219d` applies those two corrections; NV-05 stays open.
 - Implementation compatibility pass delivered: [compatibility-assessment.md](design/access-realization/compatibility-assessment.md), SHA-256 `4886106c0afbf9ded1736ef3c0756c2bc8c738c58c61457faa0a635ecdd836ac`, with evidence manifest. The proposal is coherent but not implementable by configuration; four material items and one stale-contract item are recorded.
 - Owner resolved three follow-ups on 2026-11-20 evening: WebSocket transport assurance accepted without mTLS (notification-only), self-managed Keycloak as the `private_key_jwt` issuer, and late evidence confirmed internal only so no public route is created. See [owner-decisions.md](owner-decisions.md). DevOps run `60f419d9-b587-4724-90bb-fecf10a1a7a0` delivered the revision: [design-rev2.md](design/access-realization/design-rev2.md), SHA-256 `6b15161875e702ebae74e4f76b4b94cae9ffbbb94d6a9fcd42aee563b8f3873c`, with `evidence-rev2/`, v1 preserved byte-identical. It realizes the Keycloak hosting profile, the internal-only late path, the code-aligned role vocabulary and the corrected WebSocket lease, and states that the transport-context widening and the unwired atomic gateways remain open. No finding is claimed closed and no provisioning is authorized.
@@ -257,3 +258,117 @@ Owner authority preserved and expanded, not replaced: the 2026-11-19 architectur
 Current phase: architecture approved; Phase 0 preflight recovery complete; **P1 split and P1a delivered locally**. P1a implements the smallest coherent G5 subset from O1a/O2a — closed canonical payload, strict ingress, bounds/enums, sanitizer, RFC 8785 canonical hash, source wrapper, dedupe identity and versioned `A-1` manifest — with 42 new unit tests. The full local suite is 106/106. P1b (atomic EVENT store, `HEAD`, dedupe partition, slot accounting, OBS-20/21/22 core) remains open, as do G6/G7, Streams, WebSocket, query API, expiry, console, ADOT, Terraform and CI.
 
 Correction carried into this status: the DE42 historical root cause is **unproven**. Only the corrected probes are reproducible; the pre-correction probe source was not preserved. No approved document or fixture was changed. This entry records local implementation evidence only, not independent QA, Security review or human acceptance.
+
+## Owner continuation — 2026-11-23
+
+Real authentication, server history, independent reviews and deployment commissioned by Fernando. See [bounded commission](handoffs/continuation-20261123/commission.md) and exact input pins. Work is not verified or deployed; review conditions remain gates.
+
+## Normative adoption and N-02 disposition — 2026-11-23
+
+Owner decision recorded in [owner-decisions.md](owner-decisions.md) under "N-02 closure (Option B) and normative adoption — 2026-11-23": exact instruction "adelante con lo recomendado".
+
+- **N-02 (edge rate-bound bypass):** closed by the CloudFront origin-verification header under four binding conditions; REST+WAF and documented risk acceptance were not selected. Status remains OPEN until the contract delta is authored and independently re-reviewed; the Security verdict therefore stays FAIL in the interim.
+- **Contracts:** `design/contract-deltas/continuation-rev3-20261123/` (manifest `2000bb00…ab467`) as amended by `continuation-rev3-dr301-20261123/` (`1d3f1406…d5f5`) is the normative revision. Domain evidence: `154b6346…c2e4` CONDITIONAL plus DR3-01 re-review `df5ad1a5…c5d0` PASS with DR3-01 CLOSED.
+- **Not closed by adoption:** Security FAIL (`f5696ed9…ba50`), SR2-01/02, NV-05/AD-01, D-5 issuer evidence, public-surface evidence, deployment inputs.
+- **Status:** Architecture Approved; construction of H1/K1 permitted once the N-02 contract delta passes independent re-review. Independent QA, Security implementation review, acceptance and deployment remain pending.
+
+## N-02 re-review — 2026-11-23
+
+Independent bounded re-review: `reviews/n02-origin-verification-20261123/security-review.md`, SHA-256 `e5937fb890a5723a1e1af853961659d6e8929bf9a69cc932a8aa6422d08eb2e1`, reviewer ai-sdlc-security, observed model `nan/glm5.3-flash`, no override. Verdict: bounded PASS for design/authoring scope; **N-02 PARTIAL**, standing implementation-level Security verdict remains FAIL.
+
+- Contract delta `design/contract-deltas/n02-origin-verification-20261123/contract-delta.md` (`15959975…f3ad`) implements all four owner conditions; no defect found.
+- Infrastructure verified 10/10 against `CHANGED-FILES.sha256`, policy suite 18/18 with 15/15 negative mutations firing.
+- Custody widening ruled within the original condition's intent: the runtime copies are inherent to the selected option, no runtime principal can read them, and the deploy role's read surface is governed by the standing C-01 gate. No new owner decision required.
+- Closure path: the boundary gate exists in no application bytes yet, so N-02 closes only after the H1/K1 construction, its implementation re-review, and the deployment-gate retests. Construction is not blocked by this review.
+- Follow-through: denial metric filter and alarm (FT-2) await the frozen log shape and an owner-set threshold.
+
+## N-02 implementation review — 2026-11-23
+
+Independent bounded implementation review: `reviews/n02-implementation-20261123/security-review.md`, reviewer ai-sdlc-security, observed model `nan/glm5.3-flash`, no override. Verdict: PASS (bounded); **N-02 CLOSED at authoring**, per the closure path the prior review projected.
+
+- Slice manifest verified 25/25 against the current tree, so the green-run bytes are the reviewed bytes.
+- The gate implements the delta faithfully: exhaustive closed classification, constant-time comparison with length fast-fail, fail-closed initialization, mandatory first application step before dispatch, 404/405, body read, credential seam, rate limit and service; exact 403 body with no echo; explicitly not authentication; one closed-field denial record per refusal.
+- Red/green integrity accepted: no deleted, disabled or weakened cases; all six red failures were test-harness defects. The red-revision sources were not preserved, disclosed, and the reviewer judged the hash-pinned green assertions adequate with the residual stated.
+- Advisories: A-1 the fixed OV identifiers were not carried into test names; **A-2 no composition instantiates the entry point yet, so nothing deployable refuses the direct path today — the console handler wiring via `fromEnvironment()` is mandatory and must be reviewed**; A-3 provisional `INVALID_CURSOR` mapping needs Requirements confirmation; A-4 cursor key sourcing remains open.
+- Overall implementation-level Security gate: no longer FAIL-on-defect; recorded **BLOCKED (evidence-gated)** for the outstanding SR2-01/02 IAM negatives, C-02/C-03/C-04, scans and K1 real authentication.
+
+## H1 independent QA — 2026-11-23
+
+Independent QA report: `reviews/h1-qa-20261123/qa-report.md`, reviewer ai-sdlc-qa, observed model `nan/glm5.3-flash`, no override. **Verdict: FAIL for the scoped H1 criteria** — two executed checks violated contract criteria; all other executed checks passed.
+
+- QA re-attested the binding read-only (branch `feat/wi-acq-auth-001`, HEAD `5bbd4eb5…`, dirty by design) and re-verified the normative packet 21/21, the N-02 delta, the DR3-01 fixtures and the implementer slice manifest 25/25.
+- Executed by QA itself: 49 tests, 0 failures, 0 errors, 0 skipped across the focused console suites with DynamoDB Local; plus a QA-owned driver with 63 checks, 61 passed and 2 confirmed defects.
+- Passed: the full origin-gate oracle set runnable without a deployed edge, and the complete read-protocol taxonomy including frozen snapshot, bounded pagination, cursor binding and TTL, tampered/expired/generation handling, 401 before and after the store read, 503 without payload, honest expired ranges and gaps. No payment side effect of any kind; no integrated end-to-end payment exists.
+- Defects: **QA-DEF-1 (LOW)** the signed cursor payload does not bind `issuer`, which D-6 and the reviewed fixtures bind, mitigated by per-page re-authentication; **QA-DEF-2 (MEDIUM)** the 503 body emits `UNAVAILABLE` instead of the pinned `AUTHORIZATION_UNAVAILABLE`; **QA-DEF-3 (LOW)** the `terminalRef` context binding is absent although the fixture includes it.
+- Observations to route, not silently accept: mandate fingerprint versus `registryMandateId`/`registryVersion`, the omitted epoch key, and `cursor` plus `after` where `after` is silently ignored.
+- Not verifiable here: deployed-edge behaviour, platform 401 body, real JWKS/issuer verification (K1), server-side read-pass store, cursor-key sourcing, log and metric read-back.
+
+## H1 composition slice — 2026-11-23
+
+Implementation slice: the console entry point is now instantiated in a deployable composition (`adapter/aws/ConsoleHandler` + `ConsoleRuntime`), so the origin gate runs in the composed path rather than only in unit tests.
+
+- Compile attempt 1 failed with an ambiguous constructor reference in `ConsoleHandler.java`; preserved. One-line fix, attempt 2 exit 0.
+- Focused suites, each in its own invocation, all exit 0: ConsoleHandlerCompositionTest 5, ConsoleOriginVerificationGateTest 9, ConsoleHistoryRouteTest 20, ConsoleHistoryRouteDynamoIntegrationTest 4, ConsoleDevServerTest 9 — **47 tests, 0 failures, 0 errors, 0 skipped**. No case weakened, skipped or removed.
+- Stated limit: the deployed composition answers `503 UNAVAILABLE` for the existing routes because it deliberately does not fabricate authorizer, registry or cursor-key collaborators. The gate is invoked; the business paths are not functional. This is the same defect class QA reported as QA-DEF-2.
+- Evidence: `evidence/continuation-h1-composition-20261123/` (attempt-numbered exits and logs, RESULTS.md). Developer evidence only, not independent QA, Security review or acceptance.
+
+## H1 QA re-verification — 2026-11-23
+
+Independent re-check: `reviews/h1-qa-recheck-20261123/qa-report.md`, reviewer ai-sdlc-qa, observed model `nan/glm5.3-flash`, no override. **Verdict: PASS for the scoped criteria.**
+
+- QA re-ran everything itself: compile exit 0, focused suite 53/53 green including the four DynamoDB Local integration tests, and its own driver 70/70 PASS. No new defects.
+- QA-DEF-2 PASS: all four reachable 503 paths emit the byte-exact fixture body with `AUTHORIZATION_UNAVAILABLE`; the earlier assertion change is judged justified by the contract, and the new test compares the exact fixture bytes.
+- QA-DEF-1 PASS: the cursor always writes and requires `issuer`; a cursor minted under another issuer is refused with 403 before any store read, while both per-page authentications remain and an expired token still returns 401 before disclosure.
+- QA-DEF-3 PASS: `terminalRef` binds when target-specific and a different terminal is refused on continuation and post-read re-authentication.
+- The red-to-green transition is accepted as a stale test fixture, not a relaxed assertion; the 410 assertion is unchanged and the original twenty test names remain.
+- Confirmed that the three open items were left unimplemented pending the contract clarification now under independent domain review.
+- No integrated end-to-end payment exists; N-02 remains open at the edge, CloudFront, K1 and platform layers.
+
+## D-6 clarification application in H1 code — 2026-11-23
+
+Two code changes from the C-1/C-2 domain dispositions, verified by the Coordinator in the source bytes:
+
+- **C-1.3 ordering:** `reauthenticateAfterRead` now checks the context triple (`403 CONTEXT_DENIED`) before the mandate fingerprint (`410 RESYNC_REQUIRED`), matching the clause; the pre-read continuation was already context-first. Both authentication calls and the 401-before-disclosure rule are unchanged. Focused tests pin the order: a request that is both context-mismatched and generation-retired returns 403, and one only generation-retired still returns 410.
+- **C-2 combinations:** a non-empty `cursor` combined with `after` or with `snapshot` is now refused as `400 INVALID_CURSOR` with a null action, after authentication and before mandate resolution or any store call, replacing the silent cursor-wins behaviour. Two tests assert zero registry, head and reader calls.
+
+Runs: test-compile exit 0; focused console suites exit 0 with **79 tests, 0 failures, 0 errors, 0 skipped** (ConsoleHistoryRouteTest 29). Evidence: `evidence/continuation-h1-d6-c2-20261123/`. C-3's taxonomy and its two failure-order corrections remain unimplemented pending the corrected text now being authored. Developer evidence only; independent verification stays PENDING.
+
+## D-6 clarification adoption — 2026-11-23
+
+Bounded re-check of the correction: `reviews/d6-clarifications-rev2-20261123/domain-review.md`, reviewer ai-sdlc-acquiring-domain, observed model `nan/deepseek-v4-flash`, no override. **Verdict: PASS for adoption of C-1, C-2, C-3 and C-4.** All seven corrections applied exactly as asked; nothing remains CONDITIONAL or BLOCKED; no new owner decision required.
+
+- Corrected packet `design/contract-deltas/d6-clarifications-rev2-20261123/d6-clarifications.md` `3aaac88a…43a3`; the reviewed rev-1 packet stayed byte-identical and unedited.
+- C-3 now orders failures explicitly: request-form 400, then resolution 503/403, malformed-payload 400, retired-schema 410 after signature verification and before context 403, expired 410, context 403, representation 410, head 503/404, `after` beyond the frozen head 400 only after the head is read, then `R`/`F` 410, bounded `lastSequence` 400, 200.
+- Reviewer confirmed the code already checks context 403 before fingerprint 410 at both re-authentication points, and declared the fixture's missing `audience` a documentary omission rather than a contract gap.
+- One handoff label error was recorded as non-gating: the hash quoted for rev-2 `OUTPUTS.SHA256SUMS` was actually `PROGRESS.md`; the real manifest is `1cb58943…`.
+- Authority: adopted under the owner's existing normative-adoption direction; the reviewer confirms no new business decision is required, and formal human acceptance of the corrected text remains part of the acceptance gate, not a construction blocker.
+
+## C-3 taxonomy independent QA — 2026-11-23
+
+Independent verification: `reviews/h1-qa-c3-20261123/qa-report.md`, reviewer ai-sdlc-qa, observed model `nan/glm5.3-flash`, no override. **Verdict: PASS for every commissioned C-3 criterion; no product defect found.**
+
+- QA derived the expected order from C-3.1–C-3.4 and section 7 before reading any assertion, then executed its own 40-check driver and its own run of the eight focused suites: 90 tests, 0 failures, 0 errors, 0 skipped.
+- Verified: the request-form 400 fires only for syntactic `after` errors and unknown or repeated parameters, before any registry or store call, and a 12-digit `after` is correctly not treated as a form refusal; resolution 503/403 follows; malformed-payload 400 precedes retired-schema 410; retired and expired 410 both precede context 403; context 403 precedes representation 410 in both the pre-read and post-read paths; head 503/404 precedes the `R`/`F` and bound-`lastSequence` steps; and `after` beyond the frozen head returns its exact 400 only after exactly one head call with zero reader calls.
+- Bodies were byte-compared against the reviewed `historyErrors` fixtures at runtime, including `action: null` everywhere except 410.
+- The 74→79→87→90 count chain is documented and arithmetically consistent; every test name cited in prior artifacts still exists. Limitation recorded: no exit artifact of the 87-run was preserved, so "both executions green" rests on the implementer's disclosure while the 90-run is QA-reproduced.
+- Restated: no integrated end-to-end payment exists, and N-02 remains open at the edge. This PASS covers C-3 order and taxonomy for the verified working-tree bytes only.
+
+## K1 authentication Security review — 2026-11-23
+
+Implementation-level review: `reviews/k1-security-20261123/security-review.md`, reviewer ai-sdlc-security, observed model `nan/glm5.3-flash`, no override. **Verdict: PASS for the K1 slice, bounded**; the overall implementation-level Security gate stays BLOCKED (evidence-gated). No BLOCKER or IMPORTANT defect in the reviewed bytes.
+
+- Evidence manifest recomputed 13/13 against the working tree, so the reviewed bytes are the green-run bytes.
+- Verified in source: fail-closed order parse → algorithm → crit → kid → key → signature → claims; rotation through one refresh with no pinned key; `none`, HMAC and absent algorithm refused before any key is consulted; missing kid, signature mismatch, tampered payload, wrong issuer, wrong audience, dual-resource audience, expired, `nbf`, future `iat`, missing scope and wrong subject all refused; claims read only after signature verification, and the cursor's issuer binding compares against the verified principal's issuer.
+- Token exists only within a single decode call; no cookie, storage or URL path; duplicate Authorization refused; a single token class with the socket audience and scope forbidden, so no combined payment-capable socket token exists; the dev stub is referenced only under `console/dev/`, reachable only from a loopback `main`, and not selectable by any production configuration.
+- Decisions on the three open points: JWKS-unavailable surfacing as 401 accepted for this threat model, with a 503 refinement routed as non-gating follow-up; retained dev stub judged safe as wired, conditioned at deployment on pinning the handler entry point and on no `CONSOLE_DEV_*` variables in deployed configuration; RSA-only allowlist judged adequate, with non-RSA configuration failing construction.
+- The untested `HttpJwksSource`/`JwksParser` gap does not block this slice because no deployed composition wires the decoder yet, but becomes mandatory at the deployment gate with named parser, HTTP and live-issuer retests (F-3). Advisories F-1, F-2 and the deployment-gate list D-G1–D-G7 are recorded in the report.
+
+## K1 independent QA — 2026-11-24
+
+Independent verification: `reviews/k1-qa-20261123/qa-report.md`, reviewer ai-sdlc-qa, observed model `nan/glm5.3-flash`, no override. **Verdict: PASS for slice K1 at this revision.**
+
+- QA re-attested binding read-only (branch `feat/wi-acq-auth-001`, HEAD `5bbd4eb5…`), re-hashed the K1 evidence manifest to the commissioned digest and re-hashed all thirteen package files; every digest matched, so QA executed byte-identical code.
+- QA's own executions: offline compile exit 0, focused suites exit 0 with 127 tests and no failures, errors or skips, plus its own driver of 94 checks, all passing, with locally generated RSA keys and its own JWS assembly.
+- Verified: valid token accepted with the claim shape the authorizer consumes; unsupported, absent, `none` and genuine HMAC algorithms refused before any key consultation; missing kid, signature mismatch, tampered payload, wrong or missing issuer, single, dual-resource, mixed and duplicated audiences, expired, future `nbf`, future `iat`, missing scope and non-demo subject all refused with zero business-service calls; rotation accepted only after exactly one refresh and the retired key refused with no key pinned; no adversarial input produced claims without verification; the cursor's issuer provably originates post-verification; and the dev stub is isolated both at runtime and statically.
+- QA independently narrowed the untested-key-source gap by exercising parser and loopback HTTP behaviour locally, including redirect refusal, status refusal, size bound and cache refresh. Remaining items are named deployment retests: DEP-K1-A deployed issuer fetch and TLS, DEP-K1-B the 503 refinement for unavailable keys, DEP-K1-C real Keycloak PKCE, rotation, revocation and disjoint-scope interop.
+- Re-confirmed: no integrated end-to-end payment exists.

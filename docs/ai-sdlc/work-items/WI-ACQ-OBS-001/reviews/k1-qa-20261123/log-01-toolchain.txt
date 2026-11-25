@@ -1,0 +1,5 @@
+openjdk version "25.0.5" 2026-10-20 LTS
+Apache Maven 3.10.1 (3afd8084b5629f80b97750906a719879ed4cd283)
+Maven home: /home/pazfernando/.local/opt/maven
+Docker version 29.1.3, build 29.1.3-0ubuntu3~24.04.2
+docker daemon: reachable

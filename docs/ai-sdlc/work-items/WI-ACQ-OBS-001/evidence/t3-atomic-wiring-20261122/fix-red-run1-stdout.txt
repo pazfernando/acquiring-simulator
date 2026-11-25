@@ -1,0 +1,80 @@
+[INFO] Scanning for projects...
+[INFO] Loaded 24559 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] 
+[INFO] ------------< com.acquiring.simulator:acquiring-simulator >-------------
+[INFO] Building acquiring-simulator 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ acquiring-simulator ---
+[INFO] Copying 4 resources from src/main/resources to target/classes
+[INFO] Copying 4 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ acquiring-simulator ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ acquiring-simulator ---
+[INFO] skip non existing resourceDirectory /home/pazfernando/projects/acquiring-simulator/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ acquiring-simulator ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ acquiring-simulator ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.acquiring.simulator.adapter.aws.AwsRuntimeAtomicWiringIntegrationTest
+20:09:07.776 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+20:09:07.780 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+20:09:07.806 [main] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 2.0.5
+20:09:07.939 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.UnixSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+20:09:08.352 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Unix socket (unix:///var/run/docker.sock)
+20:09:08.353 [main] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+20:09:08.369 [main] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.1.3
+  API Version: 1.52
+  Operating System: Linux Mint 22.3
+  Total Memory: 23919 MB
+20:09:08.439 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Creating container for image: testcontainers/ryuk:0.14.0
+20:09:08.443 [main] INFO org.testcontainers.utility.RegistryAuthLocator -- Failure when attempting to lookup auth config. Please ignore if you don't have images in an authenticated registry. Details: (dockerImageName: testcontainers/ryuk:0.14.0, configFile: /home/pazfernando/.docker/config.json, configEnv: DOCKER_AUTH_CONFIG). Falling back to docker-java default behaviour. Exception message: Status 404: No config supplied. Checked in order: /home/pazfernando/.docker/config.json (file not found), DOCKER_AUTH_CONFIG (not set)
+20:09:08.621 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 is starting: 876df4c75b8dd0af9104a5dcbd85440ef1607c16ac018217015d2b0a255107ae
+20:09:08.961 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 started in PT0.522669115S
+20:09:08.966 [main] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+20:09:08.966 [main] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+20:09:08.966 [main] INFO org.testcontainers.DockerClientFactory -- ✔︎ Docker server version should be at least 1.6.0
+20:09:08.967 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:09:09.051 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: 3ea14b603caf6c83a4fe16606ded6ebedb60b07f04fbe280b2338c677e2cef1b
+20:09:11.656 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.689382999S
+[ERROR] Tests run: 10, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 6.821 s <<< FAILURE! -- in com.acquiring.simulator.adapter.aws.AwsRuntimeAtomicWiringIntegrationTest
+[ERROR] com.acquiring.simulator.adapter.aws.AwsRuntimeAtomicWiringIntegrationTest.failedAtomicClaimIsNeitherRetriedNorFallenBackToTheLegacyClaim -- Time elapsed: 0.060 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "software.amazon.awssdk.services.dynamodb.model.AttributeValue.n()" because the return value of "java.util.Map.get(Object)" is null
+	at com.acquiring.simulator.adapter.aws.AwsRuntimeAtomicWiringIntegrationTest.storeHead(AwsRuntimeAtomicWiringIntegrationTest.java:448)
+	at com.acquiring.simulator.adapter.aws.AwsRuntimeAtomicWiringIntegrationTest.failedAtomicClaimIsNeitherRetriedNorFallenBackToTheLegacyClaim(AwsRuntimeAtomicWiringIntegrationTest.java:251)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   AwsRuntimeAtomicWiringIntegrationTest.failedAtomicClaimIsNeitherRetriedNorFallenBackToTheLegacyClaim:251->storeHead:448 NullPointer Cannot invoke "software.amazon.awssdk.services.dynamodb.model.AttributeValue.n()" because the return value of "java.util.Map.get(Object)" is null
+[INFO] 
+[ERROR] Tests run: 10, Failures: 0, Errors: 1, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[ERROR] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.951 s
+[INFO] Finished at: 2026-11-22T20:09:14-05:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.6:test (default-test) on project acquiring-simulator: 
+[ERROR] 
+[ERROR] See /home/pazfernando/projects/acquiring-simulator/target/surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

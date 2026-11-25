@@ -113,3 +113,53 @@ Owner: Fernando Paz. Exact instruction: "debe ir con gtp 6.1 sol y si falla como
 Decision: the independent Security re-review of `design-rev2.md` and `compatibility-assessment-rev2.md` runs on **`openai/gpt-6.1-sol`**, the model on which the earlier successful Security review executed. Two prior attempts on the agent's resolved default (`nan/glm5.3-flash`) ended in provider LLM timeouts and wrote nothing. If the gpt-6.1-sol attempt fails, the Coordinator may retry once on `nan/deepseek-v4-flash` as the owner-approved fallback.
 
 Scope of this decision: execution model for this review only. It is an explicit owner-authorized model selection recorded because the standing rule forbids the Coordinator from substituting models on its own; it does not change any agent's configured default, does not authorize model changes for other reviews, and does not imply any security verdict. A review produced under the fallback must record which model executed it, and any difference in depth must be visible in the verdict.
+
+## K-1 resolved: one Keycloak instance — 2026-11-22
+
+Owner: Fernando Paz, direct Coordinator conversation. Exact instruction: "solo una ya que es un simulador". The self-managed Keycloak runs as a single task. Consequence accepted: an outage or restart of that task blocks new token issuance, and therefore new authentications and new payment initiations, until it recovers; access tokens already issued remain valid until their 900-second expiry. Existing sessions that already hold a valid token keep working within that window. No high-availability pair, no multi-AZ failover and no availability SLA are commissioned.
+
+K-2 (operations ownership) and K-3 (presenter-local relay key) remain OPEN; the Coordinator is explaining them in plain language before they are recorded.
+
+## K-2 and K-3 resolved; presentation moves to the cloud — 2026-11-22
+
+Owner: Fernando Paz, direct Coordinator conversation.
+
+**K-2 (operations ownership) — resolved as "no maintenance commitment".** Exact instruction: "no vamos a entrar en eso del mantenimiento, recuerda que es un simulador, asi que es una infraestructura efimera que podemos reproducirla y en algun momento sera con una nueva version de keycloak". The Keycloak deployment is treated as disposable infrastructure: no on-call, no SLA, no long-lived patching obligation. The accepted operating model is rebuild-and-redeploy, including migrating to a newer Keycloak release when needed, rather than in-place maintenance. Backups are therefore not a recovery promise; the recovery path is recreation from configuration. This does not authorize deletion of anything now, does not remove the obligation to keep secrets out of state and logs, and does not close any Security finding.
+
+**K-3 (presenter-local relay key) — SUPERSEDED, not merely declined.** Exact instruction: "la presentacion es en la nube nada local... local solo es parace hacer pruebas tdd y bbd... no necesitamos ningun relay". The presenter-local relay is removed from the design entirely. Local execution is limited to tests (TDD/BDD) and the database used by those tests. The presentation runs in the cloud.
+
+Consequences that follow, stated so they are not discovered later:
+- The earlier decision that placed the presenter demo on a local screen share with a loopback relay is reversed for presentation. The question of a remotely reachable console, previously deferred as "later separately reviewed", is now the selected direction and must be designed and independently reviewed on its own terms.
+- With no relay, the browser cannot obtain a service identity from a local component. The console therefore has to authenticate the browser directly with the approved single demo-user JWT, and the mTLS plus OAuth service identity remains only where it was approved for service-to-service hops (relay replacement aside: console to ACL, ACL to processor, evidence admission).
+- No browser-held service secret is permitted, which is a constraint on the design, not a preference.
+- The reachability of the hosted presentation is NOT yet decided: whether it is publicly reachable on the internet with the demo login, or restricted by network or origin controls, is an open owner decision recorded below as P-1.
+- The service principal previously bound to the relay (`svc-console-relay`, which held `console.write`) loses its consumer and must be removed or re-scoped by the next design revision.
+
+## P-1 — reachability of the cloud-hosted presentation: RESOLVED 2026-11-22
+
+Exact instruction: "lo primero", choosing the first option put to him: **publicly reachable from the internet with the single demo-user login as the only gate, plus attempt rate limiting.** Accepted consequence: anyone who obtains the demo credential can reach the console and observe the synthetic history of that demo context; the token is the only gate, so its protection, expiry, rate limiting and the absence of any browser-side service secret become the load-bearing controls. Restricted network or origin allowlisting is NOT adopted. This authorizes design of a public console surface, not deployment.
+
+Superseded open question recorded for trace: The options to put to him are: publicly reachable with the single demo-user login as the only gate, or reachable only from a restricted origin or network while still hosted in AWS. This decision determines the Security review scope for the console surface and must be resolved before the access design is finalized. No public hosting is authorized by this record.
+
+## Atomic runtime wiring authorized — 2026-11-22
+
+Owner: Fernando Paz, direct Coordinator conversation. Exact instruction: "ok continua", after the Coordinator explained that the new claim/dispatch/result/late-evidence/event-store machinery is written and tested but the AWS runtime still builds the legacy service, and asked whether to wire it and make it the active local path.
+
+Authorization: Implementation may wire the atomic gateways into `AwsRuntime` and make the atomic path the one that serves locally, with focused tests, under these limits:
+- Local construction and local test execution only. No AWS call, no deployment, no pipeline run, no credential, no Git write, no publication.
+- Existing approved semantics must be preserved exactly: single claim per attempt, no fallback to the legacy claim, send permitted only on a committed dispatch intent, REPLAY and RECOVERED are knowledge and never a resend, atomic event composition with business and critical event, evidence ordering and the 30-second deadline unchanged, late admission without resend or reversal.
+- No invented capacity, quota, slot count or cost limit; whatever capacity input the wiring needs must be explicit and reported rather than chosen silently.
+- Failures must be preserved as evidence, not retried into a green result.
+- If a prerequisite turns out to be missing, report the exact gap instead of activating a partial path.
+
+This authorizes the wiring and local activation only. It does not authorize deployment, a public endpoint, credentials, or any change to the approved architecture, and it does not close any Security finding.
+
+## N-02 closure (Option B) and normative adoption — 2026-11-23
+
+Owner: Fernando Paz, direct Coordinator conversation. Exact instruction: "adelante con lo recomendado", answering a two-part question that named the recommended option for each part.
+
+**Decision 1 — closure of Security finding N-02 (edge rate-bound bypass).** The console API will be protected by a CloudFront **origin-verification header**: CloudFront adds a high-entropy value to the origin request and the console API boundary rejects any request whose header is absent or mismatched, failing closed. Mandatory conditions carried from the independent Security review, all binding: (1) the check is specified in the contracts before construction, as a bounded contract delta; (2) the value is Terraform-generated, exists only in encrypted remote state, never in tfvars, CI variables, artifacts or any log format, with a policy assertion; (3) the header name avoids the CloudFront custom-header denylist and any header the application treats semantically; (4) denials on the direct path are logged and observable. Options not selected: converting the console API to REST with a regional WAF (structurally stronger but forces application-owned token validation at the authentication boundary), and accepting the residual (would void the edge rate bound as an effective control).
+
+**Decision 2 — normative adoption of the reviewed contracts.** The candidate packet `design/contract-deltas/continuation-rev3-20261123/` (OUTPUTS.SHA256SUMS `2000bb004e68e6d2974bef3067baeae6774f1922a21dca4ea18fecf6944ab467`), as amended by the bounded correction `design/contract-deltas/continuation-rev3-dr301-20261123/` (`old-prior-fixtures.json` `1d3f1406b05d95f87e18f37b33eea3bb855ad5c80488f92891dcc132b5f3d5f5`, supersession note `72ba032f5e1264abec1077d238e6c5c943f489a65bc7cd437519052769fd8b17`), is adopted as the normative product contract revision for Operation A scope. Evidence of review: domain review `reviews/continuation-rev3-domain-20261123/domain-review.md` `154b6346544bfb760bb6bf1c5cefd63dcc6f09ab064151a7165972007b67c2e4` (CONDITIONAL, DR2-01/03 closed, DR2-02 partial) and bounded re-review `reviews/continuation-rev3-dr301-domain-20261123/domain-review.md` `df5ad1a5979888387ea4b6b25813ee8cd5c2c9643664d505d29894199b70c5d0` (PASS, DR3-01 CLOSED).
+
+**What this adoption does not do.** It does not waive or close the independent Security verdict of FAIL on `reviews/continuation-rev3-security-20261123/security-review.md` (`f5696ed917f009c7569cccbba5f42b431170d15a53ef06bdd38c10e61d53ba50`); that verdict clears only when N-02 is closed by the selected option and re-reviewed. It does not close SR2-01/02, NV-05/AD-01, the D-5 issuer evidence list or the public-surface evidence list. It does not authorize deployment: concrete destination inputs (account, environment, domains, certificates, state backend and custody, artifact and image digests, OIDC subject, cost statement, named approver) and the remaining verification gates are still required. It authorizes construction of the bounded slices defined in `construction-handoff.md` (H1 read-only history and K1 authentication seams) under those gates.

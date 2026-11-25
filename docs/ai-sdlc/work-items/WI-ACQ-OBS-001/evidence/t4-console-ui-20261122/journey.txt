@@ -1,0 +1,14 @@
+probe_at_utc=2026-11-23T23:47:15Z
+stub token POST -> 200
+
+first authorized submission
+{"authorizationReference":"AUTH-446d76ab9e3b444fb97ea8b4","correlationId":"CORR-RECOV234715","outcome":"APPROVED"}
+HTTP 200
+
+identical retry
+{"authorizationReference":"AUTH-446d76ab9e3b444fb97ea8b4","correlationId":"CORR-RECOV234715","outcome":"APPROVED"}
+HTTP 200
+
+refused token
+{"asOf":"2026-11-23T23:47:15.812316443Z","attemptId":null,"authorizationId":null,"businessVersion":null,"contractVersion":"1","correlationId":null,"disposition":"REJECTED","error":"UNAUTHENTICATED","observation":"UNKNOWN","originalCorrelationId":null,"outcome":null,"serverFreshness":"UNKNOWN","transactionId":null}
+HTTP 401

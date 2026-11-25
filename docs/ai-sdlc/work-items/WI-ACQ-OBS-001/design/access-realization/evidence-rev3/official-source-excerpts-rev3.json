@@ -1,0 +1,84 @@
+{
+  "note": "Official public documentation fetched read-only for design-rev3 on the provenance and policy-evaluation questions. Excerpts only; no example executed, no AWS API called. Earlier AWS/GitHub/Keycloak excerpts remain in evidence/ and evidence-rev2/ and are not duplicated.",
+  "artifactUnderEvidence": {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev3.md",
+    "bytes": 39967,
+    "sha256": "cdd65729ec04708e9bd96626d29980d616fa32261620825987c9eb2cc7d63d2a"
+  },
+  "sources": [
+    {
+      "id": "IAM-EVALUATION-LOGIC",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html",
+      "status": 200,
+      "fetchedAt": "2026-11-22T23:45:07.746Z",
+      "truncated": false,
+      "excerpts": [
+        "When an IAM entity (user or role) requests access to a resource within the same account, AWS evaluates all the permissions granted by the identity-based and resource-based policies. The resulting permissions are the union of the permissions of the two types.",
+        "An explicit deny in either of these policies overrides the allow.",
+        "When AWS evaluates the identity-based policies and permissions boundary for a user, the resulting permissions are the intersection of the two categories.",
+        "When a user belongs to an account that is a member of an organization and accesses a resource that doesn't have a resource-based policy configured, the resulting permissions are the intersection of the user's policies, service control policies (SCPs), and resource control policy (RCP)."
+      ],
+      "usedFor": ["design-rev3 §2.1", "§2.2 layers 1, 2, 5"]
+    },
+    {
+      "id": "IAM-GLOBAL-CONDITION-KEYS",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html",
+      "status": 200,
+      "fetchedAt": "2026-11-22T23:45:14.103Z",
+      "truncated": true,
+      "rawChars": 166890,
+      "excerpts": [
+        "the aws:SourceAccount condition key is only available when the call to your resource is made directly by an AWS service principal",
+        "aws:PrincipalArn — For IAM roles, the request context returns the ARN of the role, not the ARN of the user that assumed the role.",
+        "Availability – This key is included in the request context for all signed requests. Anonymous requests do not include this key.",
+        "aws:PrincipalAccount — In the following example, access is denied except to principals with the account number ... (Deny with StringNotEquals on aws:PrincipalAccount)"
+      ],
+      "usedFor": ["design-rev3 §2.2 layer 2", "§2.4"]
+    },
+    {
+      "id": "LAMBDA-JAVA-CONTEXT",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/java-context.html",
+      "status": 200,
+      "fetchedAt": "2026-11-22T23:45:07.747Z",
+      "truncated": false,
+      "excerpts": [
+        "getInvokedFunctionArn() – Returns the Amazon Resource Name (ARN) that's used to invoke the function. Indicates if the invoker specified a version number or alias.",
+        "getIdentity() – (mobile apps) Returns information about the Amazon Cognito identity that authorized the request.",
+        "getClientContext() – (mobile apps) Returns the client context that's provided to Lambda by the client application.",
+        "getFunctionName() – Returns the name of the Lambda function."
+      ],
+      "usedFor": ["design-rev3 §1.1", "§1.4 step 1"]
+    },
+    {
+      "id": "LAMBDA-SOURCE-FUNCTION-ARN",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/permissions-source-function-arn.html",
+      "status": 200,
+      "fetchedAt": "2026-11-22T23:45:32.974Z",
+      "truncated": false,
+      "excerpts": [
+        "Lambda injects the source function ARN into the credentials context if the request is an AWS API request that comes from within your execution environment.",
+        "To verify this, use the lambda:SourceFunctionArn condition key in an IAM identity-based policy or service control policy (SCP).",
+        "Note: You cannot use the lambda:SourceFunctionArn condition key in resource-based policies.",
+        "This policy allows only s3:PutObject access if the source is the Lambda function ... even if a different function or entity makes an s3:PutObject call with the same execution role.",
+        "Note: The lambda:SourceFunctionARN condition key doesn't support Lambda function versions or function aliases."
+      ],
+      "usedFor": ["design-rev3 §2.2 layer 1", "§2.4 narrowing control", "§2.3 no-alias rule"],
+      "interpretationLimit": "Documented behaviour; the specific lambda:InvokeFunction call path and mixed version/alias cases remain to be confirmed on the deployed pair (listed unverified)."
+    }
+  ],
+  "searches": [
+    {
+      "tool": "web_search",
+      "provider": "duckduckgo",
+      "query": "lambda:SourceFunctionArn condition key Lambda invoke resource policy documentation",
+      "resultCount": 5,
+      "note": "Located the official Lambda page whose text is quoted above; also surfaced a 2026 what's-new about full IAM resource-based policies for Lambda, which was not relied on."
+    }
+  ],
+  "notEstablished": [
+    "Whether aws:PrincipalArn in a Lambda resource policy returns the role ARN for assumed-role sessions in this specific context",
+    "Whether a resource-policy Deny propagates to qualified ARNs",
+    "Whether lambda:SourceFunctionArn is present on Lambda-to-Lambda Invoke and absent outside a function in this account",
+    "Any network-origin condition key for lambda:InvokeFunction"
+  ]
+}

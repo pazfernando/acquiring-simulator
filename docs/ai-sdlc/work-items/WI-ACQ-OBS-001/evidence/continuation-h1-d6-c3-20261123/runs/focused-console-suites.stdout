@@ -1,0 +1,79 @@
+[INFO] Scanning for projects...
+[INFO] Loaded 24559 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] 
+[INFO] ------------< com.acquiring.simulator:acquiring-simulator >-------------
+[INFO] Building acquiring-simulator 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ acquiring-simulator ---
+[INFO] Copying 4 resources from src/main/resources to target/classes
+[INFO] Copying 4 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ acquiring-simulator ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ acquiring-simulator ---
+[INFO] skip non existing resourceDirectory /home/pazfernando/projects/acquiring-simulator/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ acquiring-simulator ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ acquiring-simulator ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.acquiring.simulator.adapter.aws.ConsoleHandlerCompositionTest
+{"event":"console_origin_verification_denied","reason":"ABSENT","requestId":"REQ-1","sourceIp":"198.51.100.7","host":"invalid","httpMethod":"POST","path":"/console/v1/authorizations","timestamp":"2026-11-24T04:42:17.776641198Z","appVersion":"42"}
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.297 s -- in com.acquiring.simulator.adapter.aws.ConsoleHandlerCompositionTest
+[INFO] Running com.acquiring.simulator.console.ConsoleHistoryRouteDynamoIntegrationTest
+23:42:17.866 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+23:42:17.869 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+23:42:17.894 [main] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 2.0.5
+23:42:17.993 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.UnixSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+23:42:18.379 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Unix socket (unix:///var/run/docker.sock)
+23:42:18.380 [main] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+23:42:18.394 [main] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.1.3
+  API Version: 1.52
+  Operating System: Linux Mint 22.3
+  Total Memory: 23919 MB
+23:42:18.455 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Creating container for image: testcontainers/ryuk:0.14.0
+23:42:18.458 [main] INFO org.testcontainers.utility.RegistryAuthLocator -- Failure when attempting to lookup auth config. Please ignore if you don't have images in an authenticated registry. Details: (dockerImageName: testcontainers/ryuk:0.14.0, configFile: /home/pazfernando/.docker/config.json, configEnv: DOCKER_AUTH_CONFIG). Falling back to docker-java default behaviour. Exception message: Status 404: No config supplied. Checked in order: /home/pazfernando/.docker/config.json (file not found), DOCKER_AUTH_CONFIG (not set)
+23:42:18.629 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 is starting: d954cc6b56391d6553b77e0242b51d90e079df74e9dab9e1b0a349e2ec01bab5
+23:42:18.974 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 started in PT0.518764548S
+23:42:18.978 [main] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+23:42:18.978 [main] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+23:42:18.978 [main] INFO org.testcontainers.DockerClientFactory -- ✔︎ Docker server version should be at least 1.6.0
+23:42:18.979 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+23:42:19.070 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: 547fc0c9fb19de8c6fa04e96d9deb923c5bf2dfc4b3d853b1d0f53fbcab8e555
+23:42:21.467 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.488501355S
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.790 s -- in com.acquiring.simulator.console.ConsoleHistoryRouteDynamoIntegrationTest
+[INFO] Running com.acquiring.simulator.console.dev.ConsoleDevServerTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.170 s -- in com.acquiring.simulator.console.dev.ConsoleDevServerTest
+[INFO] Running com.acquiring.simulator.console.dev.DevStubTokenIssuerTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s -- in com.acquiring.simulator.console.dev.DevStubTokenIssuerTest
+[INFO] Running com.acquiring.simulator.console.ConsoleAuthorizationRouteTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s -- in com.acquiring.simulator.console.ConsoleAuthorizationRouteTest
+[INFO] Running com.acquiring.simulator.console.ConsoleOriginVerificationGateTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s -- in com.acquiring.simulator.console.ConsoleOriginVerificationGateTest
+[INFO] Running com.acquiring.simulator.console.ConsoleHistoryRouteTest
+[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.083 s -- in com.acquiring.simulator.console.ConsoleHistoryRouteTest
+[INFO] Running com.acquiring.simulator.console.ConsoleSubmissionAtomicIntegrationTest
+23:42:24.916 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+23:42:25.005 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: 1f09c6de25c99838c2ca6784ec7ceca910c81f1878cdd0aea9dbd61130fd997f
+23:42:27.378 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.461950894S
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.620 s -- in com.acquiring.simulator.console.ConsoleSubmissionAtomicIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 90, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  13.212 s
+[INFO] Finished at: 2026-11-23T23:42:28-05:00
+[INFO] ------------------------------------------------------------------------

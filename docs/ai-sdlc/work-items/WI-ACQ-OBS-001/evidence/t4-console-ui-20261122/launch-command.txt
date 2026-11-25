@@ -1,0 +1,2 @@
+cd /home/pazfernando/projects/acquiring-simulator
+JAVA_HOME=/home/pazfernando/.local/opt/jdk-25 /home/pazfernando/.local/opt/jdk-25/bin/java -cp "target/classes:$(cat target/classpath.txt)" com.acquiring.simulator.console.dev.ConsoleDevHarness --port=8100

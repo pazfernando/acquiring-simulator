@@ -1,0 +1,43 @@
+Probe root: /tmp/schema-probe with required_providers pinned to the versions
+used by envs/stack (aws = 6.74.0, random = 3.9.1).
+Command: terraform providers schema -json (no backend, no credentials, no cloud call)
+
+aws_cloudfront_distribution.origin: nesting_mode = set
+origin block types: ['custom_header', 'custom_origin_config', 'origin_shield', 's3_origin_config', 'vpc_origin_config']
+
+origin.custom_header:
+  nesting_mode: set
+  attributes: {
+  "name": {
+    "type": "string",
+    "description_kind": "plain",
+    "required": true
+  },
+  "value": {
+    "type": "string",
+    "description_kind": "plain",
+    "required": true
+  }
+}
+
+origin.custom_origin_config present: True
+
+random_password attributes: ['bcrypt_hash', 'id', 'keepers', 'length', 'lower', 'min_lower', 'min_numeric', 'min_special', 'min_upper', 'number', 'numeric', 'override_special', 'result', 'special', 'upper']
+random_password.result: {
+  "type": "string",
+  "description": "The generated random password.",
+  "description_kind": "plain",
+  "computed": true,
+  "sensitive": true
+}
+
+Interpretation
+- The provider models origin custom headers as a set of {name, value}
+  blocks with both fields required and no provider-side constant, so the
+  value is exactly what the configuration supplies (no hidden default).
+- The aws provider does not mark custom_header.value sensitive; the value is
+  redacted in plan/apply output because it flows from a sensitive variable
+  and random_password.result is schema-sensitive, and Terraform propagates
+  sensitivity through the expression.
+- random_password is the pinned generator; no literal can satisfy the
+  sensitive-variable path used by the console module.

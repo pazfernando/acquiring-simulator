@@ -2971,3 +2971,456 @@ R20 row remains `PENDING`.
 does not prove AWS service behaviour, deadline persistence on the atomic path, runtime activation,
 end-to-end application behaviour, independent QA, Security review or human acceptance.
 
+### 57. T3 atomic runtime wiring + bounded verification run (2026-11-22)
+
+**Status: IMPLEMENTED AND DEVELOPER-VERIFIED AT SOURCE LEVEL. `AwsRuntime.processor()` now builds
+the atomic graph. NOT integrated, not deployed, not independently verified.** This section
+supersedes every earlier statement that "`AwsRuntime` remains inactive", "no atomic gateway is
+constructed" or "the runtime remains legacy"; those were accurate for their bytes and are not
+rewritten.
+
+**What changed (production).** One production file in this slice:
+`src/main/java/com/acquiring/simulator/adapter/aws/AwsRuntime.java` (modified, +125/−0-ish).
+`processor()` resolves the profile and the approved 30 s timeout as before, then delegates to a new
+package-private `atomicService(...)` that constructs one graph: `DynamoEventStore` over
+`EVENT_TABLE` with `OperationAManifest.manifest(capacity)` + `EventValidator`, the
+`DynamoClaimGateway`, `DynamoDispatchIntentGateway` (with `SyntheticInstructionMaterializer`),
+`DynamoResultGateway`, `DynamoNetworkResultGateway`, `LateEvidenceAdmissionGateway.over(...)` and
+`IdentifierSource.randomHex()`. `ProcessorHandler`'s no-argument constructor is bound to
+`AwsRuntime::processor`, so the deployed entry point now resolves to that graph. The legacy
+four-argument `AuthorizationService` is no longer constructed on the AWS path; its only remaining
+production construction is `LocalPresenterRuntime` (Spring/JDBC local regression harness).
+
+**Configuration is fail-closed and never defaulted.** `EVENT_TABLE`, `ENVIRONMENT`,
+`BOOT_INSTANCE_ID`, `CRITICAL_MAX_EVENTS_PER_OPERATION` and `CRITICAL_SLOT_BUDGET` must be present;
+an absent or invalid value raises at cold start naming the exact variable, and a slot budget
+smaller than the manifest requires is rejected. The O8 capacity numbers are unapproved and are
+never chosen by the runtime.
+
+**Test-side change (the whole slice's only test change).** One helper in the new
+`AwsRuntimeAtomicWiringIntegrationTest.storeHead()`: treat DynamoDB Local's empty item map for an
+absent HEAD as 0 (`item == null || item.isEmpty()`). No assertion weakened, removed or skipped. The
+pre-fix red run is preserved (`fix-red-run1-*.txt`: 10 run / 1 error / exit 1).
+
+**Diagnosed cause (recorded, not a production defect).** The earlier "dispatch intent requires an
+undispatched `CLAIMED_NOT_SENT` claim" error was test-side: the earlier test revision handed the
+gateway a claim read back *after* a completed authorization, and assertion helpers read the wrong
+EVENT partition. `DynamoClaimGateway` correctly claims in the single AWAITING mode and persists
+`committedJournalVersion = 1`; the in-memory undispatched claim is exactly what
+`PossibleSendCriticalComposer` requires.
+
+**Verification run** (`evidence/t3-atomic-wiring-20261122/`, JDK 25.0.5, Maven 3.10.1, offline `-o`,
+HEAD `5bbd4eb`, model `nan/deepseek-v4-flash`): one invocation, 23 classes —
+`AwsRuntimeAtomicWiringIntegrationTest` + all 20 `com.acquiring.simulator.aws.*Test` +
+`AwsTransportTest`, `AuthorizationCoreIntegrationTest`, `ResponseTimeoutConfigTest` →
+**192 tests / 0 failures / 0 errors / 0 skipped / exit 0 / BUILD SUCCESS / 01:15 min**. The three
+classes that carried the fix re-verified at 6, 9 and 11 tests, matching the fix run. The full suite
+was **not** run and is deferred; the 959-test baseline belongs to `cfc456f` and does not transfer to
+these bytes.
+
+**Freeze.** 292 inputs (211 `src/main` Java, 72 `src/test` Java, 8 `src/main/resources`, `pom.xml`)
+hashed before and after: `verify-hashes-before.sha256` = `verify-hashes-after.sha256`, `diff` 0
+bytes, `sha256sum -c` 292/292 OK, `git status` snapshots identical, HEAD unchanged. **Limitation
+disclosed:** post-edit baseline — the freeze proves the run mutated nothing, not that these are
+pre-edit bytes.
+
+**What this proves.** The composition the production handler resolves to installs every atomic
+gateway and no legacy branch is reachable from an atomic invocation; claim intent result network
+and late evidence each commit inside one transaction; only a freshly committed intent sends; a
+recovered intent never resends; a failed intent writes no event; a failed claim neither retries nor
+falls back to the legacy claim; APPROVED/issuer-DECLINE/network-rejection/late-admission are all
+served from persisted state.
+
+**What remains unproven.** No integrated payment. Every green case is an in-process composition
+against DynamoDB Local with `StubIssuerSimulator`; `processor()` itself is not executed by any test
+(it needs process environment plus the `CONFIG#ACTIVE` registry row), so wiring equality is proven
+by construction. Absent: the real authenticated boundary (API Gateway, mTLS, OAuth
+`private_key_jwt`), real Lambda invocation, real issuer/network round trip, the mounted internal ISO
+route, deadline persistence, timeout-observation vocabulary, history/query/cursor/expiry,
+Streams/notifier/WebSocket, console, ADOT, Terraform, CI and independent QA/Security/acceptance.
+
+**Documentation updated.** `requirement-traceability.md`: only the rows whose runtime reachability
+genuinely changed (OBS-001 R05, R06, R07, R10, R11, R24 and OBS-20; AUTH-001 R03, R04, R09, R15,
+R16, R20) plus the matrix preamble/gap-register wording. Every row remains
+`independent verification: PENDING`. `delivery-status.md` still says "runtime remains legacy" and
+was **not** edited here — it needs an owner update.
+
+**Non-claims.** No Git write, stage, commit, push, PR, merge, deploy, release, publication, AWS
+call, credential flow, provider mutation, approved-specification edit or invented capacity default
+occurred. No onward delegation, no model override. Local implementation evidence is not independent
+QA, Security review or human acceptance.
+
+### 58. T3 full offline suite at current bytes (2026-11-22)
+
+Bounded slice: one stale javadoc correction and the complete offline suite, run once. Evidence
+[`evidence/t3-fullsuite-20261122/`](evidence/t3-fullsuite-20261122/RESULTS.md). Binding: branch
+`feat/wi-acq-auth-001`, HEAD `5bbd4eb5d49be036e695e5f25a8c83c4f7d5ac14` unchanged, OpenJDK 25.0.5,
+Maven 3.10.1 offline, model `nan/deepseek-v4-flash` with no override.
+
+**Comment fix.** The late-evidence constructor of `AuthorizationService` still claimed it was not
+Spring-wired and that `AwsRuntime` was unchanged. It now states that `AwsRuntime.atomicService`
+binds that constructor for the Lambda runtime with the late-evidence gateway alongside the other
+atomic gateways, and that the `@Autowired` constructor remains only the Spring/JDBC local harness
+binding. Javadoc only: `comment-fix.diff` is three comment lines, no executable change.
+
+**Suite.** `mvn -o -B test` once → **978 tests / 67 classes / 0 failures / 0 errors / 0 skipped /
+exit 0 / BUILD SUCCESS / 01:48 min**, cross-checked against the 67 Surefire XMLs. This supersedes the
+959-test `cfc456f` baseline for these bytes. `AwsRuntimeAtomicWiringIntegrationTest` ran 10 tests
+green within it, so the previously in-process runtime composition claim now rests on a full-suite
+run at the current tree. Disclosed: the first shell attempt returned exit 127 (`mvn: command not
+found`) because the toolchain is not on the default `PATH`; it executed no test, and its outputs were
+replaced by the real run's files.
+
+**Freeze.** 292 inputs (211 `src/main` Java, 72 `src/test` Java, 8 `src/main/resources`, `pom.xml`)
+hashed before and after: identical SHA-256, `diff` empty, HEAD unchanged. Limitation disclosed: the
+baseline is the slice-start working tree (post-comment-fix, including pre-existing uncommitted
+owner/coordinator edits), not the committed `5bbd4eb` bytes.
+
+**Traceability.** No requirement or scenario status changed; only the evidence-basis rows were
+corrected from the stale 959-test reuse to this 978-test run. Every row remains
+`independent verification: PENDING`; integrated counts remain **0**.
+
+**Remaining blocker.** T3 still needs the deployed journey: the mounted internal ISO route, the real
+authenticated boundary (API Gateway, mTLS, OAuth `private_key_jwt`), a real Lambda invocation and a
+real issuer/network round trip. `delivery-status.md` still describes an earlier failing run and was
+not edited here; it needs an owner update.
+
+**Non-claims.** No Git write, stage, commit, push, PR, merge, deploy, release, publication, AWS
+call, credential flow, provider mutation, approved-specification edit or test weakening occurred. No
+onward delegation, no model override. Local evidence is not independent QA, Security review or human
+acceptance.
+
+### 59. T4 console API boundary — verification run (2026-11-22)
+
+Bounded slice: no feature, no new class. The `com.acquiring.simulator.console` package and its two
+tests already existed on disk from an aborted run that recorded no result; this run executed them
+and the atomic classes they delegate to. Evidence
+[`evidence/t4-console-api-20261122/`](evidence/t4-console-api-20261122/RESULTS.md). Binding: branch
+`feat/wi-acq-auth-001`, HEAD `5bbd4eb5d49be036e695e5f25a8c83c4f7d5ac14` unchanged, OpenJDK 25.0.5
+(`JAVA_HOME=/home/pazfernando/.local/opt/jdk-25`), Maven 3.10.1 offline
+(`/home/pazfernando/.local/opt/maven/bin/mvn`), Docker 29.1.3 with `amazon/dynamodb-local:2.6.1`,
+model `nan/deepseek-v4-flash` with no override.
+
+**Console run, exactly once.** `mvn -o -B test -Dtest=ConsoleAuthorizationRouteTest,ConsoleSubmissionAtomicIntegrationTest`
+→ **16 tests / 0 failures / 0 errors / 0 skipped / exit 0 / BUILD SUCCESS**; 13 in
+`ConsoleAuthorizationRouteTest`, 3 in `ConsoleSubmissionAtomicIntegrationTest`. Stderr is 0 bytes.
+Because the run was green, no `console-analysis.md` exists and no case was weakened or skipped.
+
+**Directly affected atomic run, once.** Nine claim/dispatch-intent/result wiring, gateway and
+runtime-binding classes → **66 tests / 0 failures / 0 errors / 0 skipped / exit 0 / BUILD SUCCESS**.
+Late-evidence and network-result classes were excluded deliberately: an approval does not execute
+those ports.
+
+**What the green result establishes, and only within the seams.** With a test-double decoder and a
+fixed context registry, against DynamoDB Local, an authorized submission reaches
+`AuthorizationService` exactly once: one downstream dispatch, one persisted `APPROVED` payment at
+generation 1, three critical events (claim, possible-send, verified result), HEAD 3, and zero legacy
+claim/dispatch/update/append/reject calls. A refused token produces 401 with zero dispatches, zero
+claims, zero updates, zero appends, zero rejection audits, an empty event table and no record.
+A duplicate submission replays the same reference without a second claim or send. The route-level
+suite additionally pins the fixed order (transport → credential → rate-limit seam → media type →
+closed C1 body → trusted context → exactly one service call) and refuses duplicated `Authorization`
+headers, foreign contexts, unknown fields and oversized bodies before any business action.
+
+**What it does not establish.** No token signature, JWKS or issuer truth (the decoder is a double);
+no API Gateway, CloudFront, WAF, CORS, Keycloak or mTLS; no listener, HTML form, SPA, live timeline,
+history read or numeric rate limit; `AwsRuntime.processor()` is not executed and no Lambda,
+issuer/network round trip or mounted ISO route runs. A reached-service approval returns a
+provisional `{authorizationReference, correlationId, outcome}` acknowledgement, not the closed C3
+envelope.
+
+**Freeze.** The 13 console slice files were hashed before and after: identical SHA-256,
+`slice-hash-diff.txt`, `git-status-diff.txt` and `head-diff.txt` all empty. Limitation disclosed:
+post-edit baseline — the console package and tests are untracked at HEAD and `AwsRuntime.java` /
+`AuthorizationService.java` were already modified before the run, so this proves the run mutated
+nothing in the slice, not that these are committed or pre-edit bytes.
+
+**Traceability.** OBS-001 R01, R19 and OBS-23 had their implementation/evidence/runtime cells
+corrected because the in-process console boundary genuinely changed what is recorded; no A/B/C
+class changed (R01 stays C: there is still no UI, listener or history read), no integrated count
+changed (still 0), and every row remains `independent verification: PENDING`.
+
+**Distance to a browser-visible screen and a deployed submission.** What exists: a browser-shaped
+HTTP request/response class, a token-policy seam, a closed C1 body parser, a fixed context registry
+seam, a rate-limit seam and a single delegation into the atomic service, all developer-tested
+in-process. A browser would still need a served SPA page with a POS form, an OIDC public client with
+authorization code + PKCE, token handling outside browser storage and URLs, an HTTP API/CloudFront
+route with a real JWT authorizer, inert rendering of the result and history, and the WebSocket
+timeline for live updates — none of which exists here. A real deployed submission additionally needs
+the API Gateway/CloudFront/WAF edge, Keycloak realm and JWKS, mTLS + `private_key_jwt` on
+console→ACL (`svc-console`), the mounted internal ISO route, a real Lambda invocation with
+environment/registry rows, a real issuer/network round trip, and the C3 response envelope instead of
+the provisional acknowledgement.
+
+**Non-claims.** No Git write, stage, commit, push, PR, merge, deploy, release, publication, AWS
+call, credential flow, provider mutation, approved-specification edit or test weakening occurred. No
+onward delegation, no model override. Local evidence is not independent QA, Security review or human
+acceptance.
+
+### 60. Continuation H1 — origin-verification gate + read-only history (2026-11-23)
+
+Bounded slice: the N-02 application-side gate and the HTTP-only read route
+`GET /console/v1/transactions/{id}/events`. Evidence
+[`evidence/continuation-h1-20261123/`](evidence/continuation-h1-20261123/RESULTS.md). Binding: branch
+`feat/wi-acq-auth-001`, HEAD `5bbd4eb5d49be036e695e5f25a8c83c4f7d5ac14` unchanged, OpenJDK 25.0.5
+(`JAVA_HOME=/home/pazfernando/.local/opt/jdk-25`), Maven 3.10.1 offline, Docker 29.1.3 with
+`amazon/dynamodb-local:2.6.1`, model `nan/deepseek-v4-flash` with no override.
+
+**Delivered (console package, still untracked).** `ConsoleOriginVerificationGate`,
+`ConsoleOriginDenial`, `ConsoleOriginDenialSink`, `StandardStreamOriginDenialSink`,
+`ConsoleIntegrationEntryPoint`, `ConsoleRequestIdentity`, `ConsoleHistoryRoute`,
+`ConsoleHistoryQuery`, `ConsoleHistoryCursorCodec`, and the additions to `ConsoleHttpRequest`.
+The gate reads `EDGE_ORIGIN_VERIFY`, fails closed on absent/empty/short/bad-alphabet, compares in
+constant time, classifies ABSENT/EMPTY/DUPLICATE/MISMATCH, runs as the first application step before
+dispatch, `404`/`405`, body read, credential seam, rate limit and any service call, and answers with
+the single opaque body `{"version":1,"error":"EDGE_ORIGIN_NOT_VERIFIED","action":null}` with no echo.
+The history route does a strong HEAD then a bounded Query, freezes H/R/F, binds an opaque signed
+cursor to principal/environment/mandate/generation, re-authenticates before and after the store read,
+reports an explicit expired prefix and truthful gap ranges, and is HTTP-only with no payment
+capability. No TTL/compaction, no projection, no transaction creation, no new dependency.
+
+**Executed, in order** (`evidence/continuation-h1-20261123/`):
+
+| Step | Exit | Observed |
+| --- | --- | --- |
+| `mvn -o -q -DskipTests compile` | 0 | empty stdout/stderr |
+| test-compile attempt 2 | 1 | two test-source errors in `ConsoleHistoryRouteTest.java` — reassignment of the `final` local `rows` (line 137) and the undeclared `EXPIRED_TOKEN` reason (line 293) |
+| test-compile attempt 3 | 0 | empty stdout/stderr |
+| focused console classes, run 1 | 1 | **33 tests, 1 failure, 4 errors, 0 skipped** — the gate case wanted `401` and got `405`; four `CONTEXT_MISMATCH` errors from the test's append helper |
+| same classes, run 2 | 0 | **33 tests, 0 failures, 0 errors, 0 skipped** — 4 `ConsoleHistoryRouteDynamoIntegrationTest`, 9 `ConsoleOriginVerificationGateTest`, 20 `ConsoleHistoryRouteTest` |
+| existing console classes | 0 | **16 tests, 0 failures, 0 errors, 0 skipped** (13 `ConsoleAuthorizationRouteTest`, 3 `ConsoleSubmissionAtomicIntegrationTest`) |
+
+**Red runs preserved; nothing deleted, disabled or weakened.** Both red artifacts are kept beside the
+green one (`compile-attempt2-testcompile-stdout.txt`, `history-and-ov-tests-stdout.txt`, versus
+`history-and-ov-tests-attempt2-stdout.txt`). Red and green report the same 33 cases across the same
+three classes with `Skipped: 0` in both, so no case was deleted or disabled. The six red sites are
+test-harness defects, not removed assertions: the gate fixture now builds the `POST` request the route
+actually accepts, and the DynamoDB integration helper now appends with the collector-matching
+`EventContext`. Chronology confines the corrections to test sources (latest `src/main` console file
+`22:38:33`; red run finished `22:40:59`; green run started `22:41:31`; only test files written
+between). Disclosed limitation: the red-revision sources are not preserved (untracked package, no
+`git diff`), so non-relaxation rests on the failure signatures, not a byte diff.
+
+**What this proves.** Within these seams — DynamoDB Local, a test-supplied cursor key, a test-double
+decoder and a fixed context registry — the gate is first, fail-closed, constant-time, silent and
+non-authenticating (the credential seam still answers `401`), and the history route pins a frozen
+snapshot, bounds the read, reports gaps and expired prefixes truthfully, and refuses tampered, expired,
+foreign and re-authorized-during-read requests with `400`/`403`/`404`/`405`/`410`/`503` and no
+payload.
+
+**What it does not prove.** No real issuer or JWKS; no CloudFront, WAF, deployed edge or Keycloak; no
+cursor key sourcing; no server-side read-pass store, TTL, compaction or projection; no API Gateway
+authorizer, Lambda invocation, mounted internal route, WebSocket, browser or UI. **N-02 is not closed
+by these bytes alone.** The three slice ambiguities (malformed-pagination mapping, read-pass store,
+cursor-key source) remain open in `RESULTS.md` §4.
+
+**Traceability.** `requirement-traceability.md` moves only the rows whose status genuinely changed
+(R01, R25, OBS-18, OBS-19: C → B) plus the count table and a new §12; A/B/C elsewhere is untouched,
+integrated counts stay **0**, and every row remains `independent verification: PENDING`.
+
+**Non-claims.** No Git write, stage, commit, push, PR, merge, deploy, release, publication, AWS call,
+credential flow, provider mutation, approved-specification edit or test weakening occurred. No onward
+delegation, no model override. Local evidence is not independent QA, Security review or human
+acceptance.
+
+### 61. Continuation H1 — QA-driven fixes (2026-11-23)
+
+Independent QA returned **FAIL** for the H1 slice (`reviews/h1-qa-20261123/qa-report.md`, SHA-256
+`2ac3c71662d725bf86a8db4adf86be8447f3405c5aaed6757fd8f6c0152e8844`). This step fixes the two
+contract violations and the third advisory in the instructed order, and records the observations
+rather than inventing behaviour. Evidence
+[`evidence/continuation-h1-qa-fixes-20261123/`](evidence/continuation-h1-qa-fixes-20261123/RESULTS.md).
+Binding: branch `feat/wi-acq-auth-001`, HEAD `5bbd4eb` unchanged, JDK 25.0.5, Maven 3.10.1 offline,
+model `nan/deepseek-v4-flash` with no override.
+
+- **QA-DEF-2 (MEDIUM).** Every history `503` now emits the pinned
+  `{"version":1,"error":"AUTHORIZATION_UNAVAILABLE","action":null}` (initial registry outage,
+  post-read registry outage, store `head` failure, read-range failure). Two existing assertions that
+  encoded `UNAVAILABLE` were **changed because that value contradicted the adopted contract and the
+  reviewed `historyErrors["503"]` fixture, not to make a red test green**; the implementation was
+  corrected first. Added `serviceUnavailableBodyExactlyMatchesTheReviewedFixture` for an exact byte
+  comparison.
+- **QA-DEF-1 (LOW).** The verified token issuer is now carried on `ConsolePrincipal` (supplied by
+  `DemoConsoleAuthorizer`), bound in the signed cursor payload, and compared on continuation and on
+  the post-read re-authentication. Both per-page authentications are retained; a cursor minted under
+  another issuer is refused (`403 CONTEXT_DENIED`, same signing key), while a token that expires
+  during the read still returns `401` before disclosure.
+- **QA-DEF-3 (LOW).** `AuthorizedContext` gains an optional trusted `terminalRef` (4-argument
+  constructor retained for non-terminal callers). The cursor binds the fixture's
+  `terminalRef: "TERMINAL-A"` when the registry supplies one, and a different terminal is refused.
+- **Observations.** Mandate fingerprint vs named `registryMandateId`/`registryVersion` and the
+  `?cursor=X&after=N` combination are **open questions for Requirements** and were not decided in
+  code. `epoch` is settled for this HTTP-only read by D-6's "epoch when live" wording; the fixture's
+  `epoch: null` is documentary. The pre-existing malformed-pagination mapping stays open as already
+  disclosed in §60.
+- **Executed.** `mvn -o -B -DskipTests test-compile` exit **0**. Focused console suites, one final
+  run, exit **0**: **74 tests, 0 failures, 0 errors, 0 skipped** — `ConsoleHistoryRouteTest` 24
+  (20 + 4 QA-fix tests), `ConsoleHistoryRouteDynamoIntegrationTest` 4,
+  `ConsoleOriginVerificationGateTest` 9, `ConsoleAuthorizationRouteTest` 13,
+  `ConsoleSubmissionAtomicIntegrationTest` 3, `ConsoleHandlerCompositionTest` 5,
+  `ConsoleDevServerTest` 9, `DevStubTokenIssuerTest` 7. A first focused run (exit 1, 74/1 failure) is
+  preserved: its only failure was a test fixture that reissued the context without the new terminal,
+  so the terminal check fired before the generation check; the fixture was corrected and no
+  assertion was relaxed.
+- **What this does not prove.** No real JWKS/signature/issuer verification (K1), no deployed edge,
+  CloudFront/WAF or Keycloak, no cursor-key custody, no server-side read-pass store, no listener,
+  browser or UI. No payment path was touched. **N-02 is not closed by these bytes alone.** Every
+  traceability row stays `independent verification: PENDING`.
+
+**Non-claims.** No Git write, stage, commit, push, PR, merge, deploy, release, publication, AWS call,
+credential flow, provider mutation, approved-specification edit or test weakening occurred. No onward
+delegation, no model override. Local evidence is not independent QA, Security review or human
+acceptance.
+
+### 62. Continuation H1 — D-6 C-1.3 ordering and C-2 cursor combinations (2026-11-23)
+
+Two code changes from the independent D-6 clarifications domain review
+(`reviews/d6-clarifications-20261123/domain-review.md`, SHA-256
+`d6a57e0ca4f0e22c838c8e397bd5d576b95e7f6fa9d2a880989ef6b9141464b9`, re-verified). The review is
+advisory: this step implements its C-1.3 and C-2 directions only. The C-3 malformed-pagination
+taxonomy and its two failure-order corrections are **not** implemented; the corrected text is
+being authored separately. Evidence
+[`evidence/continuation-h1-d6-c2-20261123/`](evidence/continuation-h1-d6-c2-20261123/RESULTS.md).
+Binding: branch `feat/wi-acq-auth-001`, HEAD `5bbd4eb` unchanged, Temurin 25.0.5, Maven 3.10.1
+offline, model `nan/deepseek-v4-flash` with no override.
+
+- **C-1.3 / §7 ordering.** `ConsoleHistoryRoute.reauthenticateAfterRead` checked
+  `fingerprint(mandateAfter)` (`410 RESYNC_REQUIRED`) before the context triple (`403
+  CONTEXT_DENIED`), contradicting C-1.3's "checked first". Reordered so a context mismatch is
+  `403` before a retired-generation `410`, on the post-read path; the pre-read continuation was
+  already context-first and is unchanged. Both authentication calls, the `401`-before-disclosure
+  rule and all other refusals are retained. A request that is both context-mismatched and
+  generation-retired now returns `403`; one that is only generation-retired still returns `410`.
+- **C-2 cursor combinations.** `queryOf` previously let a cursor win and silently ignored `after`.
+  A cursor combined with `after` or with `snapshot` is now refused `400 INVALID_CURSOR` with a
+  null action, after authentication and before mandate resolution or any store read. The registry
+  and event store are never consulted.
+- **Tests.** Five focused cases added to `ConsoleHistoryRouteTest` (24 → 29): continuation
+  both-mismatch → `403`; post-read both-mismatch → `403` with the reader called once; post-read
+  generation-only → `410`; `?cursor&after` and `?cursor&snapshot` → `400` with registry, head and
+  reader calls all zero.
+- **Executed.** `mvn -o -B -DskipTests test-compile` exit **0**. Focused console suites, single
+  run, exit **0**: **79 tests, 0 failures, 0 errors, 0 skipped** — `ConsoleHistoryRouteTest` 29,
+  `ConsoleHistoryRouteDynamoIntegrationTest` 4, `ConsoleOriginVerificationGateTest` 9,
+  `ConsoleAuthorizationRouteTest` 13, `ConsoleSubmissionAtomicIntegrationTest` 3,
+  `ConsoleHandlerCompositionTest` 5, `ConsoleDevServerTest` 9, `DevStubTokenIssuerTest` 7.
+- **What this does not prove.** No real issuer/JWKS, deployed edge, CloudFront/WAF/Keycloak,
+  cursor-key custody, server-side read-pass store, Lambda invocation, browser or UI. C-3 is open.
+  **N-02 is not closed by these bytes.** Every traceability row keeps `independent verification:
+  PENDING`; no A/B/C status or coverage count moves.
+
+**Non-claims.** No Git write, stage, commit, push, PR, merge, deploy, release, publication, AWS call,
+credential flow, provider mutation, approved-specification edit or test weakening occurred. No onward
+delegation, no model override. Local evidence is not independent QA, Security review or human
+acceptance.
+
+### 63. Continuation H1 — D-6 C-3 malformed-pagination taxonomy and failure order (2026-11-23)
+
+C-3 of the D-6 clarifications rev 2 is approved for adoption by the coordinator. The corrected text
+(`design/contract-deltas/d6-clarifications-rev2-20261123/d6-clarifications.md`, SHA-256
+`3aaac88a…9643a3`) and the independent domain re-check
+(`reviews/d6-clarifications-rev2-20261123/domain-review.md`, SHA-256 `fde09a1f…d3d1ad7`) were both
+re-verified with `sha256sum` before reading. The re-check is advisory; this step implements its C-3
+direction only. Evidence
+[`evidence/continuation-h1-d6-c3-20261123/`](evidence/continuation-h1-d6-c3-20261123/RESULTS.md).
+Binding: branch `feat/wi-acq-auth-001`, HEAD `5bbd4eb` unchanged, Temurin 25.0.5, Maven 3.10.1
+offline, model `nan/deepseek-v4-flash` with no override.
+
+- **Fixed failure order.** The history route now refuses in this order and nothing after the `200`:
+  `401` → request-form `400 INVALID_CURSOR` (syntactic C-3.1 a–f only) → resolution `503`/`403` →
+  malformed-payload `400` (signature does not verify, or signed payload malformed) → retired-schema
+  `410 RESYNC_REQUIRED` (after signature verification, before the context check) → expired `410` →
+  context `403` → representation `410` → head `503`/`404` → `after` beyond the frozen head `400`
+  (only after the head read) → `R`/`F` `410` → bound-`lastSequence` `400` → `200`. One code per
+  failure class; `INVALID_CURSOR`/`CONTEXT_DENIED`/`NOT_FOUND`/`AUTHORIZATION_UNAVAILABLE` carry
+  `action: null`, `RESYNC_REQUIRED` carries `action: RESYNC_REQUIRED`, matching
+  `wire-fixtures.json.historyErrors`.
+- **Codec.** `ConsoleHistoryCursorCodec` gained `CursorException.Kind.RETIRED`. `parse` judges
+  structural malformation (`400`) before the retired schema/representation (`410`); a
+  signature-valid payload with a non-current/absent `version` or a missing current-representation
+  member is retired, per C-1.5. `open` keeps signature → parse → future-issued → expiry, so retired
+  and expired both precede the route's context `403`. No payload member changed.
+- **Route.** `RETIRED`/`EXPIRED` map to `410`; `INVALID` stays `400`. The step order is marked in
+  code, and the C-3.4 early-refusal prohibition is explicit: `after > H` stays after `requireHead`
+  and before any reader call, and `queryOf`/`parseAfter` are the syntactic-only form step that never
+  reads the head. Unknown and repeated parameters remain refused in the form step.
+- **Tests.** `ConsoleHistoryRouteTest` 29 → 40: resolution `503`/`403`, form-versus-resolution,
+  unknown/repeat form parameters, malformed signed payload `400`, retired-schema `410` before a
+  context `403` (forged signature-valid payload), expired `410` before a context mismatch, head `503`,
+  `after > H` with `headCalls == 1`/`reader == 0`, unknown-target `404` on a continuation, and the
+  bound `lastSequence` `400` after the head read.
+- **Executed.** Compile exit **0**. Focused console suites, recorded run, exit **0**: **90 tests, 0
+  failures, 0 errors, 0 skipped** — `ConsoleHistoryRouteTest` 40,
+  `ConsoleHistoryRouteDynamoIntegrationTest` 4, `ConsoleOriginVerificationGateTest` 9,
+  `ConsoleAuthorizationRouteTest` 13, `ConsoleSubmissionAtomicIntegrationTest` 3,
+  `ConsoleHandlerCompositionTest` 5, `ConsoleDevServerTest` 9, `DevStubTokenIssuerTest` 7. An
+  earlier green run (87 tests) preceded the last three stop tests; disclosed in `RESULTS.md` §5.
+- **What this does not prove.** No real issuer/JWKS, deployed edge, CloudFront/WAF/Keycloak,
+  cursor-key custody, server-side read-pass store, Lambda invocation, browser or UI. **N-02 is not
+  closed by these bytes.** Every traceability row keeps `independent verification: PENDING`; no A/B/C
+  status moves.
+
+**Non-claims.** No Git write, stage, commit, push, PR, merge, deploy, release, publication, AWS call,
+credential flow, provider mutation, approved-specification edit or test weakening occurred. No onward
+delegation, no model override. Local evidence is not independent QA, Security review or human
+acceptance.
+
+### 64. Continuation K1 — real issuer decoder, JWKS key source and composition (2026-11-23)
+
+The K1 package adds a real compact-JWS verification step behind the unchanged console policy core.
+Evidence [`evidence/continuation-k1-20261123/`](evidence/continuation-k1-20261123/RESULTS.md).
+Binding: branch `feat/wi-acq-auth-001`, HEAD `5bbd4eb` unchanged, Temurin 25.0.5, Maven 3.10.1
+offline, model `nan/deepseek-v4-flash` with no override. No dependency was added; `pom.xml` is
+unmodified.
+
+- **Configuration.** `TrustedIssuerConfiguration` requires issuer, audience, JWKS URI, demo subject,
+  demo client id, required and forbidden resource scopes, forbidden resource audience, the algorithm
+  set and a lifetime ceiling. There is no literal issuer, default audience, built-in key, fallback
+  subject or algorithm default: a blank or inconsistent value fails construction. Scopes and
+  audiences must be disjoint, the algorithm set must be a subset of `RS256`/`RS384`/`RS512`, and the
+  ceiling may not exceed 900 seconds. The JWKS URI must be `https` (loopback `http` only for local
+  tests).
+- **Key source seam.** `JwksSource` (current/refresh), `JsonWebKeySet`, `JwksParser` and the network
+  adapter `HttpJwksSource` are separate from the verification logic, so a deployment can supply a
+  managed source and tests can supply a non-network one. `HttpJwksSource` is only constructed from
+  configuration, never from a literal, and only by `ConsoleTokenComposition`'s deployment factory.
+- **Decoder.** `JwtConsoleTokenDecoder` fails closed in a fixed order: compact-JWS shape and JSON
+  (`MALFORMED_TOKEN`), algorithm present and allowlisted before any key is consulted
+  (`UNSUPPORTED_ALGORITHM`, which covers `none` and HMAC), non-empty `kid` (`UNKNOWN_KEY`), key
+  lookup with at most one rotation refresh, signature verification, then issuer, audience,
+  authorized party, scope, `exp`, `nbf`, `iat` and the lifetime ceiling. Claims are not read before
+  the signature verifies. A key-source failure is `KEY_SOURCE_UNAVAILABLE`; there is no fallback to
+  the stub, a cached authority or a trusted-caller path.
+- **Rotation.** Lookup takes the current key set, refreshes once on an unknown `kid`, and retries.
+  A newly rotated `kid` becomes usable after the refresh; a token signed by a retired key is refused
+  because the refreshed set no longer contains it. No key is pinned by an earlier successful lookup.
+- **Composition.** `ConsoleTokenComposition` builds the decoder and the unchanged
+  `DemoConsoleAuthorizer` from one configuration, so claim order and the current-mandate
+  intersection stay in one place. Both factory methods require an explicit configuration; there is
+  no no-argument or default version. Composing the deployed Lambda business route remains a later,
+  separate step.
+- **Tests.** 127 tests asserted green in this pass, all with locally generated RSA keys and an
+  in-memory key-source double: `JwtConsoleTokenDecoderTest` 25, `TrustedIssuerConfigurationTest` 7,
+  `ConsoleTokenCompositionTest` 5, plus the focused console suites. The decoder tests exercise bad
+  algorithm, missing `kid`, signature mismatch, wrong issuer, wrong audience, expired,
+  not-yet-valid, missing scope, key-source outage, retired-key-after-rotation and the new-`kid`
+  rotation path; the composition tests exercise the wrong-subject refusal through the policy core
+  and show a refused token never reaches the business service.
+- **Executed.** Compile exit **0** (no stdout/stderr). Three separate recorded invocations, each exit
+  **0**: decoder group **32 tests**, composition **5 tests**, focused console suites **90 tests** — 0
+  failures, 0 errors, 0 skipped throughout. No red run occurred.
+- **What this does not prove.** Keys were generated locally; there was **no network JWKS fetch, no
+  Keycloak round trip, no browser PKCE flow, no deployed composition and no AWS call**.
+  `HttpJwksSource`/`JwksParser` are untested in this pass. `DevStubTokenIssuer` remains the
+  explicitly labelled unsigned local double and is not authentication. Every traceability row keeps
+  `independent verification: PENDING`; only the R19 and OBS-23 rows were updated in evidence and
+  limitation text, with no A/B/C status move.
+- **Open points, not resolved.** (1) A JWKS-unavailable condition currently surfaces as `401`
+  `UNAUTHENTICATED` through the submission route, not a truthful `503`; a `503` needs a new route
+  branch. (2) The dev stub is retained for the loopback harness. (3) The algorithm allowlist is
+  RSA-only.
+
+**Non-claims.** No Git write, stage, commit, push, PR, merge, deploy, release, publication, AWS call,
+Keycloak call, credential flow, provider mutation, approved-specification edit, new dependency or
+test weakening occurred. No onward delegation, no model override. Local evidence is not independent
+QA, Security review or human acceptance.

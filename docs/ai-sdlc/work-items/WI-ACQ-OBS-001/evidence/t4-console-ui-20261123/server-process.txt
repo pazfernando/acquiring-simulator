@@ -1,0 +1,1 @@
+1800813       02:58 /home/pazfernando/.local/opt/jdk-25/bin/java -cp target/classes:/home/pazfernando/.m2/repository/software/amazon/awssdk/dynamodb/2.57.3/dyna

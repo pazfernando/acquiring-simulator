@@ -1,0 +1,3 @@
+feat/wi-acq-auth-001
+5bbd4eb5d49be036e695e5f25a8c83c4f7d5ac14
+/bin/bash: line 1: java: command not found

@@ -1,0 +1,17 @@
+$ python infra/terraform/tools/policy_checks.py
+POLICY CHECKS
+  PASS  backend: s3 + use_lockfile + encrypt, no dynamodb_table
+  PASS  no deprecated DynamoDB lock table
+  PASS  no secret literal, SSM plaintext value, decrypt-in-state or Lambda URL
+  PASS  every service authorizer has result TTL 0
+  PASS  mTLS domains checked (1); default execute-api endpoint disabled on 1 REST APIs
+  PASS  OIDC trust: StringEquals with exact subject variable (1 policy document(s))
+  PASS  no IAM Allow Action "*"; Resource "*" only in documented, conditioned or deny-guarded policies
+  PASS  no *.tfstate, *.tfplan or *.tfvars in the tree
+  PASS  exactly pinned providers; every root provider has allowed_account_ids
+  PASS  internet ingress restricted to 443
+  PASS  every Lambda pins runtime and architectures
+  PASS  access-log formats exclude Authorization and Sec-WebSocket-Protocol
+
+All policy checks passed.
+exit=0

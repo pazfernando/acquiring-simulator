@@ -1,0 +1,1 @@
+preflight attempt: mvn not on PATH in this shell (exit 127); reran with explicit JAVA_HOME=/home/pazfernando/.local/opt/jdk-25 and /home/pazfernando/.local/opt/maven/bin/mvn

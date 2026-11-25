@@ -1,0 +1,10 @@
+stub token POST -> 200, keys=['accessToken', 'expiresIn', 'stub', 'tokenType']
+
+first authorized submission -> HTTP 200
+{"authorizationReference":"AUTH-66cf37eadcda4a938fd3124d","correlationId":"CORR-UIDEMO0001","outcome":"APPROVED"}
+
+identical retry -> HTTP 200
+{"authorizationReference":"AUTH-66cf37eadcda4a938fd3124d","correlationId":"CORR-UIDEMO0001","outcome":"APPROVED"}
+
+refused token -> HTTP 401
+{"asOf":"2026-11-23T23:43:09.643542233Z","attemptId":null,"authorizationId":null,"businessVersion":null,"contractVersion":"1","correlationId":null,"disposition":"REJECTED","error":"UNAUTHENTICATED","observation":"UNKNOWN","originalCorrelationId":null,"outcome":null,"serverFreshness":"UNKNOWN","transactionId":null}

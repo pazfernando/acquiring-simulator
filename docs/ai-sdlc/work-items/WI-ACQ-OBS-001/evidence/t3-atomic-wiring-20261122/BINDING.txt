@@ -1,0 +1,10 @@
+repository=/home/pazfernando/projects/acquiring-simulator
+expected_coordinator_head=cfc456f4f469d9558a78fda8ff9b770b00817315
+observed_head=5bbd4eb5d49be036e695e5f25a8c83c4f7d5ac14
+branch=feat/wi-acq-auth-001
+origin=https://github.com/pazfernando/acquiring-simulator.git
+cfc_ancestor_of_observed_head=yes
+runtime=local-jvm
+java=openjdk version "25.0.5" 2026-10-20 LTS
+maven=Apache Maven 3.10.1 (3afd8084b5629f80b97750906a719879ed4cd283)
+model_observed=nan/deepseek-v4-flash (session model; no override requested)

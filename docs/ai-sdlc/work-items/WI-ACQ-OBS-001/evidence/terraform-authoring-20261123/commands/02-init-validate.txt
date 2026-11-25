@@ -1,0 +1,10 @@
+=== bootstrap ===
+Success! The configuration is valid.
+
+validate_exit=0
+=== envs/stack ===
+Success! The configuration is valid.
+
+validate_exit=0
+=== fmt ===
+fmt_exit=0

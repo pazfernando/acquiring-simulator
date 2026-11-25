@@ -1,0 +1,173 @@
+{
+  "status": "PROPOSED setup replacements; immutable response status/bodyUtf8 remain golden",
+  "allBrowserCases": {
+    "authentication": "current verified HTTP demo principal, current environment/context mandate checked BEFORE lookup/replay/history and again before disclosure",
+    "failure": "401 invalid/expired HTTP token; 503 registry unavailable; no page/result disclosure, claim or send; C3 only applies after authentication",
+    "serviceHop": "separate authenticated svc-console mTLS + OAuth console.dispatch and immutable mandateRef; not a browser credential"
+  },
+  "cases": [
+    {
+      "id": "H01",
+      "setup": "Authenticated browser route with current demo context; downstream hop additionally verifies independent service mandate where used.",
+      "expectedStatus": 200,
+      "expectedBodyUtf8Sha256": "f453a2fd68ffe745b85bd9e3c2d2351c67ec32727cadac6d37df889a32f08b15"
+    },
+    {
+      "id": "H02",
+      "setup": "Authenticated browser route with current demo context; downstream hop additionally verifies independent service mandate where used.",
+      "expectedStatus": 200,
+      "expectedBodyUtf8Sha256": "bff045de41af317021d2199d4bc2e7fe23cfd131ed46278d57d997601507f923"
+    },
+    {
+      "id": "H03",
+      "setup": "Authenticated browser route with current demo context; downstream hop additionally verifies independent service mandate where used.",
+      "expectedStatus": 200,
+      "expectedBodyUtf8Sha256": "57563b12c8df577763793dbb6e5a7175ecfba55980078ccf8c4fbde42940ade5"
+    },
+    {
+      "id": "H04",
+      "setup": "Authenticated browser route with current demo context; downstream hop additionally verifies independent service mandate where used.",
+      "expectedStatus": 200,
+      "expectedBodyUtf8Sha256": "11d034954d3207d78e15a5ad8978b2fb0bcb711fbc793f3cd6f4564de3ea9c62"
+    },
+    {
+      "id": "H05",
+      "setup": "Authenticated browser route with current demo context; downstream hop additionally verifies independent service mandate where used.",
+      "expectedStatus": 503,
+      "expectedBodyUtf8Sha256": "f6757e6473cbfb0b3668fd1111ede438b38f005fab76b458142fcd05ee2dadad"
+    },
+    {
+      "id": "H06",
+      "setup": "Authenticated browser route with current demo context; downstream hop additionally verifies independent service mandate where used.",
+      "expectedStatus": 503,
+      "expectedBodyUtf8Sha256": "dec5d1c3793fda5629418c78f3533eab7736b4de3efa396cd05242a808972939"
+    },
+    {
+      "id": "H07",
+      "setup": "Authenticated browser route with current demo context; downstream hop additionally verifies independent service mandate where used.",
+      "expectedStatus": 503,
+      "expectedBodyUtf8Sha256": "a95a564156ccc4bc78df2fe5de1cc5bb43d5ff113373872f2b1b038972eadf07"
+    },
+    {
+      "id": "H08",
+      "setup": "Authenticated browser route with current demo context; downstream hop additionally verifies independent service mandate where used.",
+      "expectedStatus": 202,
+      "expectedBodyUtf8Sha256": "cc090e6fbfe3dda92794ade76f283073fb861b6a5c3ece4d05213598384882d1"
+    },
+    {
+      "id": "H09",
+      "setup": "Authenticated browser route with current demo context; downstream hop additionally verifies independent service mandate where used.",
+      "expectedStatus": 202,
+      "expectedBodyUtf8Sha256": "115b42e0fac3623fe0618836e6e75063a73d90f92e08623f92d9d619552a1dda"
+    },
+    {
+      "id": "H10",
+      "setup": "Authenticated browser route with current demo context; downstream hop additionally verifies independent service mandate where used.",
+      "expectedStatus": 200,
+      "expectedBodyUtf8Sha256": "f3bd5d0af270b54112512c33f716bbfbdaeee494c4a08d70cd35f88aca8505a3"
+    },
+    {
+      "id": "H11",
+      "setup": "Authenticated browser route with current demo context; downstream hop additionally verifies independent service mandate where used.",
+      "expectedStatus": 200,
+      "expectedBodyUtf8Sha256": "4f0690aa1f965d957aeef3f4b74b7398e638adcfa61f39facbeb332eb798e123"
+    },
+    {
+      "id": "H12",
+      "setup": "Authenticated browser route with current demo context; downstream hop additionally verifies independent service mandate where used.",
+      "expectedStatus": 503,
+      "expectedBodyUtf8Sha256": "68f34502d29f751ec4d485eae01f11fcda3944d1a26794e8fcc1bb0607a5d1c7"
+    },
+    {
+      "id": "H13",
+      "setup": "Authenticated browser route with current demo context; downstream hop additionally verifies independent service mandate where used.",
+      "expectedStatus": 503,
+      "expectedBodyUtf8Sha256": "8ba9fb019efd3fa79aca3b66e1ec3358c09126e7fb5cb0b6dce6d9164e29f12e"
+    },
+    {
+      "id": "H14",
+      "setup": "Two isolated variants: browser verified demo principal whose CURRENT mandate excludes requested context; downstream-only verified svc-console whose CURRENT service mandate excludes context with browser mandate otherwise valid. Both exact H14 status/body, no original disclosure; zero claims/sends.",
+      "expectedStatus": 403,
+      "expectedBodyUtf8Sha256": "2532f9d3be4f36fe465a6790595f6d25a6d2b319babd03aa8934b838f12b2ab5"
+    },
+    {
+      "id": "H15",
+      "setup": "Authenticated browser route with current demo context; downstream hop additionally verifies independent service mandate where used.",
+      "expectedStatus": 400,
+      "expectedBodyUtf8Sha256": "f4ac7c878c14b33b8cf02c8dca795849a097fedb7349f25ad073049f2dfe60bd"
+    },
+    {
+      "id": "H16",
+      "setup": "Authenticated browser route with current demo context; downstream hop additionally verifies independent service mandate where used.",
+      "expectedStatus": 200,
+      "expectedBodyUtf8Sha256": "f6757e6473cbfb0b3668fd1111ede438b38f005fab76b458142fcd05ee2dadad"
+    },
+    {
+      "id": "H17",
+      "setup": "Authenticated browser route with current demo context; downstream hop additionally verifies independent service mandate where used.",
+      "expectedStatus": 200,
+      "expectedBodyUtf8Sha256": "bb1a55cbfa1f9763a5e9f582543cd1e292d99935fb87bf24a73e7d122b8fc276"
+    },
+    {
+      "id": "H18",
+      "setup": "Authenticated browser route with current demo context; downstream hop additionally verifies independent service mandate where used.",
+      "expectedStatus": 200,
+      "expectedBodyUtf8Sha256": "364985c2789b3ec26ecdec2caf664d8cdc47a964afc38f83dc31d428dca327e3"
+    },
+    {
+      "id": "H19",
+      "setup": "Authenticated browser route with current demo context; downstream hop additionally verifies independent service mandate where used.",
+      "expectedStatus": 200,
+      "expectedBodyUtf8Sha256": "600076ccbf6e364b9ae1ae3a831aeeef2a9f95009e254cf14e917c67772d8baf"
+    },
+    {
+      "id": "H20",
+      "setup": "Authenticated browser route with current demo context; downstream hop additionally verifies independent service mandate where used.",
+      "expectedStatus": 200,
+      "expectedBodyUtf8Sha256": "a0b38a9484bdda4223ef1b5088773b22acc844ea1883737a2d0d05ae2d248c9f"
+    },
+    {
+      "id": "H21",
+      "setup": "Authenticated browser route with current demo context; downstream hop additionally verifies independent service mandate where used.",
+      "expectedStatus": 503,
+      "expectedBodyUtf8Sha256": "dec5d1c3793fda5629418c78f3533eab7736b4de3efa396cd05242a808972939"
+    },
+    {
+      "id": "H22",
+      "setup": "Inject C>R>0; allocated=C-R+1; request R; no existing reservation or possible original send; refuse before claim. C=100000,R=8 is one harness example only.",
+      "expectedStatus": 503,
+      "expectedBodyUtf8Sha256": "b9144f0467a7e2464d8fdd7a6b697c093a784bd5cfdec11fa9523988aac43c09"
+    },
+    {
+      "id": "H23",
+      "setup": "Authenticated browser route with current demo context; downstream hop additionally verifies independent service mandate where used.",
+      "expectedStatus": 200,
+      "expectedBodyUtf8Sha256": "14e175b6f98ef56467a45d69953d4bb95ad5468413e0d51dbff160587e8a0f9a"
+    },
+    {
+      "id": "H24",
+      "setup": "Inject C>R>0; this original operation already owns R slots; new-work capacity C exhausted; atomic committed outcome uses its reserved slot, unaffected by new-work quota. Original single send is historical; no additional send/claim.",
+      "expectedStatus": 200,
+      "expectedBodyUtf8Sha256": "a0b38a9484bdda4223ef1b5088773b22acc844ea1883737a2d0d05ae2d248c9f"
+    },
+    {
+      "id": "H25",
+      "setup": "Authenticated browser route with current demo context; downstream hop additionally verifies independent service mandate where used.",
+      "expectedStatus": 200,
+      "expectedBodyUtf8Sha256": "b072657a1291154212d1121a759bb152beac1005baa8efbf289b2070925b4447"
+    },
+    {
+      "id": "H26",
+      "setup": "Authenticated browser route with current demo context; downstream hop additionally verifies independent service mandate where used.",
+      "expectedStatus": 503,
+      "expectedBodyUtf8Sha256": "68f34502d29f751ec4d485eae01f11fcda3944d1a26794e8fcc1bb0607a5d1c7"
+    }
+  ],
+  "quotaParameters": {
+    "classification": "injected test parameters, not approved production quotas",
+    "C": 100000,
+    "R": 8,
+    "units": "critical event slots",
+    "W17": "use injected per-connection control limit Q; counter=Q then next control refused, no financial claim/send"
+  }
+}

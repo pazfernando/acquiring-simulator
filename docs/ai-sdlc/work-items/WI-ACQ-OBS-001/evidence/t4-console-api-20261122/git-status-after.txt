@@ -1,0 +1,28 @@
+ M docs/ai-sdlc/work-items/WI-ACQ-OBS-001/WORK_ITEM.md
+ M docs/ai-sdlc/work-items/WI-ACQ-OBS-001/delivery-status.md
+ M docs/ai-sdlc/work-items/WI-ACQ-OBS-001/implementation-progress.md
+ M docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md
+ M docs/ai-sdlc/work-items/WI-ACQ-OBS-001/requirement-traceability.md
+ M docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-rev2-20261122/security-review.md
+ M src/main/java/com/acquiring/simulator/adapter/aws/AwsRuntime.java
+ M src/main/java/com/acquiring/simulator/domain/AuthorizationService.java
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/d5-ws-issuance.md
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev3.md
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev4.md
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/evidence-d5/
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/evidence-rev3/
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/evidence-rev4/
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t3-atomic-wiring-20261122/
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t3-fullsuite-20261122/
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t4-console-api-20261122/
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-rev2-20261121/
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-rev2-20261122/SHA256SUMS
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-rev2-20261122/execution-model.json
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-rev2-20261122/input-inventory.json
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-rev2-20261122/official-source-excerpts.md
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-rev4-20261122/
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/contract-delta-20261122/
+?? src/main/java/com/acquiring/simulator/console/
+?? src/test/java/com/acquiring/simulator/adapter/
+?? src/test/java/com/acquiring/simulator/console/

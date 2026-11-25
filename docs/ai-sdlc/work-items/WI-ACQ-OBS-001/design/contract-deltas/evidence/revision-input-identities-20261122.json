@@ -1,0 +1,42 @@
+[
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/contract-delta-20261122/domain-review.md",
+    "sha256": "81c258c8a25c8d107e71621f4b3409de7a44ef6521f3edf885049ff20b5f7d22",
+    "lines": 156
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/iso8583-profile.md",
+    "sha256": "de02c533536dcb6e87e4c6e93357efb9efa60c085a59f6f63bbfbb8c0e1fe481",
+    "lines": 110
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-AUTH-001/requirements.md",
+    "sha256": "595ab10f95ba59ebcad6c235162c32f1a35eca519a2d341da8df5e675fe5e840",
+    "lines": 203
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+    "sha256": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+    "lines": 62
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+    "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+    "lines": 88
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/acceptance-scenarios.md",
+    "sha256": "1586898418c09dcf092d567a4155b4524a0bc34500bf4ea76ce8f76465aa7733",
+    "lines": 66
+  },
+  {
+    "path": "docs/ai-sdlc/sources/acquiring_simulator_functional_guide.md",
+    "sha256": "90a798c7e2a1de362993cb4974d306497d7de3567c163a3511c07b194a5ae094",
+    "lines": 431
+  },
+  {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+    "sha256": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+    "lines": 155
+  }
+]

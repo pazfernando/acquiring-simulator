@@ -1,0 +1,787 @@
+{
+  "checked_at_utc": "2026-11-23T00:19:47.488970+00:00",
+  "scope": "Documentary integrity/coverage/link checks only; no product code or tests",
+  "inputs": [
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "sha256_at_open": "9bf166feed3eed4c0b4d6d4e441ae1ef44d3826a8bdab0cad65277bcd8127cdb",
+      "sha256_at_close": "c73ed0aad9dd6ba563755e3b4242f2b25563381fd3a67260608cb8d767429bd6",
+      "unchanged": false,
+      "acknowledged_append_only_drift": true
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/requirements.md",
+      "sha256_at_open": "49c5d412e3705c320a2f78b190555f49e7e0fa4662cff9329d259f89e2b459df",
+      "sha256_at_close": "49c5d412e3705c320a2f78b190555f49e7e0fa4662cff9329d259f89e2b459df",
+      "unchanged": true,
+      "acknowledged_append_only_drift": false
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "sha256_at_open": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+      "sha256_at_close": "495e1172e76ab9ba81f8a8026e7efec25baa6e4fff0d754c0a4c92bd38ea3bca",
+      "unchanged": true,
+      "acknowledged_append_only_drift": false
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "sha256_at_open": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "sha256_at_close": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "unchanged": true,
+      "acknowledged_append_only_drift": false
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/acceptance-scenarios.md",
+      "sha256_at_open": "1586898418c09dcf092d567a4155b4524a0bc34500bf4ea76ce8f76465aa7733",
+      "sha256_at_close": "1586898418c09dcf092d567a4155b4524a0bc34500bf4ea76ce8f76465aa7733",
+      "unchanged": true,
+      "acknowledged_append_only_drift": false
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/websocket-vectors.json",
+      "sha256_at_open": "e6d30a83367233d9216c2ef162e82d7f67e1b6841de312a0e5dadcec3dace2a8",
+      "sha256_at_close": "e6d30a83367233d9216c2ef162e82d7f67e1b6841de312a0e5dadcec3dace2a8",
+      "unchanged": true,
+      "acknowledged_append_only_drift": false
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev2.md",
+      "sha256_at_open": "6b15161875e702ebae74e4f76b4b94cae9ffbbb94d6a9fcd42aee563b8f3873c",
+      "sha256_at_close": "6b15161875e702ebae74e4f76b4b94cae9ffbbb94d6a9fcd42aee563b8f3873c",
+      "unchanged": true,
+      "acknowledged_append_only_drift": false
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev3.md",
+      "sha256_at_open": "cdd65729ec04708e9bd96626d29980d616fa32261620825987c9eb2cc7d63d2a",
+      "sha256_at_close": "cdd65729ec04708e9bd96626d29980d616fa32261620825987c9eb2cc7d63d2a",
+      "unchanged": true,
+      "acknowledged_append_only_drift": false
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev4.md",
+      "sha256_at_open": "3926423e9f42f6949647e5904271b6f6818b977301b66e81ffcf334f10c5dc56",
+      "sha256_at_close": "3926423e9f42f6949647e5904271b6f6818b977301b66e81ffcf334f10c5dc56",
+      "unchanged": true,
+      "acknowledged_append_only_drift": false
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-rev4-20261122/security-review.md",
+      "sha256_at_open": "c418f93a70fc41fc282ba5c2ea5c28714d14337f02c7d58ee4ecb97c8d123ed2",
+      "sha256_at_close": "c418f93a70fc41fc282ba5c2ea5c28714d14337f02c7d58ee4ecb97c8d123ed2",
+      "unchanged": true,
+      "acknowledged_append_only_drift": false
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/retention/retention-delta.md",
+      "sha256_at_open": "d11ead64f0bd3928b4112b29c408eab1d3e0f9401b84a4580e3d4adb8b35fd76",
+      "sha256_at_close": "d11ead64f0bd3928b4112b29c408eab1d3e0f9401b84a4580e3d4adb8b35fd76",
+      "unchanged": true,
+      "acknowledged_append_only_drift": false
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/retention-20261121/domain-review.md",
+      "sha256_at_open": "dcdd04ac330491512b04906264760e47e7dce3c3506f78e76688ed209fc4d322",
+      "sha256_at_close": "dcdd04ac330491512b04906264760e47e7dce3c3506f78e76688ed209fc4d322",
+      "unchanged": true,
+      "acknowledged_append_only_drift": false
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t1-traceability-20261120/BINDING.txt",
+      "sha256_at_open": "e4951cc2f2df75e61a9b9d1ce7bdb0f717d17faf3746c6fda79f5ed02bdfe8db",
+      "sha256_at_close": "e4951cc2f2df75e61a9b9d1ce7bdb0f717d17faf3746c6fda79f5ed02bdfe8db",
+      "unchanged": true,
+      "acknowledged_append_only_drift": false
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/adr-operation-a-access-and-environment.md",
+      "sha256_at_open": "d51bbf650aca74e82351dacf0e45d0f14c992044b9ff246bc7b8b281920b0b39",
+      "sha256_at_close": "d51bbf650aca74e82351dacf0e45d0f14c992044b9ff246bc7b8b281920b0b39",
+      "unchanged": true,
+      "acknowledged_append_only_drift": false
+    }
+  ],
+  "exact_clause_checks": [
+    {
+      "delta": "D-1",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 35,
+      "end": 39,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-1",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 42,
+      "end": 43,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-1",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "start": 51,
+      "end": 53,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-1",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 90,
+      "end": 99,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-1",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 82,
+      "end": 86,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-1",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-1",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 138,
+      "end": 142,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-2",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "start": 5,
+      "end": 5,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-2",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "start": 51,
+      "end": 52,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-2",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 36,
+      "end": 36,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-2",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 90,
+      "end": 99,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-2",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-2",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 138,
+      "end": 142,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-3",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 46,
+      "end": 50,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-3",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 56,
+      "end": 60,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-3",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 123,
+      "end": 142,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-3",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-3",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 138,
+      "end": 142,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-4",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/requirements.md",
+      "start": 55,
+      "end": 55,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-4",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/requirements.md",
+      "start": 61,
+      "end": 61,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-4",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 82,
+      "end": 86,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-4",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-4",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 138,
+      "end": 142,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-5",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 38,
+      "end": 38,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-5",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 42,
+      "end": 43,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-5",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "start": 52,
+      "end": 52,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-5",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev4.md",
+      "start": 154,
+      "end": 172,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-5",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev4.md",
+      "start": 258,
+      "end": 263,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-5",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 82,
+      "end": 86,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-5",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 90,
+      "end": 99,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-5",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-5",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 138,
+      "end": 142,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-6",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 42,
+      "end": 45,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-6",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 59,
+      "end": 60,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-6",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "start": 57,
+      "end": 57,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-6",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 82,
+      "end": 86,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-6",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-6",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 138,
+      "end": 142,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-7",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 37,
+      "end": 37,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-7",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "start": 51,
+      "end": 53,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-7",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/requirements.md",
+      "start": 27,
+      "end": 27,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-7",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev4.md",
+      "start": 85,
+      "end": 143,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-7",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 90,
+      "end": 99,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-7",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-7",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 138,
+      "end": 142,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-8",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "start": 5,
+      "end": 5,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-8",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 35,
+      "end": 38,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-8",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "start": 51,
+      "end": 52,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-8",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev3.md",
+      "start": 155,
+      "end": 167,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-8",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev4.md",
+      "start": 219,
+      "end": 224,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-8",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-8",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 90,
+      "end": 99,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-8",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-8",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 138,
+      "end": 142,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-8",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 101,
+      "end": 107,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-9",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev2.md",
+      "start": 133,
+      "end": 141,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-9",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev3.md",
+      "start": 217,
+      "end": 219,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-9",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev3.md",
+      "start": 137,
+      "end": 151,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-9",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 117,
+      "end": 129,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-9",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 90,
+      "end": 99,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-9",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 117,
+      "end": 121,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-9",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 123,
+      "end": 127,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "D-9",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "A-1",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/requirements.md",
+      "start": 25,
+      "end": 29,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "A-1",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/requirements.md",
+      "start": 76,
+      "end": 78,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "A-1",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 90,
+      "end": 99,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "A-1",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 82,
+      "end": 86,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "A-1",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "A-1",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 138,
+      "end": 142,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "A-2",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/acceptance-scenarios.md",
+      "start": 36,
+      "end": 37,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "A-2",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/acceptance-scenarios.md",
+      "start": 55,
+      "end": 66,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "A-2",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/vectors/websocket-vectors.json",
+      "start": 1,
+      "end": 4,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "A-2",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 82,
+      "end": 86,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "A-2",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "A-2",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 138,
+      "end": 142,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "R-1",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 74,
+      "end": 79,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "R-1",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 46,
+      "end": 50,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "R-1",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/retention/retention-delta.md",
+      "start": 1,
+      "end": 5,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "R-1",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/adr-operation-a-access-and-environment.md",
+      "start": 11,
+      "end": 21,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "R-1",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 123,
+      "end": 127,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "R-1",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 90,
+      "end": 99,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "R-2",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 43,
+      "end": 43,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "R-2",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 52,
+      "end": 52,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "R-2",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "start": 59,
+      "end": 62,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "R-2",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+      "start": 57,
+      "end": 57,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "R-2",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 86,
+      "end": 86,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "R-2",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev3.md",
+      "start": 173,
+      "end": 186,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "R-2",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 82,
+      "end": 86,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "R-2",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 129,
+      "end": 136,
+      "hash_and_exact_excerpt_match": true
+    },
+    {
+      "delta": "R-2",
+      "file": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "start": 138,
+      "end": 142,
+      "hash_and_exact_excerpt_match": true
+    }
+  ],
+  "local_link_checks": [
+    {
+      "file": "operation-a-contract-delta.md",
+      "target": "../../reviews/access-design-rev4-20261122/security-review.md",
+      "exists": true
+    },
+    {
+      "file": "operation-a-contract-delta.md",
+      "target": "../access-realization/design-rev4.md",
+      "exists": true
+    },
+    {
+      "file": "operation-a-contract-delta.md",
+      "target": "../../owner-decisions.md",
+      "exists": true
+    },
+    {
+      "file": "operation-a-contract-delta.md",
+      "target": "evidence/clause-index.json",
+      "exists": true
+    },
+    {
+      "file": "operation-a-contract-delta.md",
+      "target": "evidence/owner-decisions-as-reviewed-9bf166fe.md",
+      "exists": true
+    }
+  ],
+  "delta_count": 13,
+  "classification_counts": {
+    "PROPOSED NORMATIVE CHANGE": 10,
+    "SOURCED CLARIFICATION": 2,
+    "OPEN CONFLICT": 1
+  },
+  "all_13_require_domain_disposition": true,
+  "all_13_draft_not_normative": true,
+  "coverage": [
+    "D-1..D-9",
+    "ADV-8 preconditions/narrow-demo paragraphs",
+    "ADV-8 W-scenario/fixture assumptions",
+    "ADV-1 state/nonce/code-reuse",
+    "ADV-2 svc-console-ws identity/issuance conflict",
+    "ADV-6 refresh lifecycle",
+    "pending retention applicability",
+    "cursor versus token/lease/generation lifetimes"
+  ],
+  "source_files_modified_by_this_author": false,
+  "concurrent_owner_append_recorded": true,
+  "original_owner_snapshot_matches_reviewed_hash": true,
+  "NV-05": "OPEN",
+  "author_model_observed": "gpt-6.1-sol",
+  "model_override": false
+}

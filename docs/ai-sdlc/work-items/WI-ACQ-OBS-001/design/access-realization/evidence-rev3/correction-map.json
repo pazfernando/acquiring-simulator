@@ -1,0 +1,85 @@
+{
+  "document": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev3.md",
+  "purpose": "Machine-readable map from each commissioned correction to the section that answers it, with the change and the reason. Proposal only; closes nothing.",
+  "reviewOfRecord": {
+    "path": "reviews/access-design-rev2-20261122/security-review.md",
+    "sha256": "b74e5a686525a1c2ceff6713e23e938f4e54f0538a9587240ce8307d1dc38120",
+    "verdict": "FAIL (design); SR2-01/SR2-02 IMPORTANT, SR2-03/SR2-04 ADVISORY"
+  },
+  "corrections": [
+    {
+      "id": "SR2-01",
+      "severity": "IMPORTANT",
+      "section": "§1",
+      "previousDefect": "Sender identity was said to come from the Lambda invocation context's caller role; a shared handler cannot observe its caller, and a role ARN cannot populate the 64-character profile-alphabet sender field.",
+      "change": "One admission function per delivering principal, each with its own handler and execution role, and a registry mapping function name → short sender id → role/permitted mode/key ids. Five options evaluated; per-function structure chosen; broker, shared-function-plus-deny, private-network-only and caller-signed-delivery rejected with reasons.",
+      "mapping": {
+        "late-admit-processor": { "senderId": "SND-PROC-01", "role": "PROCESSOR_AUTH", "mode": "DIRECT" },
+        "late-admit-network": { "senderId": "SND-NET-01", "role": "NETWORK_SIM", "mode": "RELAY" },
+        "late-forward-diagnostic": { "senderId": "SND-DIAG-01", "role": "none", "permission": "diagnosticForwardPermitted" }
+      },
+      "noPayloadIdentity": true,
+      "denialCases": 12,
+      "status": "OPEN — design answered; no closure claimed"
+    },
+    {
+      "id": "SR2-02",
+      "severity": "IMPORTANT",
+      "section": "§2",
+      "previousDefect": "A resource-policy allow list was treated as a deny for other same-account principals, and SDK invocation was called private although no network restriction exists.",
+      "change": "Seven stacked controls: narrow identity grant conditioned on lambda:SourceFunctionArn; explicit resource-policy Deny to Principal '*' with ArnNotEquals aws:PrincipalArn and StringNotEquals aws:PrincipalAccount; structural per-sender functions; role-trust conditions; permissions boundary plus SCP caveat; invoke-capable principal inventory; reserved concurrency. Qualified-ARN/alias rules added. 'No public HTTP route' explicitly separated from 'no externally possible SDK invoke'.",
+      "keyFacts": [
+        "Identity and resource allows combine by union; an explicit deny overrides (IAM evaluation-logic page)",
+        "lambda:SourceFunctionArn is usable in identity policies/SCPs, not resource policies, and does not support versions or aliases (Lambda doc)",
+        "aws:SourceAccount is available only for AWS-service-principal calls, so it cannot serve as direct-invoke provenance"
+      ],
+      "status": "OPEN — design answered; policy evaluation and inventory not executed"
+    },
+    {
+      "id": "SR2-03",
+      "severity": "ADVISORY",
+      "section": "§3",
+      "previousDefect": "Rev2 replaced a concrete ≥24 h rotation overlap with 'an overlap window', while carried files still required 24 h; key classes were conflated.",
+      "change": "Numeric minima per class: assertion keys ≥24 h (two-client replacement if dual-key is unsupported); issuer signing keys ≥24 h, 48 h recommended (2 h Gateway cache + 900 s token + skew, with margin); TLS truststore ≥24 h and renew with ≥30 days left; C4 evidence keys ≥7 days verify-window with a 24 h floor only if Requirements confirms a shorter late horizon. Precedence statement added.",
+      "status": "OPEN — restored control; no rotation exercised"
+    },
+    {
+      "id": "SR2-04",
+      "severity": "ADVISORY",
+      "section": "§6",
+      "previousDefect": "Analytical claims contradicted source or pinned text: cold-start registry cache, ACL_AUTH as evidence signer, five fixture-sized payload maxima, unreachable diagnostic path, cursor/lease equality, incomplete contract overlay.",
+      "change": "Each corrected explicitly; ACL_AUTH reduced to transport identity; registry read corrected to per-request strongly consistent; payload rows withdrawn in favour of the exact 6 964 guard plus achievable 5 684/5 940; diagnostic forwarding routed only through verifyForwarded; cursor equality withdrawn; O5 lease and retention-cursor staleness added to the CA-5 gap list.",
+      "status": "OPEN — corrections made here; other owners' documents unchanged"
+    },
+    {
+      "id": "RELAY-WORDING",
+      "severity": "IMPORTANT (review wording defect)",
+      "section": "§4",
+      "previousDefect": "The relay key was described as having no payment authority, although console.write can initiate an authorized synthetic payment.",
+      "change": "Can/cannot table: payment initiation yes (through mTLS + demo token + mandate and within idempotency/claim/no-resend), C4 signing no, direct issuer decision no. Credential treated as payment-initiation severity with narrow scopes and per-demo rotation.",
+      "status": "OPEN — wording corrected"
+    },
+    {
+      "id": "WS-OBLIGATIONS",
+      "severity": "IMPORTANT (review gap)",
+      "section": "§5",
+      "previousDefect": "Mid-pass cursor re-mint and resynchronization were required but undefined; reconnect/issuance load was unbounded, turning a 900 s lease into a DoS surface.",
+      "change": "Corrected cursor/lease facts; page-boundary stop rule; two compliant continuations (default new-snapshot restart, optional contract-delta same-snapshot continuation) with explicit 410 and no-silent-extension rules; reconnect jitter, single-flight token acquisition, issuer backoff, connection/frame rate limits, reserved concurrency, cohort jitter, accounting. No change to the owner-accepted no-mTLS decision.",
+      "status": "OPEN — obligations defined; nothing implemented or measured"
+    }
+  ],
+  "carriedForward": [
+    "Keycloak hosting profile (ECS Fargate + Aurora Serverless v2, private placement, ALB path allowlist, SSM admin path, realm/client configuration)",
+    "Internal-only late evidence (no public route, no function URL, no OAuth credential)",
+    "Code-aligned role vocabulary with the ACL_AUTH correction; DIAGNOSTIC remains a permission",
+    "Payload bound 8 192 B and conservative guard 6 964 B; two-number CI check",
+    "GitHub OIDC trust and S3 state-backend schema",
+    "Unverified list, extended in §8.3"
+  ],
+  "ownerDecisions": {
+    "K-1": "pending; design assumes single task",
+    "K-2": "pending; design assumes product-owner accountability with a DevOps-authored runbook and no on-call",
+    "K-3": "pending; design assumes the presenter-local key is accepted with narrow scopes and rotation",
+    "newDecisionsRequested": 0
+  }
+}

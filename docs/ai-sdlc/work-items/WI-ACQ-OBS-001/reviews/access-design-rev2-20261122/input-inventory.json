@@ -1,0 +1,209 @@
+{
+  "scope": "Pinned inputs stable; additional context/source identities, not a repository freeze",
+  "inputs": [
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev2.md",
+      "sha256": "6b15161875e702ebae74e4f76b4b94cae9ffbbb94d6a9fcd42aee563b8f3873c",
+      "bytes": 49235,
+      "closing_stability": "MATCH opening identity"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/evidence-rev2/revision-validation.json",
+      "sha256": "7b720c0de1d20755c9bbcd69b3aff2595d1df79724667d3bc6d6a222a4e56652",
+      "bytes": 6640,
+      "closing_stability": "MATCH opening identity"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/compatibility-assessment.md",
+      "sha256": "4886106c0afbf9ded1736ef3c0756c2bc8c738c58c61457faa0a635ecdd836ac",
+      "bytes": 32966,
+      "closing_stability": "MATCH opening identity"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/compatibility-assessment-rev2.md",
+      "sha256": "2f7cfe054aae7d908948288b6e67799aef7c864e1acaeb67c7444e63c432b930",
+      "bytes": 30779,
+      "closing_stability": "MATCH opening identity"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/evidence-rev2-assessment/manifest.json",
+      "sha256": "48b8b1faffeb2fb9db7272e834ccb4921607fda3d327859cb68f766a018c2454",
+      "bytes": 38583,
+      "closing_stability": "MATCH opening identity"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/retention/retention-delta.md",
+      "sha256": "d11ead64f0bd3928b4112b29c408eab1d3e0f9401b84a4580e3d4adb8b35fd76",
+      "bytes": 37695,
+      "closing_stability": "MATCH opening identity"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/retention-20261121/domain-review.md",
+      "sha256": "dcdd04ac330491512b04906264760e47e7dce3c3506f78e76688ed209fc4d322",
+      "bytes": 23268,
+      "closing_stability": "MATCH opening identity"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-20261120/security-review.md",
+      "sha256": "0d71ea007e56b12d9873df14126c22640c3abc68052b42db1f47b0a9688d218e",
+      "bytes": 27613,
+      "closing_stability": "MATCH opening identity"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-rev2-20261121/security-review.md",
+      "sha256": "6b964f0520daa181edc96f1553c5fb990000113ed3c28560bdfc67cace310a31",
+      "bytes": 51412,
+      "closing_stability": "MATCH opening identity"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "sha256": "0368976f5b1efc557aa0729a59054023ca1a2761e5b1a141544746e5b4073f29",
+      "bytes": 17714,
+      "closing_stability": "MATCH opening identity"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "80a7092c0bcf7cd2258c6fde89710f1d952e6c2984b0e2728f077ddc694133b8",
+      "bytes": 1594,
+      "scope": "bounded source/context inspection; no whole-tree attestation"
+    },
+    {
+      "path": "docs/ai-sdlc/README.md",
+      "sha256": "2f4d32b392e5c717366faf91bfe9351add695c94eec0788d04c152304e0bd83c",
+      "bytes": 4112,
+      "scope": "bounded source/context inspection; no whole-tree attestation"
+    },
+    {
+      "path": "docs/ai-sdlc/PROJECT.md",
+      "sha256": "8584a2ed39a3ac548f303bf41bceb8e5e9df3fd3ec678289bdb128560643710e",
+      "bytes": 3061,
+      "scope": "bounded source/context inspection; no whole-tree attestation"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/WORK_ITEM.md",
+      "sha256": "3bd2fff44ae04c900d7629f4cb2f2c527187fceb67db33e649f0ebb5a791682c",
+      "bytes": 40122,
+      "scope": "bounded source/context inspection; no whole-tree attestation"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/adr-operation-a-access-and-environment.md",
+      "sha256": "d51bbf650aca74e82351dacf0e45d0f14c992044b9ff246bc7b8b281920b0b39",
+      "bytes": 4274,
+      "scope": "bounded source/context inspection; no whole-tree attestation"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-AUTH-001/architecture-decision.md",
+      "sha256": "066b1b68ff4383768f316ca76431ea9d0fb9d9e5d3ef669581def286f8bee219",
+      "bytes": 4189,
+      "scope": "bounded source/context inspection; no whole-tree attestation"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design.md",
+      "sha256": "83e4ea14b3959dcc6d8535aee0f0dd715783764e8922a72b6c0c3454a40829f4",
+      "bytes": 41770,
+      "scope": "bounded source/context inspection; no whole-tree attestation"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/configuration-schema.md",
+      "sha256": "1f497daade1a8429458e2cc40047adf326a97f2fb6636d583e1bf2e930bf1bb2",
+      "bytes": 13716,
+      "scope": "bounded source/context inspection; no whole-tree attestation"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+      "sha256": "ca53e384a46d24b3c1119b3e6ba804a9a9d4caac049a6b0c55a40c72842a205a",
+      "bytes": 31164,
+      "scope": "bounded source/context inspection; no whole-tree attestation"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/adapter/aws/AwsRuntime.java",
+      "sha256": "ee0b6f664cff978a1f114e1a555f83e6bde9f32e9b32f15b925f362d1d5cbf1f",
+      "bytes": 2635,
+      "scope": "bounded source/context inspection; no whole-tree attestation"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/adapter/aws/ProcessorHandler.java",
+      "sha256": "33de30443b4ccce0ed477b403b80265a61288204fef5e6affecb2fcdba076bc7",
+      "bytes": 3276,
+      "scope": "bounded source/context inspection; no whole-tree attestation"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4AuthenticatedTransportContext.java",
+      "sha256": "4994f2ddeccbc0ec819f2d9c403b96dd59e63ba4a5d6b267b29fa91ccc2fd73a",
+      "bytes": 1025,
+      "scope": "bounded source/context inspection; no whole-tree attestation"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4CarrierSchema.java",
+      "sha256": "97fb8831e463e4b798a2fdb72252c7ff419831d38e6af64000683bc8fa72702d",
+      "bytes": 5520,
+      "scope": "bounded source/context inspection; no whole-tree attestation"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4KeyRegistry.java",
+      "sha256": "12d5ca1ff47fdc7f54dade58912035f99d9e5d31eb7cc40b0749143ff0b8a247",
+      "bytes": 1743,
+      "scope": "bounded source/context inspection; no whole-tree attestation"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4PrincipalRole.java",
+      "sha256": "4f18d52448cc5f90adbbc55039e185ea68bf838c97bbdbc4e55cdc4a69a6244b",
+      "bytes": 931,
+      "scope": "bounded source/context inspection; no whole-tree attestation"
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/domain/model/AuthorizedContext.java",
+      "sha256": "ca360e5fee39971f7eb1094301233f030979983ff0f5bf63651c4e89dd6eab69",
+      "bytes": 531,
+      "scope": "bounded source/context inspection; no whole-tree attestation"
+    },
+    {
+      "path": "infra/template.yaml",
+      "sha256": "f7637650095ea5166aee9e3d41dbad3d033324c45d48268c70d2bb58d62c1abe",
+      "bytes": 3787,
+      "scope": "bounded source/context inspection; no whole-tree attestation"
+    },
+    {
+      "path": "/home/pazfernando/.openclaw/workspace/ai-sdlc-security/USER.md",
+      "sha256": "9d016d2b74e47062efe60c3289a023ed02ac1cbc225146ed78e8b8e689c04aba",
+      "bytes": 415,
+      "scope": "governance"
+    },
+    {
+      "path": "/home/pazfernando/.openclaw/workspace/ai-sdlc-security/SOUL.md",
+      "sha256": "dac92036c9d35460a7e422424aee5507c8eaaaec55f363fb73b47128c6088e1a",
+      "bytes": 196,
+      "scope": "governance"
+    },
+    {
+      "path": "/home/pazfernando/.openclaw/workspace/ai-sdlc-security/IDENTITY.md",
+      "sha256": "905d2f79ef88231f6a40ba09df3cc287983d6ad76f633651122dcdecf3727b21",
+      "bytes": 114,
+      "scope": "governance"
+    },
+    {
+      "path": "/home/pazfernando/.openclaw/workspace/shared/ai-sdlc/GLOSSARY.md",
+      "sha256": "101c5dc92f8fe38390da1dea9909922df52a9d90831c768f4100a8bb2602464a",
+      "bytes": 2204,
+      "scope": "governance"
+    },
+    {
+      "path": "/home/pazfernando/.openclaw/workspace/shared/ai-sdlc/README.md",
+      "sha256": "560f4d5af20b9b492e7be71816e8ba2f8221b938c4efb6d02f9b1532b9dae46b",
+      "bytes": 5526,
+      "scope": "governance"
+    },
+    {
+      "path": "/home/pazfernando/.openclaw/workspace/shared/ai-sdlc/PROJECT_EXECUTION.md",
+      "sha256": "9d884e476484d76665deec77a3c29087f5ae2e1a5221e887a21a32475083ec95",
+      "bytes": 8640,
+      "scope": "governance"
+    },
+    {
+      "path": "/home/pazfernando/.openclaw/workspace/shared/ai-sdlc/VERIFICATION_DELIVERY.md",
+      "sha256": "360f90ac5d765ddf5f830517cb37fcb48585c1479d28931ef88cde90cf97cfb7",
+      "bytes": 5777,
+      "scope": "governance"
+    }
+  ]
+}

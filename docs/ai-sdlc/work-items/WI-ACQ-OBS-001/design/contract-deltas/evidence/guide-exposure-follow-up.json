@@ -1,0 +1,8 @@
+{
+  "file": "docs/ai-sdlc/sources/acquiring_simulator_functional_guide.md",
+  "sha256": "90a798c7e2a1de362993cb4974d306497d7de3567c163a3511c07b194a5ae094",
+  "line_start": 388,
+  "line_end": 388,
+  "exact_text": "Fernando selected a presenter-operated demonstration with screen-sharing and **one demo JWT user/principal**, without multi-user management. Screen-sharing means the presenter operates the interface; it does not give the client their own browser endpoint. Existing authentication and backend service identity controls remain distinct; an acquirer/merchant/terminal reference is business context, not the identity of the demo user. No permanent token or secret belongs in the HTML. Exact token/session and deployment realization remains subject to the existing architecture/security gates.",
+  "disposition": "Separate reviewed documentation follow-up to overlay K-3/P-1; no guide mutation, no14th delta, not evidence every product document is harmonized"
+}

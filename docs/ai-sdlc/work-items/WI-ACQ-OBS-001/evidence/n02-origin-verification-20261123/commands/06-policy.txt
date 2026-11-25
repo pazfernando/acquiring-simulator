@@ -1,0 +1,23 @@
+$ python tools/policy_checks.py   # python-hcl2 7.3.1 venv
+POLICY CHECKS
+  PASS  backend: s3 + use_lockfile + encrypt, no dynamodb_table
+  PASS  no deprecated DynamoDB lock table
+  PASS  no secret literal, SSM plaintext value, decrypt-in-state or Lambda URL
+  PASS  every service authorizer has result TTL 0
+  PASS  mTLS domains checked (1); default execute-api endpoint disabled on 1 REST APIs
+  PASS  OIDC trust: StringEquals with exact subject variable (1 policy document(s))
+  PASS  no IAM Allow Action "*"; Resource "*" only in documented, conditioned or deny-guarded policies
+  PASS  no *.tfstate, *.tfplan or *.tfvars in the tree
+  PASS  exactly pinned providers; every root provider has allowed_account_ids
+  PASS  internet ingress restricted to 443
+  PASS  every Lambda pins runtime and architectures
+  PASS  access-log formats exclude Authorization, Sec-WebSocket-Protocol and X-Origin-Verify, and log no request header
+  PASS  every HTTP/WS API disables the default endpoint (2); CloudFront API origin is the dedicated custom domain (2 domain(s))
+  PASS  no CloudFront custom_error_response; API status/body pass through; SPA fallback is a viewer-request function
+  PASS  console role writes events only through TransactWriteItems (no standalone PutItem)
+  PASS  issuer WAF has no body inspection and redacts OAuth flow query parameters
+  PASS  journal/events/issuer_truth/registry are deletion-protected; connections/assertion_replay stay disposable
+  PASS  N-02 origin verification: 'X-Origin-Verify' added once by CloudFront on /api/* from the single random_password, no cache, no function, state/env only, sensitive, no default, not in tfvars/CI/logs/outputs, WAF-redacted
+
+All policy checks passed.
+exit=0

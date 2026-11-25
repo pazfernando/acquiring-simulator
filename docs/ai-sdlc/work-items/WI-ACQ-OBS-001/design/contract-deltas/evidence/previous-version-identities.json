@@ -1,0 +1,42 @@
+[
+  {
+    "path": "operation-a-contract-delta.md",
+    "preserved_path": "previous-version/pre-domain-revision-20261122/operation-a-contract-delta.md",
+    "sha256": "30808ae27e9d130664049503b93cd2d445650db6346690602ef965d8ac9bc302"
+  },
+  {
+    "path": "evidence/SHA256SUMS",
+    "preserved_path": "previous-version/pre-domain-revision-20261122/evidence/SHA256SUMS",
+    "sha256": "c9cfd09080768938337c26a305531865173e40c4934746fe3227acaca3c0de0f"
+  },
+  {
+    "path": "evidence/owner-record-drift.json",
+    "preserved_path": "previous-version/pre-domain-revision-20261122/evidence/owner-record-drift.json",
+    "sha256": "585f4d7ee0eeeace30d089b883438380991db6beac4e2a793354c57f2f47f961"
+  },
+  {
+    "path": "evidence/input-identities.json",
+    "preserved_path": "previous-version/pre-domain-revision-20261122/evidence/input-identities.json",
+    "sha256": "ef324089776d3e96e6ec297bfed2c09acb1e2ebc56cdc85fe7a170577cfe2486"
+  },
+  {
+    "path": "evidence/owner-decisions-as-reviewed-9bf166fe.md",
+    "preserved_path": "previous-version/pre-domain-revision-20261122/evidence/owner-decisions-as-reviewed-9bf166fe.md",
+    "sha256": "9bf166feed3eed4c0b4d6d4e441ae1ef44d3826a8bdab0cad65277bcd8127cdb"
+  },
+  {
+    "path": "evidence/README.md",
+    "preserved_path": "previous-version/pre-domain-revision-20261122/evidence/README.md",
+    "sha256": "139e45011b6ac46777499e849af8c05d2e2df5605687c6947d9705f1de6229dd"
+  },
+  {
+    "path": "evidence/closing-validation.json",
+    "preserved_path": "previous-version/pre-domain-revision-20261122/evidence/closing-validation.json",
+    "sha256": "2bd86d75a61ef94f54a40b40606bce21c7051ebe94d6757ee73edc1ca31b34a4"
+  },
+  {
+    "path": "evidence/clause-index.json",
+    "preserved_path": "previous-version/pre-domain-revision-20261122/evidence/clause-index.json",
+    "sha256": "41f74a84a1090150f80ed60841ad0d00a03304fcb780ab8ac67320d9fb25b891"
+  }
+]

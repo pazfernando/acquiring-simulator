@@ -1,0 +1,12 @@
+# Tool versions
+UTC 2026-11-24T00:55:49Z
+Terraform v1.17.2
+on linux_amd64
+
+TFLint version 0.66.0
++ ruleset.terraform (0.17.0-bundled)
+1.7.12
+installed by downloading from release page
+built with go1.26.1 compiler for linux/amd64
+python 3.12.3
+python-hcl2 7.3.1

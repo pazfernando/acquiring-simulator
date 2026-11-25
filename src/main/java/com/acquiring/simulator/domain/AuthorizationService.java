@@ -189,9 +189,10 @@ public class AuthorizationService {
     /**
      * Optional internal late-evidence seam. The port may only be injected together with the atomic
      * claim, dispatch-intent and verified-result gateways; otherwise construction is rejected so a
-     * late admission can never run against a legacy record or write a legacy row. This constructor
-     * is not Spring-wired: the {@code @Autowired} constructor above remains the runtime binding and
-     * {@code AwsRuntime} is unchanged.
+     * late admission can never run against a legacy record or write a legacy row. This is the
+     * constructor {@code AwsRuntime#atomicService} binds for the Lambda runtime, passing the
+     * late-evidence gateway alongside the other atomic gateways; the {@code @Autowired} constructor
+     * above remains only the Spring/JDBC local harness binding.
      */
     public AuthorizationService(
             AuthorizationRepository repository,

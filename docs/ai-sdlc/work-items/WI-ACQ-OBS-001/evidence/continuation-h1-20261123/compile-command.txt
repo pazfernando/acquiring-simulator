@@ -1,0 +1,3 @@
+# Continuation H1 — compile invocation (offline, JAVA_HOME pinned)
+# JAVA_HOME=/home/pazfernando/.local/opt/jdk-25
+/home/pazfernando/.local/opt/maven/bin/mvn -o -q -DskipTests compile

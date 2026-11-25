@@ -1,0 +1,12 @@
+71e4d2adad50df213264a04471d7546acedad567f0cb6a4957af8252215f64b6  ./CHANGED-FILES.sha256
+ae93524acebf0ccc9823aab53c131dda1a5a6c2aa08ea1387117ad9f711f769d  ./commands/00-tool-versions.txt
+5cc41b1d0d0c756ce8e37d177e59c463981874d1fa82cf79af7a6ece472c9dd6  ./commands/01-fmt.txt
+738e84964000b82ae2c65debad08a23c721c7d7adb1b548520c01d11c7f1f3bd  ./commands/02-init-validate.txt
+d225223ecdc67b45cfda28300e8db66f57ac098b34b44c349027ecbb502bd4bb  ./commands/03-tflint.txt
+962fce54c6792f385c02cef6d05563ea8769a1dc11f9671e6d32b1913ba1755d  ./commands/04-policy.txt
+b85f0c225642d41b0a49f5dd583b3abb2884af81a738c846380d6d2584dd3b0b  ./commands/05-actionlint.txt
+dd467b9869cfb97e351cea60b862f7aa01f1d7c1aa872e723545098011132f8e  ./commands/06-secret-static.txt
+1c214a64f30c8bbf1dcb43d9d51f5160250e3ab9d0c9d8f07c6686c975fd0547  ./commands/07-protected-inputs.txt
+61244df957669a60373d7bba5f1b140785ec415c2ce6841b10b178cbc34a1c43  ./component-provenance.md
+a8496b1b00312fa2c737bb8ae88968fd7b5d16fa6659d3211c322b8c46a3b787  ./devops-report.md
+02e707032df496068d6ad900ea0d0082a5f712c6a0f0b19c8075b1eab42d54da  ./PROGRESS.md

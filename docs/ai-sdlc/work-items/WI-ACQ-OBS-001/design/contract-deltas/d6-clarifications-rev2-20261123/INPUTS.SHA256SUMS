@@ -1,0 +1,11 @@
+d6a57e0ca4f0e22c838c8e397bd5d576b95e7f6fa9d2a880989ef6b9141464b9  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/d6-clarifications-20261123/domain-review.md
+9bb8ca333e7a8b1f4f2e7d9072dfbc00c57b0648b1e62d2aa6161dbfd8bc0237  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/d6-clarifications-20261123/d6-clarifications.md
+22a1f2d89a846a8e432c97ca9db45bb3c556c389c318854dc1af7d7ece517d85  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/d6-clarifications-20261123/OUTPUTS.SHA256SUMS
+eaddba6443637839f2eacf73e3933d728e94e5e6d929aa4532e3b84b5bfb5b5d  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/d6-clarifications-20261123/verification.md
+33d5fb3c8ef6b4aa6baae3389c74032efb1faa6d809a3f09268910edf9ca1f10  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/contracts.md
+e03a2747a34aabf19a0d7d4da038d1fe0124faf246b6b088d34b4f70d5a82936  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/wire-fixtures.json
+2000bb004e68e6d2974bef3067baeae6774f1922a21dca4ea18fecf6944ab467  docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/contract-deltas/continuation-rev3-20261123/OUTPUTS.SHA256SUMS
+388f5f794990079aa8ad26138cbc41065495c9a338ebde9d7b34e9d1dd461906  src/main/java/com/acquiring/simulator/console/ConsoleHistoryCursorCodec.java
+6da3ca7a2d90fb10552665a0c47261a7f2dd75699a56179bd358c6b04362fc6b  src/main/java/com/acquiring/simulator/console/ConsoleHistoryRoute.java
+4e4e3a26fc86cfff345723fbee07e12eb5c0623978660a2b0522e68ebf895082  src/test/java/com/acquiring/simulator/console/ConsoleHistoryRouteTest.java
+80a7092c0bcf7cd2258c6fde89710f1d952e6c2984b0e2728f077ddc694133b8  AGENTS.md

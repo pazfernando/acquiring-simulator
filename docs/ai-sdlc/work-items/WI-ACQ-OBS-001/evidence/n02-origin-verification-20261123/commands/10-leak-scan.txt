@@ -1,0 +1,94 @@
+# Leak scan over the whole checkout. No value is ever materialised locally:
+# random_password is generated only at apply time, so the tree can contain
+# only the name, the generator and the wiring -- never the value.
+
+$ find . -path ./target -prune -o \( -name "*.tfstate" -o -name "*.tfstate.*" -o -name "*.tfplan" -o -name "*.tfvars" -o -name "*.tfvars.json" \) -print
+  (no output = none present)
+
+$ find . -path ./target -prune -o -type d -name ".terraform" -print
+  (no output = provider working dirs removed after validation)
+
+$ find . -path ./target -prune -o -type f -name "*.tfplan" -print; find . -name "*.tfstate*" -print
+  (same result: no state or plan artefact anywhere)
+
+# Occurrences of the header name and of the custody/log-field names in
+# authored (non-evidence) files:
+$ grep -rn "X-Origin-Verify\|x-origin-verify\|origin_verify\|EDGE_ORIGIN_VERIFY\|edge_origin_verify" infra/terraform .github
+infra/terraform/modules/api/variables.tf:41:variable "edge_origin_verify" {
+infra/terraform/modules/api/variables.tf:42:  description = "Expected value of the CloudFront-injected X-Origin-Verify header (N-02 closure, owner Option B). Supplied from the stack root's random_password so the boundary check and the CloudFront origin compare the same value; no default, never a tfvars or CI value. Read by the console Lambda as EDGE_ORIGIN_VERIFY and compared byte-exactly, fail-closed."
+infra/terraform/modules/api/variables.tf:47:    condition     = length(var.edge_origin_verify) >= 32 && can(regex("^[A-Za-z0-9._~-]+$", var.edge_origin_verify))
+infra/terraform/modules/api/variables.tf:48:    error_message = "edge_origin_verify must be at least 32 characters of RFC 7230 token-safe ASCII."
+infra/terraform/modules/api/main.tf:109:      # X-Origin-Verify against this value, byte-exactly and case-sensitively,
+infra/terraform/modules/api/main.tf:112:      EDGE_ORIGIN_VERIFY = var.edge_origin_verify
+infra/terraform/modules/console/variables.tf:41:variable "origin_verify_secret" {
+infra/terraform/modules/console/variables.tf:47:    condition     = length(var.origin_verify_secret) >= 32 && can(regex("^[A-Za-z0-9._~-]+$", var.origin_verify_secret))
+infra/terraform/modules/console/variables.tf:48:    error_message = "origin_verify_secret must be at least 32 characters of RFC 7230 token-safe ASCII (no whitespace, no control characters)."
+infra/terraform/modules/console/main.tf:12:  origin_verify_header = "X-Origin-Verify"
+infra/terraform/modules/console/main.tf:287:      name  = local.origin_verify_header
+infra/terraform/modules/console/main.tf:288:      value = var.origin_verify_secret
+infra/terraform/modules/console/main.tf:578:      name = "x-origin-verify"
+infra/terraform/envs/stack/main.tf:28:resource "random_password" "origin_verify" {
+infra/terraform/envs/stack/main.tf:84:  edge_origin_verify   = random_password.origin_verify.result
+infra/terraform/envs/stack/main.tf:110:  origin_verify_secret = random_password.origin_verify.result
+infra/terraform/tools/policy_checks.py:25:ORIGIN_VERIFY_HEADER = "X-Origin-Verify"
+infra/terraform/tools/policy_checks.py:59:CUSTODY_VARS = ("origin_verify_secret", "edge_origin_verify")
+infra/terraform/tools/policy_checks.py:61:    "random_password.origin_verify.result",
+infra/terraform/tools/policy_checks.py:62:    "var.origin_verify_secret",
+infra/terraform/tools/policy_checks.py:63:    "var.edge_origin_verify",
+infra/terraform/tools/policy_checks.py:318:    ok("access-log formats exclude Authorization, Sec-WebSocket-Protocol and X-Origin-Verify, and log no request header")
+infra/terraform/tools/policy_checks.py:427:            if "origin_verify_header" in local_block:
+infra/terraform/tools/policy_checks.py:428:                header_name = local_block["origin_verify_header"]
+infra/terraform/tools/policy_checks.py:447:                if header.get("name") != "${local.origin_verify_header}":
+infra/terraform/tools/policy_checks.py:450:                        f"{name}: custom header name must be the fixed local.origin_verify_header",
+infra/terraform/tools/policy_checks.py:456:        fail("origin-verify-name", "modules/console: local.origin_verify_header is not authored")
+infra/terraform/tools/policy_checks.py:469:    if header_value_expr != "${var.origin_verify_secret}":
+infra/terraform/tools/policy_checks.py:472:            f"origin custom header value is '{header_value_expr}'; it must be var.origin_verify_secret",
+infra/terraform/tools/policy_checks.py:478:        re.search(r"origin_verify_secret\s*=\s*random_password\.origin_verify\.result", stack_main_text)
+infra/terraform/tools/policy_checks.py:496:            "envs/stack: module.console must receive random_password.origin_verify.result",
+infra/terraform/tools/policy_checks.py:499:        fail("origin-verify-generator", "envs/stack: no adequate random_password origin_verify resource")
+infra/terraform/tools/policy_checks.py:517:                if "origin_verify" in text or "random_password" in text:
+infra/terraform/tools/policy_checks.py:534:        if re.search(r"origin[_-]?verify|x-origin-verify", text, re.I):
+infra/terraform/tools/policy_checks.py:558:    # sensitive, the console Lambda maps EDGE_ORIGIN_VERIFY from it, and the
+infra/terraform/tools/policy_checks.py:565:            if name != "edge_origin_verify":
+infra/terraform/tools/policy_checks.py:568:                fail("origin-verify-env", "modules/api: edge_origin_verify must be sensitive")
+infra/terraform/tools/policy_checks.py:570:                fail("origin-verify-env", "modules/api: edge_origin_verify must not have a default")
+infra/terraform/tools/policy_checks.py:582:            if variables.get("EDGE_ORIGIN_VERIFY") == "${var.edge_origin_verify}":
+infra/terraform/tools/policy_checks.py:585:        fail("origin-verify-env", "modules/api: no sensitive, default-free edge_origin_verify variable")
+infra/terraform/tools/policy_checks.py:587:        fail("origin-verify-env", "modules/api: console Lambda must map EDGE_ORIGIN_VERIFY from var.edge_origin_verify")
+infra/terraform/tools/policy_checks.py:588:    if not re.search(r"edge_origin_verify\s*=\s*random_password\.origin_verify\.result", stack_main_text):
+infra/terraform/README.md:158:  the origin-verification header `X-Origin-Verify`.
+infra/terraform/README.md:160:  `X-Origin-Verify` header to every `/api/*` origin request, whose value is a
+infra/terraform/README.md:209:| Value generation | `envs/stack/main.tf` | `random_password.origin_verify`: 48 alphanumeric characters, `special = false`, at least 8 upper, 8 lower and 8 numeric (≈285 bits). No variable, no default, no tfvars, no CI variable. |
+infra/terraform/README.md:210:| Value custody | `envs/stack/main.tf` → `modules/console`, `modules/api` | One generator, two consumer inputs. CloudFront receives it as the `sensitive = true` variable `origin_verify_secret`; the console Lambda receives the same value as `EDGE_ORIGIN_VERIFY` from the `sensitive = true` variable `edge_origin_verify`. `random_password.result` is sensitive in the provider schema and sensitivity propagates, so plan/apply prints `(sensitive value)`. Durable copy: encrypted remote state. Two provider-owned runtime copies are unavoidable (distribution configuration, function configuration) and are recorded as a residual in the contract delta §8.2 and in the DevOps report. |
+infra/terraform/README.md:211:| Header injection | `modules/console/main.tf` | The `/api/*` origin adds exactly one `custom_header` whose name is the fixed `local.origin_verify_header` = **`X-Origin-Verify`**. Never added by a CloudFront Function, WAF rule, headers policy or the application. |
+infra/terraform/README.md:212:| Leak exclusion | `modules/console/main.tf`, `modules/api/main.tf` | No CloudFront standard log is configured; WAF logging redacts `x-origin-verify` (plus `authorization`, `sec-websocket-protocol`); the API stage access-log format logs `$context` fields only and no request header at all; the value is not in any output, tfvars, CI variable, SSM parameter or artifact. Environment-variable copies are provider-owned runtime state, never logged. |
+infra/terraform/README.md:213:| Machine assertion | `tools/policy_checks.py` check 18 (plus the extended check 12) | Fails on: a denylisted or drifted header name, a value that is not `random_password.origin_verify.result`, a literal or other value source, a default on either consumer variable, a non-sensitive variable, an output exposing it, the header in an authored log format, a missing WAF redaction, a CI variable, generation under 32 characters or with special characters enabled, a missing/incorrect `EDGE_ORIGIN_VERIFY` mapping, caching enabled on `/api/*`, more than one origin resolving `api_fqdn`, or the header name appearing in CloudFront Function source. |
+infra/terraform/README.md:215:### Header name: why `X-Origin-Verify`
+infra/terraform/README.md:223:`X-Edge-`, and `X-Real-Ip`. `X-Origin-Verify` is outside that list, is not a
+infra/terraform/README.md:239:on the origin". A viewer-supplied `X-Origin-Verify` therefore cannot impersonate
+infra/terraform/README.md:245:- Request header name on the origin: **`X-Origin-Verify`** (header names are
+infra/terraform/README.md:249:- Expected value in the console Lambda environment: **`EDGE_ORIGIN_VERIFY`**,
+infra/terraform/README.md:250:  fed from the single `random_password.origin_verify` in the stack root. Read
+
+# None of the lines above contains a value: every one is a name, a variable
+# reference, a resource reference or a validation message.
+$ grep -rn "origin_verify_secret *= *\"\|edge_origin_verify *= *\"\|EDGE_ORIGIN_VERIFY *= *\"" --include="*.tf" .
+  (no output = no literal value)
+
+$ grep -rn "TF_VAR_origin_verify\|TF_VAR_edge_origin\|ORIGIN_VERIFY" .github/
+  (no output = not a CI variable)
+
+$ grep -rIn "BEGIN [A-Z ]*PRIVATE KEY\|AKIA[0-9A-Z]\{16\}" infra/terraform .github
+  (no output = no key or account literal)
+
+$ grep -rn '\$context\.request\.header' infra/terraform --include="*.tf"
+  (no output = no API Gateway log format reads a request header; the authored
+   format is the closed explicit field list)
+$ grep -rn 'identity_source\|request_parameters' infra/terraform --include="*.tf" | head
+infra/terraform/modules/api/main.tf:161:  identity_sources = ["$request.header.Authorization"]
+infra/terraform/modules/mtls/main.tf:101:  identity_source                  = "method.request.header.Authorization"
+infra/terraform/modules/mtls/main.tf:111:  request_parameters = { "method.request.header.Authorization" = true }
+infra/terraform/modules/ws/main.tf:185:    "route.request.header.Sec-WebSocket-Protocol",
+infra/terraform/modules/ws/main.tf:186:    "route.request.header.Origin",
+  (these are authorizer identity sources and authorizer request-parameter
+   mappings, not log formats; none mentions the origin-verification header)

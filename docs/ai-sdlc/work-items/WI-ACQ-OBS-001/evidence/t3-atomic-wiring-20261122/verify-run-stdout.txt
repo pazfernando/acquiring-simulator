@@ -1,0 +1,171 @@
+[INFO] Scanning for projects...
+[INFO] Loaded 24559 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] 
+[INFO] ------------< com.acquiring.simulator:acquiring-simulator >-------------
+[INFO] Building acquiring-simulator 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ acquiring-simulator ---
+[INFO] Copying 4 resources from src/main/resources to target/classes
+[INFO] Copying 4 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ acquiring-simulator ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ acquiring-simulator ---
+[INFO] skip non existing resourceDirectory /home/pazfernando/projects/acquiring-simulator/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ acquiring-simulator ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ acquiring-simulator ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.acquiring.simulator.adapter.aws.AwsRuntimeAtomicWiringIntegrationTest
+20:12:57.465 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+20:12:57.469 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+20:12:57.499 [main] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 2.0.5
+20:12:57.651 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.UnixSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+20:12:58.065 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Unix socket (unix:///var/run/docker.sock)
+20:12:58.066 [main] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+20:12:58.081 [main] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.1.3
+  API Version: 1.52
+  Operating System: Linux Mint 22.3
+  Total Memory: 23919 MB
+20:12:58.154 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Creating container for image: testcontainers/ryuk:0.14.0
+20:12:58.158 [main] INFO org.testcontainers.utility.RegistryAuthLocator -- Failure when attempting to lookup auth config. Please ignore if you don't have images in an authenticated registry. Details: (dockerImageName: testcontainers/ryuk:0.14.0, configFile: /home/pazfernando/.docker/config.json, configEnv: DOCKER_AUTH_CONFIG). Falling back to docker-java default behaviour. Exception message: Status 404: No config supplied. Checked in order: /home/pazfernando/.docker/config.json (file not found), DOCKER_AUTH_CONFIG (not set)
+20:12:58.330 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 is starting: c4f67030c075c6fd275abd22e6c4071ca5700687aa688fc4be9cfa89a7aa92a6
+20:12:58.675 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 started in PT0.521075567S
+20:12:58.680 [main] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+20:12:58.681 [main] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+20:12:58.681 [main] INFO org.testcontainers.DockerClientFactory -- ✔︎ Docker server version should be at least 1.6.0
+20:12:58.682 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:12:58.771 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: b971a692d01039f326e9c4a892e7ec4ee6e038003155bb468af60b4b4717c199
+20:13:01.486 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.804259578S
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.889 s -- in com.acquiring.simulator.adapter.aws.AwsRuntimeAtomicWiringIntegrationTest
+[INFO] Running com.acquiring.simulator.config.ResponseTimeoutConfigTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s -- in com.acquiring.simulator.config.ResponseTimeoutConfigTest
+[INFO] Running com.acquiring.simulator.aws.DynamoNetworkRejectionTransitionIntegrationTest
+20:13:04.297 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:13:04.392 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: 528c78d8b343fbfa972b64fc885e32fab042166f23a6a56381ed38656389e4ba
+20:13:06.872 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.575184562S
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.637 s -- in com.acquiring.simulator.aws.DynamoNetworkRejectionTransitionIntegrationTest
+[INFO] Running com.acquiring.simulator.aws.DynamoResultGatewayIntegrationTest
+20:13:07.935 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:13:08.012 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: 3d0cc2213df968985d46ad930237feed81ec8a6eeb3abd92c2c31750e57d4268
+20:13:10.706 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.770705519S
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.300 s -- in com.acquiring.simulator.aws.DynamoResultGatewayIntegrationTest
+[INFO] Running com.acquiring.simulator.aws.AtomicClaimServiceWiringIntegrationTest
+20:13:12.237 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:13:12.324 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: 5557d107a99ca1877bba2b621fe87728b563f3e8472c4867906331758c08d09c
+20:13:15.040 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.802833722S
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.053 s -- in com.acquiring.simulator.aws.AtomicClaimServiceWiringIntegrationTest
+[INFO] Running com.acquiring.simulator.aws.DynamoDispatchIntentGatewayIntegrationTest
+20:13:16.292 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:13:16.382 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: c354456b79deb118048024b6b1b13eb596a83d6eff7754db171c38955fd57a7b
+20:13:19.084 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.792171512S
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.921 s -- in com.acquiring.simulator.aws.DynamoDispatchIntentGatewayIntegrationTest
+[INFO] Running com.acquiring.simulator.aws.NetworkResultServiceWiringTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.020 s -- in com.acquiring.simulator.aws.NetworkResultServiceWiringTest
+[INFO] Running com.acquiring.simulator.aws.DynamoNetworkResultGatewayIntegrationTest
+20:13:20.234 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:13:20.316 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: be2910873ae5caffef287950f46c22ae4f88eeb710c579be2639460d8a8a2b7f
+20:13:23.018 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.784020311S
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.306 s -- in com.acquiring.simulator.aws.DynamoNetworkResultGatewayIntegrationTest
+[INFO] Running com.acquiring.simulator.aws.DynamoEventStoreIntegrationTest
+20:13:24.541 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:13:24.625 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: a07ee3c0082d133fe2a933c715d9601b6e907cec92b80ab31b700202456540cd
+20:13:27.456 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.914632757S
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.532 s -- in com.acquiring.simulator.aws.DynamoEventStoreIntegrationTest
+[INFO] Running com.acquiring.simulator.aws.DynamoResultTransitionIntegrationTest
+20:13:29.075 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:13:29.156 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: 4a026297b58502aef023a47764dcfdd56a37be59f57a6a503b638164f197c629
+20:13:31.521 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.446254772S
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.889 s -- in com.acquiring.simulator.aws.DynamoResultTransitionIntegrationTest
+[INFO] Running com.acquiring.simulator.aws.AwsTransportTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.344 s -- in com.acquiring.simulator.aws.AwsTransportTest
+[INFO] Running com.acquiring.simulator.aws.DynamoAtomicClaimRecoveryIntegrationTest
+20:13:34.312 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:13:34.402 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: 1547806427be15a6715538cf18711e0dbd28801b2e3d35e03cf169d28c87d6e2
+20:13:36.810 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.497509877S
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.758 s -- in com.acquiring.simulator.aws.DynamoAtomicClaimRecoveryIntegrationTest
+[INFO] Running com.acquiring.simulator.aws.DispatchIntentServiceWiringTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.020 s -- in com.acquiring.simulator.aws.DispatchIntentServiceWiringTest
+[INFO] Running com.acquiring.simulator.aws.DynamoLateEvidenceAdmissionGatewayIntegrationTest
+20:13:38.092 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:13:38.188 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: f3893d1ea3d2965fc46099e045b3c44a1a62e5e233b34e3b73e60b1cd44256af
+20:13:41.038 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.945621171S
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.814 s -- in com.acquiring.simulator.aws.DynamoLateEvidenceAdmissionGatewayIntegrationTest
+[INFO] Running com.acquiring.simulator.aws.AwsAuthorizationIntegrationTest
+20:13:42.907 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:13:42.987 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: 68a2ca68e0ef3bd203565571864f94d9668ac5faf46787891d0847391768ccb7
+20:13:45.589 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.681923213S
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.267 s -- in com.acquiring.simulator.aws.AwsAuthorizationIntegrationTest
+[INFO] Running com.acquiring.simulator.aws.DynamoLateEvidenceTransitionIntegrationTest
+20:13:47.175 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:13:47.260 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: c92eb4e5edb46a08dd58d50f3fdc038ed81d55f7593e27e8d381c439dbf1cecc
+20:13:50.081 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.905822828S
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.581 s -- in com.acquiring.simulator.aws.DynamoLateEvidenceTransitionIntegrationTest
+[INFO] Running com.acquiring.simulator.aws.DynamoPossibleSendIntegrationTest
+20:13:51.757 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:13:51.839 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: 8a3576e0e6d587861c03e18fc0dbf210f315cf767d4c7cde35deafa8e159c8cf
+20:13:54.199 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.442042893S
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.732 s -- in com.acquiring.simulator.aws.DynamoPossibleSendIntegrationTest
+[INFO] Running com.acquiring.simulator.aws.LateEvidenceServiceWiringTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s -- in com.acquiring.simulator.aws.LateEvidenceServiceWiringTest
+[INFO] Running com.acquiring.simulator.aws.ObsAcceptanceAtomicChainIntegrationTest
+20:13:55.502 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:13:55.592 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: e9e2695b5d211f0a6843ce6741236f454bab617bbbb3e8ba6443f6684c426f09
+20:13:58.454 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.951656947S
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.884 s -- in com.acquiring.simulator.aws.ObsAcceptanceAtomicChainIntegrationTest
+[INFO] Running com.acquiring.simulator.aws.ResultServiceWiringTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s -- in com.acquiring.simulator.aws.ResultServiceWiringTest
+[INFO] Running com.acquiring.simulator.aws.DynamoLateEvidenceServiceIntegrationTest
+20:13:59.401 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:13:59.485 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: 8b941375af97ab792092451a269eebd718c6e2cf7579d9d2f0838bd59b475155
+20:14:02.173 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.771920233S
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.952 s -- in com.acquiring.simulator.aws.DynamoLateEvidenceServiceIntegrationTest
+[INFO] Running com.acquiring.simulator.aws.DynamoCriticalClaimIntegrationTest
+20:14:03.353 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+20:14:03.434 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: e63eeac40a7917506188ece97b442aee9e53c70b9ae9f89d1c255d535838d114
+20:14:05.902 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.548507165S
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.764 s -- in com.acquiring.simulator.aws.DynamoCriticalClaimIntegrationTest
+[INFO] Running com.acquiring.simulator.AuthorizationCoreIntegrationTest
+20:14:07.251 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.acquiring.simulator.AuthorizationCoreIntegrationTest]: AuthorizationCoreIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:14:07.418 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.acquiring.simulator.AcquiringSimulatorApplication for test class com.acquiring.simulator.AuthorizationCoreIntegrationTest
+20:14:07.493 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.acquiring.simulator.AuthorizationCoreIntegrationTest]: AuthorizationCoreIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:14:07.493 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.acquiring.simulator.AuthorizationCoreScenarios]: AuthorizationCoreScenarios does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:14:07.499 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.acquiring.simulator.AcquiringSimulatorApplication for test class com.acquiring.simulator.AuthorizationCoreIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.2)
+
+2026-11-22T20:14:07.755-05:00  INFO 227380 --- [acquiring-simulator] [           main] c.a.s.AuthorizationCoreIntegrationTest   : Starting AuthorizationCoreIntegrationTest using Java 25.0.5 with PID 227380 (started by pazfernando in /home/pazfernando/projects/acquiring-simulator)
+2026-11-22T20:14:07.756-05:00  INFO 227380 --- [acquiring-simulator] [           main] c.a.s.AuthorizationCoreIntegrationTest   : The following 1 profile is active: "local"
+2026-11-22T20:14:08.484-05:00  INFO 227380 --- [acquiring-simulator] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-22T20:14:08.579-05:00  INFO 227380 --- [acquiring-simulator] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@3514ea20
+2026-11-22T20:14:08.581-05:00  INFO 227380 --- [acquiring-simulator] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-22T20:14:08.773-05:00  INFO 227380 --- [acquiring-simulator] [           main] c.a.s.AuthorizationCoreIntegrationTest   : Started AuthorizationCoreIntegrationTest in 1.224 seconds (process running for 72.22)
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.381 s -- in com.acquiring.simulator.AuthorizationCoreIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 192, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:15 min
+[INFO] Finished at: 2026-11-22T20:14:10-05:00
+[INFO] ------------------------------------------------------------------------

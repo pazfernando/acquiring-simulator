@@ -1,0 +1,11 @@
+{
+  "source": "sessions_list",
+  "observed": {
+    "key": "agent:ai-sdlc-security:subagent:9fcd8eda-5dbc-4314-b4f7-c098d07aaa35",
+    "sessionId": "81d157b4-07df-4107-9dfe-6c62af946080",
+    "model": "gpt-6.1-sol",
+    "label": "Operation A — re-revisión de Seguridad rev2 con gpt-6.1-sol"
+  },
+  "requestedModel": "openai/gpt-6.1-sol",
+  "fallbackUsed": false
+}

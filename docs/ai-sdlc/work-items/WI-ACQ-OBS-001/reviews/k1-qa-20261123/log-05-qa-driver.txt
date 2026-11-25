@@ -1,0 +1,99 @@
+PASS C1 configuration exposes exactly the explicit values
+PASS C2 blank issuer fails construction
+PASS C3 configured ES256 fails construction
+PASS C4 lifetime 901s exceeds the 900s ceiling
+PASS C5 identical required/forbidden scopes fail construction
+PASS C6 identical required/forbidden audiences fail construction
+PASS C7 non-loopback plain-http jwksUri fails construction
+PASS C8 loopback http jwksUri is accepted for local use
+PASS D1 valid RS256 token accepted with the verified claim shape
+PASS D2 single-string aud accepted and normalised to a one-element list
+PASS D3 lifetime of exactly 900 seconds accepted
+PASS D4 RS512 accepted when configured
+PASS D5 RS384 accepted when configured
+PASS E2.1 absent alg refused before any key consult [reason=UNSUPPORTED_ALGORITHM, currentDelta=0, refreshDelta=0]
+PASS E2.2 alg none with a non-empty signature refused, no key consult [reason=UNSUPPORTED_ALGORITHM, currentDelta=0, refreshDelta=0]
+PASS E2.2b alg none with an empty signature segment refused (malformed shape)
+PASS E2.3 HMAC HS256 with a genuine HMAC signature refused, no key consult [reason=UNSUPPORTED_ALGORITHM, currentDelta=0, refreshDelta=0]
+PASS E2.4 HMAC HS384 with a genuine HMAC signature refused [reason=UNSUPPORTED_ALGORITHM, currentDelta=0, refreshDelta=0]
+PASS E2.5 HMAC HS512 with a genuine HMAC signature refused [reason=UNSUPPORTED_ALGORITHM, currentDelta=0, refreshDelta=0]
+PASS E2.6 ES256 refused [reason=UNSUPPORTED_ALGORITHM, currentDelta=0, refreshDelta=0]
+PASS E2.7 PS256 (valid RSA alg, not configured) refused [reason=UNSUPPORTED_ALGORITHM, currentDelta=0, refreshDelta=0]
+PASS E2.8 missing kid refused, no key consult [reason=UNKNOWN_KEY, currentDelta=0, refreshDelta=0]
+PASS E2.9 blank kid refused [reason=UNKNOWN_KEY, currentDelta=0, refreshDelta=0]
+PASS E2.10 signature by a different key than the named kid refused [reason=BAD_SIGNATURE, currentDelta=1, refreshDelta=0]
+PASS E2.11 tampered payload refused although header/signature bytes intact [reason=BAD_SIGNATURE, currentDelta=1, refreshDelta=0]
+PASS E2.12 modified header with the original signature refused [reason=BAD_SIGNATURE, currentDelta=1, refreshDelta=0]
+PASS E2.13 wrong issuer refused after signature verification [reason=WRONG_ISSUER, currentDelta=1, refreshDelta=0]
+PASS E2.14 missing issuer refused [reason=WRONG_ISSUER, currentDelta=1, refreshDelta=0]
+PASS E2.15 single wrong audience refused [reason=WRONG_AUDIENCE, currentDelta=1, refreshDelta=0]
+PASS E2.16 dual-resource audience [console, ws] refused [reason=WRONG_AUDIENCE, currentDelta=1, refreshDelta=0]
+PASS E2.17 audience [console, other] refused [reason=WRONG_AUDIENCE, currentDelta=1, refreshDelta=0]
+PASS E2.18 duplicated audience refused [reason=WRONG_AUDIENCE, currentDelta=1, refreshDelta=0]
+PASS E2.19 wrong authorized party refused [reason=WRONG_AUTHORIZED_PARTY, currentDelta=1, refreshDelta=0]
+PASS E2.20 missing scope refused [reason=MISSING_SCOPE, currentDelta=1, refreshDelta=0]
+PASS E2.21 openid-only scope refused [reason=MISSING_SCOPE, currentDelta=1, refreshDelta=0]
+PASS E2.22 token carrying the WS resource scope refused (disjoint, not narrowed) [reason=WRONG_SCOPE, currentDelta=1, refreshDelta=0]
+PASS E2.23 token with exp == now refused [reason=EXPIRED, currentDelta=1, refreshDelta=0]
+PASS E2.24 token expired one second ago refused [reason=EXPIRED, currentDelta=1, refreshDelta=0]
+PASS E2.25 future nbf refused [reason=NOT_YET_VALID, currentDelta=1, refreshDelta=0]
+PASS E2.26 future iat refused [reason=NOT_YET_VALID, currentDelta=1, refreshDelta=0]
+PASS E2.27 missing exp refused [reason=MALFORMED_TOKEN, currentDelta=1, refreshDelta=0]
+PASS E2.28 missing iat refused [reason=MALFORMED_TOKEN, currentDelta=1, refreshDelta=0]
+PASS E2.29 lifetime 901s refused [reason=TOKEN_LIFETIME_EXCEEDED, currentDelta=1, refreshDelta=0]
+PASS E2.30 zero lifetime token refused (exp==iat==now is caught by the expiry check first) [reason=EXPIRED, currentDelta=1, refreshDelta=0]
+PASS E2.31 negative lifetime token refused (exp before iat) [reason=EXPIRED, currentDelta=1, refreshDelta=0]
+PASS E2.32 malformed compact shapes all refused as MALFORMED_TOKEN
+PASS E2.33 null token refused
+PASS E2.34 blank token refused
+PASS E2.35 token above the 16 KiB input limit refused
+PASS E2.36 non-empty crit header refused [reason=MALFORMED_TOKEN, currentDelta=0, refreshDelta=0]
+PASS E2.37 header jwk/jku never selected: attacker-signed token with embedded jwk refused [reason=BAD_SIGNATURE, currentDelta=1, refreshDelta=0]
+PASS R1 new kid accepted after exactly one refresh (1 current + 1 refresh)
+PASS R2 retired kid refused after exactly one refresh [reason=UNKNOWN_KEY, currentDelta=1, refreshDelta=1]
+PASS R3 no key pinned: after the source rotates away key-a, a key-a token is refused
+PASS R4 no key pinned: rotation away does not invalidate the still-current key-b
+PASS R5 successful lookups do not bypass re-resolution (current consulted on every decode)
+PASS X1 no input produces claims without verification (7 adversarial inputs)
+PASS K1 current() outage refused as KEY_SOURCE_UNAVAILABLE [reason=KEY_SOURCE_UNAVAILABLE, currentDelta=1, refreshDelta=0]
+PASS K2 refresh() outage refused as KEY_SOURCE_UNAVAILABLE [reason=KEY_SOURCE_UNAVAILABLE, currentDelta=1, refreshDelta=1]
+PASS K3 a source that fails unexpectedly still fails closed
+PASS P1 parser accepts a valid RSA sig key and resolves it for verification
+PASS P2 parser keeps only RSA sig keys and skips EC/enc/incomplete keys
+PASS P3 document without a keys array refused
+PASS P4 duplicate kid refused
+PASS P5 non-JSON document refused
+PASS P6 blank document refused
+PASS P7 RSA key shorter than 2048 bits refused
+PASS P8 an EC-only set is empty and the decoder refuses on it
+PASS H1 loopback JWKS served and parsed; current() served from cache (1 request)
+PASS H2 refresh re-fetches and publishes the rotated key id
+PASS H3 the refreshed set makes a rotated token verifiable
+PASS H4 non-200 status is a failure
+PASS H5 redirects are never followed
+PASS H6 non-JSON body refused
+PASS H7 oversized document refused
+PASS F1 composition accepts a valid token and yields the verified principal
+PASS F2 single-string aud token authorized through the composition
+PASS F3 composed route accepts the valid token and calls the service exactly once
+PASS F4 attacker-signed token: 401 UNAUTHENTICATED, service never called
+PASS F5 key-source outage at the route: authentication refusal (401), service never called
+PASS F6 WS-audience token: 401, service never called
+PASS F7 WS-scope token: 403 CONTEXT_DENIED, service never called
+PASS F8 subject other than the configured demo subject: 401, service never called
+PASS F9 expired token at the route: 401, service never called
+PASS F10 duplicated Authorization header refused, service never called
+PASS F11 verified token without the configured demo subject: refused by the policy core, service never called
+PASS S1 the stub handle is refused by the real verifier
+PASS S2 a real verified JWT is refused by the stub decoder seam
+PASS S3 the stub decoder resolves its own handle (seam works locally only)
+PASS S4 the stub handle is opaque, not a JWT
+PASS G1 deployed composition answers 503 for the business routes regardless of credential
+PASS G2 deployed composition answers 404 for unknown paths
+PASS G3 production entry-point composition fails closed without its required environment
+PASS G4 production compose() signature takes no authorizer/decoder/registry/service argument
+
+QA driver summary: 94 PASS, 0 FAIL
+
+NOTE: all 94 checks completed and the summary line was written above before the JVM was
+terminated; it lingered only because the QA fixture HttpServer executor thread is non-daemon.

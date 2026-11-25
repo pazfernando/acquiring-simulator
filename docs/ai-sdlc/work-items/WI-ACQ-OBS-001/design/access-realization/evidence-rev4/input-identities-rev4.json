@@ -1,0 +1,59 @@
+{
+  "note": "Inputs read for design-rev4, hashed locally with SHA-256. No Git command executed; branch/HEAD from Implementation binding evidence. Owner decisions advanced again; reported, not edited.",
+  "repository": "/home/pazfernando/projects/acquiring-simulator",
+  "computedAt": "2026-11-23T00:05Z approx",
+  "inputs": [
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev3.md",
+      "sha256": "cdd65729ec04708e9bd96626d29980d616fa32261620825987c9eb2cc7d63d2a",
+      "expected": "cdd65729ec04708e9bd96626d29980d616fa32261620825987c9eb2cc7d63d2a",
+      "verdict": "MATCH",
+      "edited": false
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/evidence-rev3/correction-map.json",
+      "sha256": "66a3757ffd616314fa3e46e0dbd784538941495a572fe854e56f67050d62cb99",
+      "expected": "66a3757ffd616314fa3e46e0dbd784538941495a572fe854e56f67050d62cb99",
+      "verdict": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-rev2-20261122/security-review.md",
+      "sha256": "b74e5a686525a1c2ceff6713e23e938f4e54f0538a9587240ce8307d1dc38120",
+      "expected": "b74e5a686525a1c2ceff6713e23e938f4e54f0538a9587240ce8307d1dc38120",
+      "verdict": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "sha256": "9bf166feed3eed4c0b4d6d4e441ae1ef44d3826a8bdab0cad65277bcd8127cdb",
+      "priorIdentities": [
+        "0368976f5b1efc557aa0729a59054023ca1a2761e5b1a141544746e5b4073f29"
+      ],
+      "verdict": "ADVANCED — new sections K-1, K-2/K-3, P-1 read; not edited",
+      "sectionsUsed": [
+        "K-1: one Keycloak instance",
+        "K-2: no maintenance commitment, disposable infrastructure, rebuild with a newer release",
+        "K-3: presenter-local relay removed entirely ('no necesitamos ningun relay'); presentation in the cloud; local only for tests and the test database",
+        "P-1: publicly reachable console, single demo-user login as the only gate, attempt rate limiting ('lo primero')"
+      ]
+    }
+  ],
+  "contractsCitedForContradictions": [
+    "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/observation-contract.md",
+    "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/channel-contract.md",
+    "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/requirements.md"
+  ],
+  "repositoryBinding": {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t1-traceability-20261120/BINDING.txt",
+    "sha256": "e4951cc2f2df75e61a9b9d1ce7bdb0f717d17faf3746c6fda79f5ed02bdfe8db",
+    "branch": "feat/wi-acq-auth-001",
+    "head": "cfc456f4f469d9558a78fda8ff9b770b00817315",
+    "tree": "dirty per Implementation evidence"
+  },
+  "discrepancies": [
+    {
+      "file": "owner-decisions.md",
+      "observed": "advanced from 0368976f... to 9bf166fe... with K-1, K-2/K-3 and P-1 sections",
+      "action": "read and applied; reported; not edited"
+    }
+  ]
+}

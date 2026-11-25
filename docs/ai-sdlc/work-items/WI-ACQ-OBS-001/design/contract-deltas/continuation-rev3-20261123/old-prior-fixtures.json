@@ -1,0 +1,1009 @@
+{
+  "status": "PROPOSED C3 error branch realizations; not edits to H golden fixtures; response clock separately injected for exact historical C3 oracle timestamps",
+  "cases": [
+    {
+      "id": "after24h-unknown",
+      "resetScope": "after24h-unknown",
+      "now": "2026-11-19T12:00:05Z",
+      "responseClockInjected": "2026-11-18T12:00:05Z",
+      "request": {
+        "contractVersion": "1",
+        "operation": "A",
+        "correlationId": "CORR-002",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "paymentRef": "PAY-001",
+        "credentialFixtureRef": "SIM-APP-001",
+        "amount": "10.00",
+        "currency": "USD",
+        "entryMode": "simulated-contact",
+        "cvm": "simulated-verified",
+        "cryptogramPresent": true,
+        "priorAuthorizationId": "AUTH-MISSING"
+      },
+      "currentAuth": "valid current HTTP demo mandate ACQ-A/MERCHANT-A/TERMINAL-A; foreign prior not authorized",
+      "original": {
+        "authorizationId": "AUTH-001",
+        "transactionId": "TX-001",
+        "paymentGeneration": 1,
+        "firstReceipt": "2026-11-18T12:00:00Z",
+        "instructionCorrelation": "CORR-001",
+        "canonicalEqualityData": {
+          "contractVersion": "1",
+          "operation": "A",
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A",
+          "terminalRef": "TERMINAL-A",
+          "paymentRef": "PAY-001",
+          "credentialFixtureRef": "SIM-APP-001",
+          "amount": "10.00",
+          "currency": "USD",
+          "entryMode": "simulated-contact",
+          "cvm": "simulated-verified",
+          "cryptogramPresent": true
+        }
+      },
+      "newHead": {
+        "authorizationId": "AUTH-NEW",
+        "transactionId": "TX-NEW",
+        "paymentGeneration": 2,
+        "firstReceipt": "2026-11-19T12:00:00Z",
+        "canonicalEqualityData": {
+          "contractVersion": "1",
+          "operation": "A",
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A",
+          "terminalRef": "TERMINAL-A",
+          "paymentRef": "PAY-001",
+          "credentialFixtureRef": "SIM-APP-001",
+          "amount": "10.00",
+          "currency": "USD",
+          "entryMode": "simulated-contact",
+          "cvm": "simulated-verified",
+          "cryptogramPresent": true
+        }
+      },
+      "otherPriorRecords": {
+        "AUTH-FOREIGN": {
+          "acquirerRef": "ACQ-B"
+        },
+        "AUTH-OTHER-KEY": {
+          "paymentRef": "PAY-OTHER"
+        }
+      },
+      "comparisonDifference": {
+        "prior": "AUTH-MISSING"
+      },
+      "expected": {
+        "httpStatus": 400,
+        "body": {
+          "contractVersion": "1",
+          "authorizationId": null,
+          "transactionId": null,
+          "attemptId": "ATT-002",
+          "correlationId": "CORR-002",
+          "originalCorrelationId": null,
+          "outcome": null,
+          "disposition": "REJECTED",
+          "businessVersion": null,
+          "asOf": "2026-11-18T12:00:05Z",
+          "observation": "UNKNOWN",
+          "serverFreshness": "UNKNOWN",
+          "error": "INVALID_REFERENCE"
+        },
+        "bodyUtf8": "{\"asOf\":\"2026-11-18T12:00:05Z\",\"attemptId\":\"ATT-002\",\"authorizationId\":null,\"businessVersion\":null,\"contractVersion\":\"1\",\"correlationId\":\"CORR-002\",\"disposition\":\"REJECTED\",\"error\":\"INVALID_REFERENCE\",\"observation\":\"UNKNOWN\",\"originalCorrelationId\":null,\"outcome\":null,\"serverFreshness\":\"UNKNOWN\",\"transactionId\":null}",
+        "newClaims": 0,
+        "financialSends": 0,
+        "automaticPaymentPosts": 0,
+        "originalDisclosure": false,
+        "attemptLinks": 0,
+        "newHeadUnchanged": true
+      }
+    },
+    {
+      "id": "after24h-foreign",
+      "resetScope": "after24h-foreign",
+      "now": "2026-11-19T12:00:05Z",
+      "responseClockInjected": "2026-11-18T12:00:05Z",
+      "request": {
+        "contractVersion": "1",
+        "operation": "A",
+        "correlationId": "CORR-002",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "paymentRef": "PAY-001",
+        "credentialFixtureRef": "SIM-APP-001",
+        "amount": "10.00",
+        "currency": "USD",
+        "entryMode": "simulated-contact",
+        "cvm": "simulated-verified",
+        "cryptogramPresent": true,
+        "priorAuthorizationId": "AUTH-FOREIGN"
+      },
+      "currentAuth": "valid current HTTP demo mandate ACQ-A/MERCHANT-A/TERMINAL-A; foreign prior not authorized",
+      "original": {
+        "authorizationId": "AUTH-001",
+        "transactionId": "TX-001",
+        "paymentGeneration": 1,
+        "firstReceipt": "2026-11-18T12:00:00Z",
+        "instructionCorrelation": "CORR-001",
+        "canonicalEqualityData": {
+          "contractVersion": "1",
+          "operation": "A",
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A",
+          "terminalRef": "TERMINAL-A",
+          "paymentRef": "PAY-001",
+          "credentialFixtureRef": "SIM-APP-001",
+          "amount": "10.00",
+          "currency": "USD",
+          "entryMode": "simulated-contact",
+          "cvm": "simulated-verified",
+          "cryptogramPresent": true
+        }
+      },
+      "newHead": {
+        "authorizationId": "AUTH-NEW",
+        "transactionId": "TX-NEW",
+        "paymentGeneration": 2,
+        "firstReceipt": "2026-11-19T12:00:00Z",
+        "canonicalEqualityData": {
+          "contractVersion": "1",
+          "operation": "A",
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A",
+          "terminalRef": "TERMINAL-A",
+          "paymentRef": "PAY-001",
+          "credentialFixtureRef": "SIM-APP-001",
+          "amount": "10.00",
+          "currency": "USD",
+          "entryMode": "simulated-contact",
+          "cvm": "simulated-verified",
+          "cryptogramPresent": true
+        }
+      },
+      "otherPriorRecords": {
+        "AUTH-FOREIGN": {
+          "acquirerRef": "ACQ-B"
+        },
+        "AUTH-OTHER-KEY": {
+          "paymentRef": "PAY-OTHER"
+        }
+      },
+      "comparisonDifference": {
+        "prior": "AUTH-FOREIGN"
+      },
+      "expected": {
+        "httpStatus": 400,
+        "body": {
+          "contractVersion": "1",
+          "authorizationId": null,
+          "transactionId": null,
+          "attemptId": "ATT-002",
+          "correlationId": "CORR-002",
+          "originalCorrelationId": null,
+          "outcome": null,
+          "disposition": "REJECTED",
+          "businessVersion": null,
+          "asOf": "2026-11-18T12:00:05Z",
+          "observation": "UNKNOWN",
+          "serverFreshness": "UNKNOWN",
+          "error": "INVALID_REFERENCE"
+        },
+        "bodyUtf8": "{\"asOf\":\"2026-11-18T12:00:05Z\",\"attemptId\":\"ATT-002\",\"authorizationId\":null,\"businessVersion\":null,\"contractVersion\":\"1\",\"correlationId\":\"CORR-002\",\"disposition\":\"REJECTED\",\"error\":\"INVALID_REFERENCE\",\"observation\":\"UNKNOWN\",\"originalCorrelationId\":null,\"outcome\":null,\"serverFreshness\":\"UNKNOWN\",\"transactionId\":null}",
+        "newClaims": 0,
+        "financialSends": 0,
+        "automaticPaymentPosts": 0,
+        "originalDisclosure": false,
+        "attemptLinks": 0,
+        "newHeadUnchanged": true
+      }
+    },
+    {
+      "id": "after24h-malformed",
+      "resetScope": "after24h-malformed",
+      "now": "2026-11-19T12:00:05Z",
+      "responseClockInjected": "2026-11-18T12:00:05Z",
+      "request": {
+        "contractVersion": "1",
+        "operation": "A",
+        "correlationId": "CORR-002",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "paymentRef": "PAY-001",
+        "credentialFixtureRef": "SIM-APP-001",
+        "amount": "10.00",
+        "currency": "USD",
+        "entryMode": "simulated-contact",
+        "cvm": "simulated-verified",
+        "cryptogramPresent": true,
+        "priorAuthorizationId": "!"
+      },
+      "currentAuth": "valid current HTTP demo mandate ACQ-A/MERCHANT-A/TERMINAL-A; foreign prior not authorized",
+      "original": {
+        "authorizationId": "AUTH-001",
+        "transactionId": "TX-001",
+        "paymentGeneration": 1,
+        "firstReceipt": "2026-11-18T12:00:00Z",
+        "instructionCorrelation": "CORR-001",
+        "canonicalEqualityData": {
+          "contractVersion": "1",
+          "operation": "A",
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A",
+          "terminalRef": "TERMINAL-A",
+          "paymentRef": "PAY-001",
+          "credentialFixtureRef": "SIM-APP-001",
+          "amount": "10.00",
+          "currency": "USD",
+          "entryMode": "simulated-contact",
+          "cvm": "simulated-verified",
+          "cryptogramPresent": true
+        }
+      },
+      "newHead": {
+        "authorizationId": "AUTH-NEW",
+        "transactionId": "TX-NEW",
+        "paymentGeneration": 2,
+        "firstReceipt": "2026-11-19T12:00:00Z",
+        "canonicalEqualityData": {
+          "contractVersion": "1",
+          "operation": "A",
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A",
+          "terminalRef": "TERMINAL-A",
+          "paymentRef": "PAY-001",
+          "credentialFixtureRef": "SIM-APP-001",
+          "amount": "10.00",
+          "currency": "USD",
+          "entryMode": "simulated-contact",
+          "cvm": "simulated-verified",
+          "cryptogramPresent": true
+        }
+      },
+      "otherPriorRecords": {
+        "AUTH-FOREIGN": {
+          "acquirerRef": "ACQ-B"
+        },
+        "AUTH-OTHER-KEY": {
+          "paymentRef": "PAY-OTHER"
+        }
+      },
+      "comparisonDifference": {
+        "prior": "!"
+      },
+      "expected": {
+        "httpStatus": 400,
+        "body": {
+          "contractVersion": "1",
+          "authorizationId": null,
+          "transactionId": null,
+          "attemptId": "ATT-002",
+          "correlationId": "CORR-002",
+          "originalCorrelationId": null,
+          "outcome": null,
+          "disposition": "REJECTED",
+          "businessVersion": null,
+          "asOf": "2026-11-18T12:00:05Z",
+          "observation": "UNKNOWN",
+          "serverFreshness": "UNKNOWN",
+          "error": "INVALID_REFERENCE"
+        },
+        "bodyUtf8": "{\"asOf\":\"2026-11-18T12:00:05Z\",\"attemptId\":\"ATT-002\",\"authorizationId\":null,\"businessVersion\":null,\"contractVersion\":\"1\",\"correlationId\":\"CORR-002\",\"disposition\":\"REJECTED\",\"error\":\"INVALID_REFERENCE\",\"observation\":\"UNKNOWN\",\"originalCorrelationId\":null,\"outcome\":null,\"serverFreshness\":\"UNKNOWN\",\"transactionId\":null}",
+        "newClaims": 0,
+        "financialSends": 0,
+        "automaticPaymentPosts": 0,
+        "originalDisclosure": false,
+        "attemptLinks": 0,
+        "newHeadUnchanged": true
+      }
+    },
+    {
+      "id": "after24h-different-key",
+      "resetScope": "after24h-different-key",
+      "now": "2026-11-19T12:00:05Z",
+      "responseClockInjected": "2026-11-18T12:00:05Z",
+      "request": {
+        "contractVersion": "1",
+        "operation": "A",
+        "correlationId": "CORR-002",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "paymentRef": "PAY-001",
+        "credentialFixtureRef": "SIM-APP-001",
+        "amount": "10.00",
+        "currency": "USD",
+        "entryMode": "simulated-contact",
+        "cvm": "simulated-verified",
+        "cryptogramPresent": true,
+        "priorAuthorizationId": "AUTH-OTHER-KEY"
+      },
+      "currentAuth": "valid current HTTP demo mandate ACQ-A/MERCHANT-A/TERMINAL-A; foreign prior not authorized",
+      "original": {
+        "authorizationId": "AUTH-001",
+        "transactionId": "TX-001",
+        "paymentGeneration": 1,
+        "firstReceipt": "2026-11-18T12:00:00Z",
+        "instructionCorrelation": "CORR-001",
+        "canonicalEqualityData": {
+          "contractVersion": "1",
+          "operation": "A",
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A",
+          "terminalRef": "TERMINAL-A",
+          "paymentRef": "PAY-001",
+          "credentialFixtureRef": "SIM-APP-001",
+          "amount": "10.00",
+          "currency": "USD",
+          "entryMode": "simulated-contact",
+          "cvm": "simulated-verified",
+          "cryptogramPresent": true
+        }
+      },
+      "newHead": {
+        "authorizationId": "AUTH-NEW",
+        "transactionId": "TX-NEW",
+        "paymentGeneration": 2,
+        "firstReceipt": "2026-11-19T12:00:00Z",
+        "canonicalEqualityData": {
+          "contractVersion": "1",
+          "operation": "A",
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A",
+          "terminalRef": "TERMINAL-A",
+          "paymentRef": "PAY-001",
+          "credentialFixtureRef": "SIM-APP-001",
+          "amount": "10.00",
+          "currency": "USD",
+          "entryMode": "simulated-contact",
+          "cvm": "simulated-verified",
+          "cryptogramPresent": true
+        }
+      },
+      "otherPriorRecords": {
+        "AUTH-FOREIGN": {
+          "acquirerRef": "ACQ-B"
+        },
+        "AUTH-OTHER-KEY": {
+          "paymentRef": "PAY-OTHER"
+        }
+      },
+      "comparisonDifference": {
+        "prior": "AUTH-OTHER-KEY"
+      },
+      "expected": {
+        "httpStatus": 400,
+        "body": {
+          "contractVersion": "1",
+          "authorizationId": null,
+          "transactionId": null,
+          "attemptId": "ATT-002",
+          "correlationId": "CORR-002",
+          "originalCorrelationId": null,
+          "outcome": null,
+          "disposition": "REJECTED",
+          "businessVersion": null,
+          "asOf": "2026-11-18T12:00:05Z",
+          "observation": "UNKNOWN",
+          "serverFreshness": "UNKNOWN",
+          "error": "INVALID_REFERENCE"
+        },
+        "bodyUtf8": "{\"asOf\":\"2026-11-18T12:00:05Z\",\"attemptId\":\"ATT-002\",\"authorizationId\":null,\"businessVersion\":null,\"contractVersion\":\"1\",\"correlationId\":\"CORR-002\",\"disposition\":\"REJECTED\",\"error\":\"INVALID_REFERENCE\",\"observation\":\"UNKNOWN\",\"originalCorrelationId\":null,\"outcome\":null,\"serverFreshness\":\"UNKNOWN\",\"transactionId\":null}",
+        "newClaims": 0,
+        "financialSends": 0,
+        "automaticPaymentPosts": 0,
+        "originalDisclosure": false,
+        "attemptLinks": 0,
+        "newHeadUnchanged": true
+      }
+    },
+    {
+      "id": "after24h-different-data",
+      "resetScope": "after24h-different-data",
+      "now": "2026-11-19T12:00:05Z",
+      "responseClockInjected": "2026-11-18T12:00:05Z",
+      "request": {
+        "contractVersion": "1",
+        "operation": "A",
+        "correlationId": "CORR-002",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "paymentRef": "PAY-001",
+        "credentialFixtureRef": "SIM-APP-001",
+        "amount": "10.01",
+        "currency": "USD",
+        "entryMode": "simulated-contact",
+        "cvm": "simulated-verified",
+        "cryptogramPresent": true,
+        "priorAuthorizationId": "AUTH-001"
+      },
+      "currentAuth": "valid current HTTP demo mandate ACQ-A/MERCHANT-A/TERMINAL-A; foreign prior not authorized",
+      "original": {
+        "authorizationId": "AUTH-001",
+        "transactionId": "TX-001",
+        "paymentGeneration": 1,
+        "firstReceipt": "2026-11-18T12:00:00Z",
+        "instructionCorrelation": "CORR-001",
+        "canonicalEqualityData": {
+          "contractVersion": "1",
+          "operation": "A",
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A",
+          "terminalRef": "TERMINAL-A",
+          "paymentRef": "PAY-001",
+          "credentialFixtureRef": "SIM-APP-001",
+          "amount": "10.00",
+          "currency": "USD",
+          "entryMode": "simulated-contact",
+          "cvm": "simulated-verified",
+          "cryptogramPresent": true
+        }
+      },
+      "newHead": {
+        "authorizationId": "AUTH-NEW",
+        "transactionId": "TX-NEW",
+        "paymentGeneration": 2,
+        "firstReceipt": "2026-11-19T12:00:00Z",
+        "canonicalEqualityData": {
+          "contractVersion": "1",
+          "operation": "A",
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A",
+          "terminalRef": "TERMINAL-A",
+          "paymentRef": "PAY-001",
+          "credentialFixtureRef": "SIM-APP-001",
+          "amount": "10.00",
+          "currency": "USD",
+          "entryMode": "simulated-contact",
+          "cvm": "simulated-verified",
+          "cryptogramPresent": true
+        }
+      },
+      "otherPriorRecords": {
+        "AUTH-FOREIGN": {
+          "acquirerRef": "ACQ-B"
+        },
+        "AUTH-OTHER-KEY": {
+          "paymentRef": "PAY-OTHER"
+        }
+      },
+      "comparisonDifference": {
+        "field": "amount",
+        "original": "10.00",
+        "submitted": "10.01"
+      },
+      "expected": {
+        "httpStatus": 409,
+        "body": {
+          "contractVersion": "1",
+          "authorizationId": null,
+          "transactionId": null,
+          "attemptId": "ATT-002",
+          "correlationId": "CORR-002",
+          "originalCorrelationId": null,
+          "outcome": null,
+          "disposition": "REJECTED",
+          "businessVersion": null,
+          "asOf": "2026-11-18T12:00:05Z",
+          "observation": "UNKNOWN",
+          "serverFreshness": "UNKNOWN",
+          "error": "PAYLOAD_CONFLICT"
+        },
+        "bodyUtf8": "{\"asOf\":\"2026-11-18T12:00:05Z\",\"attemptId\":\"ATT-002\",\"authorizationId\":null,\"businessVersion\":null,\"contractVersion\":\"1\",\"correlationId\":\"CORR-002\",\"disposition\":\"REJECTED\",\"error\":\"PAYLOAD_CONFLICT\",\"observation\":\"UNKNOWN\",\"originalCorrelationId\":null,\"outcome\":null,\"serverFreshness\":\"UNKNOWN\",\"transactionId\":null}",
+        "newClaims": 0,
+        "financialSends": 0,
+        "automaticPaymentPosts": 0,
+        "originalDisclosure": false,
+        "attemptLinks": 0,
+        "newHeadUnchanged": true
+      }
+    },
+    {
+      "id": "after7d-unknown",
+      "resetScope": "after7d-unknown",
+      "now": "2026-11-25T12:00:05Z",
+      "responseClockInjected": "2026-11-18T12:00:05Z",
+      "request": {
+        "contractVersion": "1",
+        "operation": "A",
+        "correlationId": "CORR-002",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "paymentRef": "PAY-001",
+        "credentialFixtureRef": "SIM-APP-001",
+        "amount": "10.00",
+        "currency": "USD",
+        "entryMode": "simulated-contact",
+        "cvm": "simulated-verified",
+        "cryptogramPresent": true,
+        "priorAuthorizationId": "AUTH-MISSING"
+      },
+      "currentAuth": "valid current HTTP demo mandate ACQ-A/MERCHANT-A/TERMINAL-A; foreign prior not authorized",
+      "original": {
+        "authorizationId": "AUTH-001",
+        "transactionId": "TX-001",
+        "paymentGeneration": 1,
+        "firstReceipt": "2026-11-18T12:00:00Z",
+        "instructionCorrelation": "CORR-001",
+        "canonicalEqualityData": {
+          "contractVersion": "1",
+          "operation": "A",
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A",
+          "terminalRef": "TERMINAL-A",
+          "paymentRef": "PAY-001",
+          "credentialFixtureRef": "SIM-APP-001",
+          "amount": "10.00",
+          "currency": "USD",
+          "entryMode": "simulated-contact",
+          "cvm": "simulated-verified",
+          "cryptogramPresent": true
+        }
+      },
+      "newHead": {
+        "authorizationId": "AUTH-NEW",
+        "transactionId": "TX-NEW",
+        "paymentGeneration": 2,
+        "firstReceipt": "2026-11-19T12:00:00Z",
+        "canonicalEqualityData": {
+          "contractVersion": "1",
+          "operation": "A",
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A",
+          "terminalRef": "TERMINAL-A",
+          "paymentRef": "PAY-001",
+          "credentialFixtureRef": "SIM-APP-001",
+          "amount": "10.00",
+          "currency": "USD",
+          "entryMode": "simulated-contact",
+          "cvm": "simulated-verified",
+          "cryptogramPresent": true
+        }
+      },
+      "otherPriorRecords": {
+        "AUTH-FOREIGN": {
+          "acquirerRef": "ACQ-B"
+        },
+        "AUTH-OTHER-KEY": {
+          "paymentRef": "PAY-OTHER"
+        }
+      },
+      "comparisonDifference": {
+        "prior": "AUTH-MISSING"
+      },
+      "expected": {
+        "httpStatus": 400,
+        "body": {
+          "contractVersion": "1",
+          "authorizationId": null,
+          "transactionId": null,
+          "attemptId": "ATT-002",
+          "correlationId": "CORR-002",
+          "originalCorrelationId": null,
+          "outcome": null,
+          "disposition": "REJECTED",
+          "businessVersion": null,
+          "asOf": "2026-11-18T12:00:05Z",
+          "observation": "UNKNOWN",
+          "serverFreshness": "UNKNOWN",
+          "error": "INVALID_REFERENCE"
+        },
+        "bodyUtf8": "{\"asOf\":\"2026-11-18T12:00:05Z\",\"attemptId\":\"ATT-002\",\"authorizationId\":null,\"businessVersion\":null,\"contractVersion\":\"1\",\"correlationId\":\"CORR-002\",\"disposition\":\"REJECTED\",\"error\":\"INVALID_REFERENCE\",\"observation\":\"UNKNOWN\",\"originalCorrelationId\":null,\"outcome\":null,\"serverFreshness\":\"UNKNOWN\",\"transactionId\":null}",
+        "newClaims": 0,
+        "financialSends": 0,
+        "automaticPaymentPosts": 0,
+        "originalDisclosure": false,
+        "attemptLinks": 0,
+        "newHeadUnchanged": true
+      }
+    },
+    {
+      "id": "after7d-foreign",
+      "resetScope": "after7d-foreign",
+      "now": "2026-11-25T12:00:05Z",
+      "responseClockInjected": "2026-11-18T12:00:05Z",
+      "request": {
+        "contractVersion": "1",
+        "operation": "A",
+        "correlationId": "CORR-002",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "paymentRef": "PAY-001",
+        "credentialFixtureRef": "SIM-APP-001",
+        "amount": "10.00",
+        "currency": "USD",
+        "entryMode": "simulated-contact",
+        "cvm": "simulated-verified",
+        "cryptogramPresent": true,
+        "priorAuthorizationId": "AUTH-FOREIGN"
+      },
+      "currentAuth": "valid current HTTP demo mandate ACQ-A/MERCHANT-A/TERMINAL-A; foreign prior not authorized",
+      "original": {
+        "authorizationId": "AUTH-001",
+        "transactionId": "TX-001",
+        "paymentGeneration": 1,
+        "firstReceipt": "2026-11-18T12:00:00Z",
+        "instructionCorrelation": "CORR-001",
+        "canonicalEqualityData": {
+          "contractVersion": "1",
+          "operation": "A",
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A",
+          "terminalRef": "TERMINAL-A",
+          "paymentRef": "PAY-001",
+          "credentialFixtureRef": "SIM-APP-001",
+          "amount": "10.00",
+          "currency": "USD",
+          "entryMode": "simulated-contact",
+          "cvm": "simulated-verified",
+          "cryptogramPresent": true
+        }
+      },
+      "newHead": {
+        "authorizationId": "AUTH-NEW",
+        "transactionId": "TX-NEW",
+        "paymentGeneration": 2,
+        "firstReceipt": "2026-11-19T12:00:00Z",
+        "canonicalEqualityData": {
+          "contractVersion": "1",
+          "operation": "A",
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A",
+          "terminalRef": "TERMINAL-A",
+          "paymentRef": "PAY-001",
+          "credentialFixtureRef": "SIM-APP-001",
+          "amount": "10.00",
+          "currency": "USD",
+          "entryMode": "simulated-contact",
+          "cvm": "simulated-verified",
+          "cryptogramPresent": true
+        }
+      },
+      "otherPriorRecords": {
+        "AUTH-FOREIGN": {
+          "acquirerRef": "ACQ-B"
+        },
+        "AUTH-OTHER-KEY": {
+          "paymentRef": "PAY-OTHER"
+        }
+      },
+      "comparisonDifference": {
+        "prior": "AUTH-FOREIGN"
+      },
+      "expected": {
+        "httpStatus": 400,
+        "body": {
+          "contractVersion": "1",
+          "authorizationId": null,
+          "transactionId": null,
+          "attemptId": "ATT-002",
+          "correlationId": "CORR-002",
+          "originalCorrelationId": null,
+          "outcome": null,
+          "disposition": "REJECTED",
+          "businessVersion": null,
+          "asOf": "2026-11-18T12:00:05Z",
+          "observation": "UNKNOWN",
+          "serverFreshness": "UNKNOWN",
+          "error": "INVALID_REFERENCE"
+        },
+        "bodyUtf8": "{\"asOf\":\"2026-11-18T12:00:05Z\",\"attemptId\":\"ATT-002\",\"authorizationId\":null,\"businessVersion\":null,\"contractVersion\":\"1\",\"correlationId\":\"CORR-002\",\"disposition\":\"REJECTED\",\"error\":\"INVALID_REFERENCE\",\"observation\":\"UNKNOWN\",\"originalCorrelationId\":null,\"outcome\":null,\"serverFreshness\":\"UNKNOWN\",\"transactionId\":null}",
+        "newClaims": 0,
+        "financialSends": 0,
+        "automaticPaymentPosts": 0,
+        "originalDisclosure": false,
+        "attemptLinks": 0,
+        "newHeadUnchanged": true
+      }
+    },
+    {
+      "id": "after7d-malformed",
+      "resetScope": "after7d-malformed",
+      "now": "2026-11-25T12:00:05Z",
+      "responseClockInjected": "2026-11-18T12:00:05Z",
+      "request": {
+        "contractVersion": "1",
+        "operation": "A",
+        "correlationId": "CORR-002",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "paymentRef": "PAY-001",
+        "credentialFixtureRef": "SIM-APP-001",
+        "amount": "10.00",
+        "currency": "USD",
+        "entryMode": "simulated-contact",
+        "cvm": "simulated-verified",
+        "cryptogramPresent": true,
+        "priorAuthorizationId": "!"
+      },
+      "currentAuth": "valid current HTTP demo mandate ACQ-A/MERCHANT-A/TERMINAL-A; foreign prior not authorized",
+      "original": {
+        "authorizationId": "AUTH-001",
+        "transactionId": "TX-001",
+        "paymentGeneration": 1,
+        "firstReceipt": "2026-11-18T12:00:00Z",
+        "instructionCorrelation": "CORR-001",
+        "canonicalEqualityData": {
+          "contractVersion": "1",
+          "operation": "A",
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A",
+          "terminalRef": "TERMINAL-A",
+          "paymentRef": "PAY-001",
+          "credentialFixtureRef": "SIM-APP-001",
+          "amount": "10.00",
+          "currency": "USD",
+          "entryMode": "simulated-contact",
+          "cvm": "simulated-verified",
+          "cryptogramPresent": true
+        }
+      },
+      "newHead": {
+        "authorizationId": "AUTH-NEW",
+        "transactionId": "TX-NEW",
+        "paymentGeneration": 2,
+        "firstReceipt": "2026-11-19T12:00:00Z",
+        "canonicalEqualityData": {
+          "contractVersion": "1",
+          "operation": "A",
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A",
+          "terminalRef": "TERMINAL-A",
+          "paymentRef": "PAY-001",
+          "credentialFixtureRef": "SIM-APP-001",
+          "amount": "10.00",
+          "currency": "USD",
+          "entryMode": "simulated-contact",
+          "cvm": "simulated-verified",
+          "cryptogramPresent": true
+        }
+      },
+      "otherPriorRecords": {
+        "AUTH-FOREIGN": {
+          "acquirerRef": "ACQ-B"
+        },
+        "AUTH-OTHER-KEY": {
+          "paymentRef": "PAY-OTHER"
+        }
+      },
+      "comparisonDifference": {
+        "prior": "!"
+      },
+      "expected": {
+        "httpStatus": 400,
+        "body": {
+          "contractVersion": "1",
+          "authorizationId": null,
+          "transactionId": null,
+          "attemptId": "ATT-002",
+          "correlationId": "CORR-002",
+          "originalCorrelationId": null,
+          "outcome": null,
+          "disposition": "REJECTED",
+          "businessVersion": null,
+          "asOf": "2026-11-18T12:00:05Z",
+          "observation": "UNKNOWN",
+          "serverFreshness": "UNKNOWN",
+          "error": "INVALID_REFERENCE"
+        },
+        "bodyUtf8": "{\"asOf\":\"2026-11-18T12:00:05Z\",\"attemptId\":\"ATT-002\",\"authorizationId\":null,\"businessVersion\":null,\"contractVersion\":\"1\",\"correlationId\":\"CORR-002\",\"disposition\":\"REJECTED\",\"error\":\"INVALID_REFERENCE\",\"observation\":\"UNKNOWN\",\"originalCorrelationId\":null,\"outcome\":null,\"serverFreshness\":\"UNKNOWN\",\"transactionId\":null}",
+        "newClaims": 0,
+        "financialSends": 0,
+        "automaticPaymentPosts": 0,
+        "originalDisclosure": false,
+        "attemptLinks": 0,
+        "newHeadUnchanged": true
+      }
+    },
+    {
+      "id": "after7d-different-key",
+      "resetScope": "after7d-different-key",
+      "now": "2026-11-25T12:00:05Z",
+      "responseClockInjected": "2026-11-18T12:00:05Z",
+      "request": {
+        "contractVersion": "1",
+        "operation": "A",
+        "correlationId": "CORR-002",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "paymentRef": "PAY-001",
+        "credentialFixtureRef": "SIM-APP-001",
+        "amount": "10.00",
+        "currency": "USD",
+        "entryMode": "simulated-contact",
+        "cvm": "simulated-verified",
+        "cryptogramPresent": true,
+        "priorAuthorizationId": "AUTH-OTHER-KEY"
+      },
+      "currentAuth": "valid current HTTP demo mandate ACQ-A/MERCHANT-A/TERMINAL-A; foreign prior not authorized",
+      "original": {
+        "authorizationId": "AUTH-001",
+        "transactionId": "TX-001",
+        "paymentGeneration": 1,
+        "firstReceipt": "2026-11-18T12:00:00Z",
+        "instructionCorrelation": "CORR-001",
+        "canonicalEqualityData": {
+          "contractVersion": "1",
+          "operation": "A",
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A",
+          "terminalRef": "TERMINAL-A",
+          "paymentRef": "PAY-001",
+          "credentialFixtureRef": "SIM-APP-001",
+          "amount": "10.00",
+          "currency": "USD",
+          "entryMode": "simulated-contact",
+          "cvm": "simulated-verified",
+          "cryptogramPresent": true
+        }
+      },
+      "newHead": {
+        "authorizationId": "AUTH-NEW",
+        "transactionId": "TX-NEW",
+        "paymentGeneration": 2,
+        "firstReceipt": "2026-11-19T12:00:00Z",
+        "canonicalEqualityData": {
+          "contractVersion": "1",
+          "operation": "A",
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A",
+          "terminalRef": "TERMINAL-A",
+          "paymentRef": "PAY-001",
+          "credentialFixtureRef": "SIM-APP-001",
+          "amount": "10.00",
+          "currency": "USD",
+          "entryMode": "simulated-contact",
+          "cvm": "simulated-verified",
+          "cryptogramPresent": true
+        }
+      },
+      "otherPriorRecords": {
+        "AUTH-FOREIGN": {
+          "acquirerRef": "ACQ-B"
+        },
+        "AUTH-OTHER-KEY": {
+          "paymentRef": "PAY-OTHER"
+        }
+      },
+      "comparisonDifference": {
+        "prior": "AUTH-OTHER-KEY"
+      },
+      "expected": {
+        "httpStatus": 400,
+        "body": {
+          "contractVersion": "1",
+          "authorizationId": null,
+          "transactionId": null,
+          "attemptId": "ATT-002",
+          "correlationId": "CORR-002",
+          "originalCorrelationId": null,
+          "outcome": null,
+          "disposition": "REJECTED",
+          "businessVersion": null,
+          "asOf": "2026-11-18T12:00:05Z",
+          "observation": "UNKNOWN",
+          "serverFreshness": "UNKNOWN",
+          "error": "INVALID_REFERENCE"
+        },
+        "bodyUtf8": "{\"asOf\":\"2026-11-18T12:00:05Z\",\"attemptId\":\"ATT-002\",\"authorizationId\":null,\"businessVersion\":null,\"contractVersion\":\"1\",\"correlationId\":\"CORR-002\",\"disposition\":\"REJECTED\",\"error\":\"INVALID_REFERENCE\",\"observation\":\"UNKNOWN\",\"originalCorrelationId\":null,\"outcome\":null,\"serverFreshness\":\"UNKNOWN\",\"transactionId\":null}",
+        "newClaims": 0,
+        "financialSends": 0,
+        "automaticPaymentPosts": 0,
+        "originalDisclosure": false,
+        "attemptLinks": 0,
+        "newHeadUnchanged": true
+      }
+    },
+    {
+      "id": "after7d-different-data",
+      "resetScope": "after7d-different-data",
+      "now": "2026-11-25T12:00:05Z",
+      "responseClockInjected": "2026-11-18T12:00:05Z",
+      "request": {
+        "contractVersion": "1",
+        "operation": "A",
+        "correlationId": "CORR-002",
+        "acquirerRef": "ACQ-A",
+        "merchantRef": "MERCHANT-A",
+        "terminalRef": "TERMINAL-A",
+        "paymentRef": "PAY-001",
+        "credentialFixtureRef": "SIM-APP-001",
+        "amount": "10.01",
+        "currency": "USD",
+        "entryMode": "simulated-contact",
+        "cvm": "simulated-verified",
+        "cryptogramPresent": true,
+        "priorAuthorizationId": "AUTH-001"
+      },
+      "currentAuth": "valid current HTTP demo mandate ACQ-A/MERCHANT-A/TERMINAL-A; foreign prior not authorized",
+      "original": {
+        "authorizationId": "AUTH-001",
+        "transactionId": "TX-001",
+        "paymentGeneration": 1,
+        "firstReceipt": "2026-11-18T12:00:00Z",
+        "instructionCorrelation": "CORR-001",
+        "canonicalEqualityData": {
+          "contractVersion": "1",
+          "operation": "A",
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A",
+          "terminalRef": "TERMINAL-A",
+          "paymentRef": "PAY-001",
+          "credentialFixtureRef": "SIM-APP-001",
+          "amount": "10.00",
+          "currency": "USD",
+          "entryMode": "simulated-contact",
+          "cvm": "simulated-verified",
+          "cryptogramPresent": true
+        }
+      },
+      "newHead": {
+        "authorizationId": "AUTH-NEW",
+        "transactionId": "TX-NEW",
+        "paymentGeneration": 2,
+        "firstReceipt": "2026-11-19T12:00:00Z",
+        "canonicalEqualityData": {
+          "contractVersion": "1",
+          "operation": "A",
+          "acquirerRef": "ACQ-A",
+          "merchantRef": "MERCHANT-A",
+          "terminalRef": "TERMINAL-A",
+          "paymentRef": "PAY-001",
+          "credentialFixtureRef": "SIM-APP-001",
+          "amount": "10.00",
+          "currency": "USD",
+          "entryMode": "simulated-contact",
+          "cvm": "simulated-verified",
+          "cryptogramPresent": true
+        }
+      },
+      "otherPriorRecords": {
+        "AUTH-FOREIGN": {
+          "acquirerRef": "ACQ-B"
+        },
+        "AUTH-OTHER-KEY": {
+          "paymentRef": "PAY-OTHER"
+        }
+      },
+      "comparisonDifference": {
+        "field": "amount",
+        "original": "10.00",
+        "submitted": "10.01"
+      },
+      "expected": {
+        "httpStatus": 409,
+        "body": {
+          "contractVersion": "1",
+          "authorizationId": null,
+          "transactionId": null,
+          "attemptId": "ATT-002",
+          "correlationId": "CORR-002",
+          "originalCorrelationId": null,
+          "outcome": null,
+          "disposition": "REJECTED",
+          "businessVersion": null,
+          "asOf": "2026-11-18T12:00:05Z",
+          "observation": "UNKNOWN",
+          "serverFreshness": "UNKNOWN",
+          "error": "PAYLOAD_CONFLICT"
+        },
+        "bodyUtf8": "{\"asOf\":\"2026-11-18T12:00:05Z\",\"attemptId\":\"ATT-002\",\"authorizationId\":null,\"businessVersion\":null,\"contractVersion\":\"1\",\"correlationId\":\"CORR-002\",\"disposition\":\"REJECTED\",\"error\":\"PAYLOAD_CONFLICT\",\"observation\":\"UNKNOWN\",\"originalCorrelationId\":null,\"outcome\":null,\"serverFreshness\":\"UNKNOWN\",\"transactionId\":null}",
+        "newClaims": 0,
+        "financialSends": 0,
+        "automaticPaymentPosts": 0,
+        "originalDisclosure": false,
+        "attemptLinks": 0,
+        "newHeadUnchanged": true
+      }
+    }
+  ]
+}

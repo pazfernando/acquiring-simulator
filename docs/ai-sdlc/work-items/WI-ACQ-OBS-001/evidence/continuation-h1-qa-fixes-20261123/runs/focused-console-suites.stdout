@@ -1,0 +1,102 @@
+[INFO] Scanning for projects...
+[INFO] Loaded 24559 auto-discovered prefixes for remote repository central (prefixes-central.txt)
+[INFO] 
+[INFO] ------------< com.acquiring.simulator:acquiring-simulator >-------------
+[INFO] Building acquiring-simulator 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ acquiring-simulator ---
+[INFO] Copying 4 resources from src/main/resources to target/classes
+[INFO] Copying 4 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ acquiring-simulator ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ acquiring-simulator ---
+[INFO] skip non existing resourceDirectory /home/pazfernando/projects/acquiring-simulator/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ acquiring-simulator ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ acquiring-simulator ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.acquiring.simulator.adapter.aws.ConsoleHandlerCompositionTest
+{"event":"console_origin_verification_denied","reason":"ABSENT","requestId":"REQ-1","sourceIp":"198.51.100.7","host":"invalid","httpMethod":"POST","path":"/console/v1/authorizations","timestamp":"2026-11-24T04:10:04.606952248Z","appVersion":"42"}
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.282 s -- in com.acquiring.simulator.adapter.aws.ConsoleHandlerCompositionTest
+[INFO] Running com.acquiring.simulator.console.ConsoleHistoryRouteDynamoIntegrationTest
+23:10:04.692 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+23:10:04.695 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+23:10:04.724 [main] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 2.0.5
+23:10:04.848 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.UnixSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+23:10:05.292 [main] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Unix socket (unix:///var/run/docker.sock)
+23:10:05.293 [main] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+23:10:05.308 [main] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.1.3
+  API Version: 1.52
+  Operating System: Linux Mint 22.3
+  Total Memory: 23919 MB
+23:10:05.382 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Creating container for image: testcontainers/ryuk:0.14.0
+23:10:05.386 [main] INFO org.testcontainers.utility.RegistryAuthLocator -- Failure when attempting to lookup auth config. Please ignore if you don't have images in an authenticated registry. Details: (dockerImageName: testcontainers/ryuk:0.14.0, configFile: /home/pazfernando/.docker/config.json, configEnv: DOCKER_AUTH_CONFIG). Falling back to docker-java default behaviour. Exception message: Status 404: No config supplied. Checked in order: /home/pazfernando/.docker/config.json (file not found), DOCKER_AUTH_CONFIG (not set)
+23:10:05.547 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 is starting: c59207d4daf206ee6f3317b3736cd33eb653dee241e1a156a78ea3436a8522bd
+23:10:05.875 [main] INFO tc.testcontainers/ryuk:0.14.0 -- Container testcontainers/ryuk:0.14.0 started in PT0.492816792S
+23:10:05.880 [main] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+23:10:05.881 [main] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+23:10:05.881 [main] INFO org.testcontainers.DockerClientFactory -- ✔︎ Docker server version should be at least 1.6.0
+23:10:05.882 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+23:10:05.979 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: 4234a0cb5d5a29ee061b66a1d5ff6e3911dce0517a7c8276bff774c661a944a0
+23:10:08.419 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.53628014S
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.715 s -- in com.acquiring.simulator.console.ConsoleHistoryRouteDynamoIntegrationTest
+[INFO] Running com.acquiring.simulator.console.dev.ConsoleDevServerTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.171 s -- in com.acquiring.simulator.console.dev.ConsoleDevServerTest
+[INFO] Running com.acquiring.simulator.console.dev.DevStubTokenIssuerTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s -- in com.acquiring.simulator.console.dev.DevStubTokenIssuerTest
+[INFO] Running com.acquiring.simulator.console.ConsoleAuthorizationRouteTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s -- in com.acquiring.simulator.console.ConsoleAuthorizationRouteTest
+[INFO] Running com.acquiring.simulator.console.ConsoleOriginVerificationGateTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s -- in com.acquiring.simulator.console.ConsoleOriginVerificationGateTest
+[INFO] Running com.acquiring.simulator.console.ConsoleHistoryRouteTest
+[ERROR] Tests run: 24, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.074 s <<< FAILURE! -- in com.acquiring.simulator.console.ConsoleHistoryRouteTest
+[ERROR] com.acquiring.simulator.console.ConsoleHistoryRouteTest.retiredMandateGenerationForcesFourTenAndNoPayload -- Time elapsed: 0.012 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+expected: 410
+ but was: 403
+	at com.acquiring.simulator.console.ConsoleHistoryRouteTest.retiredMandateGenerationForcesFourTenAndNoPayload(ConsoleHistoryRouteTest.java:222)
+
+[INFO] Running com.acquiring.simulator.console.ConsoleSubmissionAtomicIntegrationTest
+23:10:11.661 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Creating container for image: amazon/dynamodb-local:2.6.1
+23:10:11.757 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 is starting: f0ffb68f15b665372e5396731e750c342d80d7473fca254ed5174b5760a982af
+23:10:14.026 [main] INFO tc.amazon/dynamodb-local:2.6.1 -- Container amazon/dynamodb-local:2.6.1 started in PT2.365166731S
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.508 s -- in com.acquiring.simulator.console.ConsoleSubmissionAtomicIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   ConsoleHistoryRouteTest.retiredMandateGenerationForcesFourTenAndNoPayload:222 
+expected: 410
+ but was: 403
+[INFO] 
+[ERROR] Tests run: 74, Failures: 1, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[ERROR] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  13.328 s
+[INFO] Finished at: 2026-11-23T23:10:15-05:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.6:test (default-test) on project acquiring-simulator: There are test failures.
+[ERROR] 
+[ERROR] See /home/pazfernando/projects/acquiring-simulator/target/surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

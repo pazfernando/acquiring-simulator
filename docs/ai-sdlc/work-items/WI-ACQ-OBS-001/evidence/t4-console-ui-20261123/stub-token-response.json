@@ -1,0 +1,6 @@
+{
+  "accessToken": "<redacted dev-stub token, 63 chars>",
+  "expiresIn": 900,
+  "tokenType": "dev-stub",
+  "stub": true
+}

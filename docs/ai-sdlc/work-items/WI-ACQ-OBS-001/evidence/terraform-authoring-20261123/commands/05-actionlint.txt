@@ -1,0 +1,2 @@
+$ actionlint .github/workflows/{ci,terraform}.yml
+exit=0

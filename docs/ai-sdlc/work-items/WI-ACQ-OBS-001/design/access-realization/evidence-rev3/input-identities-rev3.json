@@ -1,0 +1,74 @@
+{
+  "note": "Identities read for design-rev3, recomputed locally by SHA-256. No Git command executed; branch/HEAD from Implementation binding evidence. Not a whole-tree freeze; tree dirty per binding.",
+  "repository": "/home/pazfernando/projects/acquiring-simulator",
+  "computedAt": "2026-11-22T23:50Z approx",
+  "bindingSource": {
+    "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/t1-traceability-20261120/BINDING.txt",
+    "sha256": "e4951cc2f2df75e61a9b9d1ce7bdb0f717d17faf3746c6fda79f5ed02bdfe8db",
+    "branch": "feat/wi-acq-auth-001",
+    "head": "cfc456f4f469d9558a78fda8ff9b770b00817315",
+    "origin": "https://github.com/pazfernando/acquiring-simulator.git",
+    "modelProvider": "nan",
+    "modelId": "deepseek-v4-flash"
+  },
+  "commissionedInputs": [
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-rev2-20261122/security-review.md",
+      "sha256": "b74e5a686525a1c2ceff6713e23e938f4e54f0538a9587240ce8307d1dc38120",
+      "verdict": "MATCH",
+      "role": "commissioned independent review; authority"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/design-rev2.md",
+      "sha256": "6b15161875e702ebae74e4f76b4b94cae9ffbbb94d6a9fcd42aee563b8f3873c",
+      "verdict": "MATCH",
+      "edited": false
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/reviews/access-design-rev2-20261121/security-review.md",
+      "sha256": "6b964f0520daa181edc96f1553c5fb990000113ed3c28560bdfc67cace310a31",
+      "verdict": "MATCH",
+      "role": "supplementary only; not authority"
+    }
+  ],
+  "supportingInputs": [
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/compatibility-assessment-rev2.md",
+      "sha256": "2f7cfe054aae7d908948288b6e67799aef7c864e1acaeb67c7444e63c432b930",
+      "verdict": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/design/access-realization/evidence-rev2-assessment/manifest.json",
+      "sha256": "48b8b1faffeb2fb9db7272e834ccb4921607fda3d327859cb68f766a018c2454",
+      "verdict": "MATCH"
+    },
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/owner-decisions.md",
+      "sha256": "0368976f5b1efc557aa0729a59054023ca1a2761e5b1a141544746e5b4073f29",
+      "verdict": "MATCH (same identity recorded in the commissioned review)",
+      "note": "K-1..K-3 are not yet accepted in this record; design-rev3 is written under the recommended defaults"
+    }
+  ],
+  "sourcesRead": [
+    {
+      "path": "src/main/java/com/acquiring/simulator/adapter/aws/AwsRuntime.java",
+      "sha256": "ee0b6f664cff978a1f114e1a555f83e6bde9f32e9b32f15b925f362d1d5cbf1f",
+      "reading": "registry(...) issues GetItem with consistentRead(true) per call; DynamoHolder caches the DynamoDB client only. No cold-start caller-row cache."
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4AuthenticatedTransportContext.java",
+      "sha256": "4994f2ddeccbc0ec819f2d9c403b96dd59e63ba4a5d6b267b29fa91ccc2fd73a",
+      "reading": "authenticatedSender is 1-64 characters via C4CarrierSchema.requireId; no ARN shape accepted."
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4CarrierSchema.java",
+      "sha256": "97fb8831e463e4b798a2fdb72252c7ff419831d38e6af64000683bc8fa72702d",
+      "reading": "PROFILE_ALPHABET = [A-Za-z0-9._:-]+ excludes '/', so role ARNs are rejected; requireId enforces the 64-character bound."
+    },
+    {
+      "path": "src/main/java/com/acquiring/simulator/channel/C4PrincipalRole.java",
+      "sha256": "4f18d52448cc5f90adbbc55039e185ea68bf838c97bbdbc4e55cdc4a69a6244b",
+      "reading": "Four values only; ACL_AUTH described as having no evidence-signing authority."
+    }
+  ]
+}
