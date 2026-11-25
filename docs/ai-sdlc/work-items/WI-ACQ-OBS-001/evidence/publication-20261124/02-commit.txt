@@ -1,0 +1,57 @@
+# Commit record — WI-ACQ-OBS-001 publication
+# recorded: local author session, 2026-11-24
+branch:            feat/wi-acq-auth-001
+HEAD before:       5bbd4eb5d49be036e695e5f25a8c83c4f7d5ac14
+commit sha:        3a2bb5894179e30cbeab6ec37223486c46734293
+subject:           WI-ACQ-OBS-001: access realization rev3, N-02 gate, real JWT auth, console, Terraform and CI
+author:            Fernando Paz <paz.fernando@gmail.com>
+committed at:      2026-11-24T19:46:53-05:00
+files in commit:   591
+stat:              591 files changed, 62486 insertions(+), 125 deletions(-)
+
+## staged->commit name-status summary
+    582 A
+      9 M
+
+## commit message (verbatim)
+WI-ACQ-OBS-001: access realization rev3, N-02 gate, real JWT auth, console, Terraform and CI
+
+Adopt contracts revision 3 with the D6 clarifications and the DR3-01
+correction, superseding the pre-domain revision. Revision 3 keeps the
+operation-a delta, the wire/websocket/response vectors and the
+input/output identity manifests, with the supersession and verification
+records for the D6 and DR3-01 passes.
+
+Close N-02 at authoring with the origin-verification gate: CloudFront
+injects a random_password-derived x-origin-verify header on /api/* and
+the console compares it byte-exactly, fail-closed, with a denial sink
+for rejected origins. The value has no default, no tfvars or CI
+variable, no output and no log path; the gate and its negative tests are
+recorded under n02-origin-verification evidence.
+
+Add the read-only console history with cursor binding and the failure
+taxonomy, so a paged read is bound to the issuing query and rejected or
+re-mapped deterministically when the cursor does not match.
+
+Add real JWS/JWKS authentication: compact JWS parsing, JWKS fetch and
+parse with a trusted-issuer configuration, and a JWT console token
+decoder replacing the demo-only authorizer path. The dev stub token
+provider remains explicitly non-authenticating and is confined to the
+local development harness.
+
+Author the Terraform stack (bootstrap, stack env, and api, console,
+data, identity, keycloak, mtls, network, observability and ws modules)
+together with the policy and static checks, and the CI workflows for
+build/test and Terraform. The infrastructure and workflows are locally
+validated only: fmt, validate, tflint, actionlint and the policy checks
+were run locally; nothing is applied.
+
+Include the independent reviews recorded for this slice (domain and
+security, for the contract delta, D6 clarifications, continuation rev2,
+rev3 and DR3-01, N-02 implementation and origin verification, QA and
+recheck passes) with their integrity manifests and evidence directories.
+
+Scope note: this commit publishes authored work only. Nothing is
+deployed, applied or released. No PR, merge, tag or release is created
+by this commit.
+

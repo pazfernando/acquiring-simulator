@@ -1,0 +1,29 @@
+# Push record — WI-ACQ-OBS-001 publication
+# recorded: local author session, 2026-11-24
+command:      git push origin feat/wi-acq-auth-001
+force used:   no
+exit code:    1
+result:       REJECTED (remote rejected; not a non-fast-forward)
+
+## stdout (verbatim)
+## stdout end
+
+## stderr (verbatim)
+To https://github.com/pazfernando/acquiring-simulator.git
+ ! [remote rejected] feat/wi-acq-auth-001 -> feat/wi-acq-auth-001 (refusing to allow a Personal Access Token to create or update workflow `.github/workflows/ci.yml` without `workflow` scope)
+error: failed to push some refs to 'https://github.com/pazfernando/acquiring-simulator.git'
+## stderr end
+
+## interpretation
+GitHub refused the ref update because the credential in use is a Personal
+Access Token without the 'workflow' scope, so it may not create or update
+files under .github/workflows/. The commit itself exists locally and was
+not altered, amended, rebased or forced. No retry with force was attempted.
+
+## local vs remote
+local HEAD:                 3a2bb5894179e30cbeab6ec37223486c46734293
+origin/feat/wi-acq-auth-001 (local ref): 781dc0519a2643501b32b4f8ec3bbd58a891d4aa
+
+## uncommitted after push attempt
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/publication-20261124/02-commit.txt
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/publication-20261124/03-push.txt
