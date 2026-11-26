@@ -1,0 +1,55 @@
+# Commit record — WI-ACQ-OBS-001 publication, round 2
+# recorded: local author session, 2026-11-25
+branch:            feat/wi-acq-auth-001
+HEAD before:       88fe42d46167ef459aa0228817cb3618556eb2d3
+commit sha:        4bd0aff227cd97a979f55bcd82019ad104398ff7
+subject:           WI-ACQ-OBS-001: publication record for 3a2bb58 and 88fe42d
+author:            Fernando Paz <paz.fernando@gmail.com>
+committed at:      2026-11-25T20:24:30-05:00
+files in commit:   7
+stat:              7 files changed, 210 insertions(+)
+
+## name-status
+  M	docs/ai-sdlc/PROJECT.md
+  M	docs/ai-sdlc/work-items/WI-ACQ-OBS-001/WORK_ITEM.md
+  A	docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/publication-20261125/00-README.md
+  A	docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/publication-20261125/01-status.txt
+  A	docs/ai-sdlc/work-items/WI-ACQ-OBS-001/revisions/pending-dispatch-20261122.md
+  A	docs/ai-sdlc/work-items/WI-ACQ-OBS-001/revisions/pending-dispatch-continuation-not-sent-20261123.md
+  A	docs/ai-sdlc/work-items/WI-ACQ-OBS-001/revisions/pending-dispatch-continuation-sent-20261123.md
+
+## commit message (verbatim)
+WI-ACQ-OBS-001: publication record for 3a2bb58 and 88fe42d
+
+Record the outcome of the 2026-11-24 publication round and publish the
+remaining working-tree delta.
+
+Published previously on feat/wi-acq-auth-001, both non-force:
+- 3a2bb58 (591 files) as 781dc05..3a2bb58, after the owner granted the
+  missing Workflows repository permission; the first attempt had been
+  rejected on that scope alone.
+- 88fe42d (publication evidence, 3 files) as 3a2bb58..88fe42d.
+Remote refs/heads/feat/wi-acq-auth-001 then equalled 88fe42d.
+
+This commit adds the Coordinator's publication record to PROJECT.md and to
+the WI-ACQ-OBS-001 WORK_ITEM.md, plus evidence/publication-20261125/
+(binding, full status, safety gate).
+
+It also picks up three coordinator dispatch notes under revisions/ that
+were left untracked and were not part of the described delta:
+pending-dispatch-20261122.md, pending-dispatch-continuation-not-sent-
+20261123.md and pending-dispatch-continuation-sent-20261123.md. They are
+the same artifact family as the already-tracked pending-dispatch-
+20261120.md and were inspected before staging: dispatch instructions,
+report paths, digests and one internal ACP session identifier, with no
+credential, key or secret.
+
+Safety gate: no .terraform directory, no .tfstate/.tfplan/.tfvars file
+exists or is added, and a secret-pattern scan over every candidate file
+and every added line found no key material or secret literal.
+
+Scope note: documentation and evidence only. Nothing is deployed, applied
+or released. No PR, merge, tag or release is created by this commit. The
+two commits named above were fast-forwards and nothing was forced,
+amended or rebased.
+

@@ -7,6 +7,19 @@ or deploy.
 This record covers the second publication round, made on top of the previous
 round recorded in `../publication-20261124/`.
 
+## Outcome
+
+**PUBLISHED**, first attempt, non-force, no rejection this time.
+
+- Commit `4bd0aff227cd97a979f55bcd82019ad104398ff7` — seven files, 210 insertions.
+- Push `88fe42d..4bd0aff` on `feat/wi-acq-auth-001`, exit code `0`, fast-forward.
+- Remote `refs/heads/feat/wi-acq-auth-001` moved
+  `88fe42d46167ef459aa0228817cb3618556eb2d3` → `4bd0aff227cd97a979f55bcd82019ad104398ff7`,
+  confirmed with `git ls-remote` and equal to local HEAD.
+- Nothing was forced, amended, rebased or tagged. No PR, merge, deploy or release.
+- Unlike round 1, this round touches no `.github/workflows/` path, so the
+  workflow-scope restriction did not apply and no credential change was needed.
+
 ## Binding at start
 
 | Item | Value |
@@ -79,11 +92,12 @@ literal is part of this publication.
 
 | File | Content |
 | --- | --- |
-| `00-README.md` | This record. |
+| `00-README.md` | This record, including the outcome above. |
 | `01-status.txt` | Binding, full `git status -uall`, area grouping, totals. |
 | `02-commit.txt` | Commit SHA, file count, stat, name-status, verbatim message. |
 | `03-push.txt` | Verbatim push output, exit code, refs before/after. |
 
 `00-README.md` and `01-status.txt` were written before the commit, so they are inside
-it. `02-commit.txt` and `03-push.txt` describe the commit and its push and therefore
-cannot be; they are carried by a small follow-up commit, as in the previous round.
+`4bd0aff`. `02-commit.txt` and `03-push.txt` describe that commit and its push and
+therefore cannot be; they are carried by a small follow-up commit, as in the previous
+round.

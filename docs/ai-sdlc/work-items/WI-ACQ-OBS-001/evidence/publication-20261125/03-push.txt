@@ -1,0 +1,28 @@
+# Push record — WI-ACQ-OBS-001 publication, round 2
+# recorded: local author session, 2026-11-25
+command:      git push origin feat/wi-acq-auth-001
+force used:   no
+exit code:    0
+result:       ACCEPTED (fast-forward)
+
+## stdout (verbatim)
+## stdout end
+
+## stderr (verbatim)
+To https://github.com/pazfernando/acquiring-simulator.git
+   88fe42d..4bd0aff  feat/wi-acq-auth-001 -> feat/wi-acq-auth-001
+## stderr end
+
+## interpretation
+Fast-forward of one commit. GitHub accepted the ref update: the round
+touches no .github/workflows path, so the workflow-scope restriction
+that blocked round 1 did not apply.
+
+## local vs remote
+local HEAD:                              4bd0aff227cd97a979f55bcd82019ad104398ff7
+refs/heads/feat/wi-acq-auth-001 remote:  4bd0aff227cd97a979f55bcd82019ad104398ff7
+origin/feat/wi-acq-auth-001 (tracking):  4bd0aff227cd97a979f55bcd82019ad104398ff7
+
+## remote before / after
+before: 88fe42d46167ef459aa0228817cb3618556eb2d3
+after:  4bd0aff227cd97a979f55bcd82019ad104398ff7
