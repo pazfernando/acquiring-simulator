@@ -26,3 +26,7 @@ Fernando requested association with https://github.com/pazfernando/acquiring-sim
 ## Current-version publication authority — 2026-11-19
 
 Owner request: "haz commit y push de la version actual, ya voy a revisar lo nuevo". Authorized publishing the current task branch including existing Operation A implementation and the pending observability specification/review/diagram records. Remote main license integrated by merge d4be7f2. Publication is for owner review; it does not approve proposed observability architecture/construction or assert runtime/QA/Security acceptance.
+
+## Publication record — 2026-11-24
+
+Owner instruction "haz commit y push hasta acá". Published `feat/wi-acq-auth-001` in two pushes: `781dc05..3a2bb58` (591 files, fast-forward including the previously unpushed local commit `5bbd4eb`) and `3a2bb58..88fe42d` (publication evidence, three files). Remote ref now `88fe42d46167ef459aa0228817cb3618556eb2d3`, equal to local HEAD. The first attempt was rejected because the fine-grained token lacked the repository permission "Workflows: Read and write"; the owner granted it and the retry succeeded without force, amend or rebase. PR, merge, tag and deployment remain NOT AUTHORIZED.

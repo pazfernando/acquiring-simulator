@@ -372,3 +372,13 @@ Independent verification: `reviews/k1-qa-20261123/qa-report.md`, reviewer ai-sdl
 - Verified: valid token accepted with the claim shape the authorizer consumes; unsupported, absent, `none` and genuine HMAC algorithms refused before any key consultation; missing kid, signature mismatch, tampered payload, wrong or missing issuer, single, dual-resource, mixed and duplicated audiences, expired, future `nbf`, future `iat`, missing scope and non-demo subject all refused with zero business-service calls; rotation accepted only after exactly one refresh and the retired key refused with no key pinned; no adversarial input produced claims without verification; the cursor's issuer provably originates post-verification; and the dev stub is isolated both at runtime and statically.
 - QA independently narrowed the untested-key-source gap by exercising parser and loopback HTTP behaviour locally, including redirect refusal, status refusal, size bound and cache refresh. Remaining items are named deployment retests: DEP-K1-A deployed issuer fetch and TLS, DEP-K1-B the 503 refinement for unavailable keys, DEP-K1-C real Keycloak PKCE, rotation, revocation and disjoint-scope interop.
 - Re-confirmed: no integrated end-to-end payment exists.
+
+## Publication — 2026-11-24
+
+Owner instruction: "haz commit y push hasta acá". Authorized scope: publication on `feat/wi-acq-auth-001` only; no PR, merge, tag or deploy.
+
+- First attempt was rejected by GitHub because the fine-grained token lacked the repository permission "Workflows: Read and write". Nothing was forced, amended or rebased; the commit stayed local.
+- Owner granted the permission, and the retry succeeded: `781dc05..3a2bb58`, exit 0, fast-forward publishing the earlier local commit `5bbd4eb` plus this session's work.
+- A second small commit recorded the outcome: `88fe42d`, three files, pushed as `3a2bb58..88fe42d`, exit 0.
+- Remote `refs/heads/feat/wi-acq-auth-001` now equals `88fe42d46167ef459aa0228817cb3618556eb2d3`, matching local HEAD; working tree clean.
+- Evidence: `evidence/publication-20261124/`. Nothing was deployed; no PR, merge, tag or release exists.

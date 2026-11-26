@@ -1,0 +1,44 @@
+# Pre-commit status — WI-ACQ-OBS-001 publication retry, 2026-11-25
+# captured: local author session, 2026-11-25
+# command: git status --porcelain=v1 -uall
+
+## binding
+realpath/toplevel:  /home/pazfernando/projects/acquiring-simulator
+branch:             feat/wi-acq-auth-001
+origin:             https://github.com/pazfernando/acquiring-simulator.git
+HEAD:               88fe42d46167ef459aa0228817cb3618556eb2d3
+origin/ref (tracking): 88fe42d46167ef459aa0228817cb3618556eb2d3
+origin/ref (ls-remote): 88fe42d46167ef459aa0228817cb3618556eb2d3
+
+## full status -uall (verbatim)
+ M docs/ai-sdlc/PROJECT.md
+ M docs/ai-sdlc/work-items/WI-ACQ-OBS-001/WORK_ITEM.md
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/evidence/publication-20261125/01-status.txt
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/revisions/pending-dispatch-20261122.md
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/revisions/pending-dispatch-continuation-not-sent-20261123.md
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/revisions/pending-dispatch-continuation-sent-20261123.md
+
+## grouped by area
+
+### docs/ai-sdlc (2 modified files)
+ M docs/ai-sdlc/PROJECT.md
+ M docs/ai-sdlc/work-items/WI-ACQ-OBS-001/WORK_ITEM.md
+  diffstat:
+     docs/ai-sdlc/PROJECT.md                             |  4 ++++
+     docs/ai-sdlc/work-items/WI-ACQ-OBS-001/WORK_ITEM.md | 10 ++++++++++
+     2 files changed, 14 insertions(+)
+
+### revisions (3 untracked dispatch notes, NOT mentioned by the Coordinator)
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/revisions/pending-dispatch-20261122.md
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/revisions/pending-dispatch-continuation-not-sent-20261123.md
+?? docs/ai-sdlc/work-items/WI-ACQ-OBS-001/revisions/pending-dispatch-continuation-sent-20261123.md
+  note: pending-dispatch-20261120.md is already tracked (commit 5bbd4eb);
+  these three are the same artifact family created after that archive commit.
+
+### evidence/publication-20261125 (new directory, this record)
+  created before committing so it is carried by the commit itself.
+
+## totals
+modified: 2
+untracked: 3
+new evidence files: 2 (00-README.md, 01-status.txt)
