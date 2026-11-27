@@ -6,6 +6,8 @@ Asserts the controls required by the approved trunk-based delivery model
 
   * ci.yml runs on pull requests to main and on pushes to main;
   * pre-merge gates exist and are bound to one explicit candidate revision;
+  * the secret scan runs the open-source gitleaks CLI at a pinned,
+    checksum-verified version (no licence-gated action, no licence secret);
   * after merge, one build produces a stored artifact with an immutable
     SHA-256 digest and provenance, and is not rebuilt later;
   * no workflow performs a deployment;
@@ -155,6 +157,21 @@ def needs_of(job: dict) -> list:
     return list(value)
 
 
+def secret_scan_pin(job: dict) -> tuple[str | None, str | None]:
+    """Return (GITLEAKS_VERSION, GITLEAKS_SHA256) declared on the job's steps."""
+    version = None
+    digest = None
+    for step in steps_of(job):
+        if not isinstance(step, dict) or not isinstance(step.get("env"), dict):
+            continue
+        for key, value in step["env"].items():
+            if key == "GITLEAKS_VERSION":
+                version = str(value)
+            elif key == "GITLEAKS_SHA256":
+                digest = str(value)
+    return version, digest
+
+
 def dispatch_inputs(doc: dict) -> dict:
     block = on_block(doc)
     if not isinstance(block, dict):
@@ -166,7 +183,7 @@ def dispatch_inputs(doc: dict) -> dict:
     return inputs if isinstance(inputs, dict) else {}
 
 
-def check_ci(doc: dict, report: Report) -> None:
+def check_ci(doc: dict, text: str, report: Report) -> None:
     trigger = on_block(doc)
     trigger = trigger if isinstance(trigger, dict) else {}
     pull_request = trigger.get("pull_request")
@@ -265,13 +282,62 @@ def check_ci(doc: dict, report: Report) -> None:
         f"conditional gates={gate_ifs}" if gate_ifs else "gates run on every trigger",
     )
 
-    secret_run = run_text(job_map.get("secret-scan", {}))
+    secret_job = job_map.get("secret-scan")
+    secret_job = secret_job if isinstance(secret_job, dict) else {}
+    secret_run = run_text(secret_job)
+    secret_version, secret_digest = secret_scan_pin(secret_job)
+
     report.check(
-        "missing scan credential fails closed with an explicit message",
-        "GITLEAKS_LICENSE" in secret_run
+        "the secret scan runs the open-source gitleaks CLI instead of the licence-gated action",
+        "secret-scan" in job_map
+        and not any(use.startswith("gitleaks/gitleaks-action") for use in all_uses(doc))
+        and re.search(r"\bgitleaks\s+git\b", secret_run) is not None,
+        "no gitleaks/gitleaks-action step; `gitleaks git` CLI invocation",
+    )
+
+    report.check(
+        "no workflow references the gitleaks licence credential",
+        "GITLEAKS_LICENSE" not in text,
+        "GITLEAKS_LICENSE absent from ci.yml",
+    )
+
+    report.check(
+        "the secret scan fails the build when findings exist",
+        "--exit-code 1" in secret_run
+        and "set -euo pipefail" in secret_run
         and "::error::" in secret_run
         and re.search(r"exit\s+1", secret_run) is not None,
-        "secret-scan requires GITLEAKS_LICENSE",
+        "gitleaks --exit-code 1 plus an explicit ::error:: failure",
+    )
+
+    report.check(
+        "the gitleaks binary version is pinned",
+        secret_version is not None
+        and re.match(r"^\d+\.\d+\.\d+$", secret_version) is not None,
+        f"GITLEAKS_VERSION={secret_version}",
+    )
+
+    report.check(
+        "the gitleaks download is checksum-verified before execution",
+        secret_digest is not None
+        and re.match(r"^[a-f0-9]{64}$", secret_digest) is not None
+        and re.search(r"sha256sum\s+--strict\s+-c", secret_run) is not None,
+        f"GITLEAKS_SHA256={secret_digest}",
+    )
+
+    report.check(
+        "no workflow pipes a downloaded installer into a shell",
+        re.search(r"(curl|wget)[^\n|]*\|\s*(sudo\s+)?(ba|z)?sh\b", text) is None,
+        "no unverified installer pipeline",
+    )
+
+    report.check(
+        "the secret scan fails closed when the scanner cannot be installed or run",
+        secret_run.count("::error::") >= 3
+        and secret_run.count("fails closed") >= 3
+        and "command -v gitleaks" in secret_run
+        and re.search(r"exit\s+1", secret_run) is not None,
+        f"explicit fail-closed messages: {secret_run.count('fails closed')}",
     )
 
     release = job_map.get(RELEASE_JOB)
@@ -497,12 +563,12 @@ def main(argv: list[str]) -> int:
     ci_path = Path(argv[1]) if len(argv) > 1 else DEFAULT_CI
     release_path = Path(argv[2]) if len(argv) > 2 else DEFAULT_RELEASE
 
-    ci_doc, _ = load(ci_path)
+    ci_doc, ci_text = load(ci_path)
     release_doc, _ = load(release_path)
 
     ok = True
     ci_report = Report(f"ci.yml — {ci_path}")
-    check_ci(ci_doc, ci_report)
+    check_ci(ci_doc, ci_text, ci_report)
     ok = ci_report.emit() and ok
 
     release_report = Report(f"release-promotion.yml — {release_path}")
