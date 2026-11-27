@@ -1,0 +1,17 @@
+{
+  "run": "security-heading-clarification",
+  "created_utc": "2026-11-26T02:40:45Z",
+  "repository": "/home/pazfernando/projects/acquiring-simulator",
+  "branch": "feat/wi-acq-auth-001",
+  "head": "043270980ceee1d7dff78b426d8bccfc354fc2af",
+  "purpose": "Pre-change snapshot of delivery-status.md before adding a dated clarification to the obsolete Security-review section. Bytes preserved unmodified.",
+  "snapshots": [
+    {
+      "path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/delivery-status.md",
+      "backup_path": "docs/ai-sdlc/work-items/WI-ACQ-OBS-001/delivery-status.md",
+      "sha256_original": "26500dbf319108040f3d73381c93f3e1d3cc2cecd2ee25b3dd09315fa8e917f5",
+      "sha256_backup": "26500dbf319108040f3d73381c93f3e1d3cc2cecd2ee25b3dd09315fa8e917f5",
+      "bytes": 56965
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "run": "product-context-errata",
+  "computed_utc": "2026-11-26T02:37:44Z",
+  "branch": "feat/wi-acq-auth-001",
+  "head": "043270980ceee1d7dff78b426d8bccfc354fc2af",
+  "files": [
+    {
+      "path": "docs/ai-sdlc/PRODUCT_CONTEXT.md",
+      "sha256": "25a3ec7c34a5548a7e444886a36cea2863138f831b6f2f88df1a013d8b510b1f",
+      "bytes": 7964
+    },
+    {
+      "path": "docs/ai-sdlc/README.md",
+      "sha256": "23f5e8ddc11c247921ce1f49b727b6686adf518cc7b064d428817cf6c8f3392a",
+      "bytes": 5661
+    },
+    {
+      "path": "docs/ai-sdlc/ERRATA.md",
+      "sha256": "e779a3f9df2c1cb27c00d697453179dee6c0353ca717acfd7e4061851f636b77",
+      "bytes": 5542
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "run": "product-context-split",
+  "created_utc": "2026-11-26T02:25:53Z",
+  "repository": "/home/pazfernando/projects/acquiring-simulator",
+  "branch": "feat/wi-acq-auth-001",
+  "head": "043270980ceee1d7dff78b426d8bccfc354fc2af",
+  "purpose": "Pre-change snapshot of existing product files modified by the product-context split. Bytes are preserved unmodified; this backup is evidence, not current instructions.",
+  "snapshots": [
+    {
+      "path": "AGENTS.md",
+      "backup_path": "AGENTS.md",
+      "sha256_original": "80a7092c0bcf7cd2258c6fde89710f1d952e6c2984b0e2728f077ddc694133b8",
+      "sha256_backup": "80a7092c0bcf7cd2258c6fde89710f1d952e6c2984b0e2728f077ddc694133b8",
+      "bytes": 1594
+    },
+    {
+      "path": "docs/ai-sdlc/README.md",
+      "backup_path": "docs/ai-sdlc/README.md",
+      "sha256_original": "2f4d32b392e5c717366faf91bfe9351add695c94eec0788d04c152304e0bd83c",
+      "sha256_backup": "2f4d32b392e5c717366faf91bfe9351add695c94eec0788d04c152304e0bd83c",
+      "bytes": 4112
+    }
+  ]
+}

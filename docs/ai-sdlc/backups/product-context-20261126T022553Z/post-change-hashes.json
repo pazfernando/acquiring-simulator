@@ -1,0 +1,33 @@
+{
+  "run": "product-context-split",
+  "computed_utc": "2026-11-26T02:26:54Z",
+  "branch": "feat/wi-acq-auth-001",
+  "head": "043270980ceee1d7dff78b426d8bccfc354fc2af",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "bf14e05648f9b20a104c9a74836dac75d4631774972cb808d5ece7ae161640b6",
+      "bytes": 2089
+    },
+    {
+      "path": "docs/ai-sdlc/README.md",
+      "sha256": "0c6db4cf35853447320371187cab508f1c2850cd5632150f13ee54627fb09d77",
+      "bytes": 5096
+    },
+    {
+      "path": "docs/ai-sdlc/PRODUCT_CONTEXT.md",
+      "sha256": "b6ecc556239569cca2f6ab201fcb9ce0c5a5ed927533423166728e036664c279",
+      "bytes": 6731
+    },
+    {
+      "path": "docs/ai-sdlc/GLOSSARY.md",
+      "sha256": "fe6c9c9c0943822aa8e2316075334cafcd0ec112a3e44f01ab667b4283a3d622",
+      "bytes": 1601
+    },
+    {
+      "path": "docs/ai-sdlc/PRODUCT_CONSTRAINTS.md",
+      "sha256": "31b88c4297402ba4852e8b10b9cfab904a533497addbe4e9e989cae5b25d6917",
+      "bytes": 3655
+    }
+  ]
+}

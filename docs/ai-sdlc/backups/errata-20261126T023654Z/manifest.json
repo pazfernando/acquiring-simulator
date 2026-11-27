@@ -1,0 +1,24 @@
+{
+  "run": "product-context-errata",
+  "created_utc": "2026-11-26T02:36:54Z",
+  "repository": "/home/pazfernando/projects/acquiring-simulator",
+  "branch": "feat/wi-acq-auth-001",
+  "head": "043270980ceee1d7dff78b426d8bccfc354fc2af",
+  "purpose": "Pre-change snapshot of files modified by the evidence-backed errata update. Bytes preserved unmodified; evidence, not current instructions.",
+  "snapshots": [
+    {
+      "path": "docs/ai-sdlc/PRODUCT_CONTEXT.md",
+      "backup_path": "docs/ai-sdlc/PRODUCT_CONTEXT.md",
+      "sha256_original": "b6ecc556239569cca2f6ab201fcb9ce0c5a5ed927533423166728e036664c279",
+      "sha256_backup": "b6ecc556239569cca2f6ab201fcb9ce0c5a5ed927533423166728e036664c279",
+      "bytes": 6731
+    },
+    {
+      "path": "docs/ai-sdlc/README.md",
+      "backup_path": "docs/ai-sdlc/README.md",
+      "sha256_original": "0c6db4cf35853447320371187cab508f1c2850cd5632150f13ee54627fb09d77",
+      "sha256_backup": "0c6db4cf35853447320371187cab508f1c2850cd5632150f13ee54627fb09d77",
+      "bytes": 5096
+    }
+  ]
+}
