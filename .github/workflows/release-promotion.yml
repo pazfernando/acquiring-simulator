@@ -1,0 +1,190 @@
+name: release-promotion
+
+# Authored configuration only. Nothing in this workflow has been executed and
+# authoring it does not authorize a release or deployment.
+#
+# This is the separate, gated promotion path for an artifact that `ci.yml`
+# already built once from a `main` revision. It never rebuilds: it downloads
+# the stored candidate, verifies its immutable SHA-256 digest and provenance
+# against the requested commit, requires the QA evidence to exist at that exact
+# revision, and only then hands the verified candidate to the production
+# deployment step.
+#
+# The `production` environment is the enforcement point. Its protection rules
+# (required reviewers, restricted branches, deployment identity) are provider
+# configuration, not YAML: they must be configured by the repository owner and
+# are UNVERIFIED from this repository. A pull request approval or a merge is not
+# this deployment approval.
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_commit:
+        description: "Full 40-character commit SHA the artifact was built from"
+        required: true
+      artifact_digest:
+        description: "SHA-256 of the built jar, as recorded by the ci run"
+        required: true
+      ci_run_id:
+        description: "Workflow run id of the ci run that built and stored the artifact"
+        required: true
+      qa_report_path:
+        description: "Repository-relative path of the QA report bound to this candidate"
+        required: true
+      approval_reference:
+        description: "Recorded reference of the authorized human production approval"
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  # Serialized per candidate so a concurrent promotion cannot overwrite the
+  # evidence or approve a different release.
+  group: release-promotion-${{ inputs.source_commit }}
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    name: Verify and promote the tested candidate
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: production
+    steps:
+      - name: Require every promotion input
+        env:
+          SOURCE_COMMIT: ${{ inputs.source_commit }}
+          ARTIFACT_DIGEST: ${{ inputs.artifact_digest }}
+          CI_RUN_ID: ${{ inputs.ci_run_id }}
+          QA_REPORT_PATH: ${{ inputs.qa_report_path }}
+          APPROVAL_REFERENCE: ${{ inputs.approval_reference }}
+        run: |
+          set -euo pipefail
+          missing=""
+          for name in SOURCE_COMMIT ARTIFACT_DIGEST CI_RUN_ID QA_REPORT_PATH APPROVAL_REFERENCE; do
+            if [ -z "${!name}" ]; then
+              missing="${missing} ${name}"
+            fi
+          done
+          if [ -n "${missing}" ]; then
+            echo "::error::Missing required promotion input(s):${missing}. Promotion fails closed."
+            exit 1
+          fi
+          if ! printf '%s' "${SOURCE_COMMIT}" | grep -Eq '^[0-9a-f]{40}$'; then
+            echo "::error::source_commit must be a full 40-character lowercase commit SHA"
+            exit 1
+          fi
+          if ! printf '%s' "${ARTIFACT_DIGEST}" | grep -Eq '^[0-9a-f]{64}$'; then
+            echo "::error::artifact_digest must be a lowercase SHA-256 hex digest"
+            exit 1
+          fi
+          if ! printf '%s' "${CI_RUN_ID}" | grep -Eq '^[0-9]+$'; then
+            echo "::error::ci_run_id must be numeric"
+            exit 1
+          fi
+
+      - name: Checkout the candidate revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.source_commit }}
+          persist-credentials: false
+
+      - name: Verify checked-out evidence revision is the candidate
+        env:
+          EXPECTED_SHA: ${{ inputs.source_commit }}
+        run: |
+          set -euo pipefail
+          actual="$(git rev-parse HEAD)"
+          if [ "$actual" != "${EXPECTED_SHA}" ]; then
+            echo "::error::Checked-out revision ${actual} is not the candidate ${EXPECTED_SHA}"
+            exit 1
+          fi
+          if [ ! -f "${QA_REPORT_PATH}" ]; then
+            echo "::error::QA evidence ${QA_REPORT_PATH} does not exist at the candidate revision; promotion fails closed"
+            exit 1
+          fi
+
+      - name: Download the stored candidate artifact
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_ID: ${{ inputs.ci_run_id }}
+          SOURCE_COMMIT: ${{ inputs.source_commit }}
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts
+          if ! gh run download "${RUN_ID}" \
+              --repo "${GITHUB_REPOSITORY}" \
+              --name "acquiring-simulator-${SOURCE_COMMIT}" \
+              --dir artifacts; then
+            echo "::error::The stored candidate artifact for run ${RUN_ID} and commit ${SOURCE_COMMIT} could not be downloaded; promotion fails closed"
+            exit 1
+          fi
+
+      - name: Verify the downloaded digest and provenance
+        env:
+          EXPECTED_DIGEST: ${{ inputs.artifact_digest }}
+          EXPECTED_COMMIT: ${{ inputs.source_commit }}
+        run: |
+          set -euo pipefail
+          jar_path="$(ls -1 artifacts/acquiring-simulator-*.jar 2>/dev/null | head -n 1 || true)"
+          if [ -z "${jar_path}" ] || [ ! -s "${jar_path}" ]; then
+            echo "::error::No application jar was found in the downloaded candidate; promotion fails closed"
+            exit 1
+          fi
+          actual="$(sha256sum "${jar_path}" | awk '{print $1}')"
+          if [ "${actual}" != "${EXPECTED_DIGEST}" ]; then
+            echo "::error::Digest mismatch: requested ${EXPECTED_DIGEST}, downloaded ${actual}. Promotion fails closed."
+            exit 1
+          fi
+          python3 - <<'PY'
+          import json, os, sys
+
+          with open("artifacts/artifact-manifest.json", encoding="utf-8") as handle:
+              manifest = json.load(handle)
+
+          expected_digest = os.environ["EXPECTED_DIGEST"]
+          expected_commit = os.environ["EXPECTED_COMMIT"]
+          problems = []
+          if manifest.get("sha256") != expected_digest:
+              problems.append(f"manifest sha256 {manifest.get('sha256')} != {expected_digest}")
+          if manifest.get("source_commit") != expected_commit:
+              problems.append(f"manifest source_commit {manifest.get('source_commit')} != {expected_commit}")
+          if problems:
+              print("::error::Provenance does not match the requested candidate: " + "; ".join(problems))
+              sys.exit(1)
+          print("Candidate provenance verified:", expected_commit, expected_digest)
+          PY
+
+      - name: Record the approval binding
+        env:
+          SOURCE_COMMIT: ${{ inputs.source_commit }}
+          ARTIFACT_DIGEST: ${{ inputs.artifact_digest }}
+          APPROVAL_REFERENCE: ${{ inputs.approval_reference }}
+          QA_REPORT_PATH: ${{ inputs.qa_report_path }}
+          ENVIRONMENT_NAME: production
+        run: |
+          set -euo pipefail
+          {
+            echo "### Promotion candidate"
+            echo ""
+            echo "- environment: \`${ENVIRONMENT_NAME}\`"
+            echo "- commit: \`${SOURCE_COMMIT}\`"
+            echo "- sha256: \`${ARTIFACT_DIGEST}\`"
+            echo "- qa evidence: \`${QA_REPORT_PATH}\`"
+            echo "- approval reference: \`${APPROVAL_REFERENCE}\`"
+            echo "- rebuilt: no (artifact downloaded and digest verified)"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # The production deployment mechanism is a required external input that
+      # does not exist in this repository: no account, region, role, endpoint or
+      # deploy API may be invented here. Until an owner-approved deployment step
+      # replaces this handoff, the workflow stops and fails closed instead of
+      # reporting a promotion that did not happen.
+      - name: Deployment handoff (fails closed until configured)
+        run: |
+          set -euo pipefail
+          echo "::error::Production deployment is not configured: this repository has no approved deployment target, account, role or API."
+          echo "Candidate identity, digest and provenance were verified, and the manual production approval gate was entered."
+          echo "An authorized human must supply the approved deployment mechanism before this step can promote the candidate."
+          exit 1

@@ -1,29 +1,119 @@
 name: ci
 
-# Authored only. No run of this workflow is part of the authoring slice.
+# Authored configuration only. Authoring or reviewing this file does not
+# authorize running it, pushing, merging or deploying.
+#
+# Delivery model (PROJECT_EXECUTION.md, trunk-based):
+#   - pull_request -> main: gates run on the proposed integration result, i.e.
+#     the merge commit GitHub creates for the pull request (`github.sha`).
+#   - push -> main: the same gates re-run on the integrated revision, and the
+#     deployable application artifact is built exactly once from that revision
+#     with an immutable SHA-256 digest plus provenance, then stored as a
+#     workflow artifact for later promotion.
+# A newer commit on the same pull request or branch cancels the older run, so
+# no result recorded for a different integration result is ever reused.
+#
+# There is no production deployment in this workflow. Promotion of an already
+# built digest is the separate, gated `release-promotion` workflow.
+
 on:
   pull_request:
+    branches: [main]
   push:
-    branches-ignore:
-      - main
+    branches: [main]
 
 permissions:
   contents: read
 
 concurrency:
-  group: ci-${{ github.ref }}
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
+  # Single source of truth for the revision under test. Every gate job checks
+  # out this exact commit and re-verifies it before running, so a workflow can
+  # never report results for a different commit than the one it names.
+  candidate:
+    name: Resolve candidate revision
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      sha: ${{ steps.resolve.outputs.sha }}
+      source_sha: ${{ steps.resolve.outputs.source_sha }}
+    steps:
+      - name: Resolve the tested revision
+        id: resolve
+        env:
+          TESTED_SHA: ${{ github.sha }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          if [ -z "${TESTED_SHA}" ]; then
+            echo "::error::github.sha is empty; the tested revision cannot be identified"
+            exit 1
+          fi
+          echo "sha=${TESTED_SHA}" >> "$GITHUB_OUTPUT"
+          echo "source_sha=${PR_HEAD_SHA:-$TESTED_SHA}" >> "$GITHUB_OUTPUT"
+          echo "Tested revision: ${TESTED_SHA}"
+          echo "Event: ${GITHUB_EVENT_NAME} (${GITHUB_REF})"
+
+  # Local, dependency-free property checks over the delivery workflows
+  # themselves. This is the only lint-like gate the repository has: no
+  # application linter is configured in pom.xml or console-ui.
+  workflow-policy:
+    name: Delivery workflow property checks
+    needs: candidate
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ needs.candidate.outputs.sha }}
+          persist-credentials: false
+
+      - name: Verify tested revision is the candidate
+        env:
+          EXPECTED_SHA: ${{ needs.candidate.outputs.sha }}
+        run: |
+          set -euo pipefail
+          actual="$(git rev-parse HEAD)"
+          if [ "$actual" != "${EXPECTED_SHA}" ]; then
+            echo "::error::Checked-out revision ${actual} is not the candidate ${EXPECTED_SHA}"
+            exit 1
+          fi
+
+      - name: Check workflow properties
+        run: |
+          set -euo pipefail
+          python3 -c "import yaml" || {
+            echo "::error::PyYAML is required to check the workflow properties and is missing"
+            exit 1
+          }
+          python3 scripts/check_delivery_workflows.py
+
   build-test:
     name: Build and unit/integration tests
+    needs: candidate
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          ref: ${{ needs.candidate.outputs.sha }}
           persist-credentials: false
+
+      - name: Verify tested revision is the candidate
+        env:
+          EXPECTED_SHA: ${{ needs.candidate.outputs.sha }}
+        run: |
+          set -euo pipefail
+          actual="$(git rev-parse HEAD)"
+          if [ "$actual" != "${EXPECTED_SHA}" ]; then
+            echo "::error::Checked-out revision ${actual} is not the candidate ${EXPECTED_SHA}"
+            exit 1
+          fi
 
       - name: Set up JDK 25
         uses: actions/setup-java@d1374f8ac74474200d16ef8ecee22c7ae7a51880 # v6.3.0
@@ -35,35 +125,51 @@ jobs:
       - name: Verify
         run: mvn -B -ntp verify
 
-      - name: Record artifact digest
-        run: |
-          set -euo pipefail
-          mkdir -p build-evidence
-          sha256sum target/*.jar | tee build-evidence/jar-sha256.txt
-          sha256sum target/lambda/**/*.jar 2>/dev/null | tee -a build-evidence/lambda-sha256.txt || true
-
-      - name: Upload build evidence
+      - name: Upload test evidence
+        if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: build-evidence-${{ github.sha }}
-          path: build-evidence/
+          name: test-evidence-${{ needs.candidate.outputs.sha }}
+          path: target/surefire-reports/
           retention-days: 7
-          if-no-files-found: error
+          if-no-files-found: warn
 
   secret-scan:
     name: Secret scan
+    needs: candidate
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          ref: ${{ needs.candidate.outputs.sha }}
           fetch-depth: 0
           persist-credentials: false
 
-      # gitleaks-action requires a licence for organization-owned repositories;
-      # the repository owner must supply GITLEAKS_LICENSE as a secret before
-      # this job can pass. It is a scan, never a security exception.
+      - name: Verify tested revision is the candidate
+        env:
+          EXPECTED_SHA: ${{ needs.candidate.outputs.sha }}
+        run: |
+          set -euo pipefail
+          if [ "$(git rev-parse HEAD)" != "${EXPECTED_SHA}" ]; then
+            echo "::error::Checked-out revision is not the candidate ${EXPECTED_SHA}"
+            exit 1
+          fi
+
+      # gitleaks-action requires a licence for organization-owned repositories.
+      # Missing credential fails this gate with an explicit message instead of
+      # silently skipping the scan; it is a scan, never a security exception.
+      - name: Require the scan credential
+        env:
+          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
+        run: |
+          set -euo pipefail
+          if [ -z "${GITLEAKS_LICENSE}" ]; then
+            echo "::error::Required secret GITLEAKS_LICENSE is not configured; the secret scan gate cannot run and this job fails closed"
+            exit 1
+          fi
+
       - name: gitleaks
         uses: gitleaks/gitleaks-action@e0c47f4f8be36e29cdc102c57e68cb5cbf0e8d1e # v3.0.0
         env:
@@ -72,6 +178,7 @@ jobs:
 
   iac-and-dependency-scan:
     name: IaC and dependency scan
+    needs: candidate
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
@@ -80,7 +187,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          ref: ${{ needs.candidate.outputs.sha }}
           persist-credentials: false
+
+      - name: Verify tested revision is the candidate
+        env:
+          EXPECTED_SHA: ${{ needs.candidate.outputs.sha }}
+        run: |
+          set -euo pipefail
+          if [ "$(git rev-parse HEAD)" != "${EXPECTED_SHA}" ]; then
+            echo "::error::Checked-out revision is not the candidate ${EXPECTED_SHA}"
+            exit 1
+          fi
+
+      - name: Require the scan target
+        run: |
+          set -euo pipefail
+          if [ ! -d infra/terraform ]; then
+            echo "::error::Expected scan target infra/terraform is missing; the gateway-side IaC misconfiguration gate cannot run"
+            exit 1
+          fi
 
       - name: Trivy filesystem scan (dependencies, secrets, misconfiguration)
         uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
@@ -104,6 +230,7 @@ jobs:
 
   codeql:
     name: SAST (CodeQL)
+    needs: candidate
     runs-on: ubuntu-latest
     timeout-minutes: 30
     permissions:
@@ -113,7 +240,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          ref: ${{ needs.candidate.outputs.sha }}
           persist-credentials: false
+
+      - name: Verify tested revision is the candidate
+        env:
+          EXPECTED_SHA: ${{ needs.candidate.outputs.sha }}
+        run: |
+          set -euo pipefail
+          if [ "$(git rev-parse HEAD)" != "${EXPECTED_SHA}" ]; then
+            echo "::error::Checked-out revision is not the candidate ${EXPECTED_SHA}"
+            exit 1
+          fi
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@d2aacf54c2fbc910db8d7ec338fdb54ea48c692d # v3.39.4
@@ -126,3 +264,140 @@ jobs:
 
       - name: Analyze
         uses: github/codeql-action/analyze@d2aacf54c2fbc910db8d7ec338fdb54ea48c692d # v3.39.4
+
+  # Builds the release candidate exactly once, from the exact main revision,
+  # after every gate above has passed on that same revision. Later promotion
+  # downloads this artifact and verifies its digest; it never rebuilds.
+  release-artifact:
+    name: Build release artifact (main only)
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [candidate, workflow-policy, build-test, secret-scan, iac-and-dependency-scan, codeql]
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ needs.candidate.outputs.sha }}
+          persist-credentials: false
+
+      - name: Verify built revision is the candidate
+        env:
+          EXPECTED_SHA: ${{ needs.candidate.outputs.sha }}
+          EXPECTED_REF: refs/heads/main
+        run: |
+          set -euo pipefail
+          actual="$(git rev-parse HEAD)"
+          if [ "$actual" != "${EXPECTED_SHA}" ]; then
+            echo "::error::Checked-out revision ${actual} is not the candidate ${EXPECTED_SHA}"
+            exit 1
+          fi
+          if [ "${GITHUB_REF}" != "${EXPECTED_REF}" ]; then
+            echo "::error::Release artifact must be built from ${EXPECTED_REF}, not ${GITHUB_REF}"
+            exit 1
+          fi
+
+      - name: Set up JDK 25
+        uses: actions/setup-java@d1374f8ac74474200d16ef8ecee22c7ae7a51880 # v6.3.0
+        with:
+          distribution: temurin
+          java-version: "25"
+          cache: maven
+
+      # Tests already ran in this same run on this same commit (build-test),
+      # so the release build only packages. It does not rerun the suite, and it
+      # is the only packaging step for this revision.
+      - name: Package the release artifact
+        run: mvn -B -ntp -DskipTests package
+
+      - name: Record immutable digest and provenance
+        env:
+          SOURCE_COMMIT: ${{ needs.candidate.outputs.sha }}
+          SOURCE_REF: ${{ github.ref }}
+          WORKFLOW_RUN_ID: ${{ github.run_id }}
+          WORKFLOW_RUN_ATTEMPT: ${{ github.run_attempt }}
+          WORKFLOW_REF: ${{ github.workflow_ref }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          jar_path="$(ls -1 target/acquiring-simulator-*.jar 2>/dev/null | head -n 1 || true)"
+          if [ -z "${jar_path}" ] || [ ! -s "${jar_path}" ]; then
+            echo "::error::No deployable application jar was produced; the release artifact cannot be identified"
+            exit 1
+          fi
+          jar_name="$(basename "${jar_path}")"
+          digest="$(sha256sum "${jar_path}" | awk '{print $1}')"
+          size="$(stat -c %s "${jar_path}")"
+          built_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+          printf '%s  %s\n' "${digest}" "${jar_name}" > "${jar_name}.sha256"
+
+          {
+            printf '{\n'
+            printf '  "product": "acquiring-simulator",\n'
+            printf '  "artifact": "%s",\n' "${jar_name}"
+            printf '  "sha256": "%s",\n' "${digest}"
+            printf '  "size_bytes": %s,\n' "${size}"
+            printf '  "source_commit": "%s",\n' "${SOURCE_COMMIT}"
+            printf '  "source_ref": "%s",\n' "${SOURCE_REF}"
+            printf '  "repository": "%s",\n' "${REPOSITORY}"
+            printf '  "workflow_ref": "%s",\n' "${WORKFLOW_REF}"
+            printf '  "workflow_run_id": "%s",\n' "${WORKFLOW_RUN_ID}"
+            printf '  "workflow_run_attempt": "%s",\n' "${WORKFLOW_RUN_ATTEMPT}"
+            printf '  "built_at": "%s",\n' "${built_at}"
+            printf '  "built_by": "ci.yml release-artifact"\n'
+            printf '}\n'
+          } > artifact-manifest.json
+
+          echo "### Release candidate" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- commit: \`${SOURCE_COMMIT}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- artifact: \`${jar_name}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- sha256: \`${digest}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- run: \`${WORKFLOW_RUN_ID}\` / attempt \`${WORKFLOW_RUN_ATTEMPT}\`" >> "$GITHUB_STEP_SUMMARY"
+
+      # Retention is a policy input: 90 days keeps the candidate available for
+      # a verified promotion window without making this an archive.
+      - name: Store the deployable artifact
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: acquiring-simulator-${{ needs.candidate.outputs.sha }}
+          path: |
+            target/acquiring-simulator-*.jar
+            target/acquiring-simulator-*.jar.sha256
+            artifact-manifest.json
+          retention-days: 90
+          if-no-files-found: error
+
+  # Fails the workflow if any required gate did not succeed. A skipped,
+  # cancelled or failed gate is never treated as a pass.
+  gate-summary:
+    name: Required checks summary
+    if: always()
+    needs: [candidate, workflow-policy, build-test, secret-scan, iac-and-dependency-scan, codeql, release-artifact]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Fail unless every required gate succeeded
+        env:
+          NEEDS: ${{ toJSON(needs) }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os
+
+          needs = json.loads(os.environ["NEEDS"])
+          failures = []
+          for name, info in needs.items():
+              result = info.get("result")
+              # main-only job; legitimately skipped on pull_request runs
+              if name == "release-artifact" and result == "skipped":
+                  continue
+              if result != "success":
+                  failures.append(f"{name}={result}")
+          if failures:
+              raise SystemExit(
+                  "::error::Required gate(s) did not succeed: " + ", ".join(failures)
+              )
+          print("All required gates succeeded")
+          PY
